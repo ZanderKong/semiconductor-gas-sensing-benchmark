@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import csv
+import hashlib
 import json
 import os
 import re
@@ -9,11 +10,49 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CODEX = Path("/Applications/Codex.app/Contents/Resources/codex")
+
+
+def display_path(path):
+    path = Path(path)
+    try:
+        return str(path.resolve().relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+def sha256_file(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def current_commit():
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except Exception:
+        return "unknown"
+
+
+def working_tree_dirty():
+    try:
+        status = subprocess.check_output(
+            ["git", "status", "--porcelain"],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+        return bool(status.strip())
+    except Exception:
+        return None
 
 
 def load_questions(path, question_type="multiple_choice", limit=0):
@@ -183,18 +222,83 @@ def parse_model_spec(spec):
     }
 
 
+def sanitize_model(model):
+    safe = {
+        "provider": model["provider"],
+        "model_id": model["model_id"],
+    }
+    if "base_url" in model:
+        safe["base_url"] = model["base_url"]
+    if "api_key_env" in model:
+        safe["api_key_env"] = model["api_key_env"]
+    return safe
+
+
+def write_manifest(path, args, rows, models, output_rows, started_at, finished_at):
+    if not path:
+        return
+    model_status = {}
+    for row in output_rows:
+        model_id = row["model_id"]
+        status = model_status.setdefault(
+            model_id,
+            {"rows": 0, "missing_answers": 0, "errors": 0, "elapsed_seconds": []},
+        )
+        if row.get("id"):
+            status["rows"] += 1
+        if row.get("id") and not row.get("answer"):
+            status["missing_answers"] += 1
+        if row.get("error"):
+            status["errors"] += 1
+        if row.get("elapsed_seconds"):
+            status["elapsed_seconds"].append(float(row["elapsed_seconds"]))
+
+    for status in model_status.values():
+        elapsed = status["elapsed_seconds"]
+        status["elapsed_seconds"] = round(max(elapsed), 2) if elapsed else None
+
+    benchmark_path = Path(args.benchmark)
+    prompt_path = ROOT / "eval/prompts/base_prompt.md"
+    manifest = {
+        "run_id": f"mcq-{started_at.strftime('%Y%m%dT%H%M%SZ')}",
+        "created_at": started_at.isoformat(),
+        "finished_at": finished_at.isoformat(),
+        "benchmark_version": "v1-v2-mcq-on-v3-alpha-repository",
+        "task_file": display_path(benchmark_path),
+        "task_set_hash": sha256_file(benchmark_path),
+        "question_type": args.question_type,
+        "question_count": len(rows),
+        "prompt_file": display_path(prompt_path),
+        "prompt_hash": sha256_file(prompt_path),
+        "temperature": args.temperature,
+        "timeout_seconds": args.timeout,
+        "models": [sanitize_model(model) for model in models],
+        "model_status": model_status,
+        "output_file": display_path(args.out),
+        "raw_output_dir": display_path(args.raw_dir),
+        "credential_policy": "API keys are read from environment variables and are not written to repository files.",
+        "code_commit": current_commit(),
+        "working_tree_dirty": working_tree_dirty(),
+    }
+    manifest_path = Path(path)
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--benchmark", default=str(ROOT / "data/benchmark_v1.json"))
     parser.add_argument("--out", default=str(ROOT / "results/model_outputs.csv"))
     parser.add_argument("--raw-dir", default=str(ROOT / "results/raw_model_outputs"))
     parser.add_argument("--question-type", default="multiple_choice", choices=["multiple_choice", "free_response", "all"])
-    parser.add_argument("--models", nargs="*", help="Optional provider:model_id:base_url:api_key_env specs")
+    parser.add_argument("--models", nargs="*", help="Optional model specs: model_id for Codex CLI, or provider|model_id|base_url|api_key_env")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--temperature", type=float, default=0)
     parser.add_argument("--timeout", type=int, default=900)
+    parser.add_argument("--manifest", default=str(ROOT / "results/model_run_manifest.json"))
     args = parser.parse_args()
 
+    started_at = datetime.now(timezone.utc)
     rows = load_questions(args.benchmark, args.question_type, args.limit)
     models = [parse_model_spec(spec) for spec in args.models] if args.models else default_models()
     out_path = Path(args.out)
@@ -240,9 +344,12 @@ def main():
         writer = csv.DictWriter(
             f,
             fieldnames=["id", "model_id", "provider", "answer", "elapsed_seconds", "error"],
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(output_rows)
+    finished_at = datetime.now(timezone.utc)
+    write_manifest(args.manifest, args, rows, models, output_rows, started_at, finished_at)
     print(f"wrote {out_path}")
 
 

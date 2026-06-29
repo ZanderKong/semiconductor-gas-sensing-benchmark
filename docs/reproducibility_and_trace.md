@@ -99,3 +99,10 @@ trace 每行记录一个可审计事件。
 
 缺少 trace 的运行可以用于调试，但不应作为正式 leaderboard 结果。
 
+## 8. MCQ 真实模型运行记录
+
+MCQ runner 使用 `eval/run_eval.py` 调用模型并写入 `results/model_outputs.csv`。运行元数据写入 `results/model_run_manifest.json`。
+
+`results/model_run_manifest.json` 记录题集 hash、prompt hash、模型 ID、provider、采样配置、输出路径和代码 commit。该文件只记录环境变量名称，不记录 API key。
+
+MCQ scorer 使用 `eval/score_mcq.py` 生成 summary、leaderboard、breakdown、badcase review 和 model diagnostic report。该流程用于验证调用、解析和自动评分链路。

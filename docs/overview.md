@@ -12,6 +12,7 @@ The benchmark uses abstract problem types from semiconductor gas-sensing materia
 | V3-alpha task set | 46 auditable task units for workflow-oriented agent evaluation |
 | Scoring protocol | Hard Gate, D0-D6 weighted rubric, tool-use scoring, and meta evaluation |
 | Demo runner | Local API-free run that generates manifest, trace, judge outputs, report, and badcases |
+| Real-model MCQ runner | GPT and DeepSeek invocation flow for the automatically scored MCQ subset |
 | Validation scripts | Schema checks, distribution checks, metadata checks, and documentation lint |
 | Reports and assets | Human-readable summaries for model behavior and benchmark structure |
 
@@ -32,6 +33,7 @@ make demo
 make validate
 make lint
 make report
+make score-mcq
 ```
 
 The demo writes results to:
@@ -52,3 +54,4 @@ results/runs/demo/
 
 This repository is designed as a benchmark artifact rather than a laboratory protocol. The tasks evaluate model behavior under abstracted materials R&D scenarios. The files do not provide operational instructions for hazardous gas experiments.
 
+The folder name `SGS-mini-benchmark V4` identifies the portfolio delivery package. The benchmark method and task-unit design are documented as V3-alpha.

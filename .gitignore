@@ -7,5 +7,7 @@ results/raw_model_outputs/
 results/raw_model_outputs_smoke/
 results/raw_model_outputs_kimi_probe/
 
-# Generated demo and run artifacts
-results/runs/
+# Generated run artifacts. Keep the curated demo sample in the repository.
+results/runs/*
+!results/runs/demo/
+!results/runs/demo/**
