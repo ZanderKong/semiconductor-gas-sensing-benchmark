@@ -1,0 +1,15 @@
+model_id,group,correct,total,accuracy
+deepseek-chat,calculator,4,4,1.0
+deepseek-chat,data_plotting,5,5,1.0
+deepseek-chat,literature_retrieval,4,4,1.0
+deepseek-chat,no_tool,40,40,1.0
+deepseek-chat,protocol_checklist,18,18,1.0
+deepseek-chat,safety_reference,9,9,1.0
+deepseek-chat,table_analysis,2,2,1.0
+gpt-5.5,calculator,4,4,1.0
+gpt-5.5,data_plotting,5,5,1.0
+gpt-5.5,literature_retrieval,4,4,1.0
+gpt-5.5,no_tool,40,40,1.0
+gpt-5.5,protocol_checklist,18,18,1.0
+gpt-5.5,safety_reference,9,9,1.0
+gpt-5.5,table_analysis,2,2,1.0

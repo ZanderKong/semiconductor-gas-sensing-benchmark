@@ -1,0 +1,17 @@
+model_id,group,correct,total,accuracy
+deepseek-chat,analytical_chemistry,8,8,1.0
+deepseek-chat,general_chemistry,10,10,1.0
+deepseek-chat,inorganic_chemistry,10,10,1.0
+deepseek-chat,materials_science,12,12,1.0
+deepseek-chat,organic_chemistry,17,17,1.0
+deepseek-chat,physical_chemistry,10,10,1.0
+deepseek-chat,technical_chemistry,9,9,1.0
+deepseek-chat,toxicity_and_safety,6,6,1.0
+gpt-5.5,analytical_chemistry,8,8,1.0
+gpt-5.5,general_chemistry,10,10,1.0
+gpt-5.5,inorganic_chemistry,10,10,1.0
+gpt-5.5,materials_science,12,12,1.0
+gpt-5.5,organic_chemistry,17,17,1.0
+gpt-5.5,physical_chemistry,10,10,1.0
+gpt-5.5,technical_chemistry,9,9,1.0
+gpt-5.5,toxicity_and_safety,6,6,1.0

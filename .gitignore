@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+config.local.yaml
+results/raw_model_outputs/
+results/raw_model_outputs_smoke/
+results/raw_model_outputs_kimi_probe/

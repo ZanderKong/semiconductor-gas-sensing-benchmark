@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Semiconductor Gas-Sensing Benchmark Item",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "question_type",
+      "domain",
+      "scenario_stage",
+      "workflow_task",
+      "expected_output",
+      "tool_type",
+      "question",
+      "options",
+      "answer",
+      "answer_rationale",
+      "topic",
+      "skill",
+      "difficulty",
+      "source",
+      "rationale",
+      "evaluation_dimensions",
+      "failure_mode",
+      "private_dependency_level",
+      "tags"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "question_type": {
+        "enum": [
+          "multiple_choice",
+          "free_response"
+        ]
+      },
+      "domain": {
+        "type": "string"
+      },
+      "scenario_stage": {
+        "type": "string"
+      },
+      "workflow_task": {
+        "type": "string"
+      },
+      "expected_output": {
+        "type": "string"
+      },
+      "tool_type": {
+        "type": "string"
+      },
+      "question": {
+        "type": "string"
+      },
+      "options": {
+        "type": "object"
+      },
+      "answer": {
+        "type": "string"
+      },
+      "answer_rationale": {
+        "type": "string"
+      },
+      "topic": {
+        "type": "string"
+      },
+      "skill": {
+        "type": "string"
+      },
+      "difficulty": {
+        "enum": [
+          "basic",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "rationale": {
+        "type": "string"
+      },
+      "evaluation_dimensions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "failure_mode": {
+        "type": "string"
+      },
+      "private_dependency_level": {
+        "enum": [
+          "none",
+          "analog",
+          "seed_entity",
+          "private_combination"
+        ]
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

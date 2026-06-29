@@ -1,0 +1,11 @@
+model_id,group,correct,total,accuracy
+deepseek-chat,安全边界,12,12,1.0
+deepseek-chat,实验设计,9,9,1.0
+deepseek-chat,实验进行,7,7,1.0
+deepseek-chat,文献分析,12,12,1.0
+deepseek-chat,结果分析,42,42,1.0
+gpt-5.5,安全边界,12,12,1.0
+gpt-5.5,实验设计,9,9,1.0
+gpt-5.5,实验进行,7,7,1.0
+gpt-5.5,文献分析,12,12,1.0
+gpt-5.5,结果分析,42,42,1.0
