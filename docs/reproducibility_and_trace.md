@@ -106,3 +106,5 @@ MCQ runner 使用 `eval/run_eval.py` 调用模型并写入 `results/model_output
 `results/model_run_manifest.json` 记录题集 hash、prompt hash、模型 ID、provider、采样配置、输出路径和代码 commit。该文件只记录环境变量名称，不记录 API key。
 
 MCQ scorer 使用 `eval/score_mcq.py` 生成 summary、leaderboard、breakdown、badcase review 和 model diagnostic report。该流程用于验证调用、解析和自动评分链路。
+
+V3 demo trace 必须使用全局递增的 `event_index`。Tool-enabled 任务必须显式记录 `input`、`tool_call`、`tool_result`、`model_output` 和 `judge_result`。

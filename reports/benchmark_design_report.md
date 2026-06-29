@@ -21,9 +21,9 @@ The project treats a benchmark as a data product. The core architecture is:
 - An evaluation layer that separates model invocation, output parsing, automatic MCQ scoring, and human review for free-response items.
 - A reporting layer that explains results by domain, workflow stage, tool type, safety boundary, and likely error source.
 
-## V3-Alpha Implementation And V4 Packaging
+## V3-Alpha Implementation
 
-The project contains a V3-alpha task set and a V4 portfolio packaging structure. The folder name `SGS-mini-benchmark V4` refers to the portfolio delivery package, while the benchmark methodology remains V3-alpha.
+The project contains a V3-alpha task set and a portfolio-ready repository structure. The public benchmark version is V3-alpha.
 
 | Layer | Implementation |
 |---|---|
@@ -37,9 +37,9 @@ The project contains a V3-alpha task set and a V4 portfolio packaging structure.
 | Demo runner | `eval/runner.py` |
 | Real-model MCQ runner | `eval/run_eval.py` |
 | MCQ scorer | `eval/score_mcq.py` |
-| Validation | `scripts/validate_tasks.py` and `scripts/lint_benchmark.py` |
+| Validation | `scripts/validate_tasks.py`, `scripts/validate_v3_alpha_distribution.py`, and `scripts/lint_benchmark.py` |
 | CI | `.github/workflows/validate.yml` |
 
-The V3-alpha demo runner uses a local mock model. It verifies the task-unit evaluation flow without requiring API credentials.
+The V3-alpha demo runner uses a local deterministic mock model. It verifies the task-unit evaluation flow without requiring model API credentials.
 
-The MCQ runner has been validated with `gpt-5.5` through Codex CLI and `deepseek-chat` through the DeepSeek OpenAI-compatible endpoint. The run confirms that model invocation, parsing, scoring, and reporting work end to end.
+The MCQ runner has been validated with `gpt-5.5` through Codex CLI and `deepseek-v4-pro` through the DeepSeek OpenAI-compatible endpoint. The run confirms that model invocation, parsing, scoring, and reporting work end to end.

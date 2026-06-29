@@ -273,7 +273,7 @@ def write_diagnostic_report(summary, report_path, run_date):
             "",
             "## V3-Alpha Status",
             "",
-            "The V3-alpha task-unit layer already includes schema validation, Hard Gate definitions, D0-D6 scoring dimensions, trace requirements, an API-free demo runner, and report generation. The current real-model run validates the MCQ layer while the V3 task-unit layer remains the next target for full model evaluation.",
+            "The V3-alpha task-unit layer already includes schema validation, Hard Gate definitions, D0-D6 scoring dimensions, trace requirements, a local deterministic demo runner, and report generation. The current real-model run validates the MCQ layer while the V3 task-unit layer remains the next target for full model evaluation.",
             "",
         ]
     )

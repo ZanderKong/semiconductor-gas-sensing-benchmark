@@ -2,8 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Semiconductor Gas-Sensing Benchmark V3 Alpha Task",
   "type": "array",
-  "minItems": 46,
-  "maxItems": 46,
   "items": {
     "type": "object",
     "additionalProperties": false,

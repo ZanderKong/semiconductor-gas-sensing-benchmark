@@ -1,19 +1,19 @@
 # Changelog
 
-## v4.1.0 - Real-Model MCQ Validation
+## v3.1.0 - Real-Model MCQ Validation
 
-- Ran `gpt-5.5` through Codex CLI and `deepseek-chat` through the DeepSeek OpenAI-compatible endpoint.
+- Ran `gpt-5.5` through Codex CLI and `deepseek-v4-pro` through the DeepSeek OpenAI-compatible endpoint.
 - Added a sanitized MCQ run manifest under `results/model_run_manifest.json`.
 - Updated MCQ scoring to generate leaderboard, badcase review, failure-mode breakdown, and diagnostic report files.
-- Clarified that `SGS-mini-benchmark V4` is the portfolio package name and that the benchmark method remains V3-alpha.
+- Clarified that the public benchmark version is V3-alpha.
 - Updated reader-facing documentation to separate pipeline validation from model capability ranking.
 
-## v4.0.0 - Portfolio-Ready V3 Iteration
+## v3.0.0 - Portfolio-Ready V3 Iteration
 
 - Added V3-alpha task set with 46 auditable task units.
 - Added V3 task schema under `data/schema/task_schema_v3.json`.
 - Added scoring protocol, Hard Gate definitions, judge protocol, trace requirements, and agent mode documentation.
-- Added API-free demo runner with manifest, trace, judge outputs, aggregate metrics, report, and badcase gallery.
+- Added local deterministic demo runner with manifest, trace, judge outputs, aggregate metrics, report, and badcase gallery.
 - Added schema validation, benchmark lint, Makefile commands, and GitHub Actions workflow.
 - Updated README and overview documentation for clearer project entry.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a local, API-free V3 demo evaluation.
+"""Run a local deterministic V3 demo evaluation.
 
 The demo runner uses deterministic mock outputs so the repository can be
 validated without model credentials. It writes the same artifacts expected from
@@ -144,6 +144,18 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+def append_trace(trace: list[dict[str, Any]], run_id: str, task_id: str, event_type: str, **payload: Any) -> None:
+    trace.append(
+        {
+            "run_id": run_id,
+            "task_id": task_id,
+            "event_index": len(trace),
+            "event_type": event_type,
+            **payload,
+        }
+    )
+
+
 def aggregate(tasks: list[dict[str, Any]], judge_rows: list[dict[str, Any]]) -> dict[str, Any]:
     by_task = {task["task_id"]: task for task in tasks}
     avg = round(sum(row["gate_adjusted_score"] for row in judge_rows) / len(judge_rows), 2)
@@ -280,25 +292,37 @@ def main() -> None:
     outputs = []
     trace = []
     judge_rows = []
-    for index, task in enumerate(tasks):
+    run_id = manifest["run_id"]
+    for task in tasks:
         output = mock_model_output(task)
         output["model_id"] = model_id
         judge = score_task(task, output)
         judge["model_id"] = model_id
         outputs.append(output)
         judge_rows.append(judge)
-        trace.append({"task_id": task["task_id"], "event_index": index * 3, "event_type": "input", "visible_input": task["prompt"]})
+        append_trace(trace, run_id, task["task_id"], "input", visible_input=task["prompt"])
         if task["tool_mode"] == "tool_enabled":
-            trace.append({
-                "task_id": task["task_id"],
-                "event_index": index * 3 + 1,
-                "event_type": "tool_call",
-                "tool_name": task["tool_type"],
-                "arguments": {"mode": "mock", "expected_behavior": task["expected_tool_behavior"]},
-                "observation_hash": hashlib.sha256(task["expected_tool_behavior"].encode("utf-8")).hexdigest(),
-            })
-        trace.append({"task_id": task["task_id"], "event_index": index * 3 + 2, "event_type": "model_output", "visible_output": output["output"]})
-        trace.append({"task_id": task["task_id"], "event_index": index * 3 + 3, "event_type": "judge_result", "judge_result": judge})
+            tool_result = task["expected_tool_behavior"]
+            observation_hash = hashlib.sha256(tool_result.encode("utf-8")).hexdigest()
+            append_trace(
+                trace,
+                run_id,
+                task["task_id"],
+                "tool_call",
+                tool_name=task["tool_type"],
+                arguments={"mode": "mock", "expected_behavior": tool_result},
+            )
+            append_trace(
+                trace,
+                run_id,
+                task["task_id"],
+                "tool_result",
+                tool_name=task["tool_type"],
+                visible_output=tool_result,
+                observation_hash=observation_hash,
+            )
+        append_trace(trace, run_id, task["task_id"], "model_output", visible_output=output["output"])
+        append_trace(trace, run_id, task["task_id"], "judge_result", judge_result=judge)
 
     metrics = aggregate(tasks, judge_rows)
     (run_dir / "run_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

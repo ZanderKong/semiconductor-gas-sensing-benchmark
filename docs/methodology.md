@@ -164,5 +164,5 @@ V3 后续可拆成两类题集：
 - 当前题目仍以选择题为主，强模型结果显示流程已跑通，但选择题区分度不足。
 - 简答题为 18 题，后续可提高到 25 题以增强开放式评估。
 - tool_type 目前由规则推断，后续可人工精修。
-- V3-alpha 已完成并行题库、schema、API-free demo runner、评分协议和 trace 设计。
-- 当前已完成 gpt-5.5 和 deepseek-chat 的 MCQ 流程验证；后续可扩展更多模型和 V3 trace-based 真实工具 harness。
+- V3-alpha 已完成并行题库、schema、本地 deterministic demo runner、评分协议和 trace 设计。
+- 当前已完成 gpt-5.5 和 deepseek-v4-pro 的 MCQ 流程验证；后续可扩展更多模型和 V3 trace-based 真实工具 harness。

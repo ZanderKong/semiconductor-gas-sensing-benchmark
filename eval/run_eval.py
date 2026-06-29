@@ -15,7 +15,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CODEX = Path("/Applications/Codex.app/Contents/Resources/codex")
+CODEX = Path(os.environ.get("CODEX_CLI", "/Applications/Codex.app/Contents/Resources/codex"))
 
 
 def display_path(path):
@@ -112,13 +112,15 @@ def normalize_answers(payload, ids):
     return answers
 
 
-def call_openai_compatible(model_id, base_url, api_key, prompt, temperature=0, timeout=900):
+def call_openai_compatible(model_id, base_url, api_key, prompt, temperature=0, timeout=900, thinking_mode=None):
     url = base_url.rstrip("/") + "/chat/completions"
     payload = {
         "model": model_id,
         "messages": [{"role": "user", "content": prompt}],
         "temperature": temperature,
     }
+    if thinking_mode:
+        payload["thinking"] = {"type": thinking_mode}
     data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     request = urllib.request.Request(
         url,
@@ -188,6 +190,7 @@ def run_one(model, rows, args):
             prompt,
             temperature=args.temperature,
             timeout=args.timeout,
+            thinking_mode=model.get("thinking_mode"),
         )
     elapsed = round(time.time() - started, 2)
     payload = extract_json(text)
@@ -200,26 +203,30 @@ def default_models():
         {"provider": "codex_cli", "model_id": "gpt-5.5"},
         {
             "provider": "openai_compatible",
-            "model_id": "deepseek-chat",
+            "model_id": "deepseek-v4-pro",
             "base_url": "https://api.deepseek.com",
             "api_key_env": "DEEPSEEK_API_KEY",
+            "thinking_mode": "disabled",
         },
     ]
 
 
 def parse_model_spec(spec):
-    # provider|model_id|base_url|api_key_env
+    # provider|model_id|base_url|api_key_env(|thinking_mode)
     parts = spec.split("|")
     if len(parts) == 1:
         return {"provider": "codex_cli", "model_id": spec}
-    if len(parts) != 4:
-        raise ValueError("Model spec must be provider|model_id|base_url|api_key_env")
-    return {
+    if len(parts) not in (4, 5):
+        raise ValueError("Model spec must be provider|model_id|base_url|api_key_env(|thinking_mode)")
+    model = {
         "provider": parts[0],
         "model_id": parts[1],
         "base_url": parts[2],
         "api_key_env": parts[3],
     }
+    if len(parts) == 5 and parts[4]:
+        model["thinking_mode"] = parts[4]
+    return model
 
 
 def sanitize_model(model):
@@ -231,6 +238,8 @@ def sanitize_model(model):
         safe["base_url"] = model["base_url"]
     if "api_key_env" in model:
         safe["api_key_env"] = model["api_key_env"]
+    if "thinking_mode" in model:
+        safe["thinking_mode"] = model["thinking_mode"]
     return safe
 
 
@@ -291,7 +300,7 @@ def main():
     parser.add_argument("--out", default=str(ROOT / "results/model_outputs.csv"))
     parser.add_argument("--raw-dir", default=str(ROOT / "results/raw_model_outputs"))
     parser.add_argument("--question-type", default="multiple_choice", choices=["multiple_choice", "free_response", "all"])
-    parser.add_argument("--models", nargs="*", help="Optional model specs: model_id for Codex CLI, or provider|model_id|base_url|api_key_env")
+    parser.add_argument("--models", nargs="*", help="Optional model specs: model_id for Codex CLI, or provider|model_id|base_url|api_key_env(|thinking_mode)")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--temperature", type=float, default=0)
     parser.add_argument("--timeout", type=int, default=900)

@@ -4,7 +4,7 @@
 
 V3-alpha 将题库从“题干 + 答案”的形式升级为可审计的 evaluation unit。每道题都要说明它测试哪个研发阶段、需要什么输出、是否允许工具、可能触发哪些 Hard Gate、对应 D0-D6 哪些评分维度，以及评分器如何判断答案是否合格。
 
-本轮新增 `benchmark_v3_alpha`，不覆盖 `benchmark_v1`。V3-alpha 题库用于后续题目迭代和评测 harness 设计；当前不做模型测试。
+本轮新增 `benchmark_v3_alpha`，不覆盖 `benchmark_v1`。V3-alpha 题库用于可审计任务设计、demo trace、评分协议和后续真实工具 harness。
 
 ## 2. 文件结构
 
@@ -15,6 +15,9 @@ V3-alpha 将题库从“题干 + 答案”的形式升级为可审计的 evaluat
 | `data/schema_v3_alpha.json` | V3-alpha task schema，保留在旧位置兼容现有脚本 |
 | `data/schema/task_schema_v3.json` | V3 task schema 的稳定入口 |
 | `docs/task_design_v3.md` | 题库设计说明 |
+| `eval/runner.py` | 本地 deterministic V3 demo runner |
+| `eval/run_eval.py` | 真实模型 MCQ runner |
+| `results/runs/demo/` | V3 demo trace 和报告样例 |
 
 ## 3. 规模与拆分
 
@@ -71,12 +74,24 @@ V3-alpha 至少包含 8 道 tool-related base task，并设计 4 组 no-tool / t
 4. 鲁棒性变体应与 parent task 的核心判断保持一致。
 5. live extension 题不替代 static core，只用于观察新情境下的能力变化。
 
-## 8. 后续迁移说明
+## 8. 当前完成状态
 
-当前 V3-alpha 是并行新题库。后续如果要进入正式 V3，可继续做：
+当前 V3-alpha 已完成：
 
-- 将题目字段接入 eval runner。
-- 增加 judge protocol 和 run manifest。
-- 为 tool-enabled 题实现真实工具 harness。
+- V3-alpha task schema。
+- Scoring protocol、Hard Gates 和 D0-D6 维度定义。
+- Judge protocol 和人工复核说明。
+- 本地 deterministic demo runner。
+- Demo manifest、trace、model outputs、judge outputs、aggregate metrics、report 和 badcase gallery。
+- 真实模型 MCQ runner、run manifest、leaderboard 和 diagnostic report。
+- Schema validation、V3-alpha distribution validation、benchmark lint 和 CI workflow。
+
+## 9. 后续工作
+
+后续工作应集中在真实 V3 task-unit 评测，而不是继续扩展选择题展示层。
+
+- 为 V3-alpha free-response 和 tool-enabled task 接入 judge runner。
+- 为 calculator、retrieval、table analysis、data plotting、safety reference 和 protocol checklist 接入真实工具 harness。
+- 运行 trace-based real-model V3 evaluation。
+- 增加 human audit sample 和 judge-human agreement 记录。
 - 将 HTML review 页面扩展到 V3 schema。
-- 运行模型横评并生成 V3 报告。

@@ -16,7 +16,7 @@ The run verifies that the repository can call external models, parse structured 
 | Prompt file | `eval/prompts/base_prompt.md` |
 | Temperature | 0 |
 | GPT path | `gpt-5.5` through Codex CLI |
-| DeepSeek path | `deepseek-chat` through DeepSeek OpenAI-compatible API |
+| DeepSeek path | `deepseek-v4-pro` through DeepSeek OpenAI-compatible API |
 | Output file | `results/model_outputs.csv` |
 | Run manifest | `results/model_run_manifest.json` |
 | Scorer | `eval/score_mcq.py` |
@@ -26,7 +26,7 @@ The run verifies that the repository can call external models, parse structured 
 | Model | Correct / Total | Safety Fail Rate | Interpretation |
 |---|---:|---:|---|
 | `gpt-5.5` | 82 / 82 | 0.0% | The GPT call, parse, and scoring path completed successfully. |
-| `deepseek-chat` | 82 / 82 | 0.0% | The DeepSeek call, parse, and scoring path completed successfully. |
+| `deepseek-v4-pro` | 82 / 82 | 0.0% | The DeepSeek call, parse, and scoring path completed successfully. |
 
 No parser errors, missing answers, or wrong MCQ answers were observed in this run.
 

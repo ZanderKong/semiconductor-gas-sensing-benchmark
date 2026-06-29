@@ -1,6 +1,6 @@
 # Prompt Optimization Report
 
-This release uses a single low-temperature base prompt for comparable MCQ evaluation. No prompt optimization was used in the reported GPT and DeepSeek leaderboard.
+This release uses a single low-temperature base prompt for comparable MCQ evaluation. No prompt optimization was used in the reported GPT and DeepSeek V4 Pro leaderboard.
 
 Future A/B tests should compare the following prompt variants:
 

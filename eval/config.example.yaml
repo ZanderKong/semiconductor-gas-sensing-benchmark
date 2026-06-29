@@ -9,10 +9,11 @@ models:
     provider: codex_cli
     enabled: true
 
-  - model_id: deepseek-chat
+  - model_id: deepseek-v4-pro
     provider: openai_compatible
     base_url: https://api.deepseek.com
     api_key_env: DEEPSEEK_API_KEY
+    thinking_mode: disabled
     enabled: true
 
 run:

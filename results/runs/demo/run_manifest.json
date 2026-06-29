@@ -1,10 +1,10 @@
 {
   "run_id": "demo",
-  "created_at": "2026-06-29T05:55:33.408122+00:00",
+  "created_at": "2026-06-29T06:46:33.259926+00:00",
   "benchmark_version": "v3-alpha-demo",
   "task_file": "data/benchmark_v3_alpha.json",
   "task_set_hash": "7a3ae0053942aa97c9cacfc684317447fdd99426863820d9041cdc904e29f3dd",
-  "schema_hash": "c2c0ab5fee58f80a9bc16503ed27adc36b0ff39f6fcc8bf85c0ae9ec4540a9f0",
+  "schema_hash": "323a5b9eb3a65346c427fda9842ea0a0af5981e0d232d57cdffbadb8dd0e6b3b",
   "model_provider": "local_mock",
   "model_id": "mock-v3-alpha-baseline",
   "temperature": 0,
@@ -14,5 +14,5 @@
   "retrieval_corpus_hash": "",
   "judge_protocol_version": "v3",
   "judge_model": "deterministic_mock_judge",
-  "code_commit": "bbfd069bb88d96933d2563c758656e9bb1ab13c7"
+  "code_commit": "bbf808b18cadda37eae3a15c9955d02ade198927"
 }
