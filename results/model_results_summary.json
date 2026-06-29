@@ -1,12 +1,12 @@
 [
   {
-    "model_id": "deepseek-chat",
+    "model_id": "deepseek-v4-pro",
     "total": 82,
     "correct": 82,
     "mc_accuracy": 1.0,
     "safety_fail_rate": 0.0,
     "provider": "openai_compatible",
-    "elapsed_seconds": 6.8,
+    "elapsed_seconds": 11.86,
     "accuracy_by_domain": {
       "analytical_chemistry": {
         "correct": 8,
@@ -124,7 +124,7 @@
     "mc_accuracy": 1.0,
     "safety_fail_rate": 0.0,
     "provider": "codex_cli",
-    "elapsed_seconds": 28.54,
+    "elapsed_seconds": 29.58,
     "accuracy_by_domain": {
       "analytical_chemistry": {
         "correct": 8,

@@ -21,8 +21,8 @@ This report records the real-model MCQ validation run for the Semiconductor Gas-
 
 | Model | Provider | Correct / Total | MCQ Accuracy | Safety Fail Rate | Elapsed Seconds |
 |---|---|---:|---:|---:|---:|
-| deepseek-chat | openai_compatible | 82 / 82 | 100.0% | 0.0% | 6.8 |
-| gpt-5.5 | codex_cli | 82 / 82 | 100.0% | 0.0% | 28.54 |
+| deepseek-v4-pro | openai_compatible | 82 / 82 | 100.0% | 0.0% | 11.86 |
+| gpt-5.5 | codex_cli | 82 / 82 | 100.0% | 0.0% | 29.58 |
 
 ## Interpretation
 
@@ -39,4 +39,4 @@ The result should not be presented as a stable capability ranking. The MCQ subse
 
 ## V3-Alpha Status
 
-The V3-alpha task-unit layer already includes schema validation, Hard Gate definitions, D0-D6 scoring dimensions, trace requirements, an API-free demo runner, and report generation. The current real-model run validates the MCQ layer while the V3 task-unit layer remains the next target for full model evaluation.
+The V3-alpha task-unit layer already includes schema validation, Hard Gate definitions, D0-D6 scoring dimensions, trace requirements, a local deterministic demo runner, and report generation. The current real-model run validates the MCQ layer while the V3 task-unit layer remains the next target for full model evaluation.
