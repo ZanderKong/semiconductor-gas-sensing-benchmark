@@ -243,7 +243,7 @@ def sanitize_model(model):
     return safe
 
 
-def write_manifest(path, args, rows, models, output_rows, started_at, finished_at):
+def write_manifest(path, args, rows, models, output_rows, started_at, finished_at, initial_working_tree_dirty):
     if not path:
         return
     model_status = {}
@@ -287,7 +287,7 @@ def write_manifest(path, args, rows, models, output_rows, started_at, finished_a
         "raw_output_dir": display_path(args.raw_dir),
         "credential_policy": "API keys are read from environment variables and are not written to repository files.",
         "code_commit": current_commit(),
-        "working_tree_dirty": working_tree_dirty(),
+        "working_tree_dirty": initial_working_tree_dirty,
     }
     manifest_path = Path(path)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -308,6 +308,7 @@ def main():
     args = parser.parse_args()
 
     started_at = datetime.now(timezone.utc)
+    initial_working_tree_dirty = working_tree_dirty()
     rows = load_questions(args.benchmark, args.question_type, args.limit)
     models = [parse_model_spec(spec) for spec in args.models] if args.models else default_models()
     out_path = Path(args.out)
@@ -358,7 +359,7 @@ def main():
         writer.writeheader()
         writer.writerows(output_rows)
     finished_at = datetime.now(timezone.utc)
-    write_manifest(args.manifest, args, rows, models, output_rows, started_at, finished_at)
+    write_manifest(args.manifest, args, rows, models, output_rows, started_at, finished_at, initial_working_tree_dirty)
     print(f"wrote {out_path}")
 
 
