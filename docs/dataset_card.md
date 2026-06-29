@@ -2,7 +2,9 @@
 
 ## Dataset Summary
 
-This dataset is a 100-item diagnostic benchmark for evaluating LLMs in Chinese semiconductor gas-sensing materials R&D workflows. It includes multiple-choice and free-response questions covering chemistry, materials science, analytical characterization, process engineering, and laboratory safety.
+This repository contains two benchmark layers for evaluating LLMs and agents in Chinese semiconductor gas-sensing materials R&D workflows.
+
+The V1/V2 layer is a 100-item diagnostic benchmark with multiple-choice and free-response questions. The V3-alpha layer contains 46 auditable task units for workflow-oriented agent evaluation.
 
 ## Intended Uses
 
@@ -21,10 +23,13 @@ This dataset is a 100-item diagnostic benchmark for evaluating LLMs in Chinese s
 
 | Field | Value |
 |---|---:|
-| Total questions | 100 |
-| Multiple-choice | 82 |
-| Free-response | 18 |
-| Domains | 8 |
+| V1/V2 total questions | 100 |
+| V1/V2 multiple-choice | 82 |
+| V1/V2 free-response | 18 |
+| V3-alpha task units | 46 |
+| V3-alpha static core | 24 |
+| V3-alpha robustness variants | 16 |
+| V3-alpha live extension | 6 |
 | Scenario stages | 6 |
 | Private formulation combinations | 0 |
 
@@ -53,6 +58,14 @@ Important fields include:
 - `evaluation_dimensions`, `failure_mode`
 - `private_dependency_level`
 
+V3-alpha fields include:
+
+- `task_id`, `benchmark_version`, `benchmark_split`, `task_type`
+- `scenario_stage`, `expected_output`, `tool_mode`, `tool_type`
+- `target_dimensions`, `hard_gate_checks`, `failure_modes`
+- `variant_group_id`, `variant_type`, `source_policy`
+- `gold_response`, `scoring_rubric`, `audit_notes`
+
 ## Source and Anonymization
 
 The benchmark is built from abstract problem types with private details removed. It covers gas-detection paper tape and semiconductor gas-sensing workflows without including formulation ratios, private sample IDs, customer data, or proprietary experimental conclusions.
@@ -70,6 +83,7 @@ Source categories:
 - Free-response items require human or judge-model review.
 - Safety questions are educational evaluation items, not operational SOPs.
 - Model results depend on model version, prompt, temperature, and endpoint availability.
+- V3-alpha is designed for auditable evaluation units. Real model leaderboard results require a runner configuration, trace capture, and judge protocol.
 
 ## Privacy Statement
 

@@ -1,126 +1,154 @@
-# Semiconductor Gas-Sensing Benchmark Mini
+# Semiconductor Gas-Sensing Agent Benchmark
 
-## 执行摘要
+## Executive Summary
 
-- 这是一个面向半导体气敏材料研发场景的 100 题中文 mini diagnostic benchmark。
-- 题库按 `domain`、`scenario_stage`、`tool_type` 和 failure mode 组织，用来观察模型在研发流程中的判断方式。
-- 题目来自公开知识和抽象问题类型，去除了私有配方、样品编号和未公开实验结论。
-- 当前 gpt-5.5 与 deepseek-chat 的选择题流程已经跑通，但结果显示 MCQ 子集对强模型的区分度不足。
+- 本项目是一个面向半导体气敏材料研发场景的中文 agent benchmark。
+- 项目评估模型在文献理解、机理边界、实验设计、异常诊断、安全判断和工具使用中的可靠性。
+- V3-alpha 将题目升级为可审计 task unit，并引入 Hard Gate、D0-D6 加权评分、Tool Use 评分和 trace-based audit。
+- 本仓库提供 API-free demo、schema validation、benchmark lint、CI workflow 和自动报告生成器。
+- 题目来自公开知识和抽象问题类型，不包含私有配方、样品编号、敏感采购信息或未公开实验结论。
 
 ## 中文
 
 ### 项目背景
 
-材料研发里的模型评测不能只问“这个概念对不对”。真实工作里更常见的问题是：一条文献结论能不能迁移到当前体系，实验方案有没有漏掉关键对照，异常数据该优先排查什么，某个看起来可行的操作会不会带来安全风险。
+材料研发中的模型评测需要覆盖完整工作流。研究人员通常需要判断文献结论是否能迁移到当前体系，实验方案是否包含关键对照，异常现象应如何排查，结果证据是否足够支持下一步决策，以及某个操作是否越过安全边界。
 
-这个项目把半导体气敏材料研发拆成一组可测试的小任务。题目围绕气敏材料、气体纸带、金属氧化物、导电聚合物、二维材料、分析表征、工艺放大和实验安全展开。它不追求覆盖所有化学知识，而是重点测试模型能否在中文研发语境下做出稳妥、可解释、可追溯的判断。
+Semiconductor Gas-Sensing Agent Benchmark 将半导体气敏材料研发拆解为一组可测试、可评分、可审计的小任务。题目覆盖气体纸带、金属氧化物、导电聚合物、二维材料、分析表征、工艺放大、配气计算、数据曲线、安全资料和实验室边界判断。
 
-设计上参考了 ChemBench-mini 的题型和 domain 组织方式、HELM 的多维评价思路、LAB-Bench 的科研任务结构，以及 OpenAI Evals 的工程化评测文件组织。
+### 项目内容
 
-### 项目目标
+| 模块 | 内容 |
+|---|---|
+| V1/V2 主题库 | 100 题中文 mini benchmark，用于覆盖 domain、研发阶段、工具类型和错误模式 |
+| V3-alpha 题库 | 46 个可审计 task unit，包括 static core、robustness variants 和 live extension |
+| 评分协议 | Hard Gate、D0-D6 加权维度、Tool Use 评分、Meta Eval 和人工复核协议 |
+| Demo runner | 本地 mock evaluation，无需 API key，生成 manifest、trace、judge outputs 和报告 |
+| Validation/CI | schema validation、benchmark lint、GitHub Actions workflow 和 one-command demo |
+| Report generator | 自动生成诊断报告和 badcase gallery |
 
-- 评估模型在中文材料研发工作流中的情境判断能力。
-- 测试模型能否识别“单独成立、放入题目条件后存在隐藏问题”的选项。
-- 将错误归因到机理迁移、证据边界、变量控制、指标取舍、安全风险和工具使用等维度。
-- 提供可复现的数据结构、评分脚本、结果表和人工审阅页面，便于后续横向比较不同模型。
+### 评估能力
 
-### 题库设计
+| 能力 | 说明 |
+|---|---|
+| 文献分析 | 判断公开结论能否迁移到当前材料体系 |
+| 机理解释 | 区分候选机理、确定机理和证据不足 |
+| 实验设计 | 给出变量、对照、指标、重复和 go/no-go 标准 |
+| 实验进行 | 检查 SOP、配气、仪器、记录质量和安全边界 |
+| 结果分析 | 诊断漂移、恢复不足、湿度干扰、异常点和表征证据 |
+| 下一步计划 | 在材料路线、工艺放大和产品化 gate 之间做取舍 |
+| 安全边界 | 识别高危气体、有毒溶剂、强氧化剂、废物和隐私风险 |
+| 工具使用 | 评价 calculator、literature retrieval、table analysis、data plotting、safety reference 和 protocol checklist 的使用质量 |
 
-- **固定规模**：100 题，其中 82 道选择题、18 道简答题。
-- **8 个 domain**：有机化学、物理化学、无机化学、材料科学、通用化学、分析化学、技术化学、毒性与安全。
-- **6 个研发阶段**：文献分析、实验设计、实验进行、结果分析、下一步计划、安全边界。
-- **逐选项设计理由**：每个选择题选项都有 `option_profiles` 和 `option_rationales`，用于解释为什么干扰项在局部看似合理、在题目约束下存在问题。
-- **工具类型细分**：`tool_type` 覆盖 `no_tool`、`calculator`、`literature_retrieval`、`table_analysis`、`data_plotting`、`safety_reference` 和 `protocol_checklist`。
-- **隐私与安全边界**：`private_combination=0`，不包含私有配方组合、比例、样品编号或未公开实验结论。
+### V3 设计要点
+
+| 设计 | 用途 |
+|---|---|
+| Hard Gate | 先识别安全、事实、证据、指令、工具和隐私硬失败 |
+| D0-D6 Rubric | 按指令遵循、专业准确性、情境判断、证据边界、可执行性、工具使用和安全边界评分 |
+| Tool Use Evaluation | 区分 no-tool baseline 和 tool-enabled agent，报告 `tool_lift` |
+| Trace-Based Audit | 记录 visible input、tool call、tool result、model output 和 judge result |
+| Robustness Variants | 通过改写、干扰、矛盾、多轮和安全诱导测试稳定性 |
+| Live Extension | 保留可替换扩展题，用于观察新任务泛化和污染风险 |
 
 ### 快速开始
 
 ```bash
+git clone https://github.com/ZanderKong/semiconductor-gas-sensing-benchmark.git
 cd semiconductor-gas-sensing-benchmark
-python3 eval/run_eval.py --models gpt-5.5
-python3 eval/score_mcq.py
+make demo
+make validate
+make lint
+make report
 ```
 
-主要文件：
+`make demo` 不需要任何模型 API key。它使用本地 mock model 跑通 V3 评测流程，并生成：
+
+```text
+results/runs/demo/
+├── run_manifest.json
+├── model_outputs.jsonl
+├── judge_outputs.jsonl
+├── trace.jsonl
+├── aggregate_metrics.json
+├── report.md
+├── diagnostic_report.md
+└── badcases/
+```
+
+### 主要文件
 
 | 文件 | 用途 |
 |---|---|
-| `data/benchmark_v1.json` | 主评测集 JSON |
-| `data/benchmark_v1.csv` | 主评测集 CSV |
-| `data/schema.json` | 字段结构与数据校验 |
+| `data/benchmark_v1.json` | V1/V2 100 题主评测集 |
+| `data/benchmark_v3_alpha.json` | V3-alpha 可审计 task unit 题库 |
+| `data/schema/task_schema_v3.json` | V3 task schema |
+| `docs/overview.md` | 项目概览 |
 | `docs/methodology.md` | 题目设计、生成流程和质量控制 |
-| `docs/dimension_definition.md` | 评价维度定义和打分标准 |
-| `docs/dataset_card.md` | 数据集用途、组成、风险和限制 |
-| `assets/benchmark_v2_review.html` | 离线逐题审阅页面 |
-| `eval/run_eval.py` | 模型调用脚本 |
-| `eval/score_mcq.py` | 选择题自动评分脚本 |
-| `results/leaderboard.md` | 当前模型运行记录 |
-| `reports/model_diagnostic_report.md` | 模型诊断与下一步改进建议 |
-
-### 结果摘要
-
-当前版本包含 100 题，其中选择题 82 题、简答题 18 题。题目覆盖文献分析、实验设计、实验进行、结果分析、下一步计划和安全边界 6 个流程阶段。
-
-数据校验结果：8 个 domain 分布符合设定比例；选择题答案位置 A/B/C/D 为 21/21/20/20；工具配置为 51 道 with-tool、49 道 without-tool；私有依赖为 `none=86`、`analog=6`、`seed_entity=8`、`private_combination=0`。
-
-当前已完成 gpt-5.5 与 deepseek-chat 的 82 道选择题自动评分。两组运行均完成全流程调用、解析和评分，未观察到安全 hard fail。由于两个强模型在 MCQ 子集上均全部答对，当前结论应表述为：**流程已跑通，但选择题区分度不足**。下一版需要增加开放题评分、表格/曲线分析题、冲突证据题和更强的情境型干扰项。
+| `docs/task_design_v3.md` | V3-alpha 题库结构说明 |
+| `docs/scoring_v3.md` | V3 评分协议 |
+| `docs/hard_gates.md` | Hard Gate 判定规则 |
+| `docs/judge_protocol.md` | judge 与人工复核协议 |
+| `docs/agent_modes.md` | no-tool / tool-enabled 运行模式 |
+| `docs/reproducibility_and_trace.md` | 运行记录、trace 与可复现要求 |
+| `eval/runner.py` | API-free demo runner |
+| `eval/reporting/generate_report.py` | 报告生成器 |
+| `scripts/validate_tasks.py` | V3 task schema 和分布校验 |
+| `scripts/lint_benchmark.py` | 文档、元数据和隐私边界 lint |
+| `.github/workflows/validate.yml` | GitHub Actions validation workflow |
 
 ### 仓库结构
 
 ```text
 semiconductor-gas-sensing-benchmark/
-├── data/        # benchmark JSON/CSV, sample, schema
-├── docs/        # methodology, dataset card, taxonomy, scoring, privacy
-├── eval/        # prompts, runner, scorer, example config
-├── results/     # leaderboard, breakdowns, model outputs, badcases
-├── reports/     # design report and model diagnostic report
-├── assets/      # review HTML and overview image
+├── data/        # benchmark JSON/CSV and schemas
+├── docs/        # methodology, scoring protocol, gates, judge, trace, agent modes
+├── eval/        # demo runner, prompts, reporting utilities, legacy scoring scripts
+├── scripts/     # validation and lint scripts
+├── results/     # leaderboard, breakdowns, demo runs, badcases
+├── reports/     # design and diagnostic reports
+├── assets/      # review HTML and overview images
 └── README.md
 ```
 
+### 当前结果状态
+
+V1/V2 的 MCQ 流程已经完成调用、解析和评分验证。强模型在当前 MCQ 子集上表现过高，说明流程已跑通，但选择题区分度不足。
+
+V3-alpha 的重点转向可审计 task unit。当前版本已经完成题库结构、schema、评分协议、demo runner、validation、CI 和报告生成流程。后续真实模型横评可以在同一结构下接入 API runner 和真实工具 harness。
+
 ### 适用边界
 
-该 benchmark 用于评估模型的研发判断、证据意识、工具使用和安全边界识别。题目不构成危险气体实验 SOP，也不用于训练模型、复原私有实验条件或替代实验室安全审查。
+本项目用于评估模型在抽象材料研发场景中的判断质量。项目文件不构成危险气体实验 SOP，不提供高危气体开放制备步骤，不用于复原私有实验条件。
 
 ## English
 
-### Executive Summary
+### Summary
 
-- This repository provides a 100-item mini diagnostic benchmark for Chinese semiconductor gas-sensing materials R&D workflows.
-- The dataset is organized by `domain`, `scenario_stage`, `tool_type`, and failure mode, covering literature analysis, experiment design, execution, result analysis, next-step planning, and safety boundaries.
-- Questions are built from abstract problem types with private details removed; each item includes answer rationale, option-level design notes, and structured evaluation labels.
-- Current gpt-5.5 and deepseek-chat MCQ runs show that the evaluation pipeline works, while the multiple-choice subset is not yet discriminative enough for strong models.
+Semiconductor Gas-Sensing Agent Benchmark is a Chinese diagnostic benchmark for semiconductor gas-sensing materials R&D workflows. It evaluates whether a model can handle literature interpretation, mechanism boundaries, experiment design, abnormal-result diagnosis, next-step planning, safety judgment, and tool use.
 
-### Background
+### What It Evaluates
 
-Model evaluation for materials R&D should test more than isolated chemistry facts. In practice, the harder questions are whether a literature claim transfers to the current system, whether an experiment has the right controls, how to diagnose abnormal results, and when a plausible operation crosses a safety boundary.
-
-This benchmark turns semiconductor gas-sensing R&D into a compact set of testable tasks. It covers gas-sensing materials, paper-tape detection, metal oxides, conductive polymers, 2D materials, analytical characterization, process scale-up, and laboratory safety. Items are built from abstract problem types with private details removed.
-
-### Goals
-
-- Evaluate contextual judgment in materials R&D workflows.
-- Test whether models can identify options that are locally correct but problematic under the given scenario.
-- Attribute errors by mechanism transfer, evidence boundary, variable control, metric trade-off, safety risk, and tool usage.
-- Provide reproducible data files, scoring scripts, result tables, and a human-readable review page.
-
-### Dataset Design
-
-- 100 items: 82 multiple-choice and 18 free-response questions.
-- 8 domains: organic, physical, inorganic, materials, general, analytical, technical chemistry, and toxicity/safety.
-- 6 workflow stages: literature analysis, experiment design, execution, result analysis, next-step planning, and safety-boundary judgment.
-- Per-option rationale and trap profile for human review and error attribution.
-- Fine-grained `tool_type` labels instead of a binary with-tool / no-tool split.
-- Privacy-aware design with no private formulation combinations, ratios, sample IDs, or non-public conclusions.
+- Literature analysis and evidence transfer.
+- Mechanism explanation with uncertainty boundaries.
+- Experimental design with variables, controls, metrics, and go/no-go criteria.
+- Operational judgment around SOP, gas mixing, instruments, and record quality.
+- Result analysis for drift, recovery failure, humidity interference, and evidence mismatch.
+- Safety-boundary recognition for hazardous gases, toxic solvents, oxidizers, waste, and privacy.
+- Tool-use quality across calculator, retrieval, table analysis, plotting, safety reference, and checklist workflows.
 
 ### Quick Start
 
 ```bash
-cd semiconductor-gas-sensing-benchmark
-python3 eval/run_eval.py --models gpt-5.5
-python3 eval/score_mcq.py
+make demo
+make validate
+make lint
+make report
 ```
 
-### Result Summary
+The demo is local and API-free. It writes an auditable run under `results/runs/demo/`.
 
-Benchmark Mini V2 contains 100 questions: 82 multiple-choice and 18 free-response items. Current MCQ runs for gpt-5.5 and deepseek-chat completed the full call-parse-score pipeline with no observed safety hard failures. Because both strong models solved the MCQ subset completely, the current result should be interpreted as: **the pipeline works, but the MCQ subset lacks sufficient discriminative power**.
+### Design
+
+V3-alpha introduces auditable task units, Hard Gate checks, D0-D6 weighted scoring, tool-use evaluation, trace-based audit, robustness variants, and live extension tasks. The benchmark uses public knowledge and abstract problem types with private details removed.
+

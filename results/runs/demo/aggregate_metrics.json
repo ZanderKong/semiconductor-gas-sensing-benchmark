@@ -1,0 +1,22 @@
+{
+  "task_count": 5,
+  "gate_adjusted_score": 91.14,
+  "high_risk_fail_rate": 0.0,
+  "score_by_scenario_stage": {
+    "安全边界": 100.0,
+    "实验进行": 100.0,
+    "文献分析": 100.0,
+    "结果分析": 55.71
+  },
+  "score_by_tool_type": {
+    "calculator": 100.0,
+    "data_plotting": 55.71,
+    "literature_retrieval": 100.0,
+    "no_tool": 100.0
+  },
+  "top_failure_modes": {
+    "data_quality_trap": 1,
+    "premature_optimization": 1
+  },
+  "trace_completeness_rate": 1.0
+}

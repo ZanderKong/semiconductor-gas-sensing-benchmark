@@ -20,9 +20,9 @@
 | 参考 | 借鉴点 | 本项目转化 |
 |---|---|---|
 | ChemBench-mini | domain/subfield/task 结构与题型比例 | 缩放为 100 题，保留 8 个 domain，但内容重写为气敏材料方向 |
-| HELM | 多指标、按场景看模型能力 | 每题保留 workflow、tool、failure mode 和 evaluation dimension |
+| HELM | 多指标、按场景看模型能力 | V3 使用 Hard Gate、主评分维度和 Meta Eval 三层结构 |
 | LAB-Bench | 科研任务来自 workflow | 将孤立知识点转化为研发判断、实验验证和异常诊断 |
-| OpenAI Evals | 工程化样本、答案、评分和报告 | 产出 JSON/CSV、可接 scorer 和 model runner |
+| OpenAI Evals | 工程化样本、答案、评分和报告 | 产出 JSON/CSV、scorer、model runner、run manifest 和评测报告 |
 
 ## 3. 题目生成原则
 
@@ -64,7 +64,31 @@
 
 每个选项都带有 `option_profiles` 和 `option_rationales`，用于人类审题和后续错误归因。
 
-## 4. 新增 workflow 字段
+## 4. V3 评价体系
+
+V3 将评价体系拆成三层：
+
+| 层级 | 目的 |
+|---|---|
+| G 层 Hard Gate | 先识别安全、事实、证据、指令、工具和隐私硬失败 |
+| S 层主评分 | 按 D0-D6 七个维度计算模型回答质量 |
+| M 层 Meta Eval | 评估本次横评是否可复查、可复跑、可审计 |
+
+S 层主评分为 100 分：
+
+| 维度 | 权重 |
+|---|---:|
+| D0 指令遵循与输出完整性 | 10 |
+| D1 专业准确性 | 20 |
+| D2 情境化研发判断 | 15 |
+| D3 证据锚定与不确定性 | 15 |
+| D4 可执行研发方案 | 15 |
+| D5 Tool Use 质量 | 10 |
+| D6 安全与合规边界 | 15 |
+
+当前仓库保留 V1/V2 的 100 题主集，同时新增 V3-alpha 并行题库。V3-alpha 以 46 个可审计 task unit 组织，字段已经迁移到 `target_dimensions`、`hard_gate_checks`、`tool_mode`、`variant_type` 等 V3 结构。
+
+## 5. workflow 与 tool 字段
 
 | 字段 | 目的 |
 |---|---|
@@ -73,19 +97,16 @@
 | `expected_output` | 说明模型应该输出的能力结果 |
 | `tool_type` | 细分工具类型，便于分析工具增益 |
 
-`tool_type` 不再只是 with-tool / without-tool，而分为：
+V3 区分两种运行模式：
 
-| tool_type | 说明 |
-|---|---|
-| `no_tool` | 闭卷专业判断 |
-| `calculator` | 需要计算、稀释、LOD、斜率或 Arrhenius 估算 |
-| `literature_retrieval` | 需要查阅表征、材料机理或安全资料 |
-| `table_analysis` | 需要表格、矩阵、批间差或验证表分析 |
-| `data_plotting` | 需要曲线、漂移、响应/恢复、基线趋势分析 |
-| `safety_reference` | 需要安全资料、SOP、危害和废物处置判断 |
-| `protocol_checklist` | 需要步骤、gate、检查表或实验流程约束 |
+| 模式 | 说明 | 报告字段 |
+|---|---|---|
+| no-tool baseline | 只给题干，不提供工具 | `no_tool_score` |
+| tool-enabled agent | 提供 calculator、literature_retrieval、table_analysis、data_plotting、safety_reference、protocol_checklist 等工具 | `tool_enabled_score` |
 
-## 5. 质量控制
+建议报告 `tool_lift = tool_enabled_score - no_tool_score`，并单独统计 `tool_decision_accuracy`、`parameter_correctness`、`execution_outcome_quality` 和 `unsafe_tool_call_rate`。
+
+## 6. 质量控制
 
 构建脚本执行以下验证：
 
@@ -102,22 +123,46 @@
 | workflow 字段 | 每题必须有 scenario_stage、workflow_task、expected_output、tool_type |
 | 隐私控制 | seed_entity + analog 不超过 25，private_combination 为 0 |
 
-## 6. 评分流程
+V3 后续新增质量控制：
 
-选择题使用 exact match。简答题使用 5 分 rubric，并优先检查 hard fail。
+| 检查 | 规则 |
+|---|---|
+| gate 标注 | 触发 Hard Gate 的样本必须记录 `hard_gate_type` |
+| 维度映射 | 每题至少映射到一个 D0-D6 主维度 |
+| tool 模式 | 工具题需标明 no-tool / tool-enabled 的评估方式 |
+| trace 完整性 | 工具题和简答题应保存 input、output、tool_call、judge_result |
+| judge 可靠性 | 简答题和高风险题需定义人工复核或 judge 一致性策略 |
+
+## 7. 评分流程
+
+选择题使用 exact match，并通过 `option_profiles` 和 `failure_mode` 解释错因。简答题和后续 V3 多步任务使用“先 Hard Gate、后 D0-D6 主评分”的流程。
 
 建议横评流程：
 
 1. 固定题目顺序和统一 prompt。
-2. 记录模型版本、调用日期、temperature 和工具配置。
-3. 选择题自动判分。
-4. 简答题使用人工评分或 LLM-as-judge，人工抽检安全题和高风险错题。
-5. 按 domain、scenario_stage、tool_type、failure_mode 聚合结果。
-6. 输出模型画像：强项、短板、工具收益、安全风险和典型 badcase。
+2. 记录模型版本、调用日期、temperature、工具配置和 prompt hash。
+3. 选择题自动判分，并映射错因维度。
+4. 简答题先检查 Hard Gate，再按 D0-D6 rubric 评分。
+5. 安全、隐私、Hard Gate 样本做人工复核。
+6. 按 domain、scenario_stage、tool_type、failure_mode 和 D0-D6 聚合结果。
+7. 输出模型画像：强项、短板、工具收益、安全风险、证据边界问题和典型 badcase。
+8. 输出 Meta Eval 指标：trace 完整性、复跑能力、证据可追溯性和评分器可靠性。
 
-## 7. 当前局限
+## 8. 动态题库与鲁棒性
 
-- V2 仍以选择题为主，当前强模型结果显示流程已跑通，但选择题区分度不足。
+V3 后续可拆成两类题集：
+
+| 题集 | 用途 |
+|---|---|
+| Static Core Set | 固定核心题，用于长期回归和模型横向可比 |
+| Live Extension Set | 定期新增题，用于降低污染和观察新能力 |
+
+建议报告 `static_core_score`、`live_extension_score`、`performance_drop_on_live_tasks`，并通过 paraphrase、干扰条件、矛盾证据和多轮追问测试 `consistency_rate`、`overconfidence_rate` 和 `safety_regression_rate`。
+
+## 9. 当前局限
+
+- 当前题目仍以选择题为主，强模型结果显示流程已跑通，但选择题区分度不足。
 - 简答题为 18 题，后续可提高到 25 题以增强开放式评估。
 - tool_type 目前由规则推断，后续可人工精修。
+- V3-alpha 已完成并行题库与 schema；正式 runner、scorer 和真实工具 harness 仍需后续接入。
 - 当前已完成 gpt-5.5 和 deepseek-chat 的 MCQ 流程验证；后续可在接口配置稳定后扩展更多模型。

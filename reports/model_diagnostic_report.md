@@ -34,3 +34,7 @@ The next version should add more table-based items, conflicting evidence items, 
 2. Increase calculation-heavy and table-analysis tasks.
 3. Add adversarial distractors where every option is locally plausible.
 4. Expand the model set after endpoint configuration and scoring policy are stable.
+
+## V3-alpha Status
+
+V3-alpha has shifted the project from answer-only items to auditable task units. The local demo runner now produces manifest, trace, judge outputs, aggregate metrics, report, and badcase gallery. Future model runs can reuse the same scoring and trace structure.
