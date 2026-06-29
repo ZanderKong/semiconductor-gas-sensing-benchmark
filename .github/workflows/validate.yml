@@ -1,0 +1,22 @@
+name: Validate Benchmark
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate tasks
+        run: python3 scripts/validate_tasks.py
+      - name: Lint benchmark docs and metadata
+        run: python3 scripts/lint_benchmark.py
+      - name: Run local demo
+        run: make demo
+      - name: Regenerate report
+        run: make report
