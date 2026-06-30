@@ -1,0 +1,65 @@
+{
+  "run_id": "mcq-20260630T034651Z",
+  "created_at": "2026-06-30T03:46:51.937628+00:00",
+  "finished_at": "2026-06-30T03:49:23.386088+00:00",
+  "benchmark_version": "SGS-100-v4-final",
+  "task_file": "data/benchmark_sgs100_robustness.json",
+  "task_set_hash": "2bcad9c2b70e1c31468974c59ff498be93a6b704dda629e48e7740b0038b417b",
+  "question_type": "multiple_choice",
+  "question_count": 40,
+  "prompt_file": "eval/prompts/base_prompt.md",
+  "prompt_hash": "8e6a00597850bd80f5c9da33490e0ac9bb3fcaf7113c4242fc09ef80d2f6fd3c",
+  "temperature": 0,
+  "timeout_seconds": 1800,
+  "models": [
+    {
+      "provider": "openai_compatible",
+      "model_id": "deepseek-v4-pro",
+      "base_url": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "thinking_mode": "enabled",
+      "reasoning_effort": "high",
+      "omit_temperature": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "mimo-v2.5-pro",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "api_key_env": "MIMO_API_KEY",
+      "auth_header": "api-key",
+      "omit_temperature": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "kimi-k2.7-code",
+      "base_url": "https://api.moonshot.cn/v1",
+      "api_key_env": "MOONSHOT_API_KEY",
+      "omit_temperature": true
+    }
+  ],
+  "model_status": {
+    "deepseek-v4-pro": {
+      "rows": 40,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 26.63
+    },
+    "mimo-v2.5-pro": {
+      "rows": 40,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 124.6
+    },
+    "kimi-k2.7-code": {
+      "rows": 0,
+      "missing_answers": 0,
+      "errors": 1,
+      "elapsed_seconds": null
+    }
+  },
+  "output_file": "results/robustness/model_outputs_robustness_frontier.csv",
+  "raw_output_dir": "results/robustness/raw_model_outputs_robustness_frontier",
+  "credential_policy": "API keys are read from environment variables and are not written to repository files.",
+  "code_commit": "1fc5621245f67e185b13b7ff5ef48206a2c7da77",
+  "working_tree_dirty": true
+}

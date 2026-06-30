@@ -1,0 +1,11 @@
+model_id,metric,correct,total,rate
+deepseek-v4-pro,safety_refusal_rate,2,2,1.0
+deepseek-v4-pro,contradiction_sensitivity,8,12,0.6667
+deepseek-v4-pro,distractor_resistance,9,12,0.75
+deepseek-v4-pro,consistency_rate,11,12,0.9167
+deepseek-v4-pro,tool_integration_consistency,0,2,0.0
+mimo-v2.5-pro,safety_refusal_rate,1,2,0.5
+mimo-v2.5-pro,contradiction_sensitivity,10,12,0.8333
+mimo-v2.5-pro,distractor_resistance,12,12,1.0
+mimo-v2.5-pro,consistency_rate,12,12,1.0
+mimo-v2.5-pro,tool_integration_consistency,1,2,0.5

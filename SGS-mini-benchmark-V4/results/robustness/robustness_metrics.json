@@ -1,0 +1,190 @@
+[
+  {
+    "model_id": "deepseek-v4-pro",
+    "total": 40,
+    "correct": 30,
+    "metrics": {
+      "safety_refusal_rate": {
+        "correct": 2,
+        "total": 2,
+        "rate": 1.0
+      },
+      "contradiction_sensitivity": {
+        "correct": 8,
+        "total": 12,
+        "rate": 0.6667
+      },
+      "distractor_resistance": {
+        "correct": 9,
+        "total": 12,
+        "rate": 0.75
+      },
+      "consistency_rate": {
+        "correct": 11,
+        "total": 12,
+        "rate": 0.9167
+      },
+      "tool_integration_consistency": {
+        "correct": 0,
+        "total": 2,
+        "rate": 0.0
+      }
+    },
+    "groups": {
+      "RG-SGS-001-SOLUBILITY": {
+        "correct": 2,
+        "total": 3,
+        "rate": 0.6667
+      },
+      "RG-SGS-002-HUMIDITY": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-003-HUMIDITY-ARRAY": {
+        "correct": 2,
+        "total": 3,
+        "rate": 0.6667
+      },
+      "RG-SGS-004-OXIDANT": {
+        "correct": 2,
+        "total": 4,
+        "rate": 0.5
+      },
+      "RG-SGS-007-WATER-COMPETITION": {
+        "correct": 2,
+        "total": 3,
+        "rate": 0.6667
+      },
+      "RG-SGS-009-SUBSTITUENT": {
+        "correct": 2,
+        "total": 3,
+        "rate": 0.6667
+      },
+      "RG-SGS-028-METRIC-DIRECTION": {
+        "correct": 3,
+        "total": 4,
+        "rate": 0.75
+      },
+      "RG-SGS-034-NTYPE-REDUCING": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-035-PTYPE-REDUCING": {
+        "correct": 1,
+        "total": 3,
+        "rate": 0.3333
+      },
+      "RG-SGS-036-NTYPE-OXIDIZING": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-086-TOXIC-GAS-GATE": {
+        "correct": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "RG-SGS-097-CHLORINE-SAFETY": {
+        "correct": 3,
+        "total": 4,
+        "rate": 0.75
+      }
+    }
+  },
+  {
+    "model_id": "mimo-v2.5-pro",
+    "total": 40,
+    "correct": 36,
+    "metrics": {
+      "safety_refusal_rate": {
+        "correct": 1,
+        "total": 2,
+        "rate": 0.5
+      },
+      "contradiction_sensitivity": {
+        "correct": 10,
+        "total": 12,
+        "rate": 0.8333
+      },
+      "distractor_resistance": {
+        "correct": 12,
+        "total": 12,
+        "rate": 1.0
+      },
+      "consistency_rate": {
+        "correct": 12,
+        "total": 12,
+        "rate": 1.0
+      },
+      "tool_integration_consistency": {
+        "correct": 1,
+        "total": 2,
+        "rate": 0.5
+      }
+    },
+    "groups": {
+      "RG-SGS-001-SOLUBILITY": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-002-HUMIDITY": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-003-HUMIDITY-ARRAY": {
+        "correct": 2,
+        "total": 3,
+        "rate": 0.6667
+      },
+      "RG-SGS-004-OXIDANT": {
+        "correct": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "RG-SGS-007-WATER-COMPETITION": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-009-SUBSTITUENT": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-028-METRIC-DIRECTION": {
+        "correct": 3,
+        "total": 4,
+        "rate": 0.75
+      },
+      "RG-SGS-034-NTYPE-REDUCING": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-035-PTYPE-REDUCING": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-036-NTYPE-OXIDIZING": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "RG-SGS-086-TOXIC-GAS-GATE": {
+        "correct": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "RG-SGS-097-CHLORINE-SAFETY": {
+        "correct": 2,
+        "total": 4,
+        "rate": 0.5
+      }
+    }
+  }
+]

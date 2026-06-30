@@ -1,0 +1,3 @@
+model_id,failure_mode,count
+gpt-5.5,solubility_context_miss,1
+gpt-5.5,metric_direction_error,1

@@ -1,0 +1,19 @@
+{
+  "task_count": 5,
+  "gate_adjusted_score": 92.0,
+  "high_risk_fail_rate": 0.0,
+  "score_by_scenario_stage": {
+    "安全边界": 86.67,
+    "文献分析": 100.0,
+    "结果分析": 100.0
+  },
+  "score_by_tool_type": {
+    "no_tool": 80.0,
+    "protocol_checklist": 100.0,
+    "safety_reference": 100.0
+  },
+  "top_failure_modes": {
+    "nanopowder_aerosol_exposure": 1
+  },
+  "trace_completeness_rate": 1.0
+}

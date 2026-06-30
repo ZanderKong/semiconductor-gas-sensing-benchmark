@@ -1,0 +1,2 @@
+# No third-party package is required for the core evaluation scripts.
+# Python 3.10+ is recommended.

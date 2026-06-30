@@ -1,0 +1,22 @@
+# Copy this file to config.local.yaml and fill in environment variable names.
+# Never commit real API keys.
+
+benchmark_path: data/benchmark.json
+outputs_dir: results/raw_model_outputs
+
+models:
+  - model_id: gpt-5.5
+    provider: codex_cli
+    enabled: true
+
+  - model_id: deepseek-v4-pro
+    provider: openai_compatible
+    base_url: https://api.deepseek.com
+    api_key_env: DEEPSEEK_API_KEY
+    thinking_mode: disabled
+    enabled: true
+
+run:
+  question_type: multiple_choice
+  temperature: 0
+  timeout_seconds: 900

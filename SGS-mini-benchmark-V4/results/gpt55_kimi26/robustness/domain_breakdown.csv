@@ -1,0 +1,6 @@
+model_id,group,correct,total,accuracy
+gpt-5.5,inorganic_chemistry,7,9,0.7778
+gpt-5.5,organic_chemistry,17,19,0.8947
+gpt-5.5,physical_chemistry,4,4,1.0
+gpt-5.5,technical_chemistry,4,4,1.0
+gpt-5.5,toxicity_and_safety,3,4,0.75

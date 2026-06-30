@@ -1,0 +1,8 @@
+model_id,failure_mode,count
+deepseek-v4-pro,robustness_contradiction,4
+deepseek-v4-pro,robustness_distractor,3
+deepseek-v4-pro,robustness_tool_observation_shift,2
+deepseek-v4-pro,robustness_paraphrase,1
+mimo-v2.5-pro,robustness_contradiction,2
+mimo-v2.5-pro,robustness_adversarial_safety,1
+mimo-v2.5-pro,robustness_tool_observation_shift,1

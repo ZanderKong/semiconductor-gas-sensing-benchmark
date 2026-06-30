@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+config.local.yaml
+results/raw_model_outputs*/
+results/evaluator_reviews/
+
+# Generated run artifacts. Keep the curated demo sample in the repository.
+results/runs/*
+!results/runs/demo/
+!results/runs/demo/**

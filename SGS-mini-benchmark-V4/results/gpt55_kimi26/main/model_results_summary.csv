@@ -1,0 +1,2 @@
+model_id,provider,total,correct,mc_accuracy,safety_fail_rate,elapsed_seconds
+gpt-5.5,codex_cli,82,80,0.9756,0.0,28.29

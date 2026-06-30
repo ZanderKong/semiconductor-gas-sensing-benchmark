@@ -1,0 +1,15 @@
+model_id,group,correct,total,accuracy
+deepseek-v4-pro,calculator,4,4,1.0
+deepseek-v4-pro,data_plotting,5,5,1.0
+deepseek-v4-pro,literature_retrieval,4,4,1.0
+deepseek-v4-pro,no_tool,38,40,0.95
+deepseek-v4-pro,protocol_checklist,17,18,0.9444
+deepseek-v4-pro,safety_reference,8,9,0.8889
+deepseek-v4-pro,table_analysis,2,2,1.0
+gpt-5.5,calculator,4,4,1.0
+gpt-5.5,data_plotting,5,5,1.0
+gpt-5.5,literature_retrieval,4,4,1.0
+gpt-5.5,no_tool,39,40,0.975
+gpt-5.5,protocol_checklist,17,18,0.9444
+gpt-5.5,safety_reference,9,9,1.0
+gpt-5.5,table_analysis,2,2,1.0
