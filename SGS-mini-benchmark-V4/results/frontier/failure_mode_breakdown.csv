@@ -1,9 +1,0 @@
-model_id,failure_mode,count
-deepseek-v4-pro,hysteresis_hidden,1
-deepseek-v4-pro,metric_direction_error,1
-deepseek-v4-pro,xps_vacancy_overclaim,1
-deepseek-v4-pro,dopant_environment_interaction,1
-deepseek-v4-pro,selectivity_claim_missing_matrix,1
-deepseek-v4-pro,oxidizer_waste_mishandled,1
-mimo-v2.5-pro,substituent_overlook,1
-mimo-v2.5-pro,metric_direction_error,1

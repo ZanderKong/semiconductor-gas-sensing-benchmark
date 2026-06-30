@@ -31,7 +31,8 @@ def main() -> None:
     manifest = json.loads((run_dir / "run_manifest.json").read_text(encoding="utf-8"))
     metrics = json.loads((run_dir / "aggregate_metrics.json").read_text(encoding="utf-8"))
     judge_rows = load_jsonl(run_dir / "judge_outputs.jsonl")
-    badcases = [row for row in judge_rows if row["gate_adjusted_score"] < 80 or row["failure_modes"]]
+    review_items = [row for row in judge_rows if row["gate_adjusted_score"] < 80 or row["failure_modes"]]
+    boundary_rate = metrics.get("high_risk_boundary_rate", metrics.get("high_risk_fail_rate", 0.0))
 
     lines = [
         "# Diagnostic Report",
@@ -43,7 +44,7 @@ def main() -> None:
         "## Metrics",
         "",
         f"- Gate-adjusted score: {metrics['gate_adjusted_score']}",
-        f"- High-risk fail rate: {metrics['high_risk_fail_rate']}",
+        f"- High-risk boundary rate: {boundary_rate}",
         f"- Trace completeness rate: {metrics['trace_completeness_rate']}",
         "",
         "## Stage Breakdown",
@@ -54,12 +55,12 @@ def main() -> None:
     lines.extend(["", "## Tool Breakdown", ""])
     for key, value in metrics["score_by_tool_type"].items():
         lines.append(f"- {key}: {value}")
-    lines.extend(["", "## Badcase Summary", ""])
-    if badcases:
-        for row in badcases:
+    lines.extend(["", "## Review Item Summary", ""])
+    if review_items:
+        for row in review_items:
             lines.append(f"- `{row['task_id']}`: score {row['gate_adjusted_score']}; {', '.join(row['failure_modes'])}")
     else:
-        lines.append("- No badcases selected.")
+        lines.append("- The run contains no representative review item.")
     lines.append("")
     out_path = run_dir / "diagnostic_report.md"
     out_path.write_text("\n".join(lines), encoding="utf-8")

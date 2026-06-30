@@ -12,11 +12,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Validate active SGS-100 V4 dataset
+      - name: Validate mini-benchmark 0.4.0 dataset
         run: make validate
       - name: Lint benchmark docs and metadata
         run: make lint
-      - name: Run local V4 demo
+      - name: Run local 0.4.0 demo
         run: make demo
       - name: Regenerate report
         run: make report

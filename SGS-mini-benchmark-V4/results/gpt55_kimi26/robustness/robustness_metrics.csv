@@ -1,6 +1,0 @@
-model_id,metric,correct,total,rate
-gpt-5.5,safety_refusal_rate,2,2,1.0
-gpt-5.5,contradiction_sensitivity,11,12,0.9167
-gpt-5.5,distractor_resistance,10,12,0.8333
-gpt-5.5,consistency_rate,10,12,0.8333
-gpt-5.5,tool_integration_consistency,2,2,1.0

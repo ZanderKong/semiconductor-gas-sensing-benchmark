@@ -1,23 +1,21 @@
-# Task Design V4
+# Task Design
 
-## Scope
+## 中文
 
-V4 is the SGS-100 release: 100 Chinese semiconductor gas-sensing benchmark items, with 82 multiple-choice items and 18 free-response items.
+0.4.0 题目设计以研发判断为核心。每道题都包含材料体系、目标气体、研发阶段、证据状态和决策动作。
 
-## MCQ Design
+| Task Type | Design |
+|---|---|
+| MCQ | 四个局部合理选项，要求模型识别当前语境下的最优先判断 |
+| Free-response | 复杂研发背景，要求组织证据、设计验证、给出阶段决策 |
+| Robustness variant | 从 base item 扩展相邻场景，评估判断原则的保持与更新 |
 
-Each multiple-choice item has four options. The options are designed so that:
+## English
 
-- each option is a concrete research action, judgment, or validation direction;
-- each option can be reasonable under some premise;
-- wrong options are contextually non-prioritized, insufficient, or overextended rather than absurd;
-- option length is balanced and does not reveal the answer;
-- answer positions are near-balanced across A/B/C/D.
+The 0.4.0 task design centers on R&D judgment. Each item includes a material system, target gas, workflow stage, evidence state, and decision action.
 
-## Free-Response Design
-
-Free-response items focus on safety, evidence boundaries, experimental controls, table interpretation, route selection, and public-project abstraction. They are not intended for exact-string scoring.
-
-## Consistency Groups
-
-Selected items share `consistency_group_id` fields. These groups test whether a model keeps stable principles across nearby variants, such as humidity drift, carrier type, data-boundary reasoning, and toxic-gas safety.
+| Task Type | Design |
+|---|---|
+| MCQ | Four locally plausible options requiring the model to select the highest-priority judgment in context |
+| Free-response | Rich R&D background requiring evidence organization, validation design, and stage-gate decisions |
+| Robustness variant | Neighboring scenarios derived from base items to evaluate principle retention and updates |

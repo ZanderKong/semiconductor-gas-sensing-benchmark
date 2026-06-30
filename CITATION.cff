@@ -1,9 +1,10 @@
 cff-version: 1.2.0
-title: Semiconductor Gas-Sensing Benchmark Mini
-message: If you use this benchmark structure, please cite this public release project.
+title: "Semiconductor Gas-Sensing Mini-Benchmark 0.4.0"
+message: "If you use this benchmark structure or dataset methodology, please cite this release."
 type: dataset
 authors:
   - family-names: Kong
     given-names: Zander
 year: 2026
+version: "0.4.0"
 license: MIT

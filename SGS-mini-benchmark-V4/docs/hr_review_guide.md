@@ -1,72 +1,43 @@
 # HR Review Guide
 
-## Purpose
+## 中文
 
-This guide provides the recommended reading path for a non-specialist reviewer who needs to assess the V4 benchmark package quickly and fairly.
+这份指南用于帮助 HR、面试官和项目集读者快速理解 Semiconductor Gas-Sensing Mini-Benchmark 0.4.0 的成果价值。
 
-## Project Positioning
+### 推荐阅读顺序
 
-SGS-100 V4 is a local benchmark package for evaluating large language models in semiconductor gas-sensing research workflows.
-
-The benchmark focuses on judgment quality, evidence boundaries, safety awareness, experimental reasoning, and robustness under scenario changes.
-
-The project does not provide hazardous gas synthesis procedures, proprietary formulas, supplier batch details, or executable laboratory recipes.
-
-## Recommended Reading Order
-
-| Step | File | What To Check |
+| Step | File | 阅读重点 |
 |---:|---|---|
-| 1 | `README.md` | Overall scope, dataset composition, available commands, and safety boundary |
-| 2 | `reports/sgs100_completion_audit.md` | Completion status against V4 requirements |
-| 3 | `reports/model_evaluation_recap.md` | Main model results, robustness results, and Kimi blocker status |
-| 4 | `reports/benchmark_design_report.md` | Benchmark design intent and evaluation dimensions |
-| 5 | `reports/sgs100_revision_report.md` | Dataset cleanup and V4 iteration work |
-| 6 | `reports/sgs100_robustness_report.md` | Robustness variant design and model comparison |
-| 7 | `reports/kimi_connection_probe.md` | Why Kimi was attempted but not scored |
+| 1 | `README.md` | 项目定位、核心成果、模型评测摘要 |
+| 2 | `reports/project_review_report.md` | 项目复盘、学术训练体现、工程化价值 |
+| 3 | `reports/benchmark_design_report.md` | benchmark 设计思想和任务结构 |
+| 4 | `reports/model_evaluation_recap.md` | 主集与 robustness 评测结果 |
+| 5 | `reports/sgs100_completion_audit.md` | 交付范围和验收证据 |
+| 6 | `docs/dataset_card.md` | 数据集构成、领域覆盖和设计原则 |
 
-## Main Evidence
+### 面试表达要点
 
-| Evidence Type | File |
-|---|---|
-| Active benchmark dataset | `data/benchmark.json` |
-| Reviewer-friendly table | `data/benchmark.csv` |
-| Clean SGS-100 export | `data/benchmark_sgs100_clean.csv` |
-| Robustness variants | `data/benchmark_sgs100_robustness.csv` |
-| Free-response rubrics | `data/free_response_rubrics.json` |
-| Validation scripts | `scripts/validate_benchmark.py`, `scripts/lint_benchmark.py`, `scripts/lint_sgs100_benchmark.py` |
-| Model runner | `eval/run_eval.py` |
+- 该项目把半导体气敏材料研发中的机理判断、实验设计和安全边界抽象为可评分任务。
+- 数据集结构兼顾化学学科覆盖、材料研发场景、模型评测可复现性和对外展示可读性。
+- 项目体现了跨学科建模能力、rubric 工程能力、自动化验收能力、模型评测能力和专业技术写作能力。
 
-## Current Result Summary
+## English
 
-| Layer | Model | Result |
-|---|---|---:|
-| Main MCQ | `mimo-v2.5-pro` | 80 / 82 |
-| Main MCQ | `gpt-5.5` | 80 / 82 |
-| Main MCQ | `deepseek-v4-pro` | 76 / 82 |
-| Robustness | `mimo-v2.5-pro` | 36 / 40 |
-| Robustness | `gpt-5.5` | 35 / 40 |
-| Robustness | `deepseek-v4-pro` | 30 / 40 |
+This guide helps HR reviewers, interviewers, and portfolio readers understand the professional value of Semiconductor Gas-Sensing Mini-Benchmark 0.4.0.
 
-Kimi was attempted through the Moonshot OpenAI-compatible API, but the local environment did not receive a model answer from the endpoint.
+### Suggested Reading Order
 
-The failed Kimi attempt is recorded as an external API connection or credential acceptance blocker, not as a model-performance score.
+| Step | File | Focus |
+|---:|---|---|
+| 1 | `README.md` | Positioning, deliverables, evaluation summary |
+| 2 | `reports/project_review_report.md` | Project review, academic training, engineering value |
+| 3 | `reports/benchmark_design_report.md` | Benchmark design and task structure |
+| 4 | `reports/model_evaluation_recap.md` | Main-set and robustness evaluation results |
+| 5 | `reports/sgs100_completion_audit.md` | Delivery scope and validation evidence |
+| 6 | `docs/dataset_card.md` | Dataset composition and design principles |
 
-## Validation Commands
+### Interview Narrative
 
-```bash
-make validate
-make lint
-make lint-sgs100
-```
-
-The V4 package is designed so that these commands can be run from the `SGS-mini-benchmark-V4` folder.
-
-## Reviewer Notes
-
-The main benchmark reports MCQ accuracy only on the 82 multiple-choice items.
-
-The 18 free-response items are rubric-complete and require human or judge scoring before they can be reported as model performance.
-
-The robustness layer is separate from main accuracy because it tests stability, resistance to distractors, contradiction handling, safety refusal, and tool-observation updates.
-
-The V4 folder is self-contained for local review.
+- The project converts semiconductor gas-sensing R&D judgment into structured, scoreable benchmark tasks.
+- The dataset combines chemistry coverage, materials R&D realism, reproducible model evaluation, and portfolio-ready communication.
+- It demonstrates cross-disciplinary abstraction, rubric engineering, automated validation, model evaluation, and professional technical writing.

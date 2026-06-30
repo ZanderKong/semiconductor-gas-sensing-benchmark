@@ -1,24 +1,23 @@
-# Agent Modes V4
+# Agent Modes
 
-SGS-100 V4 supports two evaluation modes.
+## 中文
 
-## No-Tool Mode
+mini-benchmark 0.4.0 支持两种评测模式。
 
-The model answers from the question and options only. This mode tests baseline professional judgment, evidence-boundary awareness, and safety reasoning without retrieval or calculation support.
+| Mode | Purpose |
+|---|---|
+| No-tool mode | 评估模型基于题干、选项和已有证据做专业判断的能力 |
+| Tool-allowed mode | 评估模型在计算、表格、文献、安全参考和 protocol checklist 支持下整合工具观察的能力 |
 
-## Tool-Allowed Mode
+报告中建议分开展示 no-tool judgment、tool-update alignment 和 safety-boundary index，使模型能力画像更加清晰。
 
-The model may use calculators, table analysis, literature retrieval, plotting, safety references, or protocol checklists when the item metadata marks a tool expectation. Tool use is judged by outcome and trace quality, not by hidden reasoning.
+## English
 
-## Reporting
+mini-benchmark 0.4.0 supports two evaluation modes.
 
-Reports should separate:
+| Mode | Purpose |
+|---|---|
+| No-tool mode | Measures professional judgment from the prompt, options, and provided evidence |
+| Tool-allowed mode | Measures integration of calculators, tables, literature, safety references, and protocol checklists |
 
-- MCQ exact-match accuracy;
-- safety fail rate;
-- wrong-option profiles;
-- domain, stage, and tool-type breakdowns;
-- free-response rubric review;
-- consistency-group review.
-
-V4 does not require model private chain-of-thought. It records visible inputs, tool calls, tool outputs, final answers, judge decisions, and hashes where useful.
+Reports separate no-tool judgment, tool-update alignment, and safety-boundary index for clearer capability profiling.

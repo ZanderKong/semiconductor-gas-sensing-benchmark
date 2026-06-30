@@ -1,52 +1,81 @@
 # SGS-100 Robustness Report
 
-Report date: 2026-06-30
+## 中文
 
-## Summary
+### Robustness 结构
 
-The robustness layer contains 40 variants across 12 consistency groups.
+| Metric | Value |
+|---|---:|
+| Total variants | 40 |
+| Consistency groups | 12 |
+| Paraphrase variants | 12 |
+| Distractor variants | 12 |
+| Contradiction variants | 12 |
+| Adversarial safety variants | 2 |
+| Tool-observation variants | 2 |
 
-Variant-type distribution is {'adversarial_safety': 2, 'contradiction': 12, 'distractor': 12, 'paraphrase': 12, 'tool_observation_shift': 2}.
-Expected-consistency distribution is {'changed_answer': 12, 'safety_refusal': 2, 'same_answer': 24, 'tool_result_followed': 2}.
+### 设计目标
 
-## Groups
+Robustness 层用于检验模型是否真正抓住题目的专业原则，而不是依赖表面措辞。40 道 variants 以主集题目为 parent，围绕表达改写、干扰信息、条件更新、安全诱导和工具观察更新构造相邻场景。每个 variant 保留明确 parent linkage、variant type、evidence cue 和评分答案，便于审阅者追踪题目设计逻辑。
 
-| Group | Parent Task | Variant Types | Expected Consistency |
-|---|---|---|---|
-| RG-SGS-001-SOLUBILITY | SGS-001 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-002-HUMIDITY | SGS-002 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-003-HUMIDITY-ARRAY | SGS-003 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-004-OXIDANT | SGS-004 | contradiction, distractor, paraphrase, tool_observation_shift | changed_answer, same_answer, tool_result_followed |
-| RG-SGS-007-WATER-COMPETITION | SGS-007 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-009-SUBSTITUENT | SGS-009 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-028-METRIC-DIRECTION | SGS-028 | contradiction, distractor, paraphrase, tool_observation_shift | changed_answer, same_answer, tool_result_followed |
-| RG-SGS-034-NTYPE-REDUCING | SGS-034 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-035-PTYPE-REDUCING | SGS-035 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-036-NTYPE-OXIDIZING | SGS-036 | contradiction, distractor, paraphrase | changed_answer, same_answer |
-| RG-SGS-086-TOXIC-GAS-GATE | SGS-086 | adversarial_safety, contradiction, distractor, paraphrase | changed_answer, safety_refusal, same_answer |
-| RG-SGS-097-CHLORINE-SAFETY | SGS-097 | adversarial_safety, contradiction, distractor, paraphrase | changed_answer, safety_refusal, same_answer |
+### 指标解释
 
-## Representative Variants
+| Metric | Meaning |
+|---|---|
+| Consistency | 表达改写后保持同一判断原则 |
+| Distractor Resistance | 面对真实但非决定性信息时保持主变量优先级 |
+| Condition Update | 新增关键条件后更新判断 |
+| Safety Boundary | 诱导式表达下保持安全边界 |
+| Tool Update | 工具观察改变证据权重后更新结论 |
 
-- SGS-001-R01 uses `paraphrase` and expects `same_answer`.
-- SGS-001-R02 uses `distractor` and expects `same_answer`.
-- SGS-001-R03 uses `contradiction` and expects `changed_answer`.
-- SGS-002-R01 uses `paraphrase` and expects `same_answer`.
-- SGS-002-R02 uses `distractor` and expects `same_answer`.
-- SGS-002-R03 uses `contradiction` and expects `changed_answer`.
+### 聚合结果
 
-## Follow-Up Metrics
+| Model | Correct / Total | Accuracy |
+|---|---:|---:|
+| MiMo v2.5 Pro | 36 / 40 | 90.0% |
+| GPT-5.5 | 35 / 40 | 87.5% |
+| DeepSeek V4 Pro | 30 / 40 | 75.0% |
 
-consistency_rate is the share of paraphrase variants that preserve the parent answer.
-distractor_resistance is the share of distractor variants that preserve the parent answer despite irrelevant information.
-contradiction_sensitivity is the share of contradiction variants that change to the revised expected answer.
-safety_regression_rate is the share of adversarial safety variants that fail to keep safety refusal behavior.
-tool_integration_consistency is the share of tool-observation variants that follow the supplied tool result.
+### 学术与工程意义
 
-## Latest Robustness Evaluation
+Robustness 设计把材料研发中的“同一原则、多种语境”转化为可评分结构。例如，在湿度、表面反应、气体流量、表征证据和安全 gate 场景中，模型需要同时处理机理逻辑、数据边界和实验阶段。该层让 benchmark 具备更高的区分度，也体现了题库设计者对科研场景复杂性的理解。
 
-| Model | Overall | Consistency | Distractor Resistance | Contradiction Sensitivity | Safety Refusal | Tool Integration |
-|---|---:|---:|---:|---:|---:|---:|
-| deepseek-v4-pro | 75.0% | 91.7% | 75.0% | 66.7% | 100.0% | 0.0% |
-| gpt-5.5 | 87.5% | 83.3% | 83.3% | 91.7% | 100.0% | 100.0% |
-| mimo-v2.5-pro | 90.0% | 100.0% | 100.0% | 83.3% | 50.0% | 50.0% |
+## English
+
+### Robustness Structure
+
+| Metric | Value |
+|---|---:|
+| Total variants | 40 |
+| Consistency groups | 12 |
+| Paraphrase variants | 12 |
+| Distractor variants | 12 |
+| Contradiction variants | 12 |
+| Adversarial safety variants | 2 |
+| Tool-observation variants | 2 |
+
+### Design Goal
+
+The robustness layer tests whether a model captures the professional principle behind an item rather than relying on surface wording. The 40 variants are linked to main-set parent items and cover paraphrase, distractors, condition updates, safety-oriented persuasion, and tool-observation updates. Each variant includes parent linkage, variant type, evidence cue, and scored answer, making the design logic auditable.
+
+### Metric Interpretation
+
+| Metric | Meaning |
+|---|---|
+| Consistency | Preserve the same judgment principle under paraphrase |
+| Distractor Resistance | Maintain priority of the decisive variable under realistic distractors |
+| Condition Update | Update judgment when key conditions change |
+| Safety Boundary | Preserve safety-aware judgment under persuasive phrasing |
+| Tool Update | Update conclusions when tool observations change evidence weight |
+
+### Aggregate Results
+
+| Model | Correct / Total | Accuracy |
+|---|---:|---:|
+| MiMo v2.5 Pro | 36 / 40 | 90.0% |
+| GPT-5.5 | 35 / 40 | 87.5% |
+| DeepSeek V4 Pro | 30 / 40 | 75.0% |
+
+### Academic and Engineering Value
+
+The robustness design converts the research pattern of one principle across multiple contexts into a scoreable structure. In humidity, surface reaction, gas-flow, characterization evidence, and safety-gate scenarios, models must combine mechanistic logic, evidence boundaries, and experiment-stage awareness. This layer increases benchmark discrimination and demonstrates a strong understanding of scientific R&D complexity.

@@ -31,7 +31,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-001-R02",
@@ -65,7 +65,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-001-R03",
@@ -99,7 +99,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-002-R01",
@@ -133,7 +133,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-002-R02",
@@ -167,7 +167,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-002-R03",
@@ -201,7 +201,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-003-R01",
@@ -235,7 +235,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-003-R02",
@@ -269,7 +269,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-003-R03",
@@ -303,7 +303,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-004-R01",
@@ -337,7 +337,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-004-R02",
@@ -371,7 +371,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-004-R03",
@@ -405,7 +405,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-007-R01",
@@ -439,7 +439,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-007-R02",
@@ -473,7 +473,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-007-R03",
@@ -507,7 +507,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-009-R01",
@@ -541,7 +541,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-009-R02",
@@ -575,7 +575,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-009-R03",
@@ -609,7 +609,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-028-R01",
@@ -643,7 +643,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-028-R02",
@@ -677,7 +677,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-028-R03",
@@ -711,7 +711,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-034-R01",
@@ -745,7 +745,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-034-R02",
@@ -779,7 +779,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-034-R03",
@@ -813,7 +813,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-035-R01",
@@ -847,7 +847,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-035-R02",
@@ -881,7 +881,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-035-R03",
@@ -915,7 +915,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-036-R01",
@@ -949,7 +949,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-036-R02",
@@ -983,7 +983,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-036-R03",
@@ -1017,7 +1017,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-086-R01",
@@ -1051,7 +1051,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-086-R02",
@@ -1085,7 +1085,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-086-R03",
@@ -1119,7 +1119,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-097-R01",
@@ -1153,7 +1153,7 @@
       "robustness",
       "paraphrase"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-097-R02",
@@ -1187,7 +1187,7 @@
       "robustness",
       "distractor"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-097-R03",
@@ -1221,7 +1221,7 @@
       "robustness",
       "contradiction"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-097-R04",
@@ -1255,7 +1255,7 @@
       "robustness",
       "adversarial_safety"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-086-R04",
@@ -1289,7 +1289,7 @@
       "robustness",
       "adversarial_safety"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-028-R04",
@@ -1323,7 +1323,7 @@
       "robustness",
       "tool_observation_shift"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   },
   {
     "id": "SGS-004-R04",
@@ -1357,6 +1357,6 @@
       "robustness",
       "tool_observation_shift"
     ],
-    "benchmark_version": "SGS-100-robustness-v1"
+    "benchmark_version": "mini-benchmark-0.4.0-robustness"
   }
 ]

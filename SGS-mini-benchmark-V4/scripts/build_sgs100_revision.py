@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the SGS-100 cleaned release and robustness artifacts."""
+"""Build mini-benchmark 0.4.0 cleaned release and robustness artifacts."""
 
 from __future__ import annotations
 
@@ -12,6 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+MAIN_VERSION = "mini-benchmark-0.4.0"
+ROBUSTNESS_VERSION = "mini-benchmark-0.4.0-robustness"
 BENCHMARK = ROOT / "data/benchmark.json"
 CLEAN_CSV = ROOT / "data/benchmark_sgs100_clean.csv"
 CLEAN_JSON = ROOT / "data/benchmark_sgs100_clean.json"
@@ -471,7 +473,7 @@ def variant_record(
         "tool_observation": tool_observation,
         "safety_boundary": safety_boundary,
         "tags": list(parent.get("tags", [])) + ["robustness", variant_type],
-        "benchmark_version": "SGS-100-robustness-v1",
+        "benchmark_version": ROBUSTNESS_VERSION,
     }
 
 
@@ -835,7 +837,7 @@ def write_reports(tasks: list[dict[str, object]], variants: list[dict[str, objec
         "",
         "## Scope",
         "",
-        "This report documents the cleaned SGS-100 V4 main set after the rubric and consistency-field revision.",
+        "This report documents the mini-benchmark 0.4.0 main set after the rubric and consistency-field revision.",
         "",
         "| Metric | Value |",
         "|---|---:|",

@@ -1,51 +1,25 @@
-# Safety and Privacy
+# Safety And Privacy
 
-## Privacy Principles
+## 中文
 
-This benchmark is built from abstract materials R&D problem types with private details removed. It does not disclose proprietary experimental details.
+mini-benchmark 0.4.0 采用安全抽象写作方式。数据保留研发判断、证据关系、材料类别、测试阶段和合规 gate，同时对配方、供应链、样品标识和高风险操作细节进行抽象。
 
-The dataset does not include:
-
-- Private formulation ratios.
-- Private sample IDs.
-- Customer or supplier-sensitive information.
-- Internal experimental raw data.
-- Non-public performance conclusions.
-- Reproducible hazardous procedures.
-
-## Private Dependency Levels
-
-| Level | Meaning |
+| Area | Treatment |
 |---|---|
-| `none` | Public or general domain knowledge |
-| `analog` | Similar workflow pattern, abstracted and de-identified |
-| `seed_entity` | A reagent, gas, instrument, or method used as a generic entity seed |
-| `private_combination` | A private formulation combination, ratio, sample ID, or conclusion |
+| Hazardous gases | 以安全边界和合规判断形式呈现 |
+| Private formulations | 以路线、变量和评价指标形式抽象 |
+| Supplier or customer details | 以通用研发语境表达 |
+| Experimental procedures | 聚焦判断规则、记录项和 go/no-go gate |
+| Public communication | 强调脱敏、抽象化和证据边界 |
 
-Current dataset counts:
+## English
 
-- `none`: 86
-- `analog`: 6
-- `seed_entity`: 8
-- `private_combination`: 0
+mini-benchmark 0.4.0 uses safety-aware abstraction. The dataset preserves research judgment, evidence relations, material categories, evaluation stages, and compliance gates while abstracting formulation details, supply-chain data, sample identifiers, and high-risk operational specifics.
 
-## Safety Scope
-
-Safety questions are evaluation items, not SOPs. They are intentionally written to test whether a model recognizes when to refuse, escalate, or require engineering controls.
-
-The benchmark avoids giving actionable hazardous procedures. It emphasizes:
-
-- Go/no-go conditions.
-- Engineering controls.
-- Tail-gas treatment.
-- Authorization and SOP requirements.
-- Waste classification.
-- Evidence and safety boundaries.
-
-## High-Risk Failure Examples
-
-- Recommending open-bench chlorine generation.
-- Suggesting toxic gas tests without alarm, ventilation, and tail-gas controls.
-- Treating odor as a safety monitor.
-- Disposing silver-containing waste down the drain.
-- Scaling hazardous solvent use without substitution and exposure review.
+| Area | Treatment |
+|---|---|
+| Hazardous gases | Presented through safety-boundary and compliance judgment |
+| Private formulations | Abstracted into routes, variables, and evaluation metrics |
+| Supplier or customer details | Expressed through general R&D context |
+| Experimental procedures | Focused on decision rules, records, and go/no-go gates |
+| Public communication | Centered on de-identification, abstraction, and evidence boundaries |

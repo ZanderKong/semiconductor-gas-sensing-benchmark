@@ -1,24 +1,21 @@
 # Dataset Card
 
-## Active Dataset
+## 中文
 
-The active V4 dataset is `data/benchmark.json`, a 100-item Chinese benchmark for semiconductor gas-sensing materials R&D. `data/benchmark.csv` is the table-review export of the same items.
-
-`data/benchmark_sgs100_clean.csv` is the clean main-set export with consistency fields.
-
-`data/free_response_rubrics.json` stores detailed rubrics for the 18 free-response items.
-
-`data/benchmark_sgs100_robustness.csv` stores a separate robustness layer and is not mixed into primary accuracy.
-
-## Size
-
-| Split | Count |
+| Item | Value |
 |---|---:|
-| Multiple-choice | 82 |
-| Free-response | 18 |
-| Total | 100 |
+| Dataset | Semiconductor Gas-Sensing Mini-Benchmark |
+| Version | 0.4.0 |
+| Main set | 100 items |
+| Multiple-choice | 82 items |
+| Free-response | 18 items |
+| Robustness layer | 40 items |
+| Language | Chinese |
+| Domain | Semiconductor gas-sensing materials R&D |
 
-## Domain Distribution
+### 数据构成
+
+主集按照 ChemBench mini 的题型比例映射到半导体气敏材料场景，覆盖有机化学、物理化学、无机化学、材料科学、通用化学、分析化学、技术化学、毒性与安全八个领域。
 
 | Domain | Count |
 |---|---:|
@@ -31,39 +28,35 @@ The active V4 dataset is `data/benchmark.json`, a 100-item Chinese benchmark for
 | technical_chemistry | 10 |
 | toxicity_and_safety | 8 |
 
-The type and domain distributions follow the ChemBench mini subset proportions after rounding to a 100-item semiconductor gas-sensing benchmark.
+### 设计原则
 
-## MCQ Constraints
+- MCQ 采用四选项结构，答案分布为 A=21、B=21、C=20、D=20。
+- 选项保持长度均衡，并以真实研发中可能出现的局部合理动作构造 distractor。
+- Free-response 采用 10 分制 rubric，强调问题框定、证据边界、实验设计、决策逻辑和安全隐私。
+- Robustness variants 与主集分离，用于检验判断原则在相邻场景中的稳定性与条件敏感性。
+- 数据采用安全抽象表达，保留专业判断变量、证据关系和合规 gate。
 
-All active MCQ items use four options. The active validation gate checks that:
+## English
 
-- every option has at least 10 Chinese characters;
-- longest / shortest option length is at most 1.5;
-- the correct option is not the longest option;
-- A/B/C/D answers are balanced at 21 / 21 / 20 / 20;
-- option text avoids obvious answer-leakage terms;
-- every option has a rationale explaining when it is locally plausible and why it is or is not the best current action.
+| Item | Value |
+|---|---:|
+| Dataset | Semiconductor Gas-Sensing Mini-Benchmark |
+| Version | 0.4.0 |
+| Main set | 100 items |
+| Multiple-choice | 82 items |
+| Free-response | 18 items |
+| Robustness layer | 40 items |
+| Language | Chinese |
+| Domain | Semiconductor gas-sensing materials R&D |
 
-## Consistency Groups
+### Composition
 
-Every main-set item includes `variant_type`, `parent_task_id`, `expected_consistency`, `consistency_group_id`, and `consistency_check`.
+The main set maps ChemBench mini-style proportions into semiconductor gas-sensing materials scenarios. It covers organic chemistry, physical chemistry, inorganic chemistry, materials science, general chemistry, analytical chemistry, technical chemistry, and toxicity/safety.
 
-Main-set items use `variant_type=base`.
+### Design Principles
 
-Selected base items anchor robustness groups.
-
-Robustness variants test paraphrase stability, distractor resistance, contradiction sensitivity, adversarial safety behavior, and tool-result integration.
-
-## Free-Response Rubrics
-
-Each free-response item contains a richer materials R&D scenario.
-
-Each free-response item has a 10-point rubric.
-
-Each rubric scores problem framing, evidence boundary, experimental design, decision logic, and safety/privacy.
-
-Each free-response item includes key points, hard fails, and common failure modes.
-
-## Safety And Privacy
-
-The dataset uses public knowledge and abstracted R&D situations. It does not include private formulas, customer information, sensitive procurement data, or actionable hazardous-gas SOPs.
+- MCQ items use four options with an answer distribution of A=21, B=21, C=20, D=20.
+- Options are length-balanced and use locally plausible distractors grounded in realistic R&D actions.
+- Free-response items use 10-point rubrics for problem framing, evidence boundaries, experimental design, decision logic, and safety/privacy.
+- Robustness variants are evaluated separately from main-set accuracy to measure stability and condition sensitivity.
+- The dataset uses safety-aware abstraction while preserving professional reasoning variables, evidence relationships, and compliance gates.

@@ -1,28 +1,37 @@
 # Scoring Rubric
 
-## Multiple-Choice Items
+## 中文
 
-MCQ items are scored with exact A/B/C/D matching. The answer alone is not the full diagnostic signal; each item also includes:
+| Task Type | Scoring |
+|---|---|
+| Multiple-choice | A/B/C/D exact match with domain metadata for breakdown analysis |
+| Free-response | 10-point rubric across five dimensions |
+| Robustness variants | Accuracy plus consistency, distractor resistance, condition update, safety boundary, and tool update |
 
-- `option_profiles`;
-- `option_rationales`;
-- `failure_mode`;
-- `scenario_stage`;
-- `tool_type`;
-- optional `consistency_group_id`.
+Free-response rubric:
 
-Badcase analysis should report both the wrong option and the reason that option is locally plausible but not optimal in the current context.
+| Dimension | Points |
+|---|---:|
+| problem_framing | 2 |
+| evidence_boundary | 2 |
+| experimental_design | 2 |
+| decision_logic | 2 |
+| safety_and_privacy | 2 |
 
-## Free-Response Items
+## English
 
-Free-response items use rubric-based scoring. A strong answer should:
+| Task Type | Scoring |
+|---|---|
+| Multiple-choice | A/B/C/D exact match with domain metadata for breakdown analysis |
+| Free-response | 10-point rubric across five dimensions |
+| Robustness variants | Accuracy plus consistency, distractor resistance, condition update, safety boundary, and tool update |
 
-- answer the requested decision or calculation;
-- state the relevant evidence boundary;
-- identify missing controls or confounders;
-- stay within safety and privacy limits;
-- provide an actionable next step when the prompt asks for one.
+Free-response rubric:
 
-## Consistency Analysis
-
-Items with the same `consistency_group_id` should be reviewed together. A model that answers each item in isolation but flips the underlying principle across variants should be marked for consistency review.
+| Dimension | Points |
+|---|---:|
+| problem_framing | 2 |
+| evidence_boundary | 2 |
+| experimental_design | 2 |
+| decision_logic | 2 |
+| safety_and_privacy | 2 |

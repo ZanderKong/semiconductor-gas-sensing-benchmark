@@ -1,4 +1,0 @@
-model_id,failure_mode,count
-gpt-5.5,robustness_paraphrase,2
-gpt-5.5,robustness_distractor,2
-gpt-5.5,robustness_contradiction,1

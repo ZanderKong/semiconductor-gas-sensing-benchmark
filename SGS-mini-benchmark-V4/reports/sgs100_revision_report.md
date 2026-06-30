@@ -1,50 +1,49 @@
 # SGS-100 Revision Report
 
-Report date: 2026-06-30
+## 中文
 
-## Scope
+### 修订目标
 
-This report documents the cleaned SGS-100 V4 main set after the rubric and consistency-field revision.
+0.4.0 版本将题库收敛为结构清晰、比例稳定、可自动校验的 SGS-100 主集。修订重点包括题型比例、选项质量、rubric 结构、consistency fields 和安全抽象表达。
+
+### 主集结构
 
 | Metric | Value |
 |---|---:|
 | Main-set item count | 100 |
 | Multiple-choice items | 82 |
 | Free-response items | 18 |
+| Answer distribution | A=21, B=21, C=20, D=20 |
+| Domain coverage | 8 domains |
 
-## MCQ Checks
+### 修订成果
 
-Answer distribution is A=21, B=21, C=20, D=20.
-The maximum option-length ratio is 1.5.
-The correct-option length-rank distribution is {2: 33, 3: 22, 4: 27}.
-Option-length violations are 0.
+- MCQ 选项完成长度均衡和局部合理性重构。
+- 每道 MCQ 配置 option-level rationale，用于解释选项在当前语境中的优先级。
+- 每道主集题目配置 consistency fields，为 robustness 扩展提供 parent linkage。
+- 每道 free-response 配置 10 分制 rubric、key points、risk gates 和 scoring notes。
+- 数据文件同时提供 JSON 与 CSV 版本，服务自动评测和人工审阅。
 
-## Free-Response Revision
+## English
 
-| Item | Ability Target | Rubric Complete | Hard Fails |
-|---|---|---:|---:|
-| SGS-018 | 路线取舍与安全脱敏的受体初筛规则。 | yes | 3 |
-| SGS-019 | 空白漂移的机理拆分与互斥验证。 | yes | 3 |
-| SGS-030 | 动力学计算结果的证据边界判断。 | yes | 3 |
-| SGS-031 | 响应快但恢复慢的动力学验证设计。 | yes | 3 |
-| SGS-032 | 湿度可补偿性和使用边界判断。 | yes | 3 |
-| SGS-033 | 流量变化下响应峰值和速度的异常诊断。 | yes | 3 |
-| SGS-044 | CuO-H2S 强响应和差恢复的机理边界。 | yes | 3 |
-| SGS-045 | 贵金属修饰 SnO2 的最小对照矩阵。 | yes | 3 |
-| SGS-046 | 氧空位参与 NO2 响应的证据边界。 | yes | 3 |
-| SGS-047 | 室温可穿戴 NH3 路线取舍。 | yes | 3 |
-| SGS-060 | H2S 多路线材料矩阵和产品边界。 | yes | 3 |
-| SGS-061 | 小试进入器件样机的准入 gate。 | yes | 3 |
-| SGS-072 | 配气计算思路与非计算误差边界。 | yes | 3 |
-| SGS-081 | NO2 最小验证表与判定规则。 | yes | 3 |
-| SGS-082 | 异常器件处理和数据完整性。 | yes | 3 |
-| SGS-092 | 纸带连续浸渍小试放大的 DOE 设计。 | yes | 3 |
-| SGS-099 | 高危气体测试前的 go/no-go 安全边界。 | yes | 3 |
-| SGS-100 | 公开项目说明的脱敏和安全边界。 | yes | 3 |
+### Revision Objective
 
-## Manual Review Items
+Version 0.4.0 consolidates the benchmark into a clean, proportionally stable, and automatically validated SGS-100 main set. The revision focuses on type balance, option quality, rubric structure, consistency fields, and safety-aware abstraction.
 
-- SGS-097 修正了选项文本，使 gold answer 与安全 rationale 对齐。
-- SGS-098 修正了选项文本，使 gold answer 与纳米粉体暴露 rationale 对齐。
-- Frontier MCQ results are recorded in `reports/model_diagnostic_report_frontier.md` and `results/frontier/`.
-- Robustness evaluation results are recorded in `reports/model_diagnostic_report_robustness_frontier.md` and `results/robustness/`.
+### Main-Set Structure
+
+| Metric | Value |
+|---|---:|
+| Main-set item count | 100 |
+| Multiple-choice items | 82 |
+| Free-response items | 18 |
+| Answer distribution | A=21, B=21, C=20, D=20 |
+| Domain coverage | 8 domains |
+
+### Revision Outcomes
+
+- Rebuilt MCQ options for length balance and local plausibility.
+- Added option-level rationales to explain priority within each local context.
+- Added consistency fields to every main-set item for robustness linkage.
+- Added 10-point rubrics, key points, risk gates, and scoring notes to every free-response item.
+- Provided both JSON and CSV exports for automatic evaluation and table-based review.

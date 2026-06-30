@@ -1,2 +1,0 @@
-id,model_id,provider,answer,elapsed_seconds,error
-,kimi-k2.7-code,openai_compatible,,,<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>

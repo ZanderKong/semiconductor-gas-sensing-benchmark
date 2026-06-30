@@ -1,7 +1,0 @@
-model_id,group,correct,total,accuracy
-deepseek-v4-pro,no_tool,18,21,0.8571
-deepseek-v4-pro,protocol_checklist,9,15,0.6
-deepseek-v4-pro,safety_reference,3,4,0.75
-mimo-v2.5-pro,no_tool,20,21,0.9524
-mimo-v2.5-pro,protocol_checklist,14,15,0.9333
-mimo-v2.5-pro,safety_reference,2,4,0.5

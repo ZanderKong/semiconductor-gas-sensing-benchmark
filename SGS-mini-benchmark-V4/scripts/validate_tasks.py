@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compatibility validator for the active SGS-100 V4 task file."""
+"""Compatibility validator for the active mini-benchmark 0.4.0 task file."""
 
 from __future__ import annotations
 

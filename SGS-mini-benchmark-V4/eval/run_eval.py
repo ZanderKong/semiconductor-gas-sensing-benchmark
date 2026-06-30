@@ -318,7 +318,7 @@ def write_manifest(path, args, rows, models, output_rows, started_at, finished_a
         "run_id": f"mcq-{started_at.strftime('%Y%m%dT%H%M%SZ')}",
         "created_at": started_at.isoformat(),
         "finished_at": finished_at.isoformat(),
-        "benchmark_version": "SGS-100-v4-final",
+        "benchmark_version": "mini-benchmark-0.4.0",
         "task_file": display_path(benchmark_path),
         "task_set_hash": sha256_file(benchmark_path),
         "question_type": args.question_type,

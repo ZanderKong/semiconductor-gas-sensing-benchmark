@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Acceptance lint for the SGS-100 V4 cleaned release."""
+"""Acceptance lint for mini-benchmark 0.4.0."""
 
 from __future__ import annotations
 
@@ -31,10 +31,14 @@ ALLOWED_EXPECTED = {
     "tool_result_followed",
 }
 REQUIRED_REPORTS = [
+    "reports/benchmark_design_report.md",
+    "reports/mcq_quality_report.md",
+    "reports/model_diagnostic_report.md",
+    "reports/model_evaluation_recap.md",
+    "reports/project_review_report.md",
     "reports/sgs100_revision_report.md",
     "reports/sgs100_robustness_report.md",
     "reports/sgs100_completion_audit.md",
-    "reports/kimi_connection_probe.md",
 ]
 REQUIRED_DOCS = [
     "docs/robustness_variant_design.md",
@@ -264,7 +268,7 @@ def main() -> None:
 
     if errors:
         raise SystemExit("\n".join(errors))
-    print("SGS-100 acceptance lint passed")
+    print("mini-benchmark 0.4.0 acceptance lint passed")
     print(f"Main set: {len(tasks)} tasks")
     print(f"Robustness variants: {len(robust_rows)}")
     print(f"Free-response rubrics: {len(rubrics)}")

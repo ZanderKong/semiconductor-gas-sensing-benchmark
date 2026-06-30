@@ -1,4 +1,0 @@
-model_id,group,correct,total,accuracy
-gpt-5.5,no_tool,21,21,1.0
-gpt-5.5,protocol_checklist,11,15,0.7333
-gpt-5.5,safety_reference,3,4,0.75

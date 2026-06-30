@@ -1,13 +1,23 @@
 # Changelog
 
-## v4.0.0 - SGS-100 Final Dataset
+## mini-benchmark 0.4.0
 
-- Added `data/benchmark.json` as the single active benchmark file.
-- Added `data/benchmark.csv` as the table review format.
-- Consolidated the active release to 100 items.
-- Matched the ChemBench mini type proportions after rounding: 82 multiple-choice items and 18 free-response items.
-- Preserved the ChemBench-like domain proportions in semiconductor gas-sensing form.
-- Rewrote MCQ options to satisfy length balance, local-plausibility, anti-leakage, and answer-balance constraints.
-- Added consistency groups for humidity drift, carrier direction, data-boundary reasoning, and toxic-gas safety.
-- Updated default runner, scorer, validation, README, dataset card, overview, methodology, and scoring rubric to use SGS-100.
-- Kept V3 as the repository root project and placed V4 in this independent subfolder.
+### 中文
+
+- 发布 SGS-100 主评测集，包含 82 道 multiple-choice 和 18 道 free-response。
+- 建立 40 道 robustness variants，用于检验表达改写、干扰信息、条件变化、安全诱导和工具观察更新。
+- 为全部 free-response 题目配置 10 分制 rubric、key points、risk gates 和 common scoring notes。
+- 完成 MCQ 选项重构，实现四选项长度均衡、答案分布均衡和局部合理 distractor。
+- 完成自动化验收脚本，覆盖题量比例、领域分布、选项质量、rubric 结构、robustness parent linkage 和安全抽象规则。
+- 完成 GPT-5.5、MiMo v2.5 Pro 和 DeepSeek V4 Pro 的主集与 robustness 评测摘要。
+- 重构 README、dataset card、HR review guide 和报告体系，形成适合 GitHub、简历项目集和技术面试使用的专业展示版本。
+
+### English
+
+- Released the SGS-100 main benchmark with 82 multiple-choice items and 18 free-response items.
+- Added 40 robustness variants covering paraphrase, distractor, contradiction, adversarial safety, and tool-observation shifts.
+- Added 10-point rubrics, key points, risk gates, and scoring notes for all free-response items.
+- Rebuilt MCQ options with balanced option length, balanced answer distribution, and locally plausible distractors.
+- Added automated acceptance checks for dataset size, domain distribution, option quality, rubric structure, robustness linkage, and safety abstraction.
+- Curated main-set and robustness evaluation summaries for GPT-5.5, MiMo v2.5 Pro, and DeepSeek V4 Pro.
+- Rebuilt the reader-facing documentation for GitHub, portfolio review, and technical interviews.

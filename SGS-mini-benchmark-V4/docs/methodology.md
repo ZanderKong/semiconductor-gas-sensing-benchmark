@@ -1,29 +1,25 @@
 # Methodology
 
-## Design Goal
+## 中文
 
-SGS-100 V4 is designed as a compact, portfolio-facing benchmark for semiconductor gas-sensing materials R&D. It keeps the total size at 100 items while preserving a ChemBench-like balance between automatically scored MCQ items and open-ended reasoning items.
+mini-benchmark 0.4.0 的方法论由三层组成。
 
-## Proportioning
+| Layer | Method |
+|---|---|
+| Domain abstraction | 从半导体气敏材料研发中抽象任务变量、证据关系和安全边界 |
+| Evaluation construction | 将任务组织为 MCQ、free-response 和 robustness variants |
+| Validation engineering | 用 schema、validation、lint 和 scorer 保证数据结构和评测流程可复核 |
 
-The active dataset uses the ChemBench mini subset as the reference for broad chemistry coverage:
+题目设计强调真实研发语境：同一材料现象可能同时涉及吸附、扩散、载流子、湿度、表征分辨率、读数窗口和工艺约束。评测要求模型在这些变量之间做出阶段性取舍。
 
-- 82 multiple-choice items.
-- 18 free-response items.
-- 8 chemistry/materials domains mapped into gas-sensing scenarios.
+## English
 
-The domain counts are rounded to 100 items and then rewritten as semiconductor gas-sensing tasks.
+mini-benchmark 0.4.0 uses a three-layer methodology.
 
-## MCQ Hardening
+| Layer | Method |
+|---|---|
+| Domain abstraction | Extract task variables, evidence relations, and safety boundaries from semiconductor gas-sensing R&D |
+| Evaluation construction | Organize tasks into MCQ, free-response, and robustness variants |
+| Validation engineering | Use schema, validation, linting, and scoring utilities for auditable evaluation |
 
-The MCQ layer was rewritten to reduce answer leakage:
-
-- four options have similar Chinese-character lengths;
-- every option is locally plausible under some premise;
-- wrong options represent stage errors, overextended evidence, unresolved uncertainty, secondary metrics, conservative-but-unanswering safety moves, or process changes that introduce new confounders;
-- correct answers are balanced across A/B/C/D;
-- option rationales explain both local plausibility and current-context priority.
-
-## Consistency Probes
-
-Some items are deliberately grouped into nearby variants. These groups test whether the model maintains stable principles across related settings, for example humidity drift, n-type/p-type response direction, data-boundary claims, and toxic-gas safety escalation.
+The item design reflects realistic R&D context: one material observation can involve adsorption, diffusion, carrier behavior, humidity, characterization resolution, readout windows, and process constraints. The benchmark asks models to make stage-aware balanced decisions across these variables.

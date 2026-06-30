@@ -5,8 +5,5 @@ __pycache__/
 config.local.yaml
 results/raw_model_outputs*/
 results/evaluator_reviews/
-
-# Generated run artifacts. Keep the curated demo sample in the repository.
-results/runs/*
-!results/runs/demo/
-!results/runs/demo/**
+results/runs/
+results/scored_mcq/

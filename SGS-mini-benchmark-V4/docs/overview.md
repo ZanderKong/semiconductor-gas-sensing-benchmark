@@ -1,51 +1,17 @@
 # Overview
 
-SGS-100 V4 is a 100-item Chinese benchmark for semiconductor gas-sensing materials R&D.
+## 中文
 
-The benchmark evaluates model behavior across:
+Semiconductor Gas-Sensing Mini-Benchmark 0.4.0 是一个面向半导体气敏材料研发任务的中文 benchmark。它把材料选择、传感机理、表征解释、实验设计、数据质量、安全边界和公开写作脱敏转化为结构化评测任务。
 
-- literature and evidence transfer;
-- mechanism-boundary judgment;
-- experiment and control design;
-- abnormal-result diagnosis;
-- gas-mixing and table calculation;
-- safety-boundary decisions;
-- process scale-up and productization gates;
-- tool-use judgment.
+项目的核心目标是评价模型能否在专业场景中做出可靠判断：能否识别证据边界，能否设计必要对照，能否处理湿度、温度、流量、基线漂移、选择性和可逆性等真实研发变量，能否在高风险场景中保持安全抽象和合规意识。
 
-## Active Files
+SGS-100 主集包含 100 道题，其中 82 道 MCQ 用于自动评分，18 道 free-response 用于 rubric-based 评审。Robustness 层包含 40 道 variants，用于检验模型在表达变化、干扰信息、条件改写和工具观察变化下的判断稳定性。
 
-| File | Purpose |
-|---|---|
-| `data/benchmark.json` | Active 100-item benchmark |
-| `data/benchmark.csv` | Table-review export of the same benchmark |
-| `data/benchmark_sgs100_clean.csv` | Clean main-set export with consistency fields |
-| `data/free_response_rubrics.json` | Detailed 10-point rubrics for all free-response items |
-| `data/benchmark_sgs100_robustness.csv` | Separate robustness variants for consistency diagnostics |
-| `docs/dataset_card.md` | Dataset size, distribution, constraints, and safety notes |
-| `docs/robustness_variant_design.md` | Robustness variant definitions and reporting logic |
-| `docs/free_response_rubric_design.md` | Free-response rubric structure and hard-fail policy |
-| `scripts/validate_benchmark.py` | Active benchmark validation |
-| `scripts/lint_sgs100_benchmark.py` | Acceptance lint for main set, rubrics, variants, reports, and docs |
-| `eval/run_eval.py` | Real-model MCQ runner |
-| `eval/score_mcq.py` | MCQ scorer and report generator |
+## English
 
-## Dataset Shape
+Semiconductor Gas-Sensing Mini-Benchmark 0.4.0 is a Chinese benchmark for semiconductor gas-sensing R&D reasoning. It converts materials selection, sensing mechanisms, characterization interpretation, experimental design, data quality, safety boundaries, and public-facing research abstraction into structured evaluation tasks.
 
-SGS-100 follows the ChemBench mini proportions after rounding:
+The benchmark evaluates whether a model can make grounded professional judgments: identify evidence boundaries, design useful controls, reason about humidity, temperature, flow rate, baseline drift, selectivity, reversibility, and maintain safety-aware abstraction in high-risk scenarios.
 
-| Type | Count |
-|---|---:|
-| Multiple-choice | 82 |
-| Free-response | 18 |
-| Total | 100 |
-
-The 82 MCQ items are designed to be more discriminative for strong models by using locally plausible distractors and balanced option lengths.
-
-## Diagnostic Layers
-
-The main set remains the source for primary MCQ accuracy and free-response judging.
-
-The robustness layer is reported separately from main-set accuracy.
-
-The free-response layer uses 10-point rubrics with explicit problem framing, evidence boundary, experimental design, decision logic, and safety/privacy criteria.
+The SGS-100 main set contains 100 items: 82 multiple-choice items for automatic scoring and 18 free-response items for rubric-based review. The robustness layer adds 40 variants to measure stability under paraphrase, distractors, condition changes, and tool-observation updates.

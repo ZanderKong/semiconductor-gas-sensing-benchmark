@@ -1,20 +1,22 @@
 .PHONY: demo validate lint report eval-mcq score-mcq
 
+V4_DIR := SGS-mini-benchmark-V4
+
 demo:
-	python3 -m eval.runner --config eval/configs/demo.yaml
+	$(MAKE) -C $(V4_DIR) demo
 
 validate:
-	python3 scripts/validate_tasks.py
-	python3 scripts/validate_v3_alpha_distribution.py
+	$(MAKE) -C $(V4_DIR) validate
 
 lint:
-	python3 scripts/lint_benchmark.py
+	$(MAKE) -C $(V4_DIR) lint
+	$(MAKE) -C $(V4_DIR) lint-sgs100
 
 report:
-	python3 -m eval.reporting.generate_report --run-dir results/runs/demo
+	$(MAKE) -C $(V4_DIR) report
 
 eval-mcq:
-	python3 eval/run_eval.py --models gpt-5.5 'openai_compatible|deepseek-v4-pro|https://api.deepseek.com|DEEPSEEK_API_KEY|disabled'
+	$(MAKE) -C $(V4_DIR) eval-mcq
 
 score-mcq:
-	python3 eval/score_mcq.py
+	$(MAKE) -C $(V4_DIR) score-mcq

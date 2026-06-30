@@ -3,11 +3,20 @@ __pycache__/
 .DS_Store
 .env
 config.local.yaml
-results/raw_model_outputs/
-results/raw_model_outputs_smoke/
-results/raw_model_outputs_kimi_probe/
+* 2.*
 
-# Generated run artifacts. Keep the curated demo sample in the repository.
-results/runs/*
-!results/runs/demo/
-!results/runs/demo/**
+# Local model traces and generated evaluation artifacts.
+/results/
+SGS-mini-benchmark-V4/results/raw_model_outputs*/
+SGS-mini-benchmark-V4/results/**/raw_model_outputs*/
+SGS-mini-benchmark-V4/results/runs/*
+SGS-mini-benchmark-V4/results/scored_mcq/
+!SGS-mini-benchmark-V4/results/README.md
+!SGS-mini-benchmark-V4/results/main_model_summary.csv
+!SGS-mini-benchmark-V4/results/robustness_model_summary.csv
+!SGS-mini-benchmark-V4/results/robustness_metrics.csv
+!SGS-mini-benchmark-V4/results/evaluation_summary.json
+
+# Local review scratch files.
+SGS-mini-benchmark-V4/eval/llm_reviews/
+SGS-mini-benchmark-V4/.env

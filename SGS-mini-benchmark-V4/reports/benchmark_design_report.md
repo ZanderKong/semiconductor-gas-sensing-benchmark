@@ -1,68 +1,57 @@
 # Benchmark Design Report
 
-## Design Goal
+## 中文
 
-SGS-100 V4 turns semiconductor gas-sensing R&D judgment into a compact, structured, and reproducible benchmark.
+### 设计定位
 
-## Key Design Decisions
+Semiconductor Gas-Sensing Mini-Benchmark 0.4.0 将半导体气敏材料研发中的核心判断任务转化为结构化评测资产。它关注模型在专业问题中的判断质量，而非单纯事实回忆。评测对象包括材料路线取舍、传感机理解释、表征证据边界、实验对照设计、数据质量评估、工艺放大判断和安全合规表达。
 
-- Use ChemBench mini proportions as the high-level shape: 82 multiple-choice and 18 free-response items.
-- Rewrite all content for semiconductor gas-sensing materials rather than generic chemistry trivia.
-- Make each MCQ option a concrete research action, judgment, or validation direction.
-- Require distractors to be locally plausible and only contextually non-prioritized, insufficient, or overextended.
-- Track workflow stage, tool type, failure mode, safety boundary, and option-level rationale.
-- Add explicit consistency fields to every main-set item.
-- Add a separate robustness layer for paraphrase, distractor, contradiction, adversarial safety, and tool-observation diagnostics.
-- Upgrade every free-response item with a 10-point rubric, key points, hard fails, and common failure modes.
-- Preserve V3 in the repository root while publishing V4 as an independent subfolder.
+### 任务结构
 
-## V4 Implementation
+| Layer | Count | 设计作用 |
+|---|---:|---|
+| Main MCQ | 82 | 自动评分，检验专业判断和局部语境优先级 |
+| Free-response | 18 | Rubric 评分，检验研究问题组织和实验设计能力 |
+| Robustness variants | 40 | 检验表达改写、干扰信息、条件变化和工具观察更新 |
 
-| Layer | Implementation |
-|---|---|
-| Active data | `data/benchmark.json` and `data/benchmark.csv` |
-| Clean export | `data/benchmark_sgs100_clean.csv` and `data/benchmark_sgs100_clean.json` |
-| Robustness data | `data/benchmark_sgs100_robustness.csv` and `data/benchmark_sgs100_robustness.json` |
-| Free-response rubrics | `data/free_response_rubrics.json` |
-| Schema | `data/schema.json` |
-| Scoring | `docs/scoring_v4.md` and `docs/dimension_definition.md` |
-| Hard Gate | `docs/hard_gates.md` |
-| Judge protocol | `docs/judge_protocol.md` |
-| Trace and reproducibility | `docs/reproducibility_and_trace.md` |
-| Agent mode | `docs/agent_modes.md` |
-| Robustness design | `docs/robustness_variant_design.md` |
-| Free-response rubric design | `docs/free_response_rubric_design.md` |
-| Demo runner | `eval/runner.py` |
-| Real-model MCQ runner | `eval/run_eval.py` |
-| MCQ scorer | `eval/score_mcq.py` |
-| Validation | `scripts/validate_benchmark.py`, `scripts/lint_benchmark.py`, and `scripts/lint_sgs100_benchmark.py` |
+### 学术训练映射
 
-## Quality Gates
+该 benchmark 把生化环材训练中的通用能力转化为可测量维度：
 
-The active validation checks item count, type distribution, domain distribution, option length balance, forbidden template phrases, answer-position balance, and option rationales.
+- 文献阅读中的证据等级判断。
+- 材料机理分析中的变量控制和边界意识。
+- 实验设计中的对照矩阵、重复性和 go/no-go 规则。
+- 分析化学中的校准、LOD、基线、干扰和数据完整性。
+- 环境与安全训练中的风险抽象、合规 gate 和公开写作脱敏。
 
-The clean-revision validation records:
+### 工程实现
 
-- answer distribution: A=21, B=21, C=20, D=20;
-- option length ratio violations: 0;
-- robustness variant count: 40;
-- free-response rubric count: 18;
-- acceptance lint status: passed.
+项目通过 JSON/CSV 数据文件、schema、validation scripts、lint scripts、model runner、MCQ scorer 和 bilingual reports 形成完整交付链路。数据结构支持自动评分、人工审阅、rubric 评审和 robustness 分层分析。
 
-## Model-Evaluation Status
+## English
 
-The latest main-set MCQ run uses `deepseek-v4-pro` and `mimo-v2.5-pro`.
+### Design Positioning
 
-MiMo scored 80/82.
+Semiconductor Gas-Sensing Mini-Benchmark 0.4.0 converts core R&D judgment tasks in semiconductor gas-sensing materials into a structured evaluation asset. It focuses on professional reasoning quality rather than factual recall. The benchmark evaluates materials route selection, sensing-mechanism interpretation, evidence boundaries, experimental controls, data quality, scale-up reasoning, and safety-aware communication.
 
-DeepSeek scored 76/82.
+### Task Structure
 
-The robustness run contains 40 variants.
+| Layer | Count | Purpose |
+|---|---:|---|
+| Main MCQ | 82 | Automatic scoring for domain judgment and local-context prioritization |
+| Free-response | 18 | Rubric-based review for research framing and experimental design |
+| Robustness variants | 40 | Stability checks under paraphrase, distractors, condition changes, and tool-observation updates |
 
-MiMo scored 36/40 on robustness variants.
+### Academic Skill Mapping
 
-DeepSeek scored 30/40 on robustness variants.
+The benchmark operationalizes transferable academic skills from chemistry, materials science, environmental safety, and biomedical-style evidence discipline:
 
-Kimi was attempted with `kimi-k2.7-code`.
+- Evidence-level judgment in literature reading.
+- Variable control and boundary awareness in mechanistic analysis.
+- Control matrices, reproducibility, and go/no-go logic in experimental design.
+- Calibration, LOD, baseline, interference, and data integrity in analytical chemistry.
+- Safety abstraction, compliance gates, and de-identified public communication.
 
-The local environment could not complete a TLS connection to the official Moonshot `.cn` endpoint, and the fallback `.ai` endpoint rejected the supplied key.
+### Engineering Implementation
+
+The package provides JSON/CSV datasets, schema, validation scripts, lint scripts, a model runner, an MCQ scorer, and bilingual reports. The structure supports automatic scoring, table review, rubric-based review, and layered robustness analysis.

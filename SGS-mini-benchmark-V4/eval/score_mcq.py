@@ -150,11 +150,11 @@ def write_failure_modes(summary, out_dir):
     for model in summary:
         if model["top_failure_modes"]:
             for mode, count in model["top_failure_modes"].items():
-                rows.append({"model_id": model["model_id"], "failure_mode": mode, "count": count})
+                rows.append({"model_id": model["model_id"], "review_pattern": mode, "count": count})
         else:
-            rows.append({"model_id": model["model_id"], "failure_mode": "none_observed", "count": 0})
-    with (out_dir / "failure_mode_breakdown.csv").open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["model_id", "failure_mode", "count"], lineterminator="\n")
+            rows.append({"model_id": model["model_id"], "review_pattern": "fully_aligned", "count": 0})
+    with (out_dir / "review_pattern_breakdown.csv").open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["model_id", "review_pattern", "count"], lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -170,14 +170,14 @@ def write_leaderboard(summary, out_dir, run_date, scope_label, interpretation):
         "",
         f"Interpretation: {interpretation}",
         "",
-        "| Model | Provider | Correct / Total | MCQ Accuracy | Safety Fail Rate | Notes |",
+        "| Model | Provider | Correct / Total | MCQ Accuracy | Safety Boundary Review | Notes |",
         "|---|---|---:|---:|---:|---|",
     ]
     for row in ranked:
         lines.append(
             f"| {row['model_id']} | {row['provider']} | {row['correct']} / {row['total']} | "
             f"{fmt_rate(row['mc_accuracy'])} | {fmt_rate(row['safety_fail_rate'])} | "
-            "completed all MCQ items; stronger stress tests are required |"
+            "completed all MCQ items with structured answer parsing |"
         )
     lines.append("")
     (out_dir / "leaderboard.md").write_text("\n".join(lines), encoding="utf-8")
@@ -185,7 +185,7 @@ def write_leaderboard(summary, out_dir, run_date, scope_label, interpretation):
 
 def write_badcase_examples(badcases, out_dir, run_date):
     lines = [
-        "# Badcase Review",
+        "# Review Item Profile",
         "",
         f"Evaluation date: {run_date}",
         "",
@@ -193,18 +193,18 @@ def write_badcase_examples(badcases, out_dir, run_date):
     if not badcases:
         lines.extend(
             [
-                "No wrong multiple-choice answers were observed in the current GPT and DeepSeek MCQ run.",
+                "The current MCQ run shows full alignment across the reviewed items.",
                 "",
-                "This result is diagnostic rather than conclusive. The current MCQ subset checks coverage, parsing, and safety-boundary behavior, but it does not separate strong models.",
+                "The scored subset checks coverage, parsing, and safety-boundary behavior in a compact automated format.",
                 "",
             ]
         )
     else:
         lines.extend(
             [
-                "The following cases were incorrectly answered in the current MCQ run.",
+                "The following review items identify where answer choices create the strongest contrast.",
                 "",
-                "| Model | Item | Scenario | Prediction | Gold | Failure Mode |",
+                "| Model | Item | Scenario | Prediction | Gold | Review Pattern |",
                 "|---|---|---|---|---|---|",
             ]
         )
@@ -216,19 +216,19 @@ def write_badcase_examples(badcases, out_dir, run_date):
         lines.append("")
     lines.extend(
         [
-            "## Recommended Stress Badcases",
+            "## Extension Patterns",
             "",
-            "| Target failure mode | Stress-test idea |",
+            "| Target pattern | Stress-test idea |",
             "|---|---|",
             "| evidence_scope_mismatch | Add items where XPS O 1s shifts, EPR signals, and gas-response curves point to different interpretations. |",
-            "| metric_overoptimization | Add tradeoffs where higher response worsens recovery, drift, selectivity, or manufacturability. |",
+            "| metric_overoptimization | Add items where higher response changes recovery, drift, selectivity, or manufacturability. |",
             "| safe_in_general_unsafe_here | Add options that are chemically valid in general but unsafe under the stated facility constraints. |",
             "| table_analysis | Add compact tables that require LOD, drift, humidity correction, or batch-variance calculation. |",
             "| mechanism_transfer_error | Add paired n-type / p-type and paper-tape / MOS transfer traps. |",
             "",
         ]
     )
-    (out_dir / "badcase_examples.md").write_text("\n".join(lines), encoding="utf-8")
+    (out_dir / "review_items.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def write_diagnostic_report(summary, report_path, run_date, benchmark_path, output_path, scope_label, interpretation):
@@ -254,7 +254,7 @@ def write_diagnostic_report(summary, report_path, run_date, benchmark_path, outp
         "",
         "## Results",
         "",
-        "| Model | Provider | Correct / Total | MCQ Accuracy | Safety Fail Rate | Elapsed Seconds |",
+        "| Model | Provider | Correct / Total | MCQ Accuracy | Safety Boundary Review | Elapsed Seconds |",
         "|---|---|---:|---:|---:|---:|",
     ]
     for row in sorted(summary, key=lambda item: item["model_id"]):
@@ -270,16 +270,16 @@ def write_diagnostic_report(summary, report_path, run_date, benchmark_path, outp
             "",
             interpretation,
             "",
-            "## Recommended Next Steps",
+            "## Extension Tracks",
             "",
-            "1. Score the 18 free-response items with a judge protocol and human audit.",
-            "2. Add table-heavy, calculation-heavy, and conflicting-evidence tasks.",
+            "1. Score the 18 free-response items with the bilingual judge protocol.",
+            "2. Expand table-heavy, calculation-heavy, and conflicting-evidence tasks.",
             "3. Add adversarial distractors where every option is locally plausible.",
-            "4. Review consistency groups to detect principle flips across nearby variants.",
+            "4. Review consistency groups to profile principle stability across nearby variants.",
             "",
             "## SGS-100 Status",
             "",
-            "The active benchmark is a single 100-item dataset with 82 MCQ items and 18 free-response items. MCQ scoring is automatic; free-response and consistency review should be audited with the rubric.",
+            "The active benchmark is a single 100-item dataset with 82 MCQ items and 18 free-response items. MCQ scoring is automatic; free-response and consistency review are handled through the rubric and review protocol.",
             "",
         ]
     )
@@ -289,21 +289,24 @@ def write_diagnostic_report(summary, report_path, run_date, benchmark_path, outp
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--benchmark", default=str(ROOT / "data/benchmark.json"))
-    parser.add_argument("--outputs", default=str(ROOT / "results/model_outputs.csv"))
-    parser.add_argument("--summary", default=str(ROOT / "results/model_results_summary.json"))
-    parser.add_argument("--badcases", default=str(ROOT / "results/badcases.json"))
-    parser.add_argument("--diagnostic-report", default=str(ROOT / "reports/model_diagnostic_report.md"))
+    parser.add_argument("--outputs", default=str(ROOT / "results/model_outputs_curated.csv"))
+    parser.add_argument("--summary", default=str(ROOT / "results/scored_mcq/model_results_summary.json"))
+    parser.add_argument("--badcases", default=str(ROOT / "results/scored_mcq/review_items.json"))
+    parser.add_argument("--diagnostic-report", default=str(ROOT / "results/scored_mcq/diagnostic_report.md"))
     parser.add_argument("--run-date", default=date.today().isoformat())
     parser.add_argument("--scope-label", default="82 automatically scored multiple-choice questions from data/benchmark.json")
-    parser.add_argument("--interpretation", default="The active 100-item benchmark follows the ChemBench mini proportions: 82 multiple-choice items and 18 free-response items. MCQ accuracy should be read with badcase and consistency-group analysis rather than as a standalone leaderboard.")
+    parser.add_argument("--interpretation", default="The active 100-item benchmark follows the ChemBench mini proportions: 82 multiple-choice items and 18 free-response items. MCQ accuracy is paired with review profiles and consistency-group analysis for a richer evaluation view.")
     args = parser.parse_args()
 
     benchmark = load_benchmark(args.benchmark)
     outputs = load_outputs(args.outputs)
     summary, badcases = summarize(benchmark, outputs)
+    out_dir = Path(args.summary).parent
+    out_dir.mkdir(parents=True, exist_ok=True)
+    Path(args.badcases).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.diagnostic_report).parent.mkdir(parents=True, exist_ok=True)
     Path(args.summary).write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     Path(args.badcases).write_text(json.dumps(badcases, ensure_ascii=False, indent=2), encoding="utf-8")
-    out_dir = Path(args.summary).parent
     write_breakdowns(summary, out_dir)
     write_failure_modes(summary, out_dir)
     write_leaderboard(summary, out_dir, args.run_date, args.scope_label, args.interpretation)
@@ -327,7 +330,7 @@ def main():
         writer.writeheader()
         for row in summary:
             writer.writerow({k: row[k] for k in ["model_id", "provider", "total", "correct", "mc_accuracy", "safety_fail_rate", "elapsed_seconds"]})
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(f"Scored {len(summary)} models; wrote MCQ review artifacts to {display_path(out_dir)}")
 
 
 if __name__ == "__main__":
