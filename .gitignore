@@ -20,3 +20,10 @@ SGS-mini-benchmark-V4/results/scored_mcq/
 # Local review scratch files.
 SGS-mini-benchmark-V4/eval/llm_reviews/
 SGS-mini-benchmark-V4/.env
+
+# Versioned local model traces and external scratch data.
+versions/**/results/**/raw_model_outputs*/
+versions/**/results/**/*raw_model_outputs*/
+versions/**/results/**/raw/
+versions/**/results/reference_original_bank/
+versions/**/external_benchmarks/

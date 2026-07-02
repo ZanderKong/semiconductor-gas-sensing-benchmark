@@ -1,0 +1,5 @@
+model_id,review_pattern,count
+deepseek-v4-pro,hybridization_local_context_miss,1
+gpt-5.5,fully_aligned,0
+mimo-v2.5-pro,acid_metal_reactivity_miss,1
+mimo-v2.5-pro,hybridization_local_context_miss,1

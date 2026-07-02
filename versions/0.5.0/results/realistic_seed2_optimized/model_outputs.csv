@@ -1,0 +1,7 @@
+id,model_id,provider,answer,elapsed_seconds,error
+SGS-REAL-001,gpt-5.5,codex_cli,A,10.03,
+SGS-REAL-002,gpt-5.5,codex_cli,C,10.03,
+SGS-REAL-001,deepseek-v4-pro,openai_compatible,A,5.67,
+SGS-REAL-002,deepseek-v4-pro,openai_compatible,C,5.67,
+SGS-REAL-001,mimo-v2.5-pro,openai_compatible,A,38.13,
+SGS-REAL-002,mimo-v2.5-pro,openai_compatible,C,38.13,

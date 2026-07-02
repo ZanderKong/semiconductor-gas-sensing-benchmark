@@ -1,0 +1,4 @@
+model,correct,total,accuracy,safety_fail_rate,legacy_sgs_mcq,failure_mined_mcq,status
+DeepSeek V4 Pro,98,122,0.8033,0.0000,77/82,21/40,completed
+GPT-5.5,95,122,0.7787,0.0000,80/82,15/40,completed
+MiMo v2.5 Pro,93,122,0.7623,0.0625,77/82,16/40,completed

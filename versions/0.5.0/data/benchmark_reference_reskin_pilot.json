@@ -1,0 +1,566 @@
+[
+  {
+    "id": "SGS-REF-001",
+    "question_type": "multiple_choice",
+    "source_pattern": "multi-step quantitative activation-energy style problem",
+    "domain": "physical_chemistry",
+    "domain_cn": "物理化学",
+    "scenario_stage": "数据处理",
+    "tool_type": "calculator",
+    "question": "某 MOS 气敏膜在同一 NO2 浓度下测得表观响应速率常数：333 K 时 k=0.018 s^-1，353 K 时 k=0.041 s^-1。若用 Arrhenius 关系做粗略估算，最接近的表观活化能是多少？R=8.314 J mol^-1 K^-1。",
+    "options": {
+      "A": "约 8 kJ mol^-1",
+      "B": "约 21 kJ mol^-1",
+      "C": "约 41 kJ mol^-1",
+      "D": "约 83 kJ mol^-1"
+    },
+    "answer": "C",
+    "answer_rationale": "ln(k2/k1)=ln(0.041/0.018)=0.823，Ea=R ln(k2/k1)/(1/T1-1/T2)，1/333-1/353≈1.70e-4，得到约 40 kJ mol^-1。该数值仍是表观量，不应直接等同单一表面反应能垒。",
+    "option_profiles": {
+      "A": "unit_or_log_error",
+      "B": "half_calculation",
+      "C": "best",
+      "D": "inverse_or_factor_error"
+    },
+    "option_rationales": {
+      "A": "常见于漏乘温度差倒数或单位处理错误。",
+      "B": "方向正确但低估约一半。",
+      "C": "数量级和计算路径均符合 Arrhenius 粗估。",
+      "D": "常见于倒数差或比例因子重复使用。"
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "calculation",
+      "arrhenius_reasoning",
+      "unit_awareness"
+    ],
+    "failure_mode": "arrhenius_numeric_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "Arrhenius",
+      "MOS",
+      "rate_constant"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-002",
+    "question_type": "multiple_choice",
+    "source_pattern": "analytical chemistry LOD calculation",
+    "domain": "analytical_chemistry",
+    "domain_cn": "分析化学",
+    "scenario_stage": "标准曲线",
+    "tool_type": "table_analysis",
+    "question": "纸带反射率读数的校准斜率为 0.082 signal/ppm，空白重复测量标准差为 0.006 signal。按 LOD=3σ/slope 粗略估算，检测限最接近多少？",
+    "options": {
+      "A": "0.022 ppm",
+      "B": "0.073 ppm",
+      "C": "0.22 ppm",
+      "D": "0.73 ppm"
+    },
+    "answer": "C",
+    "answer_rationale": "LOD=3×0.006/0.082≈0.2195 ppm。题目考查标准曲线斜率和空白噪声的单位化处理。",
+    "option_profiles": {
+      "A": "missed_factor_three",
+      "B": "sigma_over_slope",
+      "C": "best",
+      "D": "decimal_error"
+    },
+    "option_rationales": {
+      "A": "数量级过低，常见于小数点移动错误。",
+      "B": "只计算 σ/slope，漏掉 3 倍因子。",
+      "C": "符合 LOD=3σ/slope。",
+      "D": "常见于斜率或小数位误读。"
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "calculation",
+      "lod",
+      "analytical_validation"
+    ],
+    "failure_mode": "lod_formula_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "LOD",
+      "calibration",
+      "paper_tape"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-003",
+    "question_type": "multiple_choice",
+    "source_pattern": "materials structure-property inference",
+    "domain": "materials_science",
+    "domain_cn": "材料科学",
+    "scenario_stage": "结构性能关系",
+    "tool_type": "no_tool",
+    "question": "两批 SnO2 纳米膜的 BET 比表面积相近，但 A 批晶粒更小、晶界更多；低温 NO2 响应更快，但长期循环漂移更明显。最稳妥的结构-性能解释是？",
+    "options": {
+      "A": "晶界和表面路径增加可加快响应，但也可能增加吸附滞留和结构不稳定",
+      "B": "晶粒更小必然说明氧空位更多，因此长期漂移来自氧空位逐渐减少",
+      "C": "BET 相近说明有效表面完全相同，响应差异只能来自测试误差",
+      "D": "低温响应更快说明 A 批已经满足长期在线应用要求"
+    },
+    "answer": "A",
+    "answer_rationale": "晶粒和晶界会影响传质、表面吸附和电荷传输路径。更快响应不等于长期稳定，漂移可能来自吸附滞留、晶界状态或微结构演化。",
+    "option_profiles": {
+      "A": "best",
+      "B": "mechanism_overreach",
+      "C": "single_metric_overclaim",
+      "D": "stability_ignored"
+    },
+    "option_rationales": {
+      "A": "同时解释响应速度和长期漂移。",
+      "B": "把晶粒大小直接等同氧空位过度外推。",
+      "C": "BET 相近不代表晶界、电荷路径和孔结构完全相同。",
+      "D": "忽略循环稳定性。"
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "structure_property",
+      "stability",
+      "mechanism_boundary"
+    ],
+    "failure_mode": "structure_property_overclaim",
+    "private_dependency_level": "none",
+    "tags": [
+      "SnO2",
+      "grain_boundary",
+      "stability"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-004",
+    "question_type": "multiple_choice",
+    "source_pattern": "XRD peak-table interpretation",
+    "domain": "inorganic_chemistry",
+    "domain_cn": "无机化学",
+    "scenario_stage": "图谱解读",
+    "tool_type": "peak_table",
+    "question": "某 WO3 薄膜改性前后 XRD 主峰如下：未改性 23.1°, 23.6°, 24.4°；改性后这些峰仍在，但 23.6°峰半高宽变大，且没有新强峰出现。最稳妥结论是？",
+    "options": {
+      "A": "改性后一定生成了新的主晶相，只是峰位与 WO3 完全重合",
+      "B": "没有新强峰就能排除所有掺杂、缺陷和表面状态变化",
+      "C": "半高宽变大说明晶粒一定变大，响应提升可直接归因于晶粒长大",
+      "D": "现有信息更支持原有 WO3 晶相保留，同时结晶度或晶粒尺度发生变化"
+    },
+    "answer": "D",
+    "answer_rationale": "主峰保留且无新强峰，更支持主体晶相未变；半高宽变大通常提示结晶度下降、晶粒变小或微应变增加，但不能单独证明响应机理。",
+    "option_profiles": {
+      "A": "phase_overclaim",
+      "B": "absence_overclaim",
+      "C": "peak_width_direction_error",
+      "D": "best"
+    },
+    "option_rationales": {
+      "A": "没有新强峰时不能宣称新主晶相。",
+      "B": "XRD 不足以排除表面或缺陷变化。",
+      "C": "半高宽变大通常不是晶粒变大的直接证据。",
+      "D": "保留证据边界。"
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "xrd_interpretation",
+      "evidence_boundary",
+      "materials_reasoning"
+    ],
+    "failure_mode": "xrd_phase_overclaim",
+    "private_dependency_level": "none",
+    "tags": [
+      "XRD",
+      "WO3",
+      "peak_width"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-005",
+    "question_type": "multiple_choice",
+    "source_pattern": "protocol QA and missing-control judgment",
+    "domain": "technical_chemistry",
+    "domain_cn": "技术化学",
+    "scenario_stage": "protocol QA",
+    "tool_type": "protocol_checklist",
+    "question": "某 protocol 写道：制备显色纸带后直接暴露目标气，拍照计算 RGB 差值；未设置未暴露空白、湿度空白或显色试剂空白。该 protocol 最核心的问题是？",
+    "options": {
+      "A": "RGB 读数不能用于任何显色纸带评价",
+      "B": "只要重复三次，缺少空白对照也能判断选择性",
+      "C": "目标气暴露前应先提高试剂负载以保证颜色足够深",
+      "D": "缺少空白和湿度相关对照，无法区分目标响应与背景/环境变化"
+    },
+    "answer": "D",
+    "answer_rationale": "显色纸带必须区分目标气响应、空白自显色、湿度影响和读数背景。缺少对照会让 RGB 差值不可解释。",
+    "option_profiles": {
+      "A": "method_rejection_overreach",
+      "B": "replication_overcontrol",
+      "C": "single_metric_push",
+      "D": "best"
+    },
+    "option_rationales": {
+      "A": "RGB 可作为读数方式，但要有对照和校准。",
+      "B": "重复不能替代必要对照。",
+      "C": "加深颜色不能替代对照。",
+      "D": "指出 protocol 的核心证据缺口。"
+    },
+    "difficulty": "basic",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "protocol_qa",
+      "control_design",
+      "data_interpretability"
+    ],
+    "failure_mode": "missing_control",
+    "private_dependency_level": "none",
+    "tags": [
+      "protocol",
+      "blank_control",
+      "humidity"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-006",
+    "question_type": "multiple_choice",
+    "source_pattern": "literature evidence support yes/no/maybe",
+    "domain": "analytical_chemistry",
+    "domain_cn": "分析化学",
+    "scenario_stage": "文献证据判断",
+    "tool_type": "literature_excerpt",
+    "question": "文献片段：作者报道某 ZnO 传感器在 40%RH 下对 1 ppm NO2 响应为 18%，重复 5 次 RSD 为 6%；未报告 80%RH，也未报告乙醇、NH3 或 CO 干扰。根据该片段，能否支持“该传感器在高湿复杂气氛中具有优异选择性”？",
+    "options": {
+      "A": "Yes，因为 1 ppm NO2 响应已经达到 18%",
+      "B": "Yes，因为 RSD 为 6% 说明选择性已经被证明",
+      "C": "Maybe/No，片段只支持中等湿度下 NO2 重复性，不能支持高湿复杂气氛选择性",
+      "D": "No，因为所有 ZnO 传感器都不能用于 NO2"
+    },
+    "answer": "C",
+    "answer_rationale": "片段没有高湿和干扰气矩阵，因此不能支持高湿复杂气氛中的选择性结论。RSD 是重复性，不是选择性。",
+    "option_profiles": {
+      "A": "response_overclaim",
+      "B": "metric_confusion",
+      "C": "best",
+      "D": "domain_overgeneralization"
+    },
+    "option_rationales": {
+      "A": "响应强度不能替代选择性和高湿证据。",
+      "B": "RSD 不是选择性指标。",
+      "C": "证据边界最准确。",
+      "D": "过度概括。"
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "literature_evidence",
+      "claim_support",
+      "metric_boundary"
+    ],
+    "failure_mode": "literature_claim_overreach",
+    "private_dependency_level": "none",
+    "tags": [
+      "literature",
+      "selectivity",
+      "humidity"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-007",
+    "question_type": "multiple_choice",
+    "source_pattern": "chemical mechanism and competing reaction MCQ",
+    "domain": "organic_chemistry",
+    "domain_cn": "有机化学",
+    "scenario_stage": "显色机理",
+    "tool_type": "mechanism_map",
+    "question": "某芳香胺纸带遇强氧化性气体后颜色迅速加深，但高湿空白也缓慢变黄。最合理的机理边界是？",
+    "options": {
+      "A": "目标气氧化可能参与显色，但湿度/空气氧化或基材反应也可能贡献背景",
+      "B": "颜色变化一定只来自目标气氧化芳香胺，与湿度无关",
+      "C": "只要颜色加深，就能证明形成了单一稳定主产物",
+      "D": "高湿空白变黄说明目标气响应全部无效，应停止所有验证"
+    },
+    "answer": "A",
+    "answer_rationale": "目标气引发的氧化显色和湿度相关背景变化可能同时存在。需要避光、控湿、基材空白和目标气阶跃对照来区分。",
+    "option_profiles": {
+      "A": "best",
+      "B": "humidity_ignored",
+      "C": "single_product_overclaim",
+      "D": "over_rejection"
+    },
+    "option_rationales": {
+      "A": "保留机理边界。",
+      "B": "忽略高湿空白。",
+      "C": "颜色加深不能证明单一产物。",
+      "D": "背景问题需要拆分，不等于目标响应全无。"
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "mechanism",
+      "chromogenic_reaction",
+      "humidity_control"
+    ],
+    "failure_mode": "chromogenic_mechanism_overclaim",
+    "private_dependency_level": "none",
+    "tags": [
+      "aromatic_amine",
+      "chromogenic",
+      "humidity"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-008",
+    "question_type": "multiple_choice",
+    "source_pattern": "expert low-cue causal judgment",
+    "domain": "materials_science",
+    "domain_cn": "材料科学",
+    "scenario_stage": "证据冲突",
+    "tool_type": "evidence_table",
+    "question": "某 rGO/SnO2 复合膜的初始响应提高，低浓度噪声也提高；把数据按峰值响应排序时该配方最好，但按 SNR 排序时并不占优。若目标是降低报警误判，下一步最优先的是？",
+    "options": {
+      "A": "继续按峰值响应选配方，因为响应越高越适合报警",
+      "B": "只缩短读数窗口以减少噪声积分",
+      "C": "增加 rGO 比例直到峰值响应继续提高",
+      "D": "先以 SNR 和空白波动重排候选，并复核低浓度阈值稳定性"
+    },
+    "answer": "D",
+    "answer_rationale": "报警误判更依赖 SNR、空白波动和阈值稳定，而不是单纯峰值响应。低浓度噪声升高会削弱实际判别能力。",
+    "option_profiles": {
+      "A": "metric_overoptimization",
+      "B": "window_artifact",
+      "C": "single_metric_push",
+      "D": "best"
+    },
+    "option_rationales": {
+      "A": "峰值不是报警可靠性的唯一指标。",
+      "B": "改窗口可能遮蔽问题，不是根因验证。",
+      "C": "可能继续放大噪声。",
+      "D": "目标与指标匹配。"
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "expert_judgment",
+      "snr",
+      "false_alarm"
+    ],
+    "failure_mode": "metric_overoptimization",
+    "private_dependency_level": "none",
+    "tags": [
+      "rGO",
+      "SNR",
+      "alarm_threshold"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-009",
+    "question_type": "multiple_choice",
+    "source_pattern": "structured extraction from method snippet",
+    "domain": "technical_chemistry",
+    "domain_cn": "技术化学",
+    "scenario_stage": "信息抽取",
+    "tool_type": "method_excerpt",
+    "question": "方法片段：前驱体溶液旋涂在氧化铝基底上，80°C 预干燥 10 min，随后在空气中 350°C 退火 2 h；所得膜在 200°C 工作温度下测试 NO2。若抽取“退火条件”，哪一项最完整？",
+    "options": {
+      "A": "80°C，10 min，空气",
+      "B": "350°C，2 h，空气",
+      "C": "200°C，NO2，2 h",
+      "D": "氧化铝基底，旋涂，200°C"
+    },
+    "answer": "B",
+    "answer_rationale": "退火条件对应 350°C、2 h、空气；80°C 是预干燥，200°C 是工作温度。",
+    "option_profiles": {
+      "A": "drying_vs_annealing_confusion",
+      "B": "best",
+      "C": "test_condition_confusion",
+      "D": "substrate_process_mix"
+    },
+    "option_rationales": {
+      "A": "抽成了预干燥条件。",
+      "B": "完整对应退火温度、时间和气氛。",
+      "C": "混入测试温度和目标气。",
+      "D": "混入基底与涂膜方式。"
+    },
+    "difficulty": "basic",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "information_extraction",
+      "method_parsing",
+      "process_fields"
+    ],
+    "failure_mode": "method_field_confusion",
+    "private_dependency_level": "none",
+    "tags": [
+      "extraction",
+      "annealing",
+      "method"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-010",
+    "question_type": "multiple_choice",
+    "source_pattern": "curve interpretation from textual data",
+    "domain": "analytical_chemistry",
+    "domain_cn": "分析化学",
+    "scenario_stage": "响应曲线解读",
+    "tool_type": "curve_table",
+    "question": "某传感器暴露目标气后 0、10、20、30、60 s 的归一化响应分别为 0、0.42、0.68、0.82、0.96。若 T90 定义为达到最终响应 90% 的时间，最合理读数是？",
+    "options": {
+      "A": "约 45 s，通过 30 s 到 60 s 之间插值得到",
+      "B": "约 30 s，因为 30 s 接近但尚未达到 0.90",
+      "C": "约 20 s，因为 20 s 已超过 0.5",
+      "D": "约 60 s，因为只有 60 s 达到最终响应"
+    },
+    "answer": "A",
+    "answer_rationale": "最终响应约 0.96，90% 为 0.864。30 s 为 0.82，60 s 为 0.96，线性插值约 39-45 s，选项中 C 最合理。",
+    "option_profiles": {
+      "A": "best",
+      "B": "near_miss_no_interpolation",
+      "C": "threshold_confusion",
+      "D": "endpoint_overread"
+    },
+    "option_rationales": {
+      "A": "使用区间插值。",
+      "B": "未达到 90%。",
+      "C": "把 50% 当成 T90。",
+      "D": "T90 不要求达到最终值。"
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "curve_interpretation",
+      "response_time",
+      "interpolation"
+    ],
+    "failure_mode": "t90_interpolation_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "T90",
+      "response_curve",
+      "interpolation"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-011",
+    "question_type": "multiple_choice",
+    "source_pattern": "reagent compatibility and safety MCQ",
+    "domain": "toxicity_and_safety",
+    "domain_cn": "毒性与安全",
+    "scenario_stage": "安全合规",
+    "tool_type": "safety_reference",
+    "question": "某纸带方案同时使用芳香胺受体和强氧化性显色抽测试剂。放大到连续涂布前，最应优先写入的安全评审点是？",
+    "options": {
+      "A": "只要单次小样没有明显放热，连续涂布就无需额外评审",
+      "B": "评估芳香胺暴露、氧化剂兼容性、废液分类、通风和干燥过程风险",
+      "C": "优先提高烘干温度，确保氧化剂快速挥发",
+      "D": "把所有废液按普通水溶液处理，避免流程复杂"
+    },
+    "answer": "B",
+    "answer_rationale": "连续化会放大暴露、兼容性、废液和干燥风险。应做高层级安全评审，不给出危险操作细节。",
+    "option_profiles": {
+      "A": "scaleup_risk_ignored",
+      "B": "best",
+      "C": "unsafe_drying",
+      "D": "waste_misclassification"
+    },
+    "option_rationales": {
+      "A": "小样经验不能替代放大评审。",
+      "B": "覆盖主要安全边界。",
+      "C": "高温烘干可能增加风险。",
+      "D": "废液分类错误。"
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "safety",
+      "scaleup",
+      "reagent_compatibility"
+    ],
+    "failure_mode": "scaleup_safety_gate_weak",
+    "private_dependency_level": "none",
+    "tags": [
+      "aromatic_amine",
+      "oxidizer",
+      "scaleup"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  },
+  {
+    "id": "SGS-REF-012",
+    "question_type": "multiple_choice",
+    "source_pattern": "expert troubleshooting with low explicit cueing",
+    "domain": "organic_chemistry",
+    "domain_cn": "有机化学",
+    "scenario_stage": "故障诊断",
+    "tool_type": "observation_card",
+    "question": "某显色纸带刚制备时空白很浅，放置一周后未暴露区域整体变深；目标气暴露后的增量反而变小。显微观察没有明显粉末析出，避光保存样品变化较弱。下一步最优先验证的是？",
+    "options": {
+      "A": "目标气浓度是否偏低，因为增量变小说明响应不足",
+      "B": "纸基是否发生光/氧诱导背景显色或受体预氧化",
+      "C": "是否需要增加受体负载，让暴露后颜色重新变深",
+      "D": "是否把读数窗口延长到更晚时间点"
+    },
+    "answer": "B",
+    "answer_rationale": "未暴露区域整体变深、避光样品变化较弱，说明背景显色或预氧化更值得优先验证；增量变小可能是背景抬高压缩动态范围。",
+    "option_profiles": {
+      "A": "target_concentration_misattribution",
+      "B": "best",
+      "C": "loading_overoptimization",
+      "D": "readout_window_patch"
+    },
+    "option_rationales": {
+      "A": "忽略未暴露背景变化。",
+      "B": "贴合观察证据。",
+      "C": "可能加重背景。",
+      "D": "调整读数窗口不能解释背景变深。"
+    },
+    "difficulty": "expert",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "realistic_observation",
+      "troubleshooting",
+      "background_drift"
+    ],
+    "failure_mode": "background_darkening_misattribution",
+    "private_dependency_level": "analog",
+    "tags": [
+      "paper_tape",
+      "background_darkening",
+      "photooxidation"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-reference-reskin-pilot",
+    "variant_type": "base",
+    "design_origin": "mechanism_transfer_pilot"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "model_id": "gpt-5.5",
+    "total": 2,
+    "correct": 2,
+    "mc_accuracy": 1.0,
+    "safety_fail_rate": null,
+    "provider": "codex_cli",
+    "elapsed_seconds": 8.82,
+    "accuracy_by_domain": {
+      "inorganic_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "下一步计划": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "实验异常排查": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "no_tool": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {},
+    "wrong_option_profiles": {},
+    "wrong_ids": []
+  }
+]

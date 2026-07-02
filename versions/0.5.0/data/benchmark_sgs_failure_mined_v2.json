@@ -1,0 +1,1013 @@
+[
+  {
+    "id": "SGS-MINED2-001",
+    "question_type": "multiple_choice",
+    "domain": "general_chemistry",
+    "domain_cn": "general_chemistry",
+    "scenario_stage": "兼容性判断",
+    "tool_type": "no_tool",
+    "question": "一片铝电极上有无机盐残留。候选清洗液为稀盐酸、稀硝酸和去离子水。若只考虑金属基底的副反应风险，哪项最容易被低估？",
+    "options": {
+      "A": "稀盐酸可能产生氢气",
+      "B": "去离子水会氧化铝",
+      "C": "稀硝酸必然大量放氢",
+      "D": "无机盐不会影响清洗"
+    },
+    "answer": "A",
+    "answer_rationale": "非氧化性酸与活泼金属可放氢。",
+    "option_profiles": {
+      "A": "best",
+      "B": "distractor_b",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Best answer.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "acid_metal_reactivity_miss"
+    ],
+    "failure_mode": "acid_metal_reactivity_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "acid",
+      "Al"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-002",
+    "question_type": "multiple_choice",
+    "domain": "general_chemistry",
+    "domain_cn": "general_chemistry",
+    "scenario_stage": "兼容性判断",
+    "tool_type": "no_tool",
+    "question": "铁夹具接触某酸性清洗液后出现气泡。最少需要哪条信息来判断这是否可能来自金属-酸反应？",
+    "options": {
+      "A": "酸是否带颜色",
+      "B": "酸是否能提供 H+ 且金属是否活泼",
+      "C": "夹具是否抛光",
+      "D": "清洗液是否透明"
+    },
+    "answer": "B",
+    "answer_rationale": "金属-酸放氢取决于酸性和金属活泼性等。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "acid_metal_reactivity_miss"
+    ],
+    "failure_mode": "acid_metal_reactivity_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "acid",
+      "Fe"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-003",
+    "question_type": "multiple_choice",
+    "domain": "general_chemistry",
+    "domain_cn": "general_chemistry",
+    "scenario_stage": "结构判断",
+    "tool_type": "no_tool",
+    "question": "有人把 N 在硝酸根中的 +5 价类比到 NF5 分子。这个类比最薄弱的一环是？",
+    "options": {
+      "A": "氟不能形成共价键",
+      "B": "氧化态不等于可扩展八隅体",
+      "C": "硝酸根没有 N",
+      "D": "NF5 必须是离子晶体"
+    },
+    "answer": "B",
+    "answer_rationale": "第二周期 N 难以扩展八隅体，氧化态不能直接推出五配位分子。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "oxidation_state_structure_overreach"
+    ],
+    "failure_mode": "oxidation_state_structure_overreach",
+    "private_dependency_level": "none",
+    "tags": [
+      "octet",
+      "nitrogen"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-004",
+    "question_type": "multiple_choice",
+    "domain": "general_chemistry",
+    "domain_cn": "general_chemistry",
+    "scenario_stage": "结构判断",
+    "tool_type": "no_tool",
+    "question": "若一个模型看到“+5 氧化态”就预测五配位卤化物稳定，它主要混淆了什么？",
+    "options": {
+      "A": "同位素和同素异形体",
+      "B": "氧化态和几何/价层容量",
+      "C": "酸性和碱性",
+      "D": "摩尔质量和密度"
+    },
+    "answer": "B",
+    "answer_rationale": "氧化态不是价层扩展能力或稳定构型的充分条件。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "oxidation_state_structure_overreach"
+    ],
+    "failure_mode": "oxidation_state_structure_overreach",
+    "private_dependency_level": "none",
+    "tags": [
+      "valence"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-005",
+    "question_type": "multiple_choice",
+    "domain": "toxicity_and_safety",
+    "domain_cn": "toxicity_and_safety",
+    "scenario_stage": "清洗风险",
+    "tool_type": "safety_reference",
+    "question": "某 Fe/Al 部件短时接触浓硝酸后反应变慢。下列哪项最不应推出？",
+    "options": {
+      "A": "表面可能钝化",
+      "B": "体系仍有强氧化腐蚀风险",
+      "C": "可以直接放大清洗",
+      "D": "需要废液分类"
+    },
+    "answer": "C",
+    "answer_rationale": "钝化不等于可直接放大。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "distractor_b",
+      "C": "best",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Best answer.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "oxidizing_acid_passivation_miss"
+    ],
+    "failure_mode": "oxidizing_acid_passivation_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "passivation"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-006",
+    "question_type": "multiple_choice",
+    "domain": "toxicity_and_safety",
+    "domain_cn": "toxicity_and_safety",
+    "scenario_stage": "清洗风险",
+    "tool_type": "safety_reference",
+    "question": "铝片在某强氧化酸中初期变暗后反应减弱。下一句最准确的是？",
+    "options": {
+      "A": "一定完全无风险",
+      "B": "可能形成钝化层",
+      "C": "一定正在大量放氢",
+      "D": "酸已失效"
+    },
+    "answer": "B",
+    "answer_rationale": "Fe/Al 在某些强氧化酸中可能钝化。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "oxidizing_acid_passivation_miss"
+    ],
+    "failure_mode": "oxidizing_acid_passivation_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "passivation"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-007",
+    "question_type": "multiple_choice",
+    "domain": "organic_chemistry",
+    "domain_cn": "organic_chemistry",
+    "scenario_stage": "聚合条件",
+    "tool_type": "no_tool",
+    "question": "苯乙烯阳离子聚合的筛选中，哪类条件最可能提高传播速率但也需要防止链转移/终止？",
+    "options": {
+      "A": "更稳定离子对的极性介质",
+      "B": "完全非极性烷烃",
+      "C": "大量水",
+      "D": "只降低搅拌速度"
+    },
+    "answer": "A",
+    "answer_rationale": "阳离子聚合受溶剂极性和离子对稳定影响。",
+    "option_profiles": {
+      "A": "best",
+      "B": "distractor_b",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Best answer.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "cationic_polymerization_solvent_error"
+    ],
+    "failure_mode": "cationic_polymerization_solvent_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "polymerization"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-008",
+    "question_type": "multiple_choice",
+    "domain": "organic_chemistry",
+    "domain_cn": "organic_chemistry",
+    "scenario_stage": "聚合条件",
+    "tool_type": "no_tool",
+    "question": "同一引发体系下，苯乙烯阳离子聚合在二氯甲烷中快于己烷。最简洁解释是？",
+    "options": {
+      "A": "己烷能提供质子",
+      "B": "二氯甲烷更利于离子活性中心",
+      "C": "二氯甲烷一定参与共聚",
+      "D": "己烷使单体消失"
+    },
+    "answer": "B",
+    "answer_rationale": "极性/离子稳定效应常使阳离子聚合更快。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "cationic_polymerization_solvent_error"
+    ],
+    "failure_mode": "cationic_polymerization_solvent_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "polymerization"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-009",
+    "question_type": "multiple_choice",
+    "domain": "materials_science",
+    "domain_cn": "materials_science",
+    "scenario_stage": "燃烧计量",
+    "tool_type": "calculator",
+    "question": "某聚合物燃烧得 CO2 0.880 g、H2O 0.360 g。C:H 原子数比为？",
+    "options": {
+      "A": "1:1",
+      "B": "1:2",
+      "C": "2:1",
+      "D": "1:4"
+    },
+    "answer": "B",
+    "answer_rationale": "C=0.880/44=0.020 mol，H=2*0.360/18=0.040 mol，C:H=1:2。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "combustion_ratio_error"
+    ],
+    "failure_mode": "combustion_ratio_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "combustion"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-010",
+    "question_type": "multiple_choice",
+    "domain": "materials_science",
+    "domain_cn": "materials_science",
+    "scenario_stage": "燃烧计量",
+    "tool_type": "calculator",
+    "question": "燃烧分析中 CO2 与 H2O 的物质的量相等。样品中的 C:H 原子数比是多少？",
+    "options": {
+      "A": "1:1",
+      "B": "1:2",
+      "C": "2:1",
+      "D": "无法含氢"
+    },
+    "answer": "B",
+    "answer_rationale": "每 mol H2O 对应 2 mol H，每 mol CO2 对应 1 mol C。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "basic",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "combustion_ratio_error"
+    ],
+    "failure_mode": "combustion_ratio_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "combustion"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-011",
+    "question_type": "multiple_choice",
+    "domain": "technical_chemistry",
+    "domain_cn": "technical_chemistry",
+    "scenario_stage": "单元排列",
+    "tool_type": "protocol_checklist",
+    "question": "两个连续处理单元 X/Y 都会改变膜结构，但动力学未知。要判断 XY 还是 YX 更好，最低成本证据是？",
+    "options": {
+      "A": "只看设备编号",
+      "B": "交换顺序的小试输出",
+      "C": "只看最高温度",
+      "D": "只看末端颜色"
+    },
+    "answer": "B",
+    "answer_rationale": "未知动力学下，交换顺序实验能直接比较排列影响。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "reactor_arrangement_method_miss"
+    ],
+    "failure_mode": "reactor_arrangement_method_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "process"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-012",
+    "question_type": "multiple_choice",
+    "domain": "technical_chemistry",
+    "domain_cn": "technical_chemistry",
+    "scenario_stage": "单元排列",
+    "tool_type": "protocol_checklist",
+    "question": "若两个反应器串联顺序会影响转化率，哪种方法最能避免只靠猜测？",
+    "options": {
+      "A": "旁路/互换顺序实验",
+      "B": "按体积从小到大",
+      "C": "按采购时间排序",
+      "D": "只保留一个反应器"
+    },
+    "answer": "A",
+    "answer_rationale": "旁路或互换顺序能实测排列效果。",
+    "option_profiles": {
+      "A": "best",
+      "B": "distractor_b",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Best answer.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "reactor_arrangement_method_miss"
+    ],
+    "failure_mode": "reactor_arrangement_method_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "process"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-013",
+    "question_type": "multiple_choice",
+    "domain": "toxicity_and_safety",
+    "domain_cn": "toxicity_and_safety",
+    "scenario_stage": "烘干风险",
+    "tool_type": "safety_reference",
+    "question": "纸基涂层含低分子羧酸和有机粘结剂。哪句话最不可靠？",
+    "options": {
+      "A": "羧酸可能有腐蚀性",
+      "B": "烘干条件会影响挥发/燃烧风险",
+      "C": "羧酸一定让纸基阻燃",
+      "D": "需看具体物质"
+    },
+    "answer": "C",
+    "answer_rationale": "羧酸不是通用阻燃剂。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "distractor_b",
+      "C": "best",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Best answer.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "carboxylic_acid_flammability_overgeneralization"
+    ],
+    "failure_mode": "carboxylic_acid_flammability_overgeneralization",
+    "private_dependency_level": "none",
+    "tags": [
+      "flammability"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-014",
+    "question_type": "multiple_choice",
+    "domain": "toxicity_and_safety",
+    "domain_cn": "toxicity_and_safety",
+    "scenario_stage": "烘干风险",
+    "tool_type": "safety_reference",
+    "question": "某添加剂名称含“酸”。下列哪项是错误泛化？",
+    "options": {
+      "A": "可能腐蚀",
+      "B": "可能影响废液分类",
+      "C": "一定不可燃且阻燃",
+      "D": "需看 SDS"
+    },
+    "answer": "C",
+    "answer_rationale": "酸性不等于不可燃或阻燃。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "distractor_b",
+      "C": "best",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Best answer.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "basic",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "carboxylic_acid_flammability_overgeneralization"
+    ],
+    "failure_mode": "carboxylic_acid_flammability_overgeneralization",
+    "private_dependency_level": "none",
+    "tags": [
+      "flammability"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-015",
+    "question_type": "multiple_choice",
+    "domain": "materials_science",
+    "domain_cn": "materials_science",
+    "scenario_stage": "取向判断",
+    "tool_type": "no_tool",
+    "question": "拉伸定型薄膜的高应力方向出现更强孔道取向。哪条反驳最弱？",
+    "options": {
+      "A": "应力历史会影响取向",
+      "B": "SEM 可提供取向证据",
+      "C": "高应力区一定取向更弱",
+      "D": "需结合加工过程"
+    },
+    "answer": "C",
+    "answer_rationale": "高应力区域取向不能一概而论。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "distractor_b",
+      "C": "best",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Best answer.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "stress_orientation_generalization_error"
+    ],
+    "failure_mode": "stress_orientation_generalization_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "orientation"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-016",
+    "question_type": "multiple_choice",
+    "domain": "materials_science",
+    "domain_cn": "materials_science",
+    "scenario_stage": "取向判断",
+    "tool_type": "no_tool",
+    "question": "同一材料中 A 区经历拉伸，B 区未拉伸。XRD 方位分布显示 A 区取向更集中。最合适的结论是？",
+    "options": {
+      "A": "拉伸可能诱导取向",
+      "B": "A 区数据必错",
+      "C": "应力只会破坏取向",
+      "D": "取向和加工无关"
+    },
+    "answer": "A",
+    "answer_rationale": "拉伸可诱导取向，需结合证据判断。",
+    "option_profiles": {
+      "A": "best",
+      "B": "distractor_b",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Best answer.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "stress_orientation_generalization_error"
+    ],
+    "failure_mode": "stress_orientation_generalization_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "orientation"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-017",
+    "question_type": "multiple_choice",
+    "domain": "organic_chemistry",
+    "domain_cn": "organic_chemistry",
+    "scenario_stage": "局部结构",
+    "tool_type": "no_tool",
+    "question": "1,4-环己二烯骨架中最容易被误判的是？",
+    "options": {
+      "A": "双键碳 sp2、饱和碳 sp3",
+      "B": "所有碳 sp3",
+      "C": "所有碳 sp",
+      "D": "所有碳 s"
+    },
+    "answer": "A",
+    "answer_rationale": "局部结构不同，杂化不同。",
+    "option_profiles": {
+      "A": "best",
+      "B": "distractor_b",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Best answer.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "hybridization_local_context_miss"
+    ],
+    "failure_mode": "hybridization_local_context_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "hybridization"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-018",
+    "question_type": "multiple_choice",
+    "domain": "organic_chemistry",
+    "domain_cn": "organic_chemistry",
+    "scenario_stage": "局部结构",
+    "tool_type": "no_tool",
+    "question": "一个六元环含两个 C=C 和两个 CH2。问“碳的杂化”时，最好的答法是？",
+    "options": {
+      "A": "全部 sp3",
+      "B": "全部 sp2",
+      "C": "同时有 sp2 与 sp3",
+      "D": "全部 sp"
+    },
+    "answer": "C",
+    "answer_rationale": "双键碳和饱和碳杂化不同。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "distractor_b",
+      "C": "best",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Best answer.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "hybridization_local_context_miss"
+    ],
+    "failure_mode": "hybridization_local_context_miss",
+    "private_dependency_level": "none",
+    "tags": [
+      "hybridization"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-019",
+    "question_type": "multiple_choice",
+    "domain": "physical_chemistry",
+    "domain_cn": "physical_chemistry",
+    "scenario_stage": "依数性计算",
+    "tool_type": "calculator",
+    "question": "0.050 mol 非电解质溶于 0.100 kg 水，Kf=1.86。冰点降低为？",
+    "options": {
+      "A": "0.093 °C",
+      "B": "0.93 °C",
+      "C": "9.3 °C",
+      "D": "18.6 °C"
+    },
+    "answer": "B",
+    "answer_rationale": "m=0.5 mol/kg，ΔTf=1.86*0.5=0.93 °C。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "colligative_property_calculation_error"
+    ],
+    "failure_mode": "colligative_property_calculation_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "freezing_point"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-020",
+    "question_type": "multiple_choice",
+    "domain": "physical_chemistry",
+    "domain_cn": "physical_chemistry",
+    "scenario_stage": "依数性计算",
+    "tool_type": "calculator",
+    "question": "5.0 g 摩尔质量 100 g/mol 的非电解质溶于 50.0 g 水，Kf=1.86。ΔTf 约为？",
+    "options": {
+      "A": "0.19 °C",
+      "B": "1.86 °C",
+      "C": "3.72 °C",
+      "D": "18.6 °C"
+    },
+    "answer": "B",
+    "answer_rationale": "n=0.05 mol，水 0.05 kg，m=1.0，ΔTf=1.86 °C。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "intermediate",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "colligative_property_calculation_error"
+    ],
+    "failure_mode": "colligative_property_calculation_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "freezing_point"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-021",
+    "question_type": "multiple_choice",
+    "domain": "physical_chemistry",
+    "domain_cn": "physical_chemistry",
+    "scenario_stage": "热力学判断",
+    "tool_type": "no_tool",
+    "question": "某吸附平衡为吸热，升温后平衡吸附量增加。这个现象本身最支持哪句？",
+    "options": {
+      "A": "吸热方向受升温促进",
+      "B": "所有漂移可忽略",
+      "C": "吸附必为不可逆",
+      "D": "低温一定更优"
+    },
+    "answer": "A",
+    "answer_rationale": "吸热过程升温可促进平衡方向。",
+    "option_profiles": {
+      "A": "best",
+      "B": "distractor_b",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Best answer.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "basic",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "endothermic_direction_error"
+    ],
+    "failure_mode": "endothermic_direction_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "endothermic"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-022",
+    "question_type": "multiple_choice",
+    "domain": "physical_chemistry",
+    "domain_cn": "physical_chemistry",
+    "scenario_stage": "热力学判断",
+    "tool_type": "no_tool",
+    "question": "若一个反应正向吸热，升温对平衡的直接趋势是？",
+    "options": {
+      "A": "向放热方向",
+      "B": "向吸热方向",
+      "C": "不可能变化",
+      "D": "只改变颜色"
+    },
+    "answer": "B",
+    "answer_rationale": "升温有利于吸热方向。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "basic",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "endothermic_direction_error"
+    ],
+    "failure_mode": "endothermic_direction_error",
+    "private_dependency_level": "none",
+    "tags": [
+      "endothermic"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-023",
+    "question_type": "multiple_choice",
+    "domain": "materials_science",
+    "domain_cn": "materials_science",
+    "scenario_stage": "热注入",
+    "tool_type": "mechanism_map",
+    "question": "热注入后温度突然下降。哪句过度确定？",
+    "options": {
+      "A": "过饱和度可能变化",
+      "B": "成核/生长速率可能变化",
+      "C": "一定启动成核并终止生长",
+      "D": "需看时间-温度曲线"
+    },
+    "answer": "C",
+    "answer_rationale": "降温不必然同时启动成核并终止生长。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "distractor_b",
+      "C": "best",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Plausible but wrong in this context.",
+      "C": "Best answer.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "hot_injection_nucleation_overclaim"
+    ],
+    "failure_mode": "hot_injection_nucleation_overclaim",
+    "private_dependency_level": "none",
+    "tags": [
+      "hot_injection"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  },
+  {
+    "id": "SGS-MINED2-024",
+    "question_type": "multiple_choice",
+    "domain": "materials_science",
+    "domain_cn": "materials_science",
+    "scenario_stage": "热注入",
+    "tool_type": "mechanism_map",
+    "question": "量子点热注入实验中，降温后粒径分布变宽。最少还需要什么才能判断原因？",
+    "options": {
+      "A": "单个终点颜色",
+      "B": "时间分辨取样/温度曲线",
+      "C": "供应商名称",
+      "D": "只看搅拌速度"
+    },
+    "answer": "B",
+    "answer_rationale": "成核和生长需要时间-温度与取样证据。",
+    "option_profiles": {
+      "A": "distractor_a",
+      "B": "best",
+      "C": "distractor_c",
+      "D": "distractor_d"
+    },
+    "option_rationales": {
+      "A": "Plausible but wrong in this context.",
+      "B": "Best answer.",
+      "C": "Plausible but wrong in this context.",
+      "D": "Plausible but wrong in this context."
+    },
+    "difficulty": "advanced",
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "failure_mined",
+      "hot_injection_nucleation_overclaim"
+    ],
+    "failure_mode": "hot_injection_nucleation_overclaim",
+    "private_dependency_level": "none",
+    "tags": [
+      "hot_injection"
+    ],
+    "benchmark_version": "mini-benchmark-0.5.0-failure-mined-v2",
+    "variant_type": "base"
+  }
+]

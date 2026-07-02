@@ -1,0 +1,326 @@
+[
+  {
+    "model_id": "deepseek-v4-pro",
+    "total": 12,
+    "correct": 12,
+    "mc_accuracy": 1.0,
+    "safety_fail_rate": 0.0,
+    "provider": "openai_compatible",
+    "elapsed_seconds": 9.61,
+    "accuracy_by_domain": {
+      "general_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "materials_science": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "physical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "合成机理": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "安全合规": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "工艺放大": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "数据处理": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "机理边界": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "结构性能关系": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "配方设计": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 5,
+        "total": 5,
+        "accuracy": 1.0
+      },
+      "protocol_checklist": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {},
+    "wrong_option_profiles": {},
+    "wrong_ids": []
+  },
+  {
+    "model_id": "gpt-5.5",
+    "total": 12,
+    "correct": 12,
+    "mc_accuracy": 1.0,
+    "safety_fail_rate": 0.0,
+    "provider": "codex_cli",
+    "elapsed_seconds": 14.91,
+    "accuracy_by_domain": {
+      "general_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "materials_science": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "physical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "合成机理": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "安全合规": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "工艺放大": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "数据处理": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "机理边界": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "结构性能关系": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "配方设计": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 5,
+        "total": 5,
+        "accuracy": 1.0
+      },
+      "protocol_checklist": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {},
+    "wrong_option_profiles": {},
+    "wrong_ids": []
+  },
+  {
+    "model_id": "mimo-v2.5-pro",
+    "total": 12,
+    "correct": 12,
+    "mc_accuracy": 1.0,
+    "safety_fail_rate": 0.0,
+    "provider": "openai_compatible",
+    "elapsed_seconds": 49.89,
+    "accuracy_by_domain": {
+      "general_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "materials_science": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "physical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "合成机理": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "安全合规": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "工艺放大": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "数据处理": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "机理边界": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "结构性能关系": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "配方设计": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 5,
+        "total": 5,
+        "accuracy": 1.0
+      },
+      "protocol_checklist": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {},
+    "wrong_option_profiles": {},
+    "wrong_ids": []
+  }
+]

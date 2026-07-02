@@ -1,0 +1,62 @@
+{
+  "run_id": "mcq-20260701T020051Z",
+  "created_at": "2026-07-01T02:00:51.923928+00:00",
+  "finished_at": "2026-07-01T02:02:05.223290+00:00",
+  "benchmark_version": "mini-benchmark-0.5.0",
+  "task_file": "data/benchmark_sgs_failure_mined_v1.json",
+  "task_set_hash": "bf2ec3abf73a15e0ef9c475cdb29ca1e3ba1a4584ad3b4cfb5a6aae3cfb8630f",
+  "question_type": "multiple_choice",
+  "question_count": 12,
+  "prompt_file": "eval/prompts/base_prompt.md",
+  "prompt_hash": "8e6a00597850bd80f5c9da33490e0ac9bb3fcaf7113c4242fc09ef80d2f6fd3c",
+  "temperature": 0,
+  "timeout_seconds": 900,
+  "models": [
+    {
+      "provider": "codex_cli",
+      "model_id": "gpt-5.5"
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "deepseek-v4-pro",
+      "base_url": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "thinking_mode": "enabled",
+      "reasoning_effort": "high",
+      "omit_temperature": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "mimo-v2.5-pro",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "api_key_env": "MIMO_API_KEY",
+      "auth_header": "api-key",
+      "omit_temperature": true
+    }
+  ],
+  "model_status": {
+    "gpt-5.5": {
+      "rows": 12,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 13.94
+    },
+    "deepseek-v4-pro": {
+      "rows": 12,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 12.09
+    },
+    "mimo-v2.5-pro": {
+      "rows": 12,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 47.25
+    }
+  },
+  "output_file": "results/failure_mined_v1_fixed/model_outputs.csv",
+  "raw_output_dir": "results/failure_mined_v1_fixed/raw_model_outputs",
+  "credential_policy": "API keys are read from environment variables and are not written to repository files.",
+  "code_commit": "a298408c4ec5fb3b805aee96df9bb3e7d431e3b1",
+  "working_tree_dirty": true
+}

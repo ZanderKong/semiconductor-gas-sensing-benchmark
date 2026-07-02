@@ -1,77 +1,47 @@
 # Semiconductor Gas-Sensing Mini-Benchmark
 
-## 中文
+本仓库按版本归档半导体气敏材料 benchmark 项目。当前工作版本是 `versions/0.5.0/`，active main benchmark 为 **SGS152**。
 
-本仓库发布 `mini-benchmark 0.4.0`：一个面向半导体气敏材料研发场景的中文专业评测项目。项目将材料化学、传感机理、实验设计、数据质量、安全边界和技术写作能力转化为可复核的 benchmark 资产。
+## Version Map
 
-主项目位于：
+| Version | Path | Status | Notes |
+|---|---|---|---|
+| 0.1.0 | `versions/0.1.0/` | archived | 早期 benchmark_v1 数据草案 |
+| 0.2.0 | `versions/0.2.0/` | archived | 早期 SGS-V2 模型输出与 smoke results |
+| 0.3.0 | `versions/0.3.0/` | archived | V3-alpha schema、能力单元和 tool-use 设计 |
+| 0.4.0 | `versions/0.4.0/` | archived release | 100 题 mini-benchmark 版本 |
+| 0.5.0 | `versions/0.5.0/` | active | SGS152、robustness、Hard-50、题目设计复盘 |
 
-```text
-SGS-mini-benchmark-V4/
-```
+## Active 0.5.0
 
-### 核心成果
+SGS152 由 legacy SGS100 专业气敏题库和 52 道 failure-mined design items 合并而成。新增题保留模型真实失败机制，并在元数据中记录设计心得、干扰项意图和评分逻辑。
 
-| Module | Deliverable |
+| Component | Count |
 |---|---:|
-| 主评测集 | 100 items |
-| Multiple-choice | 82 items |
-| Free-response | 18 items |
-| Robustness variants | 40 items |
-| Free-response rubrics | 18 rubrics |
-| 自动化验收 | validate, lint, acceptance lint |
-| 模型评测摘要 | GPT-5.5, MiMo v2.5 Pro, DeepSeek V4 Pro |
+| Active benchmark | 152 |
+| Multiple-choice | 122 |
+| Free-response | 30 |
+| Legacy SGS100 export | 100 |
+| Failure-mined design bank | 52 |
+| Robustness variants | 40 |
+| Hard diagnostic set | 50 |
 
-### 项目价值
+### Main MCQ Results
 
-- 将半导体气敏材料研发中的真实判断任务抽象为结构化评测集。
-- 覆盖有机化学、物理化学、无机化学、材料科学、分析化学、工艺放大和安全合规等维度。
-- 通过 MCQ、free-response rubric 和 robustness variants 同时衡量专业准确性、证据边界、实验设计和安全判断。
-- 提供 GitHub/简历/面试可直接阅读的双语报告体系。
+| Model | Correct / Total | Accuracy | Failure-mined MCQ |
+|---|---:|---:|---:|
+| DeepSeek V4 Pro | 98 / 122 | 80.3% | 21 / 40 |
+| GPT-5.5 | 95 / 122 | 77.9% | 15 / 40 |
+| MiMo v2.5 Pro | 93 / 122 | 76.2% | 16 / 40 |
 
-### 快速开始
+### Reproduce
 
 ```bash
-cd SGS-mini-benchmark-V4
+cd versions/0.5.0
 make validate
-make lint
 make lint-sgs100
+make lint
+make score-mcq
 ```
 
-### 推荐阅读
-
-| File | Focus |
-|---|---|
-| `SGS-mini-benchmark-V4/README.md` | 项目概览和结果摘要 |
-| `SGS-mini-benchmark-V4/docs/hr_review_guide.md` | HR 与面试阅读路径 |
-| `SGS-mini-benchmark-V4/reports/project_review_report.md` | 项目复盘和能力展示 |
-| `SGS-mini-benchmark-V4/reports/model_evaluation_recap.md` | 模型评测结果 |
-
-## English
-
-This repository publishes `mini-benchmark 0.4.0`, a Chinese benchmark for semiconductor gas-sensing materials R&D. The project converts materials chemistry, sensing mechanisms, experimental design, data quality, safety boundaries, and technical communication into an auditable benchmark package.
-
-The active project lives in:
-
-```text
-SGS-mini-benchmark-V4/
-```
-
-### Highlights
-
-| Module | Deliverable |
-|---|---:|
-| Main benchmark | 100 items |
-| Multiple-choice | 82 items |
-| Free-response | 18 items |
-| Robustness variants | 40 items |
-| Free-response rubrics | 18 rubrics |
-| Automated acceptance | validate, lint, acceptance lint |
-| Model summaries | GPT-5.5, MiMo v2.5 Pro, DeepSeek V4 Pro |
-
-### Value
-
-- Converts real R&D judgment tasks in semiconductor gas-sensing materials into a structured benchmark.
-- Covers organic chemistry, physical chemistry, inorganic chemistry, materials science, analytical chemistry, process scale-up, and safety compliance.
-- Measures professional accuracy, evidence boundaries, experimental design, and safety judgment through MCQ, free-response rubrics, and robustness variants.
-- Provides bilingual reports designed for GitHub portfolios, resumes, and technical interviews.
+The root `Makefile` forwards common validation targets to `versions/0.5.0/`.

@@ -1,0 +1,38 @@
+[
+  {
+    "model_id": "deepseek-v4-pro",
+    "id": "SGS-MINED2-017",
+    "domain": "organic_chemistry",
+    "scenario_stage": "局部结构",
+    "question": "1,4-环己二烯骨架中最容易被误判的是？",
+    "pred": "B",
+    "gold": "A",
+    "selected_profile": "distractor_b",
+    "failure_mode": "hybridization_local_context_miss",
+    "rationale": "局部结构不同，杂化不同。"
+  },
+  {
+    "model_id": "mimo-v2.5-pro",
+    "id": "SGS-MINED2-001",
+    "domain": "general_chemistry",
+    "scenario_stage": "兼容性判断",
+    "question": "一片铝电极上有无机盐残留。候选清洗液为稀盐酸、稀硝酸和去离子水。若只考虑金属基底的副反应风险，哪项最容易被低估？",
+    "pred": "B",
+    "gold": "A",
+    "selected_profile": "distractor_b",
+    "failure_mode": "acid_metal_reactivity_miss",
+    "rationale": "非氧化性酸与活泼金属可放氢。"
+  },
+  {
+    "model_id": "mimo-v2.5-pro",
+    "id": "SGS-MINED2-017",
+    "domain": "organic_chemistry",
+    "scenario_stage": "局部结构",
+    "question": "1,4-环己二烯骨架中最容易被误判的是？",
+    "pred": "B",
+    "gold": "A",
+    "selected_profile": "distractor_b",
+    "failure_mode": "hybridization_local_context_miss",
+    "rationale": "局部结构不同，杂化不同。"
+  }
+]

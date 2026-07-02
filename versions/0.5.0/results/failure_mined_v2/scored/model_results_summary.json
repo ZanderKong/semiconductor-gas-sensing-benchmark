@@ -1,0 +1,415 @@
+[
+  {
+    "model_id": "deepseek-v4-pro",
+    "total": 24,
+    "correct": 23,
+    "mc_accuracy": 0.9583,
+    "safety_fail_rate": 0.0,
+    "provider": "openai_compatible",
+    "elapsed_seconds": 4.77,
+    "accuracy_by_domain": {
+      "general_chemistry": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "materials_science": {
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 3,
+        "total": 4,
+        "accuracy": 0.75
+      },
+      "physical_chemistry": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "依数性计算": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "兼容性判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "单元排列": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "取向判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "局部结构": {
+        "correct": 1,
+        "total": 2,
+        "accuracy": 0.5
+      },
+      "清洗风险": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "烘干风险": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "热力学判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "热注入": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "燃烧计量": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "结构判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "聚合条件": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 11,
+        "total": 12,
+        "accuracy": 0.9167
+      },
+      "protocol_checklist": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {
+      "hybridization_local_context_miss": 1
+    },
+    "wrong_option_profiles": {
+      "distractor_b": 1
+    },
+    "wrong_ids": [
+      "SGS-MINED2-017"
+    ]
+  },
+  {
+    "model_id": "gpt-5.5",
+    "total": 24,
+    "correct": 24,
+    "mc_accuracy": 1.0,
+    "safety_fail_rate": 0.0,
+    "provider": "codex_cli",
+    "elapsed_seconds": 17.77,
+    "accuracy_by_domain": {
+      "general_chemistry": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "materials_science": {
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "physical_chemistry": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "依数性计算": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "兼容性判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "单元排列": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "取向判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "局部结构": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "清洗风险": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "烘干风险": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "热力学判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "热注入": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "燃烧计量": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "结构判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "聚合条件": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 12,
+        "total": 12,
+        "accuracy": 1.0
+      },
+      "protocol_checklist": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {},
+    "wrong_option_profiles": {},
+    "wrong_ids": []
+  },
+  {
+    "model_id": "mimo-v2.5-pro",
+    "total": 24,
+    "correct": 22,
+    "mc_accuracy": 0.9167,
+    "safety_fail_rate": 0.0,
+    "provider": "openai_compatible",
+    "elapsed_seconds": 57.56,
+    "accuracy_by_domain": {
+      "general_chemistry": {
+        "correct": 3,
+        "total": 4,
+        "accuracy": 0.75
+      },
+      "materials_science": {
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 3,
+        "total": 4,
+        "accuracy": 0.75
+      },
+      "physical_chemistry": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "依数性计算": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "兼容性判断": {
+        "correct": 1,
+        "total": 2,
+        "accuracy": 0.5
+      },
+      "单元排列": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "取向判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "局部结构": {
+        "correct": 1,
+        "total": 2,
+        "accuracy": 0.5
+      },
+      "清洗风险": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "烘干风险": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "热力学判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "热注入": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "燃烧计量": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "结构判断": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "聚合条件": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 10,
+        "total": 12,
+        "accuracy": 0.8333
+      },
+      "protocol_checklist": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 4,
+        "total": 4,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {
+      "acid_metal_reactivity_miss": 1,
+      "hybridization_local_context_miss": 1
+    },
+    "wrong_option_profiles": {
+      "distractor_b": 2
+    },
+    "wrong_ids": [
+      "SGS-MINED2-001",
+      "SGS-MINED2-017"
+    ]
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-001",
+    "domain": "organic_chemistry",
+    "scenario_stage": "文献分析",
+    "question": "某氯气显色纸带使用芳香胺作受体。配方在水加入后变浑浊，但干燥后仍能变色。下一步最稳妥的判断是？",
+    "pred": "D",
+    "gold": "A",
+    "selected_profile": "safe_in_general_unsafe_here",
+    "failure_mode": "solubility_context_miss",
+    "rationale": "当前语境下最优先，因为“先解决溶液相容性，支撑当前优先判断”最直接回答题干的核心不确定性，并保留必要的证据边界。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-028",
+    "domain": "physical_chemistry",
+    "scenario_stage": "结果分析",
+    "question": "比较 n 型和 p 型电阻式传感器时，响应指标最应注意什么？",
+    "pred": "C",
+    "gold": "B",
+    "selected_profile": "metric_overoptimization",
+    "failure_mode": "metric_direction_error",
+    "rationale": "当前语境下最优先，因为“统一响应指标方向，支撑当前优先判断”最直接回答题干的核心不确定性，并保留必要的证据边界。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-FM-001",
+    "domain": "general_chemistry",
+    "scenario_stage": "失败机制复测",
+    "question": "Which of the following statements about the thermodynamics of phase diagrams are true?",
+    "pred": "C",
+    "gold": "A",
+    "selected_profile": "near_miss_distractor",
+    "failure_mode": "domain_rule_boundary",
+    "rationale": "标准答案用于检验题目的设计机制：该题通过相邻概念和局部合理选项制造误导，考察模型能否抓住题干中的决定性约束。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-FM-002",
+    "domain": "general_chemistry",
+    "scenario_stage": "失败机制复测",
+    "question": "What is the halogen atom composition of a molecule with a M+2 peak with \\pu{100 %} and a M+4 peak with \\pu{47.5 %} relative intensity in a mass spectrum?",
+    "pred": "A",
+    "gold": "B",
+    "selected_profile": "near_miss_distractor",
+    "failure_mode": "high_information_pattern_rule",
+    "rationale": "标准答案用于检验题目的设计机制：题干压缩了谱图、模式或专家约定等高信息规则，干扰项与正确项表面相近，适合检验模型是否真正锁定决定性特征。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-FM-004",
+    "domain": "general_chemistry",
+    "scenario_stage": "失败机制复测",
+    "question": "What type of compounds can react across the carbon-carbon triple bond in alkynes with no acetylenic hydrogen?",
+    "pred": "A",
+    "gold": "B",
+    "selected_profile": "near_miss_distractor",
+    "failure_mode": "domain_rule_boundary",
+    "rationale": "标准答案用于检验题目的设计机制：该题通过相邻概念和局部合理选项制造误导，考察模型能否抓住题干中的决定性约束。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-FM-005",
+    "domain": "general_chemistry",
+    "scenario_stage": "失败机制复测",
+    "question": "Which of the following monomers can be polymerized using anionic polymerization?",
+    "pred": "D",
+    "gold": "C",
+    "selected_profile": "near_miss_distractor",
+    "failure_mode": "domain_rule_boundary",
+    "rationale": "标准答案用于检验题目的设计机制：该题通过相邻概念和局部合理选项制造误导，考察模型能否抓住题干中的决定性约束。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-FM-006",
+    "domain": "general_chemistry",
+    "scenario_stage": "失败机制复测",
+    "question": "Imagine an early virtual screening campaign setting (accounting for simple aspects such as oral availability and small molecular profile, but no other modalities such as covalency or bifunctionality). Which of the following two candidates would you prefer for further development?",
+    "pred": "B",
+    "gold": "A",
+    "selected_profile": "near_miss_distractor",
+    "failure_mode": "structure_property_preference",
+    "rationale": "标准答案用于检验题目的设计机制：题目要求从结构表示或候选性质中抽取关键判断变量，避免模型只用泛泛的开发性语言或相似结构联想作答。"
+  },
+  {
+    "model_id": "gpt-5.5",
+    "id": "SGS-FM-007",
+    "domain": "general_chemistry",
+    "scenario_stage": "失败机制复测",
+    "question": "What is the number of isomers (including stereoisomers) for the octahedral triethylenetetramine (trien) complexes?",
+    "pred": "C",
+    "gold": "E",
+    "selected_profile": "near_miss_distractor",
+    "failure_mode": "domain_rule_boundary",
+    "rationale": "标准答案用于检验题目的设计机制：该题通过相邻概念和局部合理选项制造误导，考察模型能否抓住题干中的决定性约束。"
+  }
+]

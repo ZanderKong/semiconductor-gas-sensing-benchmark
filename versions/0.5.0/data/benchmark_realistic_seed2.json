@@ -1,0 +1,131 @@
+[
+  {
+    "id": "SGS-REAL-001",
+    "question_type": "multiple_choice",
+    "diagnostic_type": "realistic_experiment_observation",
+    "domain": "organic_chemistry",
+    "domain_cn": "有机化学",
+    "subfield": "chromogenic_paper_tape_loading",
+    "task_name": "phenoxyaniline_water_impregnation_nonuniformity",
+    "question": "实验员按记录配制“4-苯氧基苯胺水相浸渍液”，将纸带浸渍、取出干燥后，用低风险氧化显色喷雾抽测受体引入均匀性。结果显示边缘和少数斑点区域显色明显更深，中间区域偏浅；同一张纸带换喷雾方向后，深色区域位置基本不变。下一步最应优先排查哪一项？",
+    "options": {
+      "A": "复核浸渍液是否为真实均一溶液，是否存在未溶颗粒或局部富集",
+      "B": "改用交叉喷雾和更细雾化喷头，先排除显色抽测步骤造成的斑点",
+      "C": "延长浸渍和静置时间，让纸纤维充分吸液后再比较显色均匀性",
+      "D": "更换低毛细扩散纸基，优先降低边缘吸液导致的环状富集"
+    },
+    "answer": "A",
+    "answer_rationale": "换喷雾方向后深色区域位置基本不变，说明显色抽测步骤不是优先矛盾；边缘和斑点富集更应先回到浸渍液状态。4-苯氧基苯胺水溶性很差，所谓水相浸渍液可能不是均一溶液，未溶颗粒或局部富集会造成纸带负载不均。",
+    "option_profiles": {
+      "A": "best",
+      "B": "readout_step_overfocus",
+      "C": "loading_amount_overoptimization",
+      "D": "substrate_premature_attribution"
+    },
+    "option_rationales": {
+      "A": "题干中的固定斑点和边缘富集更像浸渍液或浸渍过程带来的负载不均，且该受体水溶性差。",
+      "B": "喷雾方向改变后深色位置基本不变，显色抽测不是当前最优先的根因。",
+      "C": "延长浸渍可能加剧未溶物沉积或边缘富集，不能先于溶液状态复核。",
+      "D": "纸基毛细作用可能参与边缘效应，但若浸渍液并非均一溶液，先换纸基会误判主因。"
+    },
+    "difficulty": "advanced",
+    "with_tool": false,
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "realistic_observation_interpretation",
+      "solubility_boundary",
+      "process_root_cause"
+    ],
+    "failure_mode": "solubility_context_miss",
+    "private_dependency_level": "analog",
+    "source_refs": [],
+    "tags": [
+      "paper_tape",
+      "4-phenoxyaniline",
+      "water_solubility",
+      "loading_uniformity"
+    ],
+    "subset": "realistic_seed2",
+    "tool_expectation": "no_tool",
+    "scenario_stage": "实验异常排查",
+    "expected_output": "single_choice",
+    "workflow_task": "根据纸带显色不均现象判断下一步排查优先级",
+    "tool_type": "no_tool",
+    "topic": "纸带受体引入均匀性",
+    "skill": "实验现象根因判断",
+    "source": "human_realistic_observation",
+    "rationale": "这道题测试模型是否会注意真实实验中的溶解性边界，而不是只围绕读数步骤或纸基结构做泛化排查。",
+    "benchmark_version": "mini-benchmark-0.5.0-realistic-seed",
+    "consistency_group_id": "REAL-SOLUBILITY-001",
+    "variant_type": "base",
+    "parent_task_id": "",
+    "expected_consistency": "",
+    "consistency_check": "",
+    "hard_set_goal": "Distinguish realistic process-root-cause reasoning from generic optimization advice."
+  },
+  {
+    "id": "SGS-REAL-002",
+    "question_type": "multiple_choice",
+    "diagnostic_type": "realistic_experiment_observation",
+    "domain": "inorganic_chemistry",
+    "domain_cn": "无机化学",
+    "subfield": "silver_salt_paper_photochromism",
+    "task_name": "silver_nitrate_paper_brown_vs_gray_color",
+    "question": "实验员用硝酸银水溶液浸渍纸基材料，干燥后光照，样品由浅色逐渐变为棕色；竞品在相近显色思路下最终呈中性灰色。当前记录显示：空白纸基光照不明显变色，避光样品变化很弱，延长光照主要让棕色加深而不是转灰。下一轮最值得优先尝试的是？",
+    "options": {
+      "A": "加入温和清洗步骤以去除可能的银氧化物杂质，再比较光照后颜色",
+      "B": "降低光照强度并缩短曝光，优先避免棕色继续加深",
+      "C": "提高硝酸银负载梯度，观察光照生成银物种颗粒尺度变化后的成色",
+      "D": "更换纸基纤维批次，优先排除纤维本底或微量还原性杂质影响"
+    },
+    "answer": "C",
+    "answer_rationale": "空白纸基和避光对照削弱了纸基本底与非光照杂质解释；延长光照只让棕色加深，说明单纯调曝光不是优先方向。该类纸基银盐光照成色更应关注生成银物种的颗粒尺度和聚集状态，提高硝酸银负载梯度可能使光照产物颗粒变大，从棕色向灰色外观转移。",
+    "option_profiles": {
+      "A": "oxide_mechanism_overreach",
+      "B": "kinetic_knob_wrong_priority",
+      "C": "best",
+      "D": "substrate_premature_attribution"
+    },
+    "option_rationales": {
+      "A": "银氧化物解释容易把问题带到杂质清洗，但题干的避光和空白对照更支持光照生成物尺度问题。",
+      "B": "调曝光会影响变色深浅和速率，但已有记录显示延长光照只是加深棕色，不解决转灰方向。",
+      "C": "以负载梯度改变光照生成银物种的颗粒尺度和聚集状态，最贴近棕色/灰色成色差异。",
+      "D": "纸基批次可能影响还原环境，但空白纸基光照不明显变色，当前不应先把主因放到基材。"
+    },
+    "difficulty": "advanced",
+    "with_tool": false,
+    "scoring_type": "exact_match",
+    "evaluation_dimensions": [
+      "realistic_observation_interpretation",
+      "particle_size_color_relation",
+      "mechanism_boundary"
+    ],
+    "failure_mode": "oxide_mechanism_overreach",
+    "private_dependency_level": "analog",
+    "source_refs": [],
+    "tags": [
+      "silver_nitrate",
+      "paper_tape",
+      "photochromism",
+      "particle_size",
+      "color"
+    ],
+    "subset": "realistic_seed2",
+    "tool_expectation": "no_tool",
+    "scenario_stage": "下一步计划",
+    "expected_output": "single_choice",
+    "workflow_task": "根据纸基银盐光照成色差异判断下一轮调整方向",
+    "tool_type": "no_tool",
+    "topic": "硝酸银纸基材料光照变色",
+    "skill": "实验现象机理边界判断",
+    "source": "human_realistic_observation",
+    "rationale": "这道题测试模型是否会被氧化物角度带偏，还是能抓住光照反应物颗粒尺度对颜色的现实影响。",
+    "benchmark_version": "mini-benchmark-0.5.0-realistic-seed",
+    "consistency_group_id": "REAL-SILVER-001",
+    "variant_type": "base",
+    "parent_task_id": "",
+    "expected_consistency": "",
+    "consistency_check": "",
+    "hard_set_goal": "Distinguish realistic material-color mechanism reasoning from generic oxide explanations."
+  }
+]

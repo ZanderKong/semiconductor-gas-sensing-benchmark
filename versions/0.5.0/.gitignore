@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+config.local.yaml
+results/raw_model_outputs*/
+results/**/raw_model_outputs*/
+results/**/*raw_model_outputs*/
+results/**/raw/
+results/evaluator_reviews/
+results/runs/
+results/scored_mcq/
+results/reference_original_bank/
+external_benchmarks/

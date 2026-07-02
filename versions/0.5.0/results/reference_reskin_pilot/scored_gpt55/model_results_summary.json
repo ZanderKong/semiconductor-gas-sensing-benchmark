@@ -1,0 +1,175 @@
+[
+  {
+    "model_id": "gpt-5.5",
+    "total": 12,
+    "correct": 12,
+    "mc_accuracy": 1.0,
+    "safety_fail_rate": 0.0,
+    "provider": "codex_cli",
+    "elapsed_seconds": 12.79,
+    "accuracy_by_domain": {
+      "analytical_chemistry": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "inorganic_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "materials_science": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "organic_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "physical_chemistry": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "technical_chemistry": {
+        "correct": 2,
+        "total": 2,
+        "accuracy": 1.0
+      },
+      "toxicity_and_safety": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_scenario_stage": {
+      "protocol QA": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "信息抽取": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "响应曲线解读": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "图谱解读": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "安全合规": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "故障诊断": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "数据处理": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "文献证据判断": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "显色机理": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "标准曲线": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "结构性能关系": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "证据冲突": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "accuracy_by_tool_type": {
+      "calculator": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "curve_table": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "evidence_table": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "literature_excerpt": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "mechanism_map": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "method_excerpt": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "no_tool": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "observation_card": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "peak_table": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "protocol_checklist": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "safety_reference": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      },
+      "table_analysis": {
+        "correct": 1,
+        "total": 1,
+        "accuracy": 1.0
+      }
+    },
+    "top_failure_modes": {},
+    "wrong_option_profiles": {},
+    "wrong_ids": []
+  }
+]

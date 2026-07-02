@@ -1,0 +1,4 @@
+model_id,provider,total,correct,mc_accuracy,safety_fail_rate,elapsed_seconds
+deepseek-v4-pro,openai_compatible,122,98,0.8033,0.0,188.36
+gpt-5.5,codex_cli,122,95,0.7787,0.0,36.02
+mimo-v2.5-pro,openai_compatible,122,93,0.7623,0.0625,426.37

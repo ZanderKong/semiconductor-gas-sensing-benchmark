@@ -1,22 +1,29 @@
-.PHONY: demo validate lint report eval-mcq score-mcq
+.PHONY: demo validate validate-hard50 lint lint-sgs100 report eval-mcq score-mcq
 
-V4_DIR := SGS-mini-benchmark-V4
+ACTIVE_DIR := versions/0.5.0
 
 demo:
-	$(MAKE) -C $(V4_DIR) demo
+	$(MAKE) -C $(ACTIVE_DIR) demo
 
 validate:
-	$(MAKE) -C $(V4_DIR) validate
+	$(MAKE) -C $(ACTIVE_DIR) validate
+	$(MAKE) -C $(ACTIVE_DIR) validate-hard50
+
+validate-hard50:
+	$(MAKE) -C $(ACTIVE_DIR) validate-hard50
 
 lint:
-	$(MAKE) -C $(V4_DIR) lint
-	$(MAKE) -C $(V4_DIR) lint-sgs100
+	$(MAKE) -C $(ACTIVE_DIR) lint
+	$(MAKE) -C $(ACTIVE_DIR) lint-sgs100
+
+lint-sgs100:
+	$(MAKE) -C $(ACTIVE_DIR) lint-sgs100
 
 report:
-	$(MAKE) -C $(V4_DIR) report
+	$(MAKE) -C $(ACTIVE_DIR) report
 
 eval-mcq:
-	$(MAKE) -C $(V4_DIR) eval-mcq
+	$(MAKE) -C $(ACTIVE_DIR) eval-mcq
 
 score-mcq:
-	$(MAKE) -C $(V4_DIR) score-mcq
+	$(MAKE) -C $(ACTIVE_DIR) score-mcq

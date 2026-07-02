@@ -1,0 +1,7 @@
+model_id,group,correct,total,accuracy
+deepseek-v4-pro,下一步计划,1,1,1.0
+deepseek-v4-pro,实验异常排查,1,1,1.0
+gpt-5.5,下一步计划,1,1,1.0
+gpt-5.5,实验异常排查,1,1,1.0
+mimo-v2.5-pro,下一步计划,1,1,1.0
+mimo-v2.5-pro,实验异常排查,1,1,1.0

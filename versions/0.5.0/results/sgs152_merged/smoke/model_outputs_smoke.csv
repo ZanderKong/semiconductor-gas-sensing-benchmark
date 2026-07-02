@@ -1,0 +1,10 @@
+id,model_id,provider,answer,elapsed_seconds,error
+SGS-001,deepseek-v4-pro,openai_compatible,A,5.09,
+SGS-002,deepseek-v4-pro,openai_compatible,B,5.09,
+SGS-003,deepseek-v4-pro,openai_compatible,C,5.09,
+SGS-001,mimo-v2.5-pro,openai_compatible,A,24.51,
+SGS-002,mimo-v2.5-pro,openai_compatible,B,24.51,
+SGS-003,mimo-v2.5-pro,openai_compatible,C,24.51,
+SGS-001,gpt-5.5,codex_cli,D,10.91,
+SGS-002,gpt-5.5,codex_cli,B,10.91,
+SGS-003,gpt-5.5,codex_cli,C,10.91,

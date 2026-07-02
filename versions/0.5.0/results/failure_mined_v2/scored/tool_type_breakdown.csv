@@ -1,0 +1,16 @@
+model_id,group,correct,total,accuracy
+deepseek-v4-pro,calculator,4,4,1.0
+deepseek-v4-pro,mechanism_map,2,2,1.0
+deepseek-v4-pro,no_tool,11,12,0.9167
+deepseek-v4-pro,protocol_checklist,2,2,1.0
+deepseek-v4-pro,safety_reference,4,4,1.0
+gpt-5.5,calculator,4,4,1.0
+gpt-5.5,mechanism_map,2,2,1.0
+gpt-5.5,no_tool,12,12,1.0
+gpt-5.5,protocol_checklist,2,2,1.0
+gpt-5.5,safety_reference,4,4,1.0
+mimo-v2.5-pro,calculator,4,4,1.0
+mimo-v2.5-pro,mechanism_map,2,2,1.0
+mimo-v2.5-pro,no_tool,10,12,0.8333
+mimo-v2.5-pro,protocol_checklist,2,2,1.0
+mimo-v2.5-pro,safety_reference,4,4,1.0

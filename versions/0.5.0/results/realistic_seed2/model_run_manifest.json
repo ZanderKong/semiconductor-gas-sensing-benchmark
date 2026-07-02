@@ -1,0 +1,33 @@
+{
+  "run_id": "mcq-20260701T005808Z",
+  "created_at": "2026-07-01T00:58:08.562378+00:00",
+  "finished_at": "2026-07-01T00:58:17.390413+00:00",
+  "benchmark_version": "mini-benchmark-0.5.0",
+  "task_file": "data/benchmark_realistic_seed2.json",
+  "task_set_hash": "62b9b64dded1843d500a2548731f88d3ec5bfe740554205d59b73bcb73deac35",
+  "question_type": "multiple_choice",
+  "question_count": 2,
+  "prompt_file": "eval/prompts/base_prompt.md",
+  "prompt_hash": "8e6a00597850bd80f5c9da33490e0ac9bb3fcaf7113c4242fc09ef80d2f6fd3c",
+  "temperature": 0,
+  "timeout_seconds": 900,
+  "models": [
+    {
+      "provider": "codex_cli",
+      "model_id": "gpt-5.5"
+    }
+  ],
+  "model_status": {
+    "gpt-5.5": {
+      "rows": 2,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 8.82
+    }
+  },
+  "output_file": "results/realistic_seed2/model_outputs.csv",
+  "raw_output_dir": "results/realistic_seed2/raw_model_outputs",
+  "credential_policy": "API keys are read from environment variables and are not written to repository files.",
+  "code_commit": "a298408c4ec5fb3b805aee96df9bb3e7d431e3b1",
+  "working_tree_dirty": true
+}
