@@ -1,0 +1,46 @@
+model_id,group,correct,total,accuracy
+DeepSeek V4 Pro,calculator,4,9,0.4444
+DeepSeek V4 Pro,curve_table,1,1,1.0
+DeepSeek V4 Pro,data_plotting,5,5,1.0
+DeepSeek V4 Pro,evidence_table,1,1,1.0
+DeepSeek V4 Pro,literature_excerpt,1,1,1.0
+DeepSeek V4 Pro,literature_retrieval,4,4,1.0
+DeepSeek V4 Pro,mechanism_map,1,3,0.3333
+DeepSeek V4 Pro,method_excerpt,1,1,1.0
+DeepSeek V4 Pro,no_tool,48,56,0.8571
+DeepSeek V4 Pro,observation_card,1,1,1.0
+DeepSeek V4 Pro,peak_table,1,1,1.0
+DeepSeek V4 Pro,protocol_checklist,16,21,0.7619
+DeepSeek V4 Pro,safety_reference,9,9,1.0
+DeepSeek V4 Pro,scientific_safety_reference,4,6,0.6667
+DeepSeek V4 Pro,table_analysis,2,3,0.6667
+GPT-5.5,calculator,5,9,0.5556
+GPT-5.5,curve_table,1,1,1.0
+GPT-5.5,data_plotting,5,5,1.0
+GPT-5.5,evidence_table,1,1,1.0
+GPT-5.5,literature_excerpt,1,1,1.0
+GPT-5.5,literature_retrieval,4,4,1.0
+GPT-5.5,mechanism_map,2,3,0.6667
+GPT-5.5,method_excerpt,1,1,1.0
+GPT-5.5,no_tool,45,56,0.8036
+GPT-5.5,observation_card,1,1,1.0
+GPT-5.5,peak_table,1,1,1.0
+GPT-5.5,protocol_checklist,18,21,0.8571
+GPT-5.5,safety_reference,9,9,1.0
+GPT-5.5,scientific_safety_reference,2,6,0.3333
+GPT-5.5,table_analysis,3,3,1.0
+MiMo v2.5 Pro,calculator,7,9,0.7778
+MiMo v2.5 Pro,curve_table,1,1,1.0
+MiMo v2.5 Pro,data_plotting,5,5,1.0
+MiMo v2.5 Pro,evidence_table,1,1,1.0
+MiMo v2.5 Pro,literature_excerpt,1,1,1.0
+MiMo v2.5 Pro,literature_retrieval,4,4,1.0
+MiMo v2.5 Pro,mechanism_map,3,3,1.0
+MiMo v2.5 Pro,method_excerpt,1,1,1.0
+MiMo v2.5 Pro,no_tool,45,56,0.8036
+MiMo v2.5 Pro,observation_card,1,1,1.0
+MiMo v2.5 Pro,peak_table,1,1,1.0
+MiMo v2.5 Pro,protocol_checklist,17,21,0.8095
+MiMo v2.5 Pro,safety_reference,8,9,0.8889
+MiMo v2.5 Pro,scientific_safety_reference,2,6,0.3333
+MiMo v2.5 Pro,table_analysis,3,3,1.0

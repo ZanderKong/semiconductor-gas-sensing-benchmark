@@ -1,0 +1,31 @@
+model_id,review_pattern,count
+DeepSeek V4 Pro,combustion_ratio_error,2
+DeepSeek V4 Pro,reactor_arrangement_method_miss,2
+DeepSeek V4 Pro,carboxylic_acid_flammability_overgeneralization,2
+DeepSeek V4 Pro,stress_orientation_generalization_error,2
+DeepSeek V4 Pro,hybridization_local_context_miss,2
+DeepSeek V4 Pro,colligative_property_calculation_error,2
+DeepSeek V4 Pro,endothermic_direction_error,2
+DeepSeek V4 Pro,hot_injection_nucleation_overclaim,2
+DeepSeek V4 Pro,solution_to_film_overclaim,1
+DeepSeek V4 Pro,partition_recovery_tradeoff,1
+GPT-5.5,oxidation_state_structure_overreach,2
+GPT-5.5,oxidizing_acid_passivation_miss,2
+GPT-5.5,cationic_polymerization_solvent_error,2
+GPT-5.5,combustion_ratio_error,2
+GPT-5.5,reactor_arrangement_method_miss,2
+GPT-5.5,carboxylic_acid_flammability_overgeneralization,2
+GPT-5.5,stress_orientation_generalization_error,2
+GPT-5.5,hybridization_local_context_miss,2
+GPT-5.5,colligative_property_calculation_error,2
+GPT-5.5,endothermic_direction_error,2
+MiMo v2.5 Pro,acid_metal_reactivity_miss,2
+MiMo v2.5 Pro,oxidation_state_structure_overreach,2
+MiMo v2.5 Pro,oxidizing_acid_passivation_miss,2
+MiMo v2.5 Pro,cationic_polymerization_solvent_error,2
+MiMo v2.5 Pro,combustion_ratio_error,2
+MiMo v2.5 Pro,reactor_arrangement_method_miss,2
+MiMo v2.5 Pro,carboxylic_acid_flammability_overgeneralization,2
+MiMo v2.5 Pro,stress_orientation_generalization_error,2
+MiMo v2.5 Pro,solubility_context_miss,1
+MiMo v2.5 Pro,humidity_mechanism_blur,1

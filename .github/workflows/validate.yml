@@ -12,11 +12,25 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Validate tasks
-        run: python3 scripts/validate_tasks.py
+      - name: Build active benchmark artifacts
+        run: |
+          make build-sgs100
+          make build-sgs152
+      - name: Validate mini-benchmark 0.5.0 dataset
+        run: make validate
+      - name: Validate SGS-Hard-50 diagnostic set
+        run: make validate-hard50
       - name: Lint benchmark docs and metadata
-        run: python3 scripts/lint_benchmark.py
-      - name: Run local demo
+        run: |
+          make lint
+          make lint-sgs100
+      - name: Run local 0.5.0 demo
         run: make demo
       - name: Regenerate report
         run: make report
+      - name: Score bundled final MCQ outputs
+        run: |
+          make score-mcq
+          make score-hard50-all
+          make eval-free-response
+          make score-free-response

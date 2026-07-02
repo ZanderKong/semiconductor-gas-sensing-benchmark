@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
-"""Compatibility entrypoint for the active mini-benchmark 0.4.0 validator."""
+"""Compatibility validator for the active mini-benchmark 0.5.0 task file."""
 
 from __future__ import annotations
 
-import subprocess
+import runpy
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-V4_DIR = ROOT / "SGS-mini-benchmark-V4"
 
 
 def main() -> None:
-    subprocess.run(["python3", "scripts/validate_benchmark.py"], cwd=V4_DIR, check=True)
+    runpy.run_path(str(ROOT / "scripts/validate_benchmark.py"), run_name="__main__")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,0 @@
-__pycache__/
-*.pyc
-.DS_Store
-.env
-config.local.yaml
-results/raw_model_outputs*/
-results/evaluator_reviews/
-results/runs/
-results/scored_mcq/

@@ -1,9 +1,0 @@
-benchmark_path: data/benchmark.json
-output_dir: results/runs/demo
-model_id: mock-sgs-040-baseline
-task_ids:
-  - SGS-001
-  - SGS-028
-  - SGS-097
-  - SGS-098
-  - SGS-099

@@ -1,0 +1,4 @@
+model_id,provider,total,correct,mc_accuracy,safety_fail_rate,elapsed_seconds
+DeepSeek V4 Pro,deepseek,122,99,0.8115,0.0,
+GPT-5.5,codex_cli,122,99,0.8115,0.0,
+MiMo v2.5 Pro,xiaomimimo,122,100,0.8197,0.125,
