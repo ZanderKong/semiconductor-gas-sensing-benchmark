@@ -33,21 +33,16 @@ ALLOWED_EXPECTED = {
     "tool_result_followed",
 }
 REQUIRED_REPORTS = [
-    "reports/benchmark_design_report.md",
-    "reports/mcq_quality_report.md",
-    "reports/model_diagnostic_report.md",
-    "reports/model_evaluation_recap.md",
-    "reports/hard_set_evaluation_report.md",
-    "reports/project_review_report.md",
-    "reports/sgs100_revision_report.md",
-    "reports/sgs100_robustness_report.md",
-    "reports/delivery_audit.md",
+    "reports/evaluation_report.md",
+    "reports/iteration_notes.md",
+    "reports/model_error_analysis.md",
 ]
 REQUIRED_DOCS = [
-    "docs/robustness_variant_design.md",
-    "docs/free_response_rubric_design.md",
-    "docs/reviewer_guide.md",
-    "docs/hard_set_design.md",
+    "docs/dataset_card.md",
+    "docs/methodology.md",
+    "docs/scoring_protocol.md",
+    "docs/risk_gates.md",
+    "docs/reproducibility.md",
 ]
 PRIVATE_OR_RECIPE_PATTERNS = [
     r"\d+(?:\.\d+)?\s*(?:g|mg|kg|mL|L)\b",
@@ -105,7 +100,7 @@ def check_main(tasks: list[dict[str, object]], rubrics: dict[str, object], error
     seen_ids: set[str] = set()
     for task in tasks:
         qid = str(task.get("id", ""))
-        is_failure_mined = qid.startswith("SGS-FM-")
+        is_scientific_stress = qid.startswith("SGS-FM-")
         if not qid:
             errors.append("Task with empty id")
         if qid in seen_ids:
@@ -127,14 +122,14 @@ def check_main(tasks: list[dict[str, object]], rubrics: dict[str, object], error
         ]:
             if field not in task:
                 errors.append(f"{qid} missing field {field}")
-        if is_failure_mined:
-            if task.get("variant_type") != "failure_mined_case":
-                errors.append(f"{qid} failure-mined item variant_type must be failure_mined_case")
+        if is_scientific_stress:
+            if task.get("variant_type") != "scientific_stress_case":
+                errors.append(f"{qid} Scientific Stress item variant_type must be scientific_stress_case")
         elif task.get("variant_type") != "base":
             errors.append(f"{qid} main-set variant_type must be base")
-        if not is_failure_mined and task.get("parent_task_id") not in ("", None):
+        if not is_scientific_stress and task.get("parent_task_id") not in ("", None):
             errors.append(f"{qid} main-set parent_task_id must be empty")
-        if not is_failure_mined and task.get("expected_consistency") not in ("", None):
+        if not is_scientific_stress and task.get("expected_consistency") not in ("", None):
             errors.append(f"{qid} main-set expected_consistency must be empty")
 
         joined_text = " ".join(
@@ -146,14 +141,14 @@ def check_main(tasks: list[dict[str, object]], rubrics: dict[str, object], error
         if task.get("question_type") == "multiple_choice":
             options = task.get("options", {})
             allowed = [chr(ord("A") + idx) for idx in range(len(options))]
-            min_options = 2 if is_failure_mined else 4
+            min_options = 2 if is_scientific_stress else 4
             if list(options.keys()) != allowed or len(options) < min_options:
                 errors.append(f"{qid} options must be sequential from A and have enough options")
                 continue
             if len(set(str(value) for value in options.values())) != len(options):
                 errors.append(f"{qid} contains duplicate options")
             lengths = {key: chinese_len(str(value)) for key, value in options.items()}
-            if not is_failure_mined:
+            if not is_scientific_stress:
                 shortest = min(lengths.values())
                 longest = max(lengths.values())
                 if shortest <= 10:
@@ -163,7 +158,7 @@ def check_main(tasks: list[dict[str, object]], rubrics: dict[str, object], error
             if task.get("answer") not in options:
                 errors.append(f"{qid} answer is not an option key")
             for key, value in options.items():
-                if not is_failure_mined:
+                if not is_scientific_stress:
                     for term in ANSWER_LEAKAGE_TERMS:
                         if term in str(value):
                             errors.append(f"{qid} option {key} contains answer leakage term: {term}")

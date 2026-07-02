@@ -1,4 +1,0 @@
-model_id,group,correct,total,accuracy
-deepseek-v4-pro,no_tool,2,2,1.0
-gpt-5.5,no_tool,2,2,1.0
-mimo-v2.5-pro,no_tool,2,2,1.0

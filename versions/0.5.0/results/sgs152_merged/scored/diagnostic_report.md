@@ -21,21 +21,21 @@ This report records a real-model MCQ validation run for the Semiconductor Gas-Se
 
 | Model | Provider | Correct / Total | MCQ Accuracy | Safety Boundary Review | Elapsed Seconds |
 |---|---|---:|---:|---:|---:|
-| deepseek-v4-pro | openai_compatible | 98 / 122 | 80.3% | 0.0% | 188.36 |
-| gpt-5.5 | codex_cli | 95 / 122 | 77.9% | 0.0% | 36.02 |
-| mimo-v2.5-pro | openai_compatible | 93 / 122 | 76.2% | 6.2% | 426.37 |
+| deepseek-v4-pro | openai_compatible | 99 / 122 | 81.2% | 0.0% | 192.5 |
+| gpt-5.5 | codex_cli | 99 / 122 | 81.2% | 0.0% | 37.49 |
+| mimo-v2.5-pro | openai_compatible | 100 / 122 | 82.0% | 12.5% | 321.4 |
 
 ## Interpretation
 
-Active SGS152 validation combines legacy semiconductor gas-sensing R&D judgment with failure-mined design mechanisms.
+Active SGS152 validation combines semiconductor gas-sensing R&D judgment with Scientific Stress Set mechanisms.
 
 ## Extension Tracks
 
-1. Score the 30 free-response items with the bilingual judge protocol.
+1. Pair MCQ errors with sampled rubric review where free-response items are part of the versioned dataset.
 2. Expand table-heavy, calculation-heavy, and conflicting-evidence tasks.
 3. Add adversarial distractors where every option is locally plausible.
 4. Review consistency groups to profile principle stability across nearby variants.
 
 ## Active Benchmark Status
 
-The active 0.5.0 benchmark is SGS152: 152 total items, including 122 MCQ items and 30 free-response items. MCQ scoring is automatic; free-response and consistency review are handled through the rubric and review protocol. The legacy SGS100 clean export remains available for historical comparison.
+The active 0.5.0 main set is SGS152: 152 total items, including 122 MCQ items and 30 rubric-defined free-response items. This diagnostic report may score the main set or a diagnostic MCQ subset; the scored subset is defined in the run setup table.

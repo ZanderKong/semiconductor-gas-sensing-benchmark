@@ -1,65 +1,52 @@
 {
   "benchmark": "Semiconductor Gas-Sensing Mini-Benchmark",
   "version": "0.5.0",
+  "prompt_status": "base_prompt supports all provided MCQ option letters, including E",
   "active_main_set": {
-    "name": "SGS152",
+    "name": "SGS152 Main Set",
     "items": 152,
     "multiple_choice": 122,
     "free_response": 30,
     "components": {
-      "legacy_sgs100": 100,
-      "failure_mined_design_bank": 52
+      "domain_core_set": 100,
+      "scientific_stress_set": 52
     },
     "models": [
       {
-        "model": "DeepSeek V4 Pro",
-        "correct": 98,
+        "model": "MiMo v2.5 Pro",
+        "correct": 100,
         "total": 122,
-        "accuracy": 0.8033,
-        "status": "completed",
-        "legacy_sgs_mcq": "77/82",
-        "failure_mined_mcq": "21/40",
+        "accuracy": 0.8197,
+        "status": "completed_after_a_e_prompt_fix",
+        "domain_core_mcq": "76/82",
+        "scientific_stress_mcq": "24/40",
+        "safety_fail_rate": 0.125
+      },
+      {
+        "model": "DeepSeek V4 Pro",
+        "correct": 99,
+        "total": 122,
+        "accuracy": 0.8115,
+        "status": "completed_after_a_e_prompt_fix",
+        "domain_core_mcq": "78/82",
+        "scientific_stress_mcq": "21/40",
         "safety_fail_rate": 0.0
       },
       {
         "model": "GPT-5.5",
-        "correct": 95,
+        "correct": 99,
         "total": 122,
-        "accuracy": 0.7787,
-        "status": "completed",
-        "legacy_sgs_mcq": "80/82",
-        "failure_mined_mcq": "15/40",
+        "accuracy": 0.8115,
+        "status": "completed_after_a_e_prompt_fix",
+        "domain_core_mcq": "80/82",
+        "scientific_stress_mcq": "19/40",
         "safety_fail_rate": 0.0
-      },
-      {
-        "model": "MiMo v2.5 Pro",
-        "correct": 93,
-        "total": 122,
-        "accuracy": 0.7623,
-        "status": "completed",
-        "legacy_sgs_mcq": "77/82",
-        "failure_mined_mcq": "16/40",
-        "safety_fail_rate": 0.0625
       }
     ]
   },
-  "memory_check": {
-    "legacy_main_set_recalled_by_user": {
-      "GPT-5.5": "80/82",
-      "MiMo v2.5 Pro": "80/82",
-      "DeepSeek V4 Pro": "76/82"
-    },
-    "current_legacy_sgs_split_in_sgs152": {
-      "GPT-5.5": "80/82",
-      "MiMo v2.5 Pro": "77/82",
-      "DeepSeek V4 Pro": "77/82"
-    },
-    "robustness_recalled_by_user": {
-      "MiMo v2.5 Pro": "36/40",
-      "GPT-5.5": "35/40",
-      "DeepSeek V4 Pro": "30/40"
-    },
-    "robustness_check": "matches stored robustness summary for all three models"
+  "free_response": {
+    "items": 30,
+    "status": "rubric_defined_not_in_automated_mcq_leaderboard"
   },
   "robustness": {
     "items": 40,
@@ -81,6 +68,29 @@
         "correct": 30,
         "total": 40,
         "accuracy": 0.75
+      }
+    ]
+  },
+  "hard_diagnostic_set": {
+    "items": 50,
+    "models": [
+      {
+        "model": "DeepSeek V4 Pro",
+        "correct": 48,
+        "total": 50,
+        "accuracy": 0.96
+      },
+      {
+        "model": "GPT-5.5",
+        "correct": 48,
+        "total": 50,
+        "accuracy": 0.96
+      },
+      {
+        "model": "MiMo v2.5 Pro",
+        "correct": 47,
+        "total": 50,
+        "accuracy": 0.94
       }
     ]
   }

@@ -1,25 +1,39 @@
 # Methodology
 
-## 中文
+## Benchmark Construction
 
-mini-benchmark 0.5.0 的方法论由三层组成。
+SGS 0.5.0 uses a layered benchmark construction method.
 
-| Layer | Method |
+| Layer | Construction Method |
 |---|---|
-| Domain abstraction | 从半导体气敏材料研发中抽象任务变量、证据关系和安全边界 |
-| Evaluation construction | 将任务组织为 MCQ、free-response 和 robustness variants |
-| Validation engineering | 用 schema、validation、lint 和 scorer 保证数据结构和评测流程可复核 |
+| Domain Core Set | Abstract semiconductor gas-sensing R&D tasks into scoreable MCQ and free-response items |
+| Scientific Stress Set | Add compact scientific mechanisms that expose rule-boundary, quantitative, structure-property, spectrum-pattern, and safety-risk errors |
+| Robustness Set | Generate nearby variants that test whether a model preserves the same judgment principle under paraphrase, distractors, condition updates, and tool observations |
+| Hard Diagnostic Set | Target condition update, evidence conflict, safety gate, tool-observation update, tradeoff, and mechanism-transfer failures |
 
-题目设计强调真实研发语境：同一材料现象可能同时涉及吸附、扩散、载流子、湿度、表征分辨率、读数窗口和工艺约束。评测要求模型在这些变量之间做出阶段性取舍。
+## Item Design
 
-## English
+Each item is organized around a decisive constraint. Examples include material mechanism, gas-response evidence, humidity interference, characterization boundary, safety authorization, numerical unit, spectrum pattern, or expert convention.
 
-mini-benchmark 0.5.0 uses a three-layer methodology.
+Distractors are designed to be locally plausible. A distractor may match a keyword, optimize a secondary metric, report an intermediate value, overgeneralize a scientific rule, or apply a valid principle outside its current boundary.
 
-| Layer | Method |
+## Error Attribution
+
+Every scored MCQ item includes fields that support error analysis:
+
+| Field | Role |
 |---|---|
-| Domain abstraction | Extract task variables, evidence relations, and safety boundaries from semiconductor gas-sensing R&D |
-| Evaluation construction | Organize tasks into MCQ, free-response, and robustness variants |
-| Validation engineering | Use schema, validation, linting, and scoring utilities for auditable evaluation |
+| `domain` | Scientific or R&D domain |
+| `scenario_stage` | Workflow stage |
+| `tool_type` | Tool-use expectation |
+| `failure_mode` | Primary error mechanism |
+| `option_profiles` | Distractor profile by option |
+| `option_rationales` | Rationale for correct and incorrect options |
 
-The item design reflects realistic R&D context: one material observation can involve adsorption, diffusion, carrier behavior, humidity, characterization resolution, readout windows, and process constraints. The benchmark asks models to make stage-aware balanced decisions across these variables.
+## Scientific Stress Set Design
+
+Scientific Stress Set items are retained when they create stable model separation and interpretable errors. Their metadata records design insight, failure family, distractor logic, and scoring requirements.
+
+## Realistic Lab Observation Items
+
+The seed realistic-observation items show the desired next direction. A paper-strip loading problem with 4-苯氧基苯胺 tests whether the model notices that an aqueous impregnation route can fail because the compound is poorly water soluble. A silver nitrate paper-material problem tests whether the model uses light-reaction particle-size behavior rather than defaulting to an oxide explanation.

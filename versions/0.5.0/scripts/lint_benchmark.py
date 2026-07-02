@@ -10,19 +10,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     "README.md",
-    "docs/overview.md",
-    "docs/hard_gates.md",
-    "docs/judge_protocol.md",
-    "docs/reproducibility_and_trace.md",
-    "docs/agent_modes.md",
-    "docs/dimension_definition.md",
-    "docs/task_design_v5.md",
-    "docs/reviewer_guide.md",
-    "docs/hard_set_design.md",
+    "docs/dataset_card.md",
+    "docs/methodology.md",
+    "docs/scoring_protocol.md",
+    "docs/risk_gates.md",
+    "docs/reproducibility.md",
+    "reports/evaluation_report.md",
+    "reports/iteration_notes.md",
+    "reports/model_error_analysis.md",
     "data/benchmark.json",
     "data/benchmark.csv",
+    "data/benchmark_sgs100_clean.json",
+    "data/scientific_stress_bank.json",
+    "data/benchmark_sgs100_robustness.json",
     "data/benchmark_sgs_hard50.json",
-    "data/benchmark_sgs_hard50.csv",
+    "data/free_response_rubrics.json",
     "eval/runner.py",
     "eval/reporting/generate_report.py",
     "eval/configs/demo.yaml",
@@ -39,6 +41,17 @@ FORBIDDEN_PHRASES = [
     "不是" + "……而是",
     "HR review guide",
     "HR readers",
+    "HR",
+    "简历",
+    "岗位",
+    "求职",
+    "作品集",
+    "能力自评",
+    "用户记忆",
+    "delivery audit",
+    "release readiness",
+    "Reviewer",
+    "reviewer",
     "请按我设计好的路径",
     "投递版",
 ]
@@ -57,7 +70,10 @@ def main() -> None:
             errors.append(f"Missing required file: {file}")
 
     text_files = [
-        path for path in list((ROOT / "docs").glob("*.md")) + [ROOT / "README.md"]
+        path
+        for path in list((ROOT / "docs").glob("*.md"))
+        + list((ROOT / "reports").glob("*.md"))
+        + [ROOT / "README.md"]
         if path.exists()
     ]
     for path in text_files:

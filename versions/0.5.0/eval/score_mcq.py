@@ -272,14 +272,14 @@ def write_diagnostic_report(summary, report_path, run_date, benchmark_path, outp
             "",
             "## Extension Tracks",
             "",
-            "1. Score the 30 free-response items with the bilingual judge protocol.",
+            "1. Pair MCQ errors with sampled rubric review where free-response items are part of the versioned dataset.",
             "2. Expand table-heavy, calculation-heavy, and conflicting-evidence tasks.",
             "3. Add adversarial distractors where every option is locally plausible.",
             "4. Review consistency groups to profile principle stability across nearby variants.",
             "",
             "## Active Benchmark Status",
             "",
-            "The active 0.5.0 benchmark is SGS152: 152 total items, including 122 MCQ items and 30 free-response items. MCQ scoring is automatic; free-response and consistency review are handled through the rubric and review protocol. The legacy SGS100 clean export remains available for historical comparison.",
+            "The active 0.5.0 main set is SGS152: 152 total items, including 122 MCQ items and 30 rubric-defined free-response items. This diagnostic report may score the main set or a diagnostic MCQ subset; the scored subset is defined in the run setup table.",
             "",
         ]
     )
@@ -295,7 +295,7 @@ def main():
     parser.add_argument("--diagnostic-report", default=str(ROOT / "results/scored_mcq/diagnostic_report.md"))
     parser.add_argument("--run-date", default=date.today().isoformat())
     parser.add_argument("--scope-label", default="122 automatically scored multiple-choice questions from data/benchmark.json")
-    parser.add_argument("--interpretation", default="The active SGS152 benchmark combines the legacy SGS100 domain set with the failure-mined design bank: 122 multiple-choice items and 30 free-response items. MCQ accuracy is paired with review profiles and consistency-group analysis for a richer evaluation view.")
+    parser.add_argument("--interpretation", default="The active SGS152 benchmark combines the Domain Core Set with the Scientific Stress Set: 122 multiple-choice items and 30 rubric-defined free-response items. MCQ accuracy is paired with diagnostic review profiles for a richer evaluation view.")
     args = parser.parse_args()
 
     benchmark = load_benchmark(args.benchmark)

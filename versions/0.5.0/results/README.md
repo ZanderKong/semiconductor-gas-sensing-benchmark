@@ -1,25 +1,14 @@
-# Curated Results
+# Results
 
-## 中文
+This directory stores reproducible score summaries and model-output tables for SGS 0.5.0.
 
-本目录保存 mini-benchmark 0.5.0 的对外展示型评测摘要。文件聚焦主集 accuracy、safety-boundary index、robustness accuracy 和分项 robustness 指标。
-
-| File | Content |
+| Path | Purpose |
 |---|---|
-| `model_outputs_curated.csv` | 主集 MCQ 精选模型输出 |
-| `main_model_summary.csv` | 主集 MCQ 模型结果 |
-| `robustness_model_summary.csv` | Robustness 层整体结果 |
-| `robustness_metrics.csv` | Robustness 分项指标 |
-| `evaluation_summary.json` | 机器可读汇总 |
+| `evaluation_summary.json` | Machine-readable summary of main, robustness, and hard diagnostic results |
+| `main_model_summary.csv` | SGS152 Main Set MCQ summary |
+| `robustness_model_summary.csv` | Robustness Set summary |
+| `robustness_metrics.csv` | Robustness metric breakdown |
+| `sgs152_merged/` | SGS152 model outputs and scored MCQ summaries |
+| `hard50/` | Hard Diagnostic Set model outputs and scored summaries |
 
-## English
-
-This directory contains review-facing evaluation summaries for mini-benchmark 0.5.0. The files focus on main-set accuracy, safety-boundary index, robustness accuracy, hard-set accuracy, and detailed robustness metrics.
-
-| File | Content |
-|---|---|
-| `model_outputs_curated.csv` | Curated main-set MCQ model outputs |
-| `main_model_summary.csv` | Main MCQ model results |
-| `robustness_model_summary.csv` | Overall robustness results |
-| `robustness_metrics.csv` | Detailed robustness metrics |
-| `evaluation_summary.json` | Machine-readable summary |
+The current automated leaderboard covers MCQ items only. 30 free-response items are rubric-defined and are not included in the current automated MCQ leaderboard.

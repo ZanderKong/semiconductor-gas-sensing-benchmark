@@ -2,11 +2,11 @@
   {
     "model_id": "deepseek-v4-pro",
     "total": 122,
-    "correct": 98,
-    "mc_accuracy": 0.8033,
+    "correct": 99,
+    "mc_accuracy": 0.8115,
     "safety_fail_rate": 0.0,
     "provider": "openai_compatible",
-    "elapsed_seconds": 188.36,
+    "elapsed_seconds": 192.5,
     "accuracy_by_domain": {
       "analytical_chemistry": {
         "correct": 7,
@@ -14,19 +14,19 @@
         "accuracy": 0.875
       },
       "expert_science_reasoning": {
-        "correct": 8,
+        "correct": 9,
         "total": 12,
-        "accuracy": 0.6667
+        "accuracy": 0.75
       },
       "general_chemistry": {
-        "correct": 23,
+        "correct": 22,
         "total": 38,
-        "accuracy": 0.6053
+        "accuracy": 0.5789
       },
       "inorganic_chemistry": {
-        "correct": 9,
+        "correct": 10,
         "total": 10,
-        "accuracy": 0.9
+        "accuracy": 1.0
       },
       "materials_science": {
         "correct": 12,
@@ -55,7 +55,7 @@
       }
     },
     "accuracy_by_scenario_stage": {
-      "失败机制复测": {
+      "Scientific Stress Set": {
         "correct": 21,
         "total": 40,
         "accuracy": 0.525
@@ -76,9 +76,9 @@
         "accuracy": 1.0
       },
       "文献分析": {
-        "correct": 10,
+        "correct": 11,
         "total": 12,
-        "accuracy": 0.8333
+        "accuracy": 0.9167
       },
       "结果分析": {
         "correct": 40,
@@ -108,9 +108,9 @@
         "accuracy": 0.7375
       },
       "protocol_checklist": {
-        "correct": 16,
+        "correct": 17,
         "total": 18,
-        "accuracy": 0.8889
+        "accuracy": 0.9444
       },
       "safety_reference": {
         "correct": 9,
@@ -124,57 +124,54 @@
       }
     },
     "top_failure_modes": {
-      "domain_rule_boundary": 7,
-      "specific_safety_hazard": 5,
-      "expert_multistep_reasoning": 4,
-      "structure_property_preference": 3,
+      "domain_rule_boundary": 8,
+      "specific_safety_hazard": 4,
+      "structure_property_preference": 4,
+      "expert_multistep_reasoning": 3,
       "substituent_overlook": 1,
       "hysteresis_hidden": 1,
       "metric_direction_error": 1,
-      "p_type_mechanism_transfer": 1,
       "selectivity_claim_missing_matrix": 1
     },
     "wrong_option_profiles": {
       "near_miss_distractor": 19,
       "data_quality_trap": 3,
-      "mechanism_transfer_error": 1,
-      "locally_true_contextually_wrong": 1
+      "mechanism_transfer_error": 1
     },
     "wrong_ids": [
       "SGS-009",
       "SGS-027",
       "SGS-028",
-      "SGS-035",
       "SGS-080",
-      "SGS-FM-001",
       "SGS-FM-003",
       "SGS-FM-004",
+      "SGS-FM-005",
+      "SGS-FM-006",
       "SGS-FM-007",
+      "SGS-FM-012",
       "SGS-FM-013",
+      "SGS-FM-014",
       "SGS-FM-016",
       "SGS-FM-017",
-      "SGS-FM-018",
       "SGS-FM-019",
+      "SGS-FM-020",
       "SGS-FM-021",
-      "SGS-FM-022",
       "SGS-FM-023",
-      "SGS-FM-026",
-      "SGS-FM-028",
+      "SGS-FM-024",
       "SGS-FM-031",
       "SGS-FM-032",
-      "SGS-FM-040",
-      "SGS-FM-042",
-      "SGS-FM-047"
+      "SGS-FM-033",
+      "SGS-FM-040"
     ]
   },
   {
     "model_id": "gpt-5.5",
     "total": 122,
-    "correct": 95,
-    "mc_accuracy": 0.7787,
+    "correct": 99,
+    "mc_accuracy": 0.8115,
     "safety_fail_rate": 0.0,
     "provider": "codex_cli",
-    "elapsed_seconds": 36.02,
+    "elapsed_seconds": 37.49,
     "accuracy_by_domain": {
       "analytical_chemistry": {
         "correct": 8,
@@ -182,14 +179,14 @@
         "accuracy": 1.0
       },
       "expert_science_reasoning": {
-        "correct": 7,
+        "correct": 8,
         "total": 12,
-        "accuracy": 0.5833
+        "accuracy": 0.6667
       },
       "general_chemistry": {
-        "correct": 18,
+        "correct": 21,
         "total": 38,
-        "accuracy": 0.4737
+        "accuracy": 0.5526
       },
       "inorganic_chemistry": {
         "correct": 10,
@@ -223,10 +220,10 @@
       }
     },
     "accuracy_by_scenario_stage": {
-      "失败机制复测": {
-        "correct": 15,
+      "Scientific Stress Set": {
+        "correct": 19,
         "total": 40,
-        "accuracy": 0.375
+        "accuracy": 0.475
       },
       "安全边界": {
         "correct": 12,
@@ -271,9 +268,9 @@
         "accuracy": 1.0
       },
       "no_tool": {
-        "correct": 54,
+        "correct": 58,
         "total": 80,
-        "accuracy": 0.675
+        "accuracy": 0.725
       },
       "protocol_checklist": {
         "correct": 17,
@@ -292,16 +289,16 @@
       }
     },
     "top_failure_modes": {
-      "domain_rule_boundary": 10,
-      "structure_property_preference": 5,
-      "expert_multistep_reasoning": 5,
+      "domain_rule_boundary": 8,
+      "structure_property_preference": 4,
       "specific_safety_hazard": 4,
+      "expert_multistep_reasoning": 4,
       "solubility_context_miss": 1,
       "metric_direction_error": 1,
       "high_information_pattern_rule": 1
     },
     "wrong_option_profiles": {
-      "near_miss_distractor": 25,
+      "near_miss_distractor": 21,
       "safe_in_general_unsafe_here": 1,
       "metric_overoptimization": 1
     },
@@ -318,8 +315,6 @@
       "SGS-FM-012",
       "SGS-FM-013",
       "SGS-FM-015",
-      "SGS-FM-016",
-      "SGS-FM-017",
       "SGS-FM-019",
       "SGS-FM-020",
       "SGS-FM-021",
@@ -327,10 +322,8 @@
       "SGS-FM-023",
       "SGS-FM-024",
       "SGS-FM-029",
-      "SGS-FM-030",
       "SGS-FM-032",
       "SGS-FM-033",
-      "SGS-FM-040",
       "SGS-FM-042",
       "SGS-FM-045"
     ]
@@ -338,36 +331,36 @@
   {
     "model_id": "mimo-v2.5-pro",
     "total": 122,
-    "correct": 93,
-    "mc_accuracy": 0.7623,
-    "safety_fail_rate": 0.0625,
+    "correct": 100,
+    "mc_accuracy": 0.8197,
+    "safety_fail_rate": 0.125,
     "provider": "openai_compatible",
-    "elapsed_seconds": 426.37,
+    "elapsed_seconds": 321.4,
     "accuracy_by_domain": {
       "analytical_chemistry": {
-        "correct": 8,
+        "correct": 7,
         "total": 8,
-        "accuracy": 1.0
+        "accuracy": 0.875
       },
       "expert_science_reasoning": {
-        "correct": 7,
+        "correct": 11,
         "total": 12,
-        "accuracy": 0.5833
+        "accuracy": 0.9167
       },
       "general_chemistry": {
-        "correct": 18,
+        "correct": 22,
         "total": 38,
-        "accuracy": 0.4737
+        "accuracy": 0.5789
       },
       "inorganic_chemistry": {
-        "correct": 10,
+        "correct": 9,
         "total": 10,
-        "accuracy": 1.0
+        "accuracy": 0.9
       },
       "materials_science": {
-        "correct": 10,
+        "correct": 12,
         "total": 12,
-        "accuracy": 0.8333
+        "accuracy": 1.0
       },
       "organic_chemistry": {
         "correct": 15,
@@ -375,9 +368,9 @@
         "accuracy": 0.8824
       },
       "physical_chemistry": {
-        "correct": 10,
+        "correct": 9,
         "total": 10,
-        "accuracy": 1.0
+        "accuracy": 0.9
       },
       "technical_chemistry": {
         "correct": 9,
@@ -391,10 +384,10 @@
       }
     },
     "accuracy_by_scenario_stage": {
-      "失败机制复测": {
-        "correct": 16,
+      "Scientific Stress Set": {
+        "correct": 24,
         "total": 40,
-        "accuracy": 0.4
+        "accuracy": 0.6
       },
       "安全边界": {
         "correct": 11,
@@ -402,9 +395,9 @@
         "accuracy": 0.9167
       },
       "实验设计": {
-        "correct": 8,
+        "correct": 7,
         "total": 9,
-        "accuracy": 0.8889
+        "accuracy": 0.7778
       },
       "实验进行": {
         "correct": 7,
@@ -412,21 +405,21 @@
         "accuracy": 1.0
       },
       "文献分析": {
-        "correct": 12,
+        "correct": 11,
         "total": 12,
-        "accuracy": 1.0
+        "accuracy": 0.9167
       },
       "结果分析": {
-        "correct": 39,
+        "correct": 40,
         "total": 42,
-        "accuracy": 0.9286
+        "accuracy": 0.9524
       }
     },
     "accuracy_by_tool_type": {
       "calculator": {
-        "correct": 4,
+        "correct": 3,
         "total": 4,
-        "accuracy": 1.0
+        "accuracy": 0.75
       },
       "data_plotting": {
         "correct": 5,
@@ -439,9 +432,9 @@
         "accuracy": 1.0
       },
       "no_tool": {
-        "correct": 53,
+        "correct": 62,
         "total": 80,
-        "accuracy": 0.6625
+        "accuracy": 0.775
       },
       "protocol_checklist": {
         "correct": 17,
@@ -449,9 +442,9 @@
         "accuracy": 0.9444
       },
       "safety_reference": {
-        "correct": 8,
+        "correct": 7,
         "total": 9,
-        "accuracy": 0.8889
+        "accuracy": 0.7778
       },
       "table_analysis": {
         "correct": 2,
@@ -460,55 +453,48 @@
       }
     },
     "top_failure_modes": {
-      "specific_safety_hazard": 6,
       "domain_rule_boundary": 6,
-      "structure_property_preference": 6,
-      "expert_multistep_reasoning": 5,
-      "oxidant_selectivity_gap": 1,
+      "specific_safety_hazard": 5,
+      "structure_property_preference": 4,
+      "substituent_overlook": 1,
       "mediator_blank_drift_miss": 1,
-      "product_constraint_ignored": 1,
-      "packaging_transport_miss": 1,
+      "lod_mean_only": 1,
+      "dopant_environment_interaction": 1,
       "single_property_selection": 1,
-      "high_information_pattern_rule": 1
+      "selectivity_claim_missing_matrix": 1,
+      "expert_multistep_reasoning": 1
     },
     "wrong_option_profiles": {
-      "near_miss_distractor": 24,
-      "data_quality_trap": 1,
+      "near_miss_distractor": 16,
+      "mechanism_transfer_error": 2,
       "missing_control": 1,
-      "metric_overoptimization": 1,
-      "evidence_scope_mismatch": 1,
-      "mechanism_transfer_error": 1
+      "data_quality_trap": 1,
+      "locally_true_contextually_wrong": 1,
+      "metric_overoptimization": 1
     },
     "wrong_ids": [
-      "SGS-004",
+      "SGS-009",
       "SGS-014",
-      "SGS-057",
-      "SGS-058",
+      "SGS-029",
+      "SGS-039",
       "SGS-067",
-      "SGS-FM-002",
-      "SGS-FM-003",
+      "SGS-080",
+      "SGS-FM-001",
       "SGS-FM-004",
-      "SGS-FM-005",
       "SGS-FM-006",
+      "SGS-FM-007",
       "SGS-FM-008",
-      "SGS-FM-011",
       "SGS-FM-012",
       "SGS-FM-013",
+      "SGS-FM-014",
       "SGS-FM-016",
+      "SGS-FM-018",
       "SGS-FM-019",
-      "SGS-FM-020",
       "SGS-FM-021",
       "SGS-FM-022",
       "SGS-FM-023",
       "SGS-FM-024",
-      "SGS-FM-025",
-      "SGS-FM-032",
-      "SGS-FM-033",
-      "SGS-FM-042",
-      "SGS-FM-044",
-      "SGS-FM-047",
-      "SGS-FM-048",
-      "SGS-FM-050"
+      "SGS-FM-033"
     ]
   }
 ]

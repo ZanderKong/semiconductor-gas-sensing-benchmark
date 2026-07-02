@@ -70,7 +70,7 @@ def main() -> None:
     answer_longest = 0
     for row in rows:
         qid = row.get("id", "")
-        is_failure_mined = str(qid).startswith("SGS-FM-")
+        is_scientific_stress = str(qid).startswith("SGS-FM-")
         if not re.fullmatch(r"(?:SGS-\d{3}|SGS-FM-\d{3})", qid):
             errors.append(f"{row.get('id')} has non-canonical id")
         if row.get("question_type") != "multiple_choice":
@@ -79,12 +79,12 @@ def main() -> None:
         mcq_answers[answer] += 1
         options = row.get("options", {})
         allowed = [chr(ord("A") + idx) for idx in range(len(options))]
-        min_options = 2 if is_failure_mined else 4
+        min_options = 2 if is_scientific_stress else 4
         if list(options.keys()) != allowed or len(options) < min_options:
             errors.append(f"{row['id']} options are not sequential from A or has too few options")
             continue
         lengths = {key: chinese_len(value) for key, value in options.items()}
-        if not is_failure_mined:
+        if not is_scientific_stress:
             shortest = min(lengths.values())
             longest = max(lengths.values())
             if shortest < 10:
@@ -94,7 +94,7 @@ def main() -> None:
             if lengths[answer] == longest:
                 answer_longest += 1
         for key, value in options.items():
-            if is_failure_mined:
+            if is_scientific_stress:
                 continue
             hits = [term for term in FORBIDDEN_OPTION_TERMS if term in value]
             if hits:

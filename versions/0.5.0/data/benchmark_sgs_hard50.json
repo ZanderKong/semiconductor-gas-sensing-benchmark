@@ -145,7 +145,7 @@
       "D": "调整显色时间以获得更高对比度"
     },
     "answer": "C",
-    "answer_rationale": "先确认空白老化与低浓度判别界限，而不是只看线性拟合。",
+    "answer_rationale": "先确认空白老化与低浓度判别界限，线性拟合不能单独支撑判断。",
     "option_profiles": {
       "A": "single_metric_push",
       "B": "local_followup",
@@ -185,7 +185,7 @@
     "topic": "分析化学",
     "skill": "baseline_and_calibration::calibration_drift_conflict",
     "source": "SGS_HARD_SYNTHETIC",
-    "rationale": "先确认空白老化与低浓度判别界限，而不是只看线性拟合。",
+    "rationale": "先确认空白老化与低浓度判别界限，线性拟合不能单独支撑判断。",
     "benchmark_version": "mini-benchmark-0.5.0",
     "consistency_group_id": "HG-003-EVIDENCE_CONFLICT",
     "variant_type": "base",

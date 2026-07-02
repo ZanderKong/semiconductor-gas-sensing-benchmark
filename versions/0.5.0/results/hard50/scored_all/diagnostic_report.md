@@ -31,11 +31,11 @@ Hard-set scoring focuses on top-model discrimination and failure attribution acr
 
 ## Extension Tracks
 
-1. Score the 18 free-response items with the bilingual judge protocol.
+1. Pair MCQ errors with sampled rubric review where free-response items are part of the versioned dataset.
 2. Expand table-heavy, calculation-heavy, and conflicting-evidence tasks.
 3. Add adversarial distractors where every option is locally plausible.
 4. Review consistency groups to profile principle stability across nearby variants.
 
-## SGS-100 Status
+## Active Benchmark Status
 
-The active benchmark is a single 100-item dataset with 82 MCQ items and 18 free-response items. MCQ scoring is automatic; free-response and consistency review are handled through the rubric and review protocol.
+The active 0.5.0 main set is SGS152: 152 total items, including 122 MCQ items and 30 rubric-defined free-response items. This diagnostic report may score the main set or a diagnostic MCQ subset; the scored subset is defined in the run setup table.

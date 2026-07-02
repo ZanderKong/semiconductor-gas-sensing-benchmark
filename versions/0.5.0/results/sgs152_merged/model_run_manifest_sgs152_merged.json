@@ -1,17 +1,21 @@
 {
-  "run_id": "mcq-20260701T090854Z",
-  "created_at": "2026-07-01T09:08:54.212979+00:00",
-  "finished_at": "2026-07-01T09:19:15.477018+00:00",
+  "run_id": "mcq-20260702T055300Z",
+  "created_at": "2026-07-02T05:53:00.431573+00:00",
+  "finished_at": "2026-07-02T06:02:11.869757+00:00",
   "benchmark_version": "mini-benchmark-0.5.0",
-  "task_file": "data/benchmark_sgs152_merged.json",
-  "task_set_hash": "631986478176d6d6095f8c301a03bbc6efcd47248a03169a8a4a992b1282e794",
+  "task_file": "data/benchmark.json",
+  "task_set_hash": "4f72908a94fa0789d3fda4c49262a652b2a65be81b7e947f2699fc4932b85bf8",
   "question_type": "multiple_choice",
   "question_count": 122,
   "prompt_file": "eval/prompts/base_prompt.md",
-  "prompt_hash": "8e6a00597850bd80f5c9da33490e0ac9bb3fcaf7113c4242fc09ef80d2f6fd3c",
+  "prompt_hash": "084b8ef40c271ea6ea42bac3996ac75ca0ad115d45a96fe6084b89b7b21cc1e7",
   "temperature": 0,
   "timeout_seconds": 1800,
   "models": [
+    {
+      "provider": "codex_cli",
+      "model_id": "gpt-5.5"
+    },
     {
       "provider": "openai_compatible",
       "model_id": "deepseek-v4-pro",
@@ -28,35 +32,31 @@
       "api_key_env": "MIMO_API_KEY",
       "auth_header": "api-key",
       "omit_temperature": true
-    },
-    {
-      "provider": "codex_cli",
-      "model_id": "gpt-5.5"
     }
   ],
   "model_status": {
+    "gpt-5.5": {
+      "rows": 122,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 37.49
+    },
     "deepseek-v4-pro": {
       "rows": 122,
       "missing_answers": 0,
       "errors": 0,
-      "elapsed_seconds": 188.36
+      "elapsed_seconds": 192.5
     },
     "mimo-v2.5-pro": {
       "rows": 122,
       "missing_answers": 0,
       "errors": 0,
-      "elapsed_seconds": 426.37
-    },
-    "gpt-5.5": {
-      "rows": 0,
-      "missing_answers": 0,
-      "errors": 1,
-      "elapsed_seconds": null
+      "elapsed_seconds": 321.4
     }
   },
-  "output_file": "results/sgs152_merged/model_outputs_sgs152_merged.csv",
+  "output_file": "results/sgs152_merged/model_outputs_sgs152_merged_all.csv",
   "raw_output_dir": "results/sgs152_merged/raw_model_outputs",
   "credential_policy": "API keys are read from environment variables and are not written to repository files.",
-  "code_commit": "a298408c4ec5fb3b805aee96df9bb3e7d431e3b1",
+  "code_commit": "269e0a458f123d43e37457fb194f147483f3eed6",
   "working_tree_dirty": true
 }
