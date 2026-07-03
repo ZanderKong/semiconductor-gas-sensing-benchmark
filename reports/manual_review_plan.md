@@ -8,9 +8,24 @@ Manual review queue:
 
 The queue is generated from GPT-5.5/ChatGPT judge output and includes hard-fail items plus low or disputed-score items.
 
+Prepared review packet:
+
+`results/standard_20260703/free_response_judge/manual_review_packet.csv`
+
+The packet includes every item in `manual_review_queue.csv` plus deterministic supplemental spot checks so that each participating model has at least 9 of 30 free-response answers queued for human review.
+
 ## Sampling Rule
 
 Review at least 30% of each model's 30 free-response answers.
+
+The prepared packet currently includes:
+
+| Model | Packet rows |
+|---|---:|
+| DeepSeek V4 Pro | 24 |
+| Seed-2.1 | 17 |
+| GPT-5.5 | 9 |
+| MiMo v2.5 Pro | 30 |
 
 The sample must include:
 
@@ -34,6 +49,10 @@ Recommended override file:
 
 `results/standard_20260703/free_response_judge/human_review_overrides.csv`
 
+Blank template:
+
+`results/standard_20260703/free_response_judge/human_review_overrides.template.csv`
+
 Required columns:
 
 ```text
@@ -47,6 +66,10 @@ Use `dimension=total_score` only when the reviewer is overriding the item-level 
 Recommended notes file:
 
 `results/standard_20260703/free_response_judge/adjudication_notes.md`
+
+Blank template:
+
+`results/standard_20260703/free_response_judge/adjudication_notes.template.md`
 
 Each note should include:
 

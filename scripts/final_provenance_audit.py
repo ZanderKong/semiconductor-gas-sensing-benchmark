@@ -55,6 +55,9 @@ TRACKED_STANDARD_FILES = [
     RUN / "free_response_judge/judge_manifest.json",
     RUN / "free_response_judge/scored_free_response_summary.csv",
     RUN / "free_response_judge/manual_review_queue.csv",
+    RUN / "free_response_judge/manual_review_packet.csv",
+    RUN / "free_response_judge/human_review_overrides.template.csv",
+    RUN / "free_response_judge/adjudication_notes.template.md",
     RUN / "robustness/manifest.json",
     RUN / "robustness/model_outputs.csv",
     RUN / "robustness/scored/model_results_summary.csv",
@@ -201,6 +204,59 @@ def check_kimi_and_missing_answer(errors: list[str]) -> None:
         require(float(judged[0]["total_score"]) == 0.0, "DeepSeek SGS-081 must be scored 0", errors)
 
 
+def check_manual_review_packet(errors: list[str]) -> None:
+    queue_path = RUN / "free_response_judge/manual_review_queue.csv"
+    packet_path = RUN / "free_response_judge/manual_review_packet.csv"
+    overrides_template = RUN / "free_response_judge/human_review_overrides.template.csv"
+    notes_template = RUN / "free_response_judge/adjudication_notes.template.md"
+    require(packet_path.exists(), "manual review packet missing", errors)
+    require(overrides_template.exists(), "human review overrides template missing", errors)
+    require(notes_template.exists(), "adjudication notes template missing", errors)
+    if not packet_path.exists():
+        return
+
+    queue = read_csv(queue_path)
+    packet = read_csv(packet_path)
+    queue_keys = {(row["id"], row["model_id"]) for row in queue}
+    packet_keys = {(row["id"], row["model_id"]) for row in packet}
+    require(queue_keys.issubset(packet_keys), "manual review packet must include every queue item", errors)
+    require(("SGS-081", "deepseek-v4-pro") in packet_keys, "manual review packet must include DeepSeek SGS-081", errors)
+    model_counts: dict[str, int] = {}
+    for _, model_id in packet_keys:
+        model_counts[model_id] = model_counts.get(model_id, 0) + 1
+    for model_id in EXPECTED_RESULTS:
+        require(model_counts.get(model_id, 0) >= 9, f"manual review packet must include at least 9 items for {model_id}", errors)
+
+    required_packet_columns = {
+        "id",
+        "model_id",
+        "review_source",
+        "review_reason",
+        "question",
+        "expected_answer",
+        "model_answer",
+        "judge_total_score",
+        "judge_comment",
+        "dimension_scores_json",
+        "human_decision",
+        "human_total_score",
+        "override_reason",
+        "reviewer",
+        "review_date",
+    }
+    require(required_packet_columns.issubset(packet[0].keys()), "manual review packet missing required columns", errors)
+    if overrides_template.exists():
+        with overrides_template.open(encoding="utf-8") as f:
+            override_columns = set(csv.DictReader(f).fieldnames or [])
+    else:
+        override_columns = set()
+    require(
+        {"id", "model_id", "dimension", "judge_score", "human_score", "override_reason", "reviewer", "date"}.issubset(override_columns),
+        "human review overrides template missing required columns",
+        errors,
+    )
+
+
 def check_public_docs(errors: list[str]) -> None:
     forbidden = [
         "99 / 122",
@@ -272,6 +328,7 @@ def main() -> None:
     check_manifests(errors)
     check_results(errors)
     check_kimi_and_missing_answer(errors)
+    check_manual_review_packet(errors)
     check_public_docs(errors)
     check_deprecated_artifacts(errors)
     check_standard_git_policy(errors)

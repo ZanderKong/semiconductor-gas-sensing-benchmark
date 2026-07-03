@@ -80,6 +80,10 @@ Manual review plan: `reports/manual_review_plan.md`.
 
 Review queue: `results/standard_20260703/free_response_judge/manual_review_queue.csv`.
 
+Prepared review packet: `results/standard_20260703/free_response_judge/manual_review_packet.csv`.
+
+The packet includes every queue item and supplemental spot checks so each model has at least 9 free-response answers ready for human review.
+
 Human review is pending. Human reviewers may correct judge scores through `results/standard_20260703/free_response_judge/human_review_overrides.csv` and explain decisions in `results/standard_20260703/free_response_judge/adjudication_notes.md`.
 
 ## Release Decision
