@@ -244,15 +244,17 @@ def check_standard_git_policy(errors: list[str]) -> None:
 
 
 def check_api_keys(errors: list[str]) -> None:
-    tracked = git_ls_files()
+    tracked_paths = {ROOT / rel_path for rel_path in git_ls_files()}
+    standard_run_paths = {path for path in RUN.rglob("*") if path.is_file()}
+    paths_to_scan = sorted(tracked_paths | standard_run_paths)
     key_patterns = [
         re.compile(r"sk-[A-Za-z0-9_\-]{20,}"),
         re.compile(r"Authorization\s*:\s*Bearer\s+\S+", re.IGNORECASE),
         re.compile(r"Bearer\s+sk-[A-Za-z0-9_\-]{20,}", re.IGNORECASE),
         re.compile("09d38ddf-" + "5d52-" + "4309-" + "84b3-" + "5fc3b0c9b358"),
     ]
-    for rel_path in tracked:
-        path = ROOT / rel_path
+    for path in paths_to_scan:
+        rel_path = rel(path)
         if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".pdf"}:
             continue
         try:
