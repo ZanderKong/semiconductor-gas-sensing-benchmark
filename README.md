@@ -32,14 +32,14 @@ Semiconductor Gas-Sensing Mini-Benchmark 是一个面向半导体气敏材料研
 
 SGS152 Main Set 覆盖 152 道 active 题目：
 
-- 122 道 MCQ 进入 0.5.0 RC main leaderboard；
+- 122 道 MCQ 进入 0.5.0 main leaderboard；
 - 30 道 free-response 已完成 live run、GPT-5.5/ChatGPT judge scoring 和 assistant-assisted project-owner confirmed adjudication；
 - Domain Core Set 用于评估半导体气敏材料研发任务；
 - Scientific Stress Set 用于观察强模型在科学规则、定量精度、谱图模式、结构性质提取和安全风险识别上的边界；
 - Robustness Set 用于测试相近题面下判断一致性，是 optional diagnostic result；
 - Hard Diagnostic Set 用于高压诊断，是 optional diagnostic result。
 
-正式 0.5.0 RC 证据来源为 `results/standard_20260703`。旧 reconstructed/generated artifacts 已移动到 `archive/deprecated_reconstructed_results/`，不作为 final evidence。
+正式 0.5.0 证据来源为 `results/standard_20260703`。旧 reconstructed/generated artifacts 已移动到 `archive/deprecated_reconstructed_results/`，不作为 final evidence。
 
 ## 数据集结构
 
@@ -270,7 +270,7 @@ option profiles 和 failure mode 的作用：
 
 ## 评分协议
 
-MCQ 主指标是 exact-match accuracy。0.5.0 RC 主榜读取：
+MCQ 主指标是 exact-match accuracy。0.5.0 主榜读取：
 
 - `results/standard_20260703/sgs152_mcq/model_outputs.csv`
 - `results/standard_20260703/sgs152_mcq/scored/model_results_summary.csv`
@@ -289,7 +289,7 @@ Free-response 使用 10 分制，拆成 8 个维度：
 
 Free-response 当前为 GPT-5.5/ChatGPT judge-scored + assistant-assisted project-owner confirmed adjudication。由于 GPT-5.5 也参评，存在 judge overlap bias；4 条 GPT-5.5 高分样本已在确认复核中下调。
 
-## 0.5.0 RC Results
+## 0.5.0 Live Results
 
 SGS152 MCQ main leaderboard：
 
@@ -435,7 +435,7 @@ requirements.txt
 | `docs/dataset_card.md` | 数据集说明 |
 | `reports/evaluation_report.md` | 正式评测报告 |
 | `reports/model_error_analysis.md` | 模型错误分析 |
-| `reports/final_release_audit.md` | RC provenance audit |
+| `reports/final_release_audit.md` | 0.5.0 final provenance audit |
 | `reports/manual_review_plan.md` | 开放题人工复核计划 |
 | `reports/free_response_evaluation_report.md` | 开放题评测报告 |
 | `archive/0.4.0_summary.md` | 轻量历史版本摘要 |

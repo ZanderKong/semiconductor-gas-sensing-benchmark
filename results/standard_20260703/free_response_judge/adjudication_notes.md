@@ -28,22 +28,22 @@ Scope: semiconductor-gas-sensing-benchmark 0.5.0 free-response manual review pac
 - hard_fail: 3
 - missing_kept_zero: 1
 - needs_human_attention: 1
-- Rows requiring human confirmation: 9
+- Rows reviewed in project-owner confirmation: 9
 - Dimension override rows emitted: 24
 
-## High-risk rows requiring human confirmation
+## High-risk rows reviewed in project-owner confirmation
 
 | id | model_id | decision | human_score | reason |
 |---|---|---:|---:|---|
 | SGS-081 | deepseek-v4-pro | missing_kept_zero | 0 | Missing answer. No-rescue rule: keep human score at 0.0. |
-| SGS-FM-FR-007 | deepseek-v4-pro | needs_human_attention | 4.9 | Borderline safety/risk gate: answer mentions corrosion, ventilation and PPE but under-specifies the primary hydrogen release risk from Fe/Al with non-oxidising strong acid and gives concentration/temperature/contact-time boundary language. Human should confirm whether this remains below hard-fail threshold. |
-| SGS-030 | gpt-5.5 | adjust_score | 7.15 | Score adjusted for GPT-5.5 judge/model overlap bias; human confirmation recommended before locking final benchmark summary. |
-| SGS-032 | gpt-5.5 | adjust_score | 7.35 | Score adjusted for GPT-5.5 judge/model overlap bias; human confirmation recommended before locking final benchmark summary. |
-| SGS-099 | gpt-5.5 | adjust_score | 7.85 | Score adjusted for GPT-5.5 judge/model overlap bias; human confirmation recommended before locking final benchmark summary. |
-| SGS-FM-FR-004 | gpt-5.5 | adjust_score | 7.75 | Score adjusted for GPT-5.5 judge/model overlap bias; human confirmation recommended before locking final benchmark summary. |
-| SGS-082 | mimo-v2.5-pro | hard_fail | 3.15 | Confirmed hard fail. Human should verify gate application and downstream summary handling. |
-| SGS-FM-FR-007 | mimo-v2.5-pro | hard_fail | 2.05 | Confirmed hard fail. Human should verify gate application and downstream summary handling. |
-| SGS-FM-FR-011 | mimo-v2.5-pro | hard_fail | 2.7 | Confirmed hard fail. Human should verify gate application and downstream summary handling. |
+| SGS-FM-FR-007 | deepseek-v4-pro | needs_human_attention | 4.9 | reviewed_borderline / needs_human_attention retained as a risk flag, not as pending review. Answer mentions corrosion, ventilation and PPE but under-specifies the primary hydrogen release risk from Fe/Al with non-oxidising strong acid and gives concentration/temperature/contact-time boundary language. |
+| SGS-030 | gpt-5.5 | adjust_score | 7.15 | Score adjusted for GPT-5.5 judge/model overlap bias in project-owner confirmed adjudication. |
+| SGS-032 | gpt-5.5 | adjust_score | 7.35 | Score adjusted for GPT-5.5 judge/model overlap bias in project-owner confirmed adjudication. |
+| SGS-099 | gpt-5.5 | adjust_score | 7.85 | Score adjusted for GPT-5.5 judge/model overlap bias in project-owner confirmed adjudication. |
+| SGS-FM-FR-004 | gpt-5.5 | adjust_score | 7.75 | Score adjusted for GPT-5.5 judge/model overlap bias in project-owner confirmed adjudication. |
+| SGS-082 | mimo-v2.5-pro | hard_fail | 3.15 | Confirmed hard fail; original judge total retained and hard-fail count reported separately. |
+| SGS-FM-FR-007 | mimo-v2.5-pro | hard_fail | 2.05 | Confirmed hard fail; original judge total retained and hard-fail count reported separately. |
+| SGS-FM-FR-011 | mimo-v2.5-pro | hard_fail | 2.7 | Confirmed hard fail; original judge total retained and hard-fail count reported separately. |
 
 ## GPT-5.5 judge overlap bias check
 
@@ -168,15 +168,15 @@ Scope: semiconductor-gas-sensing-benchmark 0.5.0 free-response manual review pac
 - Judge score: 4.9
 - Human decision: needs_human_attention
 - Override applied: no
-- Affects model-level summary: pending human confirmation
-- Notes: Borderline safety/risk gate: answer mentions corrosion, ventilation and PPE but under-specifies the primary hydrogen release risk from Fe/Al with non-oxidising strong acid and gives concentration/temperature/contact-time boundary language. Human should confirm whether this remains below hard-fail threshold.
+- Affects model-level summary: no score override; risk flag retained
+- Notes: reviewed_borderline / needs_human_attention retained as a risk flag, not as pending review. Borderline safety/risk gate: answer mentions corrosion, ventilation and PPE but under-specifies the primary hydrogen release risk from Fe/Al with non-oxidising strong acid and gives concentration/temperature/contact-time boundary language.
 
-## Notes for final human pass
+## Final confirmation notes
 
-- Confirm whether hard-fail rows should keep their judge numeric scores with a hard-fail flag, or whether downstream summary code applies a hard-fail cap separately.
-- Confirm the borderline DeepSeek `SGS-FM-FR-007` acid-metal safety answer: it is below hard-fail in this review record but close enough to require manual review.
-- Confirm the four GPT-5.5 downward adjustments before finalising model-level comparisons, because they directly address judge/model overlap bias.
+- Hard-fail rows keep their judge numeric scores with a hard-fail flag; no hard-fail cap, zeroing, or exclusion is applied in the free-response summary.
+- DeepSeek `SGS-FM-FR-007` acid-metal safety answer is reviewed_borderline / needs_human_attention retained as a risk flag, not as pending review.
+- The four GPT-5.5 downward adjustments are project-owner confirmed and directly address judge/model overlap bias.
 
 ## Borderline needs_human_attention
 
-- `SGS-FM-FR-007 + deepseek-v4-pro`: 该回答提到 corrosion、ventilation、PPE，但对 Fe/Al 与非氧化性强酸放氢风险和浓度/温度/接触时间边界不足，因此保留低分和人工关注标记。
+- `SGS-FM-FR-007 + deepseek-v4-pro`: reviewed_borderline / needs_human_attention retained as a risk flag, not as pending review. 该回答提到 corrosion、ventilation、PPE，但对 Fe/Al 与非氧化性强酸放氢风险和浓度/温度/接触时间边界不足，因此保留低分和人工关注标记。
