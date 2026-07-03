@@ -1,0 +1,78 @@
+{
+  "run_id": "mcq-20260703T022737Z",
+  "created_at": "2026-07-03T02:27:37.593262+00:00",
+  "finished_at": "2026-07-03T02:42:29.820831+00:00",
+  "benchmark_version": "mini-benchmark-0.5.0",
+  "task_file": "data/benchmark.json",
+  "task_set_hash": "e0d4d634f94a15ebf43a9d80beebc2613c9063f30dd5f3f5a11291b12d50ea9c",
+  "question_type": "multiple_choice",
+  "question_count": 122,
+  "prompt_file": "eval/prompts/base_prompt.md",
+  "prompt_hash": "7b7990d9b0055ea269b38a366ed046a83264494ef4c320bfb757fd58a4b7dbfa",
+  "temperature": 0.0,
+  "internet_access": false,
+  "tool_assistance": false,
+  "sampling": "single response per model per stage; no retry or manual prompt repair",
+  "timeout_seconds": 2400,
+  "models": [
+    {
+      "provider": "codex_cli",
+      "model_id": "gpt-5.5"
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "deepseek-v4-pro",
+      "base_url": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "thinking_mode": "enabled",
+      "reasoning_effort": "high",
+      "omit_temperature": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "mimo-v2.5-pro",
+      "base_url": "https://api.xiaomimimo.com/v1",
+      "api_key_env": "MIMO_API_KEY",
+      "auth_header": "api-key",
+      "omit_temperature": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model_id": "ep-20260703090429-qpmt7",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "api_key_env": "VOLCENGINE_API_KEY",
+      "omit_temperature": true
+    }
+  ],
+  "model_status": {
+    "gpt-5.5": {
+      "rows": 122,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 35.04
+    },
+    "deepseek-v4-pro": {
+      "rows": 122,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 98.95
+    },
+    "mimo-v2.5-pro": {
+      "rows": 122,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 343.28
+    },
+    "ep-20260703090429-qpmt7": {
+      "rows": 122,
+      "missing_answers": 0,
+      "errors": 0,
+      "elapsed_seconds": 414.92
+    }
+  },
+  "output_file": "results/standard_20260703/sgs152_mcq/model_outputs.csv",
+  "raw_output_dir": "results/standard_20260703/sgs152_mcq/raw_model_outputs",
+  "credential_policy": "API keys are read from environment variables and are not written to repository files.",
+  "code_commit": "70b77e8f0b7e6fed60d3fd2a1ac83149fdf4e26a",
+  "working_tree_dirty": false
+}

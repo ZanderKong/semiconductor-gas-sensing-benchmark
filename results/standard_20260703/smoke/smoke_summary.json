@@ -1,0 +1,42 @@
+[
+  {
+    "model_id": "gpt-5.5",
+    "ok": true,
+    "error": "",
+    "returncode": 0,
+    "rows": 2,
+    "output_file": "results/standard_20260703/smoke/gpt-5.5/model_outputs.csv"
+  },
+  {
+    "model_id": "deepseek-v4-pro",
+    "ok": true,
+    "error": "",
+    "returncode": 0,
+    "rows": 2,
+    "output_file": "results/standard_20260703/smoke/deepseek-v4-pro/model_outputs.csv"
+  },
+  {
+    "model_id": "mimo-v2.5-pro",
+    "ok": true,
+    "error": "",
+    "returncode": 0,
+    "rows": 2,
+    "output_file": "results/standard_20260703/smoke/mimo-v2.5-pro/model_outputs.csv"
+  },
+  {
+    "model_id": "seed-2.1",
+    "ok": true,
+    "error": "",
+    "returncode": 0,
+    "rows": 2,
+    "output_file": "results/standard_20260703/smoke/seed-2.1/model_outputs.csv"
+  },
+  {
+    "model_id": "kimi-k2.6",
+    "ok": false,
+    "error": "HTTP Error 401: Unauthorized",
+    "returncode": 0,
+    "rows": 1,
+    "output_file": "results/standard_20260703/smoke/kimi-k2.6/model_outputs.csv"
+  }
+]

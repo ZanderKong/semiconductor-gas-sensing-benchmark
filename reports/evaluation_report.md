@@ -2,136 +2,91 @@
 
 ## 评测范围
 
-本报告记录 Semiconductor Gas-Sensing Mini-Benchmark 0.5.0 的 active 评测结果。
+本报告记录 Semiconductor Gas-Sensing Mini-Benchmark 0.5.0 live RC run。
 
-覆盖范围：
+正式证据来源：
 
-- SGS152 Main Set：122 道 MCQ，30 道 free-response；
-- Domain Core Set：82 道 MCQ，18 道 free-response；
-- Scientific Stress Set：40 道 MCQ，12 道 free-response；
-- Robustness Set：40 道 MCQ；
-- Hard Diagnostic Set：50 道 MCQ。
+`results/standard_20260703`
 
-## 模型与运行设置
+主榜只基于 `data/benchmark.json`，即 SGS152 Main Set 的 152 题。其中 122 道 MCQ 是当前主 leaderboard；30 道 free-response 是 GPT-5.5/ChatGPT judge-scored provisional result，完成人工复核前不作为无偏最终排名。
 
-| Model | Provider | Model version | Temperature | Internet | Tool assistance | Sampling |
-|---|---|---|---|---|---|---|
-| MiMo v2.5 Pro | xiaomimimo | MiMo v2.5 Pro | not recorded | not recorded | not recorded | single answer per item recorded |
-| DeepSeek V4 Pro | deepseek | DeepSeek V4 Pro | not recorded | not recorded | not recorded | single answer per item recorded |
-| GPT-5.5 | codex_cli | GPT-5.5 | not recorded | not recorded | not recorded | single answer per item recorded |
+Robustness 40 和 Hard50 50 是 optional diagnostic results，不进入主榜，不生成 full-suite aggregate score。
 
-当前仓库没有保留 SGS152 MCQ live raw transcript。`results/sgs152_merged/model_run_manifest_sgs152_merged_all.json` 记录了这一边界。Hard Diagnostic Set 保留了 raw model outputs 和 run manifest。Free-response 记录了 full rubric review artifact，live API 会话为 not recorded。
+## 运行设置
 
-## Prompt 与输出格式
+正式阶段 manifest 记录：
 
-| Setting | Value |
-|---|---|
-| MCQ prompt | `eval/prompts/base_prompt.md` |
-| Free-response judge prompt | `eval/prompts/free_response_judge_prompt.md` |
-| MCQ scorer | `eval/score_mcq.py` |
-| Free-response scorer | `eval/score_free_response.py` |
-| MCQ model outputs | `results/sgs152_merged/model_outputs_sgs152_merged_all.csv` |
-| MCQ run manifest | `results/sgs152_merged/model_run_manifest_sgs152_merged_all.json` |
-| Free-response outputs | `results/free_response/model_outputs_free_response.csv` |
-| Free-response run manifest | `results/free_response/model_run_manifest_free_response.json` |
-| Hard Diagnostic outputs | `results/hard50/model_outputs_hard50_all.csv` |
-| Hard Diagnostic run manifest | `results/hard50/model_run_manifest_hard50_all.json` |
+- commit：`70b77e8f...`
+- `working_tree_dirty=false`
+- `internet_access=false`
+- `tool_assistance=false`
+- temperature：0
+- same prompt
+- same item order
+- single sampling
+- no rescue / no manual retry
 
-输出解析失败处理：
+Kimi smoke test failed with 401 Unauthorized, so Kimi is excluded from the main leaderboard.
 
-- MCQ 无法解析为合法选项时记为错误；
-- 多选、空答案和不在 options 中的字母记为错误；
-- free-response 缺失题号或空输出会进入人工复核队列；
-- 当前 `base_prompt` 支持题目 options 中提供的全部选项字母，包括 E。
+## SGS152 MCQ Main Leaderboard
 
-## SGS152 主结果
+| Model | Provider | Correct / Total | Accuracy | Safety Fail Rate |
+|---|---|---:|---:|---:|
+| MiMo v2.5 Pro | xiaomimimo | 119 / 122 | 97.54% | 6.25% |
+| Seed-2.1 | volcengine | 118 / 122 | 96.72% | 6.25% |
+| GPT-5.5 | codex_cli | 117 / 122 | 95.90% | 6.25% |
+| DeepSeek V4 Pro | deepseek | 115 / 122 | 94.26% | 0.00% |
 
-| Model | Correct | Total | Accuracy | Safety Fail Rate |
-|---|---:|---:|---:|---:|
-| MiMo v2.5 Pro | 100 | 122 | 81.97% | 12.5% |
-| DeepSeek V4 Pro | 99 | 122 | 81.15% | 0.0% |
-| GPT-5.5 | 99 | 122 | 81.15% | 0.0% |
+## Free-response Status
 
-MiMo v2.5 Pro 总分最高。DeepSeek V4 Pro 和 GPT-5.5 总分持平。
-
-## Domain Core 与 Scientific Stress 拆分
-
-| Model | Domain Core | Scientific Stress |
+| Model | Average | Hard Fails |
 |---|---:|---:|
-| MiMo v2.5 Pro | 76 / 82 | 24 / 40 |
-| DeepSeek V4 Pro | 78 / 82 | 21 / 40 |
-| GPT-5.5 | 80 / 82 | 19 / 40 |
+| GPT-5.5 | 7.568 | 0 |
+| Seed-2.1 | 6.888 | 0 |
+| DeepSeek V4 Pro | 6.303 | 0 |
+| MiMo v2.5 Pro | 4.843 | 3 |
 
-Domain Core 分数集中，说明常规研发判断层区分度有限。Scientific Stress 形成更大差异，说明短题干科学规则、定量精度、谱图模式、结构性质提取和安全风险识别更容易暴露强模型边界。
+Free-response was judged by GPT-5.5/ChatGPT. Because GPT-5.5 is also a participating model, these scores have judge overlap bias. `manual_review_queue.csv` has been generated, and human review is pending.
 
-## Robustness Set 结果
+DeepSeek V4 Pro did not return `SGS-081`; the missing answer is preserved under the no-rescue policy and scored as 0.
 
-| Model | Correct | Total | Accuracy |
-|---|---:|---:|---:|
-| MiMo v2.5 Pro | 36 | 40 | 90.0% |
-| GPT-5.5 | 35 | 40 | 87.5% |
-| DeepSeek V4 Pro | 30 | 40 | 75.0% |
+## Optional Diagnostic Results
 
-Robustness Set 用于测试相近题面下的判断一致性。它不是主 leaderboard，结果主要用于定位 paraphrase、distractor、condition update 和 tool observation shift 下的稳定性。
+Robustness:
 
-## Hard Diagnostic Set 结果
+| Model | Correct / Total | Accuracy |
+|---|---:|---:|
+| GPT-5.5 | 34 / 40 | 85.0% |
+| MiMo v2.5 Pro | 34 / 40 | 85.0% |
+| Seed-2.1 | 32 / 40 | 80.0% |
+| DeepSeek V4 Pro | 29 / 40 | 72.5% |
 
-| Model | Correct | Total | Accuracy |
-|---|---:|---:|---:|
-| DeepSeek V4 Pro | 48 | 50 | 96.0% |
-| GPT-5.5 | 48 | 50 | 96.0% |
-| MiMo v2.5 Pro | 47 | 50 | 94.0% |
+Hard50:
 
-Hard Diagnostic Set 当前分数过高，诊断层难度不足。下一版需要调高证据冲突、多目标取舍、工具观察更新和安全边界题的干扰强度。
+| Model | Correct / Total | Accuracy |
+|---|---:|---:|
+| GPT-5.5 | 48 / 50 | 96.0% |
+| Seed-2.1 | 48 / 50 | 96.0% |
+| DeepSeek V4 Pro | 47 / 50 | 94.0% |
+| MiMo v2.5 Pro | 47 / 50 | 94.0% |
 
-## Safety Fail Rate
+These diagnostic results are useful for failure-mode analysis and follow-up item calibration. They should not be merged into a single total score.
 
-| Model | SGS152 Safety Fail Rate | Interpretation |
-|---|---:|---|
-| MiMo v2.5 Pro | 12.5% | 安全边界稳定性存在问题 |
-| DeepSeek V4 Pro | 0.0% | 主集安全边界题保持稳定 |
-| GPT-5.5 | 0.0% | 主集安全边界题保持稳定 |
+## Evidence Files
 
-Safety fail rate 只作为主集安全边界诊断信号。它不替代完整安全评估，也不能在小样本下外推为模型整体安全能力。
+| Artifact | Path |
+|---|---|
+| SGS152 MCQ outputs | `results/standard_20260703/sgs152_mcq/model_outputs.csv` |
+| SGS152 MCQ manifest | `results/standard_20260703/sgs152_mcq/manifest.json` |
+| SGS152 MCQ scored summary | `results/standard_20260703/sgs152_mcq/scored/model_results_summary.csv` |
+| Free-response live outputs | `results/standard_20260703/sgs152_free_response/model_outputs.csv` |
+| Free-response judge summary | `results/standard_20260703/free_response_judge/scored_free_response_summary.csv` |
+| Manual review queue | `results/standard_20260703/free_response_judge/manual_review_queue.csv` |
+| Robustness scored summary | `results/standard_20260703/robustness/scored/model_results_summary.csv` |
+| Hard50 scored summary | `results/standard_20260703/hard50/scored/model_results_summary.csv` |
 
-## Free-response 结果
+Raw outputs exist locally under `results/standard_20260703/**/raw_model_outputs/` and `results/standard_20260703/free_response_judge/raw_judge_outputs/`. They are ignored by git and not committed.
 
-| Model | Total | Average | Domain Core Avg | Scientific Stress Avg |
-|---|---:|---:|---:|---:|
-| GPT-5.5 | 261.88 / 300 | 8.729 | 8.851 | 8.547 |
-| DeepSeek V4 Pro | 258.06 / 300 | 8.602 | 8.590 | 8.620 |
-| MiMo v2.5 Pro | 257.16 / 300 | 8.572 | 8.543 | 8.615 |
+## Release Interpretation
 
-开放题评分显示 GPT-5.5 在表达、证据边界和 Domain Core 上更稳。DeepSeek V4 Pro 在安全和证据边界上较均衡。MiMo v2.5 Pro 的 decision logic 和短答压缩较强，安全与隐私维度略弱。
-
-## 结果解释
-
-主要结论：
-
-- Domain Core 层已经能验证专业任务结构，但需要剪枝低区分度题；
-- Scientific Stress 层更适合观察强模型差异；
-- GPT-5.5 在常规研发判断上强，在短题干高压科学机制上更容易受 near-miss 干扰；
-- MiMo v2.5 Pro 总分和 Scientific Stress MCQ 最高，安全边界稳定性需要重点复核；
-- DeepSeek V4 Pro 在主集总分和安全边界上稳定，Scientific Stress 高于 GPT-5.5；
-- Hard Diagnostic Set 需要重校准。
-
-## 样本量和统计边界
-
-SGS152 是 compact benchmark。122 道 MCQ 可以支持主集比较，但分项层样本较小。
-
-解释原则：
-
-- 主集总分可用于当前版本结果快照；
-- Domain Core 与 Scientific Stress 的差异可作为诊断信号；
-- Robustness、Hard Diagnostic 和单个 failure mode 不宜当稳定排行榜；
-- free-response rubric review 需要后续加入 live transcript 和复核一致性。
-
-## 结果对下一版 benchmark 的影响
-
-下一版优先任务：
-
-- 对 Hard Diagnostic Set 增加更强证据冲突；
-- 把 Domain Core 中低区分度题转入 warm-up 或 archive；
-- 扩展 Scientific Stress 中的谱图、计算、结构性质和安全风险识别题；
-- 将 free-response live transcript、judge adjudication 和人工复核一致性归档；
-- 在 item design index 中加入 item-level performance 和保留决策。
+0.5.0 is currently a live RC. The SGS152 MCQ leaderboard is the main benchmark result. Free-response should remain provisional until manual review resolves hard-fail and disputed-score samples. Robustness and Hard50 are optional diagnostic layers.

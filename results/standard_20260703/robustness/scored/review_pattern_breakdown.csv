@@ -1,0 +1,15 @@
+model_id,review_pattern,count
+deepseek-v4-pro,robustness_distractor,6
+deepseek-v4-pro,robustness_contradiction,3
+deepseek-v4-pro,robustness_paraphrase,1
+deepseek-v4-pro,robustness_tool_observation_shift,1
+ep-20260703090429-qpmt7,robustness_distractor,5
+ep-20260703090429-qpmt7,robustness_contradiction,2
+ep-20260703090429-qpmt7,robustness_tool_observation_shift,1
+gpt-5.5,robustness_paraphrase,2
+gpt-5.5,robustness_distractor,2
+gpt-5.5,robustness_contradiction,2
+mimo-v2.5-pro,robustness_contradiction,3
+mimo-v2.5-pro,robustness_distractor,1
+mimo-v2.5-pro,robustness_paraphrase,1
+mimo-v2.5-pro,robustness_adversarial_safety,1

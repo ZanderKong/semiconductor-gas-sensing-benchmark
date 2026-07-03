@@ -7,11 +7,12 @@ results/raw_model_outputs*/
 results/**/raw_model_outputs*/
 results/**/*raw_model_outputs*/
 **/results/**/raw_model_outputs*/
+results/**/raw_judge_outputs*/
+**/results/**/raw_judge_outputs*/
 results/**/raw/
-results/standard_*/
-**/results/standard_*/
 results/evaluator_reviews/
 results/runs/
 results/scored_mcq/
 results/reference_original_bank/
 external_benchmarks/
+versions/0.5.0/

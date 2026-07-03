@@ -1,0 +1,6 @@
+model_id,ok,error,returncode,rows,output_file
+gpt-5.5,True,,0,2,results/standard_20260703/smoke/gpt-5.5/model_outputs.csv
+deepseek-v4-pro,True,,0,2,results/standard_20260703/smoke/deepseek-v4-pro/model_outputs.csv
+mimo-v2.5-pro,True,,0,2,results/standard_20260703/smoke/mimo-v2.5-pro/model_outputs.csv
+seed-2.1,True,,0,2,results/standard_20260703/smoke/seed-2.1/model_outputs.csv
+kimi-k2.6,False,HTTP Error 401: Unauthorized,0,1,results/standard_20260703/smoke/kimi-k2.6/model_outputs.csv

@@ -1,0 +1,2 @@
+id,model_id,provider,answer,elapsed_seconds,error
+,kimi-k2.6,openai_compatible,,,HTTP Error 401: Unauthorized

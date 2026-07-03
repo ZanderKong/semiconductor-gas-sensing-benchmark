@@ -1,0 +1,3 @@
+id,model_id,provider,answer,elapsed_seconds,error
+SGS-001,gpt-5.5,codex_cli,D,8.97,
+SGS-002,gpt-5.5,codex_cli,B,8.97,
