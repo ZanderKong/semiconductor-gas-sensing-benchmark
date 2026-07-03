@@ -82,4 +82,4 @@ Each note should include:
 
 ## Release Impact
 
-Until manual review is complete, free-response results remain judge-scored provisional results. The SGS152 MCQ leaderboard can be used as the 0.5.0 main leaderboard, but free-response ranking should not be presented as unbiased final evidence.
+Manual review has been applied through `human_review_decisions.csv`, `human_review_overrides.csv`, and `adjudication_notes.md`. The SGS152 MCQ leaderboard remains the 0.5.0 main leaderboard. Free-response is reported as judge-scored plus assistant-assisted project-owner confirmed adjudication, with GPT-5.5 judge overlap bias disclosed and four GPT-5.5 high-score samples adjusted downward.

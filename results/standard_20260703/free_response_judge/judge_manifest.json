@@ -15,6 +15,17 @@
   "tool_assistance": false,
   "sampling": "single judge pass per model batch",
   "bias_note": "Judge uses ChatGPT/GPT-5.5 and overlaps with one participating model family; interpret scores with this bias.",
+  "adjudication": {
+    "review_type": "assistant_assisted_project_owner_confirmed",
+    "reviewer": "project_owner_confirmed_with_assistant_support",
+    "review_date": "2026-07-03",
+    "decisions_file": "results/standard_20260703/free_response_judge/human_review_decisions.csv",
+    "overrides_file": "results/standard_20260703/free_response_judge/human_review_overrides.csv",
+    "notes_file": "results/standard_20260703/free_response_judge/adjudication_notes.md",
+    "score_overrides": 4,
+    "hard_fail_score_policy": "retain original judge total; do not zero, cap, or exclude hard-fail rows from averages",
+    "gpt55_overlap_bias_adjustment": "four GPT-5.5 high-score samples adjusted downward"
+  },
   "model_status": {
     "deepseek-v4-pro": {
       "rows": 30,

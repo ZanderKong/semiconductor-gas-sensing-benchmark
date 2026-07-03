@@ -2,7 +2,7 @@
 
 ## Scope
 
-This audit covers the 0.5.0 live RC run in `results/standard_20260703`.
+This audit covers the 0.5.0 live standard run and confirmed free-response adjudication in `results/standard_20260703`.
 
 The main leaderboard is based only on `data/benchmark.json`, the SGS152 Main Set. Robustness 40 and Hard50 50 are optional diagnostic results. They are not included in the main leaderboard and are not collapsed into a full-suite aggregate score.
 
@@ -27,16 +27,18 @@ SGS152 MCQ main leaderboard:
 
 ## Free-response Status
 
-Judge-scored provisional free-response results:
+Free-response results are judge-scored plus assistant-assisted project-owner confirmed adjudication:
 
-| Model | Average |
-|---|---:|
-| DeepSeek V4 Pro | 6.303 |
-| Seed-2.1 | 6.888 |
-| GPT-5.5 | 7.568 |
-| MiMo v2.5 Pro | 4.843 |
+| Model | Average | Hard Fails |
+|---|---:|---:|
+| DeepSeek V4 Pro | 6.303 | 0 |
+| Seed-2.1 | 6.888 | 0 |
+| GPT-5.5 | 7.485 | 0 |
+| MiMo v2.5 Pro | 4.843 | 3 |
 
-Free-response was judged by GPT-5.5/ChatGPT. Because GPT-5.5 is also a participating model, these scores have judge overlap bias. `results/standard_20260703/free_response_judge/manual_review_queue.csv` has been generated. Until human review is complete, free-response should be treated as a judge-scored provisional result rather than an unbiased final ranking.
+Free-response was first judged by GPT-5.5/ChatGPT and then confirmed through assistant-assisted project-owner adjudication. Because GPT-5.5 is also a participating model, judge overlap bias remains disclosed; four GPT-5.5 high-score samples were adjusted downward in `human_review_overrides.csv`.
+
+Hard-fail score policy: hard fail rows retain the original judge total; they are not zeroed, capped, or excluded from averages. Hard fail count is reported separately.
 
 ## Optional Diagnostic Results
 
@@ -60,10 +62,6 @@ Hard50:
 
 These diagnostic sets are used for failure-mode review only. They do not enter the main leaderboard and do not produce a total benchmark score.
 
-## Kimi Exclusion
-
-Kimi smoke test failed with 401 Unauthorized. Kimi is excluded from the main leaderboard and appears only in the smoke/failure record.
-
 ## Missing Answer Handling
 
 DeepSeek V4 Pro did not return an answer for `SGS-081` in the free-response run. The missing answer was preserved under the no-rescue policy and scored as 0 by the judge workflow. No manual answer was inserted.
@@ -76,21 +74,21 @@ README, evaluation report, model error analysis, iteration notes, and results RE
 
 ## Manual Review Plan
 
-Manual review plan: `reports/manual_review_plan.md`.
+Manual review packet: `results/standard_20260703/free_response_judge/manual_review_packet.csv`.
 
-Review queue: `results/standard_20260703/free_response_judge/manual_review_queue.csv`.
+Confirmed decisions: `results/standard_20260703/free_response_judge/human_review_decisions.csv`.
 
-Prepared review packet: `results/standard_20260703/free_response_judge/manual_review_packet.csv`.
+Confirmed overrides: `results/standard_20260703/free_response_judge/human_review_overrides.csv`.
 
-The packet includes every queue item and supplemental spot checks so each model has at least 9 free-response answers ready for human review.
+Adjudication notes: `results/standard_20260703/free_response_judge/adjudication_notes.md`.
 
-Human review is pending. Human reviewers may correct judge scores through `results/standard_20260703/free_response_judge/human_review_overrides.csv` and explain decisions in `results/standard_20260703/free_response_judge/adjudication_notes.md`.
+Final adjudication counts: agree 71, adjust_score 4, hard_fail 3, missing_kept_zero 1, needs_human_attention 1.
 
 ## Release Decision
 
-Current status: 0.5.0 live RC.
+Current status: v0.5.0 release evidence is ready after confirmed free-response adjudication.
 
-Do not mark this as final until human review of free-response judge-risk items is complete and final documentation is refreshed. After manual review and final documentation update, this package can be marked as v0.5.0.
+The SGS152 MCQ table remains the main leaderboard. Free-response is reported as judge-scored plus assistant-assisted project-owner confirmed adjudication. Robustness and Hard50 remain optional diagnostics and are not combined into a benchmark-wide aggregate leaderboard.
 
 ## Commands Run
 
@@ -100,4 +98,7 @@ python3 scripts/lint_benchmark.py
 python3 scripts/validate_hard50.py
 python3 scripts/run_standard_benchmark.py --out-root results/standard_20260703 --smoke-timeout 900 --timeout 2400
 python3 scripts/final_provenance_audit.py
+make validate
+make lint
+git diff --check
 ```

@@ -1,6 +1,6 @@
 # Results
 
-`results/standard_20260703` is the 0.5.0 live release-candidate evidence source.
+`results/standard_20260703` is the 0.5.0 live standard evidence source.
 
 ## Formal Evidence
 
@@ -11,7 +11,7 @@
 | `standard_20260703/sgs152_mcq/scored/` | SGS152 MCQ scored summaries | committed |
 | `standard_20260703/sgs152_free_response/model_outputs.csv` | Parsed live free-response outputs | committed |
 | `standard_20260703/sgs152_free_response/manifest.json` | Free-response live-run manifest | committed |
-| `standard_20260703/free_response_judge/` | Judge outputs, scores, manual review queue | committed except raw judge outputs |
+| `standard_20260703/free_response_judge/` | Judge outputs, confirmed adjudication files, scores | committed except raw judge outputs |
 | `standard_20260703/robustness/` | Optional Robustness diagnostic results | committed except raw outputs |
 | `standard_20260703/hard50/` | Optional Hard50 diagnostic results | committed except raw outputs |
 | `standard_20260703/analysis_core/` | SGS152 core analysis | committed |

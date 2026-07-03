@@ -14,24 +14,24 @@ SGS152 MCQ remains the main leaderboard. The live run shows a tight cluster amon
 |---|---:|---:|
 | MiMo v2.5 Pro | 119 / 122 | 4.843 |
 | Seed-2.1 | 118 / 122 | 6.888 |
-| GPT-5.5 | 117 / 122 | 7.568 |
+| GPT-5.5 | 117 / 122 | 7.485 |
 | DeepSeek V4 Pro | 115 / 122 | 6.303 |
 
-Free-response values are judge-scored provisional results. GPT-5.5/ChatGPT was used as judge, so judge overlap bias is present.
+Free-response values are judge-scored plus assistant-assisted project-owner confirmed adjudication. GPT-5.5/ChatGPT was used as judge, so judge overlap bias remains disclosed; four GPT-5.5 high-score samples were adjusted downward.
 
 ## Model Notes
 
 ### MiMo v2.5 Pro
 
-MiMo has the highest SGS152 MCQ result at 119 / 122 and ties GPT-5.5 on Robustness at 34 / 40. Its free-response result is much lower, with three hard fails in the judge output. Manual review should prioritize MiMo hard-fail and low-score free-response items before any final open-ended conclusion.
+MiMo has the highest SGS152 MCQ result at 119 / 122 and ties GPT-5.5 on Robustness at 34 / 40. Its free-response result is much lower, with three retained hard fails after adjudication. Hard fail rows retain their original judge totals and are counted separately.
 
 ### Seed-2.1
 
-Seed-2.1 has the second-highest SGS152 MCQ result at 118 / 122 and the strongest optional Hard50 result tied with GPT-5.5 at 48 / 50. Its free-response average is 6.888. It is included in the main run because smoke testing passed.
+Seed-2.1 has the second-highest SGS152 MCQ result at 118 / 122 and the strongest optional Hard50 result tied with GPT-5.5 at 48 / 50. Its free-response average is 6.888.
 
 ### GPT-5.5
 
-GPT-5.5 scored 117 / 122 on SGS152 MCQ and has the highest judge-scored free-response average, 7.568. Because GPT-5.5 also served as the free-response judge, this open-ended advantage must be treated as provisional and potentially biased.
+GPT-5.5 scored 117 / 122 on SGS152 MCQ and has the highest adjudicated free-response average, 7.485. Because GPT-5.5 also served as the free-response judge, four high-score GPT-5.5 samples were conservatively adjusted downward: `SGS-030`, `SGS-032`, `SGS-099`, and `SGS-FM-FR-004`.
 
 ### DeepSeek V4 Pro
 
@@ -50,20 +50,19 @@ Robustness and Hard50 are optional diagnostic layers:
 
 These results should guide item-level review and future calibration. They should not be combined with SGS152 into a full-suite total score.
 
+Integrated diagnostic reading: MiMo leads the MCQ main leaderboard but has the weakest free-response profile and 3 retained hard fails. GPT-5.5 has the strongest adjudicated free-response average and ties Seed-2.1 on Hard50. Seed-2.1 is the most balanced MCQ runner-up. DeepSeek is lowest on SGS152 MCQ and Robustness, and has the preserved `SGS-081` no-rescue missing answer.
+
 ## Review Priorities
 
-Manual review should focus on:
+Confirmed adjudication highlights:
 
-- MiMo hard-fail free-response items;
-- DeepSeek `SGS-081` missing answer;
-- low-score free-response items in `manual_review_queue.csv`;
-- safety-boundary items;
-- Scientific Stress free-response items;
-- cases where the GPT-5.5 judge may favor concise GPT-style answers.
+- `SGS-082`, `SGS-FM-FR-007`, and `SGS-FM-FR-011` for MiMo remain hard fail.
+- DeepSeek `SGS-081` remains no-rescue 0.
+- DeepSeek `SGS-FM-FR-007` remains reviewed borderline / needs_human_attention at 4.9 and is not upgraded to hard fail.
+- GPT-5.5 overlap-bias adjustments lowered four high-score samples.
 
 ## Next Calibration Targets
 
 - Preserve SGS152 MCQ as the main 0.5.0 leaderboard.
-- Treat free-response as provisional until human adjudication is complete.
+- Treat free-response as judge-scored plus assistant-assisted project-owner confirmed adjudication, not as an independent blind review.
 - Recalibrate Robustness and Hard50 as diagnostics rather than leaderboard extensions.
-- Add item-level performance fields after final human review is complete.

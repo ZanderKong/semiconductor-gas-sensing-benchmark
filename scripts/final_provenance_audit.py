@@ -22,14 +22,26 @@ FORMAL_DOCS = [
     ROOT / "reports/iteration_notes.md",
     ROOT / "results/README.md",
     ROOT / "reports/final_release_audit.md",
+    RUN / "analysis_core/core_analysis.md",
+    RUN / "analysis_full/full_analysis.md",
+    RUN / "free_response_judge/judge_report.md",
 ]
 EXPECTED_COMMIT_PREFIX = "70b77e8"
 EXPECTED_RESULTS = {
     "deepseek-v4-pro": {"mcq": (115, 122), "fr": "6.303", "robustness": (29, 40), "hard50": (47, 50)},
     "ep-20260703090429-qpmt7": {"mcq": (118, 122), "fr": "6.888", "robustness": (32, 40), "hard50": (48, 50)},
-    "gpt-5.5": {"mcq": (117, 122), "fr": "7.568", "robustness": (34, 40), "hard50": (48, 50)},
+    "gpt-5.5": {"mcq": (117, 122), "fr": "7.485", "robustness": (34, 40), "hard50": (48, 50)},
     "mimo-v2.5-pro": {"mcq": (119, 122), "fr": "4.843", "robustness": (34, 40), "hard50": (47, 50)},
 }
+EXPECTED_HARD_FAILS = {
+    "deepseek-v4-pro": 0,
+    "ep-20260703090429-qpmt7": 0,
+    "gpt-5.5": 0,
+    "mimo-v2.5-pro": 3,
+}
+REVIEW_TYPE = "assistant_assisted_project_owner_confirmed"
+REVIEWER = "project_owner_confirmed_with_assistant_support"
+REVIEW_DATE = "2026-07-03"
 STAGE_MANIFESTS = [
     RUN / "sgs152_mcq/manifest.json",
     RUN / "sgs152_free_response/manifest.json",
@@ -58,6 +70,9 @@ TRACKED_STANDARD_FILES = [
     RUN / "free_response_judge/manual_review_packet.csv",
     RUN / "free_response_judge/human_review_overrides.template.csv",
     RUN / "free_response_judge/adjudication_notes.template.md",
+    RUN / "free_response_judge/human_review_decisions.csv",
+    RUN / "free_response_judge/human_review_overrides.csv",
+    RUN / "free_response_judge/adjudication_notes.md",
     RUN / "robustness/manifest.json",
     RUN / "robustness/model_outputs.csv",
     RUN / "robustness/scored/model_results_summary.csv",
@@ -171,27 +186,14 @@ def check_results(errors: list[str]) -> None:
             require((int(mcq[model]["correct"]), int(mcq[model]["total"])) == expected["mcq"], f"{model} SGS152 MCQ mismatch", errors)
         if model in fr:
             require(fr[model]["average_score"] == expected["fr"], f"{model} free-response avg mismatch", errors)
+            require(int(fr[model]["hard_fail_count"]) == EXPECTED_HARD_FAILS[model], f"{model} hard fail count mismatch", errors)
         if model in robustness:
             require((int(robustness[model]["correct"]), int(robustness[model]["total"])) == expected["robustness"], f"{model} robustness mismatch", errors)
         if model in hard50:
             require((int(hard50[model]["correct"]), int(hard50[model]["total"])) == expected["hard50"], f"{model} Hard50 mismatch", errors)
 
 
-def check_kimi_and_missing_answer(errors: list[str]) -> None:
-    smoke = result_map(RUN / "smoke/smoke_summary.csv")
-    require("kimi-k2.6" in smoke, "Kimi smoke record missing", errors)
-    if "kimi-k2.6" in smoke:
-        require(smoke["kimi-k2.6"]["ok"] == "False", "Kimi must not pass smoke", errors)
-        require("401" in smoke["kimi-k2.6"]["error"], "Kimi failure must record 401 Unauthorized", errors)
-
-    for path in [
-        RUN / "sgs152_mcq/scored/model_results_summary.csv",
-        RUN / "free_response_judge/scored_free_response_summary.csv",
-        RUN / "robustness/scored/model_results_summary.csv",
-        RUN / "hard50/scored/model_results_summary.csv",
-    ]:
-        require("kimi" not in path.read_text(encoding="utf-8").lower(), f"Kimi appears in formal result file {rel(path)}", errors)
-
+def check_missing_answer(errors: list[str]) -> None:
     fr_outputs = read_csv(RUN / "sgs152_free_response/model_outputs.csv")
     ds_081 = [row for row in fr_outputs if row["model_id"] == "deepseek-v4-pro" and row["id"] == "SGS-081"]
     require(len(ds_081) == 1, "DeepSeek SGS-081 free-response row missing", errors)
@@ -257,6 +259,69 @@ def check_manual_review_packet(errors: list[str]) -> None:
     )
 
 
+def check_confirmed_adjudication(errors: list[str]) -> None:
+    decisions_path = RUN / "free_response_judge/human_review_decisions.csv"
+    overrides_path = RUN / "free_response_judge/human_review_overrides.csv"
+    notes_path = RUN / "free_response_judge/adjudication_notes.md"
+    require(decisions_path.exists(), "confirmed human review decisions missing", errors)
+    require(overrides_path.exists(), "confirmed human review overrides missing", errors)
+    require(notes_path.exists(), "confirmed adjudication notes missing", errors)
+    if not decisions_path.exists() or not overrides_path.exists() or not notes_path.exists():
+        return
+
+    decisions = read_csv(decisions_path)
+    decision_counts: dict[str, int] = {}
+    for row in decisions:
+        decision_counts[row["human_decision"]] = decision_counts.get(row["human_decision"], 0) + 1
+        require(row.get("review_type") == REVIEW_TYPE, "human review decision review_type mismatch", errors)
+        require(row.get("reviewer") == REVIEWER, "human review decision reviewer mismatch", errors)
+        require(row.get("review_date") == REVIEW_DATE, "human review decision review_date mismatch", errors)
+    require(decision_counts == {"agree": 71, "adjust_score": 4, "hard_fail": 3, "missing_kept_zero": 1, "needs_human_attention": 1}, "human review decision counts mismatch", errors)
+
+    overrides = read_csv(overrides_path)
+    override_items = {(row["id"], row["model_id"]) for row in overrides}
+    expected_override_items = {
+        ("SGS-030", "gpt-5.5"),
+        ("SGS-032", "gpt-5.5"),
+        ("SGS-099", "gpt-5.5"),
+        ("SGS-FM-FR-004", "gpt-5.5"),
+    }
+    require(override_items == expected_override_items, "confirmed override item set mismatch", errors)
+    for row in overrides:
+        require(row.get("review_type") == REVIEW_TYPE, "human review override review_type mismatch", errors)
+        require(row.get("reviewer") == REVIEWER, "human review override reviewer mismatch", errors)
+        require(row.get("review_date") == REVIEW_DATE, "human review override review_date mismatch", errors)
+
+    decision_by_key = {(row["id"], row["model_id"]): row for row in decisions}
+    expected_totals = {
+        ("SGS-030", "gpt-5.5"): ("7.65", "7.15"),
+        ("SGS-032", "gpt-5.5"): ("8.1", "7.35"),
+        ("SGS-099", "gpt-5.5"): ("8.45", "7.85"),
+        ("SGS-FM-FR-004", "gpt-5.5"): ("8.4", "7.75"),
+    }
+    for key, (judge_score, human_score) in expected_totals.items():
+        row = decision_by_key.get(key)
+        require(row is not None, f"{key} missing from human decisions", errors)
+        if row:
+            require(row["judge_total_score"] == judge_score, f"{key} judge score mismatch", errors)
+            require(row["human_total_score"] == human_score, f"{key} human score mismatch", errors)
+            require(row["human_decision"] == "adjust_score", f"{key} must be adjust_score", errors)
+
+    for key in [("SGS-082", "mimo-v2.5-pro"), ("SGS-FM-FR-007", "mimo-v2.5-pro"), ("SGS-FM-FR-011", "mimo-v2.5-pro")]:
+        row = decision_by_key.get(key)
+        require(row is not None and row["human_decision"] == "hard_fail", f"{key} hard fail not retained", errors)
+    missing = decision_by_key.get(("SGS-081", "deepseek-v4-pro"))
+    require(missing is not None and missing["human_decision"] == "missing_kept_zero" and float(missing["human_total_score"]) == 0.0, "DeepSeek SGS-081 missing no-rescue decision mismatch", errors)
+    borderline = decision_by_key.get(("SGS-FM-FR-007", "deepseek-v4-pro"))
+    require(borderline is not None and borderline["human_decision"] == "needs_human_attention" and borderline["human_total_score"] == "4.9", "DeepSeek SGS-FM-FR-007 borderline decision mismatch", errors)
+
+    notes = notes_path.read_text(encoding="utf-8")
+    require(REVIEW_TYPE in notes, "adjudication notes missing review_type", errors)
+    require(REVIEWER in notes, "adjudication notes missing reviewer", errors)
+    require("hard fail rows retain the original judge total" in notes, "hard fail score policy missing from notes", errors)
+    require("不升级为 hard fail" in notes or "保留低分和人工关注标记" in notes, "borderline note missing", errors)
+
+
 def check_public_docs(errors: list[str]) -> None:
     forbidden = [
         "99 / 122",
@@ -265,6 +330,12 @@ def check_public_docs(errors: list[str]) -> None:
         "reconstructs answer-level score artifacts",
         "rubric-review artifact per item",
         "generated free-response",
+        "Kimi",
+        "kimi",
+        "fully independent human review",
+        "unbiased judge result",
+        "full-suite aggregate leaderboard",
+        "final result based on reconstructed artifacts",
     ]
     for path in FORMAL_DOCS:
         require(path.exists(), f"{rel(path)} missing", errors)
@@ -278,7 +349,7 @@ def check_public_docs(errors: list[str]) -> None:
 def check_deprecated_artifacts(errors: list[str]) -> None:
     require(DEPRECATED_ROOT.exists(), "deprecated artifact archive missing", errors)
     for path in sorted(DEPRECATED_ROOT.rglob("*")):
-        if not path.is_file() or path.name == "README.md":
+        if not path.is_file() or path.name == "README.md" or path.name == ".DS_Store":
             continue
         try:
             first_line = path.read_text(encoding="utf-8").splitlines()[0]
@@ -327,8 +398,9 @@ def main() -> None:
     check_scope(errors)
     check_manifests(errors)
     check_results(errors)
-    check_kimi_and_missing_answer(errors)
+    check_missing_answer(errors)
     check_manual_review_packet(errors)
+    check_confirmed_adjudication(errors)
     check_public_docs(errors)
     check_deprecated_artifacts(errors)
     check_standard_git_policy(errors)

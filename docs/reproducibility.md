@@ -56,8 +56,8 @@ Run:
 python3 scripts/final_provenance_audit.py
 ```
 
-The audit checks live-run manifests, expected results, Kimi exclusion, DeepSeek `SGS-081` missing-answer handling, judge bias disclosure, deprecated artifact isolation, and API-key leakage.
+The audit checks live-run manifests, expected results, DeepSeek `SGS-081` missing-answer handling, confirmed free-response adjudication, judge bias disclosure, deprecated artifact isolation, and API-key leakage.
 
 ## Release Boundary
 
-The main 0.5.0 leaderboard is SGS152 MCQ only. Free-response is judge-scored provisional until manual review is complete. Robustness and Hard50 are optional diagnostic layers and must not be aggregated into the main score.
+The main 0.5.0 leaderboard is SGS152 MCQ only. Free-response is judge-scored plus assistant-assisted project-owner confirmed adjudication. Robustness and Hard50 are optional diagnostic layers and must not be aggregated into the main score.

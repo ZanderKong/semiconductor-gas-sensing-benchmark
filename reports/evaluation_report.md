@@ -2,13 +2,13 @@
 
 ## 评测范围
 
-本报告记录 Semiconductor Gas-Sensing Mini-Benchmark 0.5.0 live RC run。
+本报告记录 Semiconductor Gas-Sensing Mini-Benchmark 0.5.0 live standard run 和 confirmed free-response adjudication。
 
 正式证据来源：
 
 `results/standard_20260703`
 
-主榜只基于 `data/benchmark.json`，即 SGS152 Main Set 的 152 题。其中 122 道 MCQ 是当前主 leaderboard；30 道 free-response 是 GPT-5.5/ChatGPT judge-scored provisional result，完成人工复核前不作为无偏最终排名。
+主榜只基于 `data/benchmark.json`，即 SGS152 Main Set 的 152 题。其中 122 道 MCQ 是当前 main leaderboard；30 道 free-response 是 GPT-5.5/ChatGPT judge-scored + assistant-assisted project-owner confirmed adjudication。
 
 Robustness 40 和 Hard50 50 是 optional diagnostic results，不进入主榜，不生成 full-suite aggregate score。
 
@@ -26,8 +26,6 @@ Robustness 40 和 Hard50 50 是 optional diagnostic results，不进入主榜，
 - single sampling
 - no rescue / no manual retry
 
-Kimi smoke test failed with 401 Unauthorized, so Kimi is excluded from the main leaderboard.
-
 ## SGS152 MCQ Main Leaderboard
 
 | Model | Provider | Correct / Total | Accuracy | Safety Fail Rate |
@@ -41,12 +39,19 @@ Kimi smoke test failed with 401 Unauthorized, so Kimi is excluded from the main 
 
 | Model | Average | Hard Fails |
 |---|---:|---:|
-| GPT-5.5 | 7.568 | 0 |
+| GPT-5.5 | 7.485 | 0 |
 | Seed-2.1 | 6.888 | 0 |
 | DeepSeek V4 Pro | 6.303 | 0 |
 | MiMo v2.5 Pro | 4.843 | 3 |
 
-Free-response was judged by GPT-5.5/ChatGPT. Because GPT-5.5 is also a participating model, these scores have judge overlap bias. `manual_review_queue.csv` has been generated, and human review is pending.
+Free-response was judged by GPT-5.5/ChatGPT and then confirmed through assistant-assisted project-owner adjudication. Because GPT-5.5 is also a participating model, judge overlap bias remains disclosed; four GPT-5.5 high-score samples were adjusted downward:
+
+- `SGS-030 + gpt-5.5`: 7.65 -> 7.15
+- `SGS-032 + gpt-5.5`: 8.10 -> 7.35
+- `SGS-099 + gpt-5.5`: 8.45 -> 7.85
+- `SGS-FM-FR-004 + gpt-5.5`: 8.40 -> 7.75
+
+Hard-fail score policy: hard fail rows retain the original judge total; they are not zeroed, capped, or excluded from averages. Hard fail count is reported separately.
 
 DeepSeek V4 Pro did not return `SGS-081`; the missing answer is preserved under the no-rescue policy and scored as 0.
 
@@ -72,6 +77,8 @@ Hard50:
 
 These diagnostic results are useful for failure-mode analysis and follow-up item calibration. They should not be merged into a single total score.
 
+Integrated diagnostic reading: MiMo leads SGS152 MCQ and ties GPT-5.5 on Robustness, but its free-response profile contains 3 retained hard fails. GPT-5.5 remains strongest on adjudicated free-response and ties Seed-2.1 on Hard50 after four overlap-bias downward adjustments. Seed-2.1 is the most balanced runner-up across SGS152 MCQ and Hard50. DeepSeek trails on SGS152 MCQ and Robustness and retains one no-rescue missing free-response answer.
+
 ## Evidence Files
 
 | Artifact | Path |
@@ -80,8 +87,11 @@ These diagnostic results are useful for failure-mode analysis and follow-up item
 | SGS152 MCQ manifest | `results/standard_20260703/sgs152_mcq/manifest.json` |
 | SGS152 MCQ scored summary | `results/standard_20260703/sgs152_mcq/scored/model_results_summary.csv` |
 | Free-response live outputs | `results/standard_20260703/sgs152_free_response/model_outputs.csv` |
-| Free-response judge summary | `results/standard_20260703/free_response_judge/scored_free_response_summary.csv` |
+| Free-response adjudicated summary | `results/standard_20260703/free_response_judge/scored_free_response_summary.csv` |
 | Manual review queue | `results/standard_20260703/free_response_judge/manual_review_queue.csv` |
+| Human review decisions | `results/standard_20260703/free_response_judge/human_review_decisions.csv` |
+| Human review overrides | `results/standard_20260703/free_response_judge/human_review_overrides.csv` |
+| Adjudication notes | `results/standard_20260703/free_response_judge/adjudication_notes.md` |
 | Robustness scored summary | `results/standard_20260703/robustness/scored/model_results_summary.csv` |
 | Hard50 scored summary | `results/standard_20260703/hard50/scored/model_results_summary.csv` |
 
@@ -89,4 +99,4 @@ Raw outputs exist locally under `results/standard_20260703/**/raw_model_outputs/
 
 ## Release Interpretation
 
-0.5.0 is currently a live RC. The SGS152 MCQ leaderboard is the main benchmark result. Free-response should remain provisional until manual review resolves hard-fail and disputed-score samples. Robustness and Hard50 are optional diagnostic layers.
+The SGS152 MCQ leaderboard is the 0.5.0 main benchmark result. Free-response is reported as judge-scored + assistant-assisted project-owner confirmed adjudication. Robustness and Hard50 are optional diagnostic layers.

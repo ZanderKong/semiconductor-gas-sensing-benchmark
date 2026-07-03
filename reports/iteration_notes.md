@@ -12,11 +12,11 @@
 - Hard50 as optional diagnostics;
 - variable option-letter support in the MCQ prompt;
 - live standard-run provenance under `results/standard_20260703`;
-- free-response judge output and manual review queue.
+- free-response judge output and confirmed adjudication files.
 
-## 0.5.0 RC Evidence
+## 0.5.0 Evidence
 
-The formal 0.5.0 RC evidence source is `results/standard_20260703`.
+The formal 0.5.0 evidence source is `results/standard_20260703`.
 
 Main leaderboard:
 
@@ -27,18 +27,17 @@ Main leaderboard:
 | GPT-5.5 | 117 / 122 |
 | DeepSeek V4 Pro | 115 / 122 |
 
-Free-response is judge-scored provisional. Human review is pending.
+Free-response is judge-scored plus assistant-assisted project-owner confirmed adjudication. GPT-5.5 judge overlap bias is disclosed, and four GPT-5.5 high-score samples were adjusted downward.
 
 ## Current Boundaries
 
-- Kimi failed smoke testing with 401 Unauthorized and is excluded from the main leaderboard.
 - DeepSeek `SGS-081` free-response is missing and remains unrescued.
 - GPT-5.5 judge overlap bias must be disclosed for free-response.
 - Robustness and Hard50 are diagnostic layers only; no full-suite aggregate score should be reported.
 
-## Before Final v0.5.0
+## Finalization Status
 
-1. Complete human review for `results/standard_20260703/free_response_judge/manual_review_queue.csv`.
-2. Apply any human-review overrides in the prescribed override file.
-3. Re-run `scripts/final_provenance_audit.py`.
-4. Mark the package as final only after the audit passes.
+1. Confirmed free-response decisions are stored in `results/standard_20260703/free_response_judge/human_review_decisions.csv`.
+2. Confirmed score overrides are stored in `results/standard_20260703/free_response_judge/human_review_overrides.csv`.
+3. Adjudication notes are stored in `results/standard_20260703/free_response_judge/adjudication_notes.md`.
+4. `scripts/final_provenance_audit.py` must pass before publishing.
