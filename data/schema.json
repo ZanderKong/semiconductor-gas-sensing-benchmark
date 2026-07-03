@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Semiconductor Gas-Sensing Benchmark Item",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "question_type",
+      "domain",
+      "scenario_stage",
+      "workflow_task",
+      "expected_output",
+      "tool_type",
+      "question",
+      "options",
+      "answer",
+      "answer_rationale",
+      "topic",
+      "skill",
+      "difficulty",
+      "source",
+      "rationale",
+      "evaluation_dimensions",
+      "failure_mode",
+      "private_dependency_level",
+      "tags",
+      "consistency_group_id",
+      "variant_type",
+      "parent_task_id",
+      "expected_consistency",
+      "consistency_check"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "question_type": {
+        "enum": [
+          "multiple_choice",
+          "free_response"
+        ]
+      },
+      "domain": {
+        "type": "string"
+      },
+      "scenario_stage": {
+        "type": "string"
+      },
+      "workflow_task": {
+        "type": "string"
+      },
+      "expected_output": {
+        "type": "string"
+      },
+      "tool_type": {
+        "type": "string"
+      },
+      "question": {
+        "type": "string"
+      },
+      "options": {
+        "type": "object"
+      },
+      "answer": {
+        "type": "string"
+      },
+      "answer_rationale": {
+        "type": "string"
+      },
+      "topic": {
+        "type": "string"
+      },
+      "skill": {
+        "type": "string"
+      },
+      "difficulty": {
+        "enum": [
+          "basic",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "rationale": {
+        "type": "string"
+      },
+      "evaluation_dimensions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "failure_mode": {
+        "type": "string"
+      },
+      "private_dependency_level": {
+        "enum": [
+          "none",
+          "analog",
+          "seed_entity",
+          "private_combination"
+        ]
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "consistency_group_id": {
+        "type": "string"
+      },
+      "variant_type": {
+        "enum": [
+          "base",
+          "paraphrase",
+          "distractor",
+          "contradiction",
+          "adversarial_safety",
+          "tool_observation_shift"
+        ]
+      },
+      "parent_task_id": {
+        "type": "string"
+      },
+      "expected_consistency": {
+        "type": "string"
+      },
+      "consistency_check": {
+        "type": "string"
+      },
+      "rubric": {
+        "type": "object"
+      },
+      "key_points": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "hard_fails": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "common_failure_modes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "ability_target": {
+        "type": "string"
+      }
+    }
+  }
+}

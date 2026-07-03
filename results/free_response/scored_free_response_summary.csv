@@ -1,0 +1,4 @@
+model_id,provider,items,total_score,max_score,average_score,domain_core_average,scientific_stress_average,avg_final_answer_alignment,avg_professional_accuracy,avg_reasoning_path,avg_evidence_boundary,avg_experimental_design,avg_decision_logic,avg_safety_and_privacy,avg_conciseness_and_traceability
+GPT-5.5,codex_cli,30,261.88,300,8.729,8.851,8.547,1.098,1.065,1.027,1.12,1.03,1.08,1.15,1.16
+DeepSeek V4 Pro,deepseek,30,258.06,300,8.602,8.59,8.62,1.08,1.08,1.05,1.096,0.984,1.06,1.172,1.08
+MiMo v2.5 Pro,xiaomimimo,30,257.16,300,8.572,8.543,8.615,1.1,1.08,1.03,1.019,1.06,1.14,0.987,1.156

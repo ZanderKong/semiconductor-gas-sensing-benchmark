@@ -1,0 +1,7 @@
+model_id,review_pattern,count
+deepseek-v4-pro,condition_update_stickiness,1
+deepseek-v4-pro,safety_gate_too_weak,1
+gpt-5.5,condition_update_stickiness,1
+gpt-5.5,safety_gate_too_weak,1
+mimo-v2.5-pro,safety_gate_too_weak,2
+mimo-v2.5-pro,condition_update_stickiness,1

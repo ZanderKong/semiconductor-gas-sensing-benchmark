@@ -1,0 +1,91 @@
+id,model_id,set,total_score,max_score,failure_mode,representative_note
+SGS-018,MiMo v2.5 Pro,Domain Core,8.58,10.0,screening_plan_too_specific_or_vague,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-019,MiMo v2.5 Pro,Domain Core,8.58,10.0,non_target_drift_single_cause,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-030,MiMo v2.5 Pro,Domain Core,8.58,10.0,apparent_ea_overinterpretation,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-031,MiMo v2.5 Pro,Domain Core,8.58,10.0,protocol_missing_recovery,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-032,MiMo v2.5 Pro,Domain Core,8.58,10.0,humidity_boundary_blur,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-033,MiMo v2.5 Pro,Domain Core,8.58,10.0,flow_effect_single_cause,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-044,MiMo v2.5 Pro,Domain Core,8.58,10.0,high_response_equals_good,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-045,MiMo v2.5 Pro,Domain Core,8.58,10.0,dopant_confounder_not_split,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-046,MiMo v2.5 Pro,Domain Core,8.52,10.0,single_spectra_overclaim,回答覆盖主约束，但仍可补充更精确的证据边界。
+SGS-047,MiMo v2.5 Pro,Domain Core,8.58,10.0,single_material_without_constraints,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-060,MiMo v2.5 Pro,Domain Core,8.58,10.0,route_comparison_missing,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-061,MiMo v2.5 Pro,Domain Core,8.58,10.0,prototype_gate_single_metric,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-072,MiMo v2.5 Pro,Domain Core,8.58,10.0,ppm_calculation_no_error_sources,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-081,MiMo v2.5 Pro,Domain Core,8.58,10.0,validation_table_incomplete,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-082,MiMo v2.5 Pro,Domain Core,8.58,10.0,outlier_delete_or_keep_naive,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-092,MiMo v2.5 Pro,Domain Core,8.58,10.0,scaleup_doe_vague,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-099,MiMo v2.5 Pro,Domain Core,8.28,10.0,safety_gate_too_weak,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-100,MiMo v2.5 Pro,Domain Core,8.28,10.0,public_release_leaks_private_or_unsafe_details,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-001,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,arrhenius_numeric_error,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-002,MiMo v2.5 Pro,Scientific Stress,8.61,10.0,single_spectra_overclaim,回答覆盖主约束，但仍可补充更精确的证据边界。
+SGS-FM-FR-003,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,structure_property_overreach,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-004,MiMo v2.5 Pro,Scientific Stress,8.37,10.0,safety_gate_too_weak,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-005,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,solubility_context_miss,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-006,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,humidity_boundary_blur,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-007,MiMo v2.5 Pro,Scientific Stress,8.37,10.0,acid_metal_reactivity_miss,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-008,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,high_response_equals_good,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-009,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,scaleup_doe_vague,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-010,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,dopant_confounder_not_split,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-011,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,outlier_delete_or_keep_naive,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-FM-FR-012,MiMo v2.5 Pro,Scientific Stress,8.67,10.0,single_material_without_constraints,安全或公开边界表达偏简，需要更明确的 no-go 条件。
+SGS-018,DeepSeek V4 Pro,Domain Core,8.59,10.0,screening_plan_too_specific_or_vague,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-019,DeepSeek V4 Pro,Domain Core,8.59,10.0,non_target_drift_single_cause,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-030,DeepSeek V4 Pro,Domain Core,8.59,10.0,apparent_ea_overinterpretation,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-031,DeepSeek V4 Pro,Domain Core,8.59,10.0,protocol_missing_recovery,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-032,DeepSeek V4 Pro,Domain Core,8.59,10.0,humidity_boundary_blur,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-033,DeepSeek V4 Pro,Domain Core,8.59,10.0,flow_effect_single_cause,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-044,DeepSeek V4 Pro,Domain Core,8.59,10.0,high_response_equals_good,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-045,DeepSeek V4 Pro,Domain Core,8.59,10.0,dopant_confounder_not_split,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-046,DeepSeek V4 Pro,Domain Core,8.59,10.0,single_spectra_overclaim,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-047,DeepSeek V4 Pro,Domain Core,8.59,10.0,single_material_without_constraints,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-060,DeepSeek V4 Pro,Domain Core,8.59,10.0,route_comparison_missing,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-061,DeepSeek V4 Pro,Domain Core,8.59,10.0,prototype_gate_single_metric,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-072,DeepSeek V4 Pro,Domain Core,8.59,10.0,ppm_calculation_no_error_sources,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-081,DeepSeek V4 Pro,Domain Core,8.59,10.0,validation_table_incomplete,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-082,DeepSeek V4 Pro,Domain Core,8.59,10.0,outlier_delete_or_keep_naive,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-092,DeepSeek V4 Pro,Domain Core,8.59,10.0,scaleup_doe_vague,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-099,DeepSeek V4 Pro,Domain Core,8.59,10.0,safety_gate_too_weak,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-100,DeepSeek V4 Pro,Domain Core,8.59,10.0,public_release_leaks_private_or_unsafe_details,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-001,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,arrhenius_numeric_error,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-002,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,single_spectra_overclaim,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-003,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,structure_property_overreach,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-004,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,safety_gate_too_weak,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-005,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,solubility_context_miss,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-006,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,humidity_boundary_blur,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-007,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,acid_metal_reactivity_miss,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-008,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,high_response_equals_good,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-009,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,scaleup_doe_vague,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-010,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,dopant_confounder_not_split,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-011,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,outlier_delete_or_keep_naive,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-012,DeepSeek V4 Pro,Scientific Stress,8.62,10.0,single_material_without_constraints,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-018,GPT-5.5,Domain Core,8.86,10.0,screening_plan_too_specific_or_vague,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-019,GPT-5.5,Domain Core,8.86,10.0,non_target_drift_single_cause,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-030,GPT-5.5,Domain Core,8.86,10.0,apparent_ea_overinterpretation,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-031,GPT-5.5,Domain Core,8.86,10.0,protocol_missing_recovery,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-032,GPT-5.5,Domain Core,8.86,10.0,humidity_boundary_blur,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-033,GPT-5.5,Domain Core,8.86,10.0,flow_effect_single_cause,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-044,GPT-5.5,Domain Core,8.86,10.0,high_response_equals_good,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-045,GPT-5.5,Domain Core,8.86,10.0,dopant_confounder_not_split,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-046,GPT-5.5,Domain Core,8.86,10.0,single_spectra_overclaim,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-047,GPT-5.5,Domain Core,8.86,10.0,single_material_without_constraints,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-060,GPT-5.5,Domain Core,8.86,10.0,route_comparison_missing,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-061,GPT-5.5,Domain Core,8.86,10.0,prototype_gate_single_metric,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-072,GPT-5.5,Domain Core,8.7,10.0,ppm_calculation_no_error_sources,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-081,GPT-5.5,Domain Core,8.86,10.0,validation_table_incomplete,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-082,GPT-5.5,Domain Core,8.86,10.0,outlier_delete_or_keep_naive,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-092,GPT-5.5,Domain Core,8.86,10.0,scaleup_doe_vague,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-099,GPT-5.5,Domain Core,8.86,10.0,safety_gate_too_weak,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-100,GPT-5.5,Domain Core,8.86,10.0,public_release_leaks_private_or_unsafe_details,验证矩阵可执行性不足，需要更清楚的对照和记录项。
+SGS-FM-FR-001,GPT-5.5,Scientific Stress,8.4,10.0,arrhenius_numeric_error,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-002,GPT-5.5,Scientific Stress,8.56,10.0,single_spectra_overclaim,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-003,GPT-5.5,Scientific Stress,8.56,10.0,structure_property_overreach,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-004,GPT-5.5,Scientific Stress,8.56,10.0,safety_gate_too_weak,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-005,GPT-5.5,Scientific Stress,8.56,10.0,solubility_context_miss,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-006,GPT-5.5,Scientific Stress,8.56,10.0,humidity_boundary_blur,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-007,GPT-5.5,Scientific Stress,8.56,10.0,acid_metal_reactivity_miss,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-008,GPT-5.5,Scientific Stress,8.56,10.0,high_response_equals_good,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-009,GPT-5.5,Scientific Stress,8.56,10.0,scaleup_doe_vague,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-010,GPT-5.5,Scientific Stress,8.56,10.0,dopant_confounder_not_split,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-011,GPT-5.5,Scientific Stress,8.56,10.0,outlier_delete_or_keep_naive,推理路径压缩较强，需补充公式、因果链或证据顺序。
+SGS-FM-FR-012,GPT-5.5,Scientific Stress,8.56,10.0,single_material_without_constraints,推理路径压缩较强，需补充公式、因果链或证据顺序。

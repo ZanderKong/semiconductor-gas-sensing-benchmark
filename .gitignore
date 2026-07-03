@@ -3,27 +3,15 @@ __pycache__/
 .DS_Store
 .env
 config.local.yaml
-* 2.*
-
-# Local model traces and generated evaluation artifacts.
-/results/
-SGS-mini-benchmark-V4/results/raw_model_outputs*/
-SGS-mini-benchmark-V4/results/**/raw_model_outputs*/
-SGS-mini-benchmark-V4/results/runs/*
-SGS-mini-benchmark-V4/results/scored_mcq/
-!SGS-mini-benchmark-V4/results/README.md
-!SGS-mini-benchmark-V4/results/main_model_summary.csv
-!SGS-mini-benchmark-V4/results/robustness_model_summary.csv
-!SGS-mini-benchmark-V4/results/robustness_metrics.csv
-!SGS-mini-benchmark-V4/results/evaluation_summary.json
-
-# Local review scratch files.
-SGS-mini-benchmark-V4/eval/llm_reviews/
-SGS-mini-benchmark-V4/.env
-
-# Versioned local model traces and external scratch data.
-versions/**/results/**/raw_model_outputs*/
-versions/**/results/**/*raw_model_outputs*/
-versions/**/results/**/raw/
-versions/**/results/reference_original_bank/
-versions/**/external_benchmarks/
+results/raw_model_outputs*/
+results/**/raw_model_outputs*/
+results/**/*raw_model_outputs*/
+**/results/**/raw_model_outputs*/
+results/**/raw/
+results/standard_*/
+**/results/standard_*/
+results/evaluator_reviews/
+results/runs/
+results/scored_mcq/
+results/reference_original_bank/
+external_benchmarks/

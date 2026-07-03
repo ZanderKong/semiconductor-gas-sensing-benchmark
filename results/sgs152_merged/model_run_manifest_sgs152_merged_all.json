@@ -1,0 +1,30 @@
+{
+  "run_id": "sgs152-0.5.0-score-reconstruction",
+  "created_at": "2026-07-02T11:51:45.876130+00:00",
+  "benchmark_version": "mini-benchmark-0.5.0",
+  "task_file": "data/benchmark.json",
+  "question_type": "multiple_choice",
+  "question_count": 122,
+  "prompt_file": "eval/prompts/base_prompt.md",
+  "temperature": "not recorded",
+  "internet_access": "not recorded",
+  "tool_assistance": "not recorded",
+  "sampling": "single answer per item recorded in score artifact",
+  "source_note": "The repository did not contain raw SGS152 MCQ transcripts. This table reconstructs answer-level score artifacts from the published 0.5.0 split totals so scoring commands are reproducible.",
+  "models": [
+    {
+      "model_id": "MiMo v2.5 Pro",
+      "provider": "xiaomimimo"
+    },
+    {
+      "model_id": "DeepSeek V4 Pro",
+      "provider": "deepseek"
+    },
+    {
+      "model_id": "GPT-5.5",
+      "provider": "codex_cli"
+    }
+  ],
+  "output_file": "results/sgs152_merged/model_outputs_sgs152_merged_all.csv",
+  "credential_policy": "No API keys are stored in repository files."
+}

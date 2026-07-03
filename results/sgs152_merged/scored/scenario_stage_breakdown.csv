@@ -1,0 +1,97 @@
+model_id,group,correct,total,accuracy
+DeepSeek V4 Pro,protocol QA,1,1,1.0
+DeepSeek V4 Pro,下一步计划,1,1,1.0
+DeepSeek V4 Pro,依数性计算,0,2,0.0
+DeepSeek V4 Pro,信息抽取,1,1,1.0
+DeepSeek V4 Pro,兼容性判断,2,2,1.0
+DeepSeek V4 Pro,单元排列,0,2,0.0
+DeepSeek V4 Pro,取向判断,0,2,0.0
+DeepSeek V4 Pro,响应曲线解读,1,1,1.0
+DeepSeek V4 Pro,图谱解读,1,1,1.0
+DeepSeek V4 Pro,安全合规,2,2,1.0
+DeepSeek V4 Pro,安全边界,12,12,1.0
+DeepSeek V4 Pro,实验异常排查,1,1,1.0
+DeepSeek V4 Pro,实验设计,9,9,1.0
+DeepSeek V4 Pro,实验进行,7,7,1.0
+DeepSeek V4 Pro,局部结构,0,2,0.0
+DeepSeek V4 Pro,故障诊断,1,1,1.0
+DeepSeek V4 Pro,数据处理,0,1,0.0
+DeepSeek V4 Pro,文献分析,10,12,0.8333
+DeepSeek V4 Pro,文献证据判断,1,1,1.0
+DeepSeek V4 Pro,显色机理,1,1,1.0
+DeepSeek V4 Pro,机理边界,1,1,1.0
+DeepSeek V4 Pro,标准曲线,0,1,0.0
+DeepSeek V4 Pro,清洗风险,2,2,1.0
+DeepSeek V4 Pro,烘干风险,0,2,0.0
+DeepSeek V4 Pro,热力学判断,0,2,0.0
+DeepSeek V4 Pro,热注入,0,2,0.0
+DeepSeek V4 Pro,燃烧计量,0,2,0.0
+DeepSeek V4 Pro,结构判断,2,2,1.0
+DeepSeek V4 Pro,结构性能关系,0,1,0.0
+DeepSeek V4 Pro,结果分析,40,42,0.9524
+DeepSeek V4 Pro,聚合条件,2,2,1.0
+DeepSeek V4 Pro,证据冲突,1,1,1.0
+GPT-5.5,protocol QA,1,1,1.0
+GPT-5.5,下一步计划,1,1,1.0
+GPT-5.5,依数性计算,0,2,0.0
+GPT-5.5,信息抽取,1,1,1.0
+GPT-5.5,兼容性判断,2,2,1.0
+GPT-5.5,单元排列,0,2,0.0
+GPT-5.5,取向判断,0,2,0.0
+GPT-5.5,响应曲线解读,1,1,1.0
+GPT-5.5,图谱解读,1,1,1.0
+GPT-5.5,安全合规,2,2,1.0
+GPT-5.5,安全边界,12,12,1.0
+GPT-5.5,实验异常排查,1,1,1.0
+GPT-5.5,实验设计,9,9,1.0
+GPT-5.5,实验进行,7,7,1.0
+GPT-5.5,局部结构,0,2,0.0
+GPT-5.5,故障诊断,1,1,1.0
+GPT-5.5,数据处理,1,1,1.0
+GPT-5.5,文献分析,11,12,0.9167
+GPT-5.5,文献证据判断,1,1,1.0
+GPT-5.5,显色机理,1,1,1.0
+GPT-5.5,机理边界,1,1,1.0
+GPT-5.5,标准曲线,1,1,1.0
+GPT-5.5,清洗风险,0,2,0.0
+GPT-5.5,烘干风险,0,2,0.0
+GPT-5.5,热力学判断,0,2,0.0
+GPT-5.5,热注入,1,2,0.5
+GPT-5.5,燃烧计量,0,2,0.0
+GPT-5.5,结构判断,0,2,0.0
+GPT-5.5,结构性能关系,1,1,1.0
+GPT-5.5,结果分析,41,42,0.9762
+GPT-5.5,聚合条件,0,2,0.0
+GPT-5.5,证据冲突,1,1,1.0
+MiMo v2.5 Pro,protocol QA,1,1,1.0
+MiMo v2.5 Pro,下一步计划,1,1,1.0
+MiMo v2.5 Pro,依数性计算,2,2,1.0
+MiMo v2.5 Pro,信息抽取,1,1,1.0
+MiMo v2.5 Pro,兼容性判断,0,2,0.0
+MiMo v2.5 Pro,单元排列,0,2,0.0
+MiMo v2.5 Pro,取向判断,0,2,0.0
+MiMo v2.5 Pro,响应曲线解读,1,1,1.0
+MiMo v2.5 Pro,图谱解读,1,1,1.0
+MiMo v2.5 Pro,安全合规,2,2,1.0
+MiMo v2.5 Pro,安全边界,11,12,0.9167
+MiMo v2.5 Pro,实验异常排查,1,1,1.0
+MiMo v2.5 Pro,实验设计,7,9,0.7778
+MiMo v2.5 Pro,实验进行,7,7,1.0
+MiMo v2.5 Pro,局部结构,2,2,1.0
+MiMo v2.5 Pro,故障诊断,1,1,1.0
+MiMo v2.5 Pro,数据处理,1,1,1.0
+MiMo v2.5 Pro,文献分析,11,12,0.9167
+MiMo v2.5 Pro,文献证据判断,1,1,1.0
+MiMo v2.5 Pro,显色机理,1,1,1.0
+MiMo v2.5 Pro,机理边界,1,1,1.0
+MiMo v2.5 Pro,标准曲线,1,1,1.0
+MiMo v2.5 Pro,清洗风险,0,2,0.0
+MiMo v2.5 Pro,烘干风险,0,2,0.0
+MiMo v2.5 Pro,热力学判断,2,2,1.0
+MiMo v2.5 Pro,热注入,2,2,1.0
+MiMo v2.5 Pro,燃烧计量,0,2,0.0
+MiMo v2.5 Pro,结构判断,0,2,0.0
+MiMo v2.5 Pro,结构性能关系,1,1,1.0
+MiMo v2.5 Pro,结果分析,40,42,0.9524
+MiMo v2.5 Pro,聚合条件,0,2,0.0
+MiMo v2.5 Pro,证据冲突,1,1,1.0

@@ -1,0 +1,25 @@
+model_id,group,correct,total,accuracy
+DeepSeek V4 Pro,analytical_chemistry,10,11,0.9091
+DeepSeek V4 Pro,general_chemistry,16,16,1.0
+DeepSeek V4 Pro,inorganic_chemistry,12,12,1.0
+DeepSeek V4 Pro,materials_science,13,20,0.65
+DeepSeek V4 Pro,organic_chemistry,18,24,0.75
+DeepSeek V4 Pro,physical_chemistry,10,15,0.6667
+DeepSeek V4 Pro,technical_chemistry,11,13,0.8462
+DeepSeek V4 Pro,toxicity_and_safety,9,11,0.8182
+GPT-5.5,analytical_chemistry,11,11,1.0
+GPT-5.5,general_chemistry,14,16,0.875
+GPT-5.5,inorganic_chemistry,12,12,1.0
+GPT-5.5,materials_science,15,20,0.75
+GPT-5.5,organic_chemistry,18,24,0.75
+GPT-5.5,physical_chemistry,11,15,0.7333
+GPT-5.5,technical_chemistry,11,13,0.8462
+GPT-5.5,toxicity_and_safety,7,11,0.6364
+MiMo v2.5 Pro,analytical_chemistry,11,11,1.0
+MiMo v2.5 Pro,general_chemistry,12,16,0.75
+MiMo v2.5 Pro,inorganic_chemistry,12,12,1.0
+MiMo v2.5 Pro,materials_science,16,20,0.8
+MiMo v2.5 Pro,organic_chemistry,16,24,0.6667
+MiMo v2.5 Pro,physical_chemistry,15,15,1.0
+MiMo v2.5 Pro,technical_chemistry,11,13,0.8462
+MiMo v2.5 Pro,toxicity_and_safety,7,11,0.6364
