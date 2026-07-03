@@ -43,6 +43,8 @@ RAW_DIRS = [
     RUN / "hard50/raw_model_outputs",
     RUN / "free_response_judge/raw_judge_outputs",
 ]
+DEPRECATED_ROOT = ROOT / "archive/deprecated_reconstructed_results"
+DEPRECATION_HEADER = "Deprecated reconstructed artifact. Not used as 0.5.0 final evidence."
 TRACKED_STANDARD_FILES = [
     RUN / "preflight_manifest.json",
     RUN / "sgs152_mcq/manifest.json",
@@ -98,6 +100,25 @@ def check_structure(errors: list[str]) -> None:
     require((ROOT / "archive").exists(), "archive/ missing", errors)
     tracked_versions_050 = [path for path in git_ls_files() if path.startswith("versions/0.5.0/")]
     require(not tracked_versions_050, "versions/0.5.0 still has tracked active-package files", errors)
+
+
+def check_scope(errors: list[str]) -> None:
+    tasks = load_json(ROOT / "data/benchmark.json")
+    require(len(tasks) == 152, "main benchmark must be data/benchmark.json with 152 items", errors)
+    mcq_count = sum(1 for task in tasks if task.get("question_type") == "multiple_choice")
+    fr_count = sum(1 for task in tasks if task.get("question_type") == "free_response")
+    require(mcq_count == 122, "main benchmark must contain 122 SGS152 MCQ items", errors)
+    require(fr_count == 30, "main benchmark must contain 30 SGS152 free-response items", errors)
+
+    sgs_manifest = load_json(RUN / "sgs152_mcq/manifest.json")
+    robustness_manifest = load_json(RUN / "robustness/manifest.json")
+    hard50_manifest = load_json(RUN / "hard50/manifest.json")
+    require(sgs_manifest.get("task_file") == "data/benchmark.json", "main leaderboard must use data/benchmark.json", errors)
+    require(robustness_manifest.get("task_file") != "data/benchmark.json", "Robustness must not be sourced from main leaderboard manifest", errors)
+    require(hard50_manifest.get("task_file") != "data/benchmark.json", "Hard50 must not be sourced from main leaderboard manifest", errors)
+
+    analysis_full = (RUN / "analysis_full/full_analysis.md").read_text(encoding="utf-8")
+    require("not collapsed into a single headline score" in analysis_full, "full analysis must reject a single aggregate score", errors)
 
 
 def check_manifests(errors: list[str]) -> None:
@@ -198,6 +219,19 @@ def check_public_docs(errors: list[str]) -> None:
             require(phrase not in text, f"{rel(path)} contains deprecated final-evidence phrase: {phrase}", errors)
 
 
+def check_deprecated_artifacts(errors: list[str]) -> None:
+    require(DEPRECATED_ROOT.exists(), "deprecated artifact archive missing", errors)
+    for path in sorted(DEPRECATED_ROOT.rglob("*")):
+        if not path.is_file() or path.name == "README.md":
+            continue
+        try:
+            first_line = path.read_text(encoding="utf-8").splitlines()[0]
+        except UnicodeDecodeError:
+            errors.append(f"{rel(path)} is not readable text and cannot carry the deprecation header")
+            continue
+        require(first_line == DEPRECATION_HEADER, f"{rel(path)} missing deprecation header", errors)
+
+
 def check_standard_git_policy(errors: list[str]) -> None:
     tracked = git_ls_files()
     for path in TRACKED_STANDARD_FILES:
@@ -232,10 +266,12 @@ def check_api_keys(errors: list[str]) -> None:
 def main() -> None:
     errors: list[str] = []
     check_structure(errors)
+    check_scope(errors)
     check_manifests(errors)
     check_results(errors)
     check_kimi_and_missing_answer(errors)
     check_public_docs(errors)
+    check_deprecated_artifacts(errors)
     check_standard_git_policy(errors)
     check_api_keys(errors)
     if errors:

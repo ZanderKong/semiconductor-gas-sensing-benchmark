@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 # Free-response Review Samples
 
 本文件记录 30 道 free-response 全量 rubric review 的代表性样例。完整逐题分数见 `scored_free_response_by_item.csv` 和 `scored_free_response_by_dimension.csv`。

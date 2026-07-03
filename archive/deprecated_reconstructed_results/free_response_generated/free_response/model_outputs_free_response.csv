@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 id,model_id,provider,answer,output_source,elapsed_seconds,error
 SGS-018,MiMo v2.5 Pro,xiaomimimo,结论：先围绕路线 A 与路线 B 的取舍判断。验证：空白老化和湿度空白。边界：氧化性干扰气边界；不写危险步骤或私有条件。,rubric_review_artifact,,
 SGS-019,MiMo v2.5 Pro,xiaomimimo,结论：先围绕光氧化判断。验证：残留溶剂或水分。边界：基膜或粘结剂反应；不写危险步骤或私有条件。,rubric_review_artifact,,

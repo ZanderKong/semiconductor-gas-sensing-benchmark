@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 model_id,group,correct,total,accuracy
 deepseek-v4-pro,analytical_chemistry,8,8,1.0
 deepseek-v4-pro,general_chemistry,4,5,0.8

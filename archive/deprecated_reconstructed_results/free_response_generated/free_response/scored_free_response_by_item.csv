@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 id,model_id,set,total_score,max_score,failure_mode,representative_note
 SGS-018,MiMo v2.5 Pro,Domain Core,8.58,10.0,screening_plan_too_specific_or_vague,安全或公开边界表达偏简，需要更明确的 no-go 条件。
 SGS-019,MiMo v2.5 Pro,Domain Core,8.58,10.0,non_target_drift_single_cause,安全或公开边界表达偏简，需要更明确的 no-go 条件。

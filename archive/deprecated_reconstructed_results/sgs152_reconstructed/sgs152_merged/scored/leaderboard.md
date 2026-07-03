@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 # Leaderboard
 
 Evaluation date: 2026-07-02

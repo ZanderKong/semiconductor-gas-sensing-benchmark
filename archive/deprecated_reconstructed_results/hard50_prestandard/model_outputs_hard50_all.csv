@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 id,model_id,provider,answer,elapsed_seconds,error
 SGS-HARD-001,gpt-5.5,codex_cli,A,16.44,
 SGS-HARD-002,gpt-5.5,codex_cli,B,16.44,

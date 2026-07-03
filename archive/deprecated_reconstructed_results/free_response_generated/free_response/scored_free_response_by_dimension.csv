@@ -1,3 +1,4 @@
+Deprecated reconstructed artifact. Not used as 0.5.0 final evidence.
 id,model_id,set,dimension,score,max_score,comment
 SGS-018,MiMo v2.5 Pro,Domain Core,final_answer_alignment,1.1,1.25,基本达标，仍可增加更具体的证据或对照。
 SGS-018,MiMo v2.5 Pro,Domain Core,professional_accuracy,1.08,1.25,基本达标，仍可增加更具体的证据或对照。

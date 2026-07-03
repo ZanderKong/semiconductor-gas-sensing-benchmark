@@ -2,7 +2,7 @@
 
 This report scores live model free-response outputs with a fixed ChatGPT/GPT-5.5 judge.
 
-Bias note: the judge model overlaps with one candidate family, so judge scores must be interpreted with this stated bias.
+Bias note: the judge model overlaps with one participating model family, so judge scores must be interpreted with this stated bias.
 
 | Model | Items | Total | Average | Hard Fails |
 |---|---:|---:|---:|---:|

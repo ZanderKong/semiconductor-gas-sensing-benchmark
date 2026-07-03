@@ -14,7 +14,7 @@
   "internet_access": false,
   "tool_assistance": false,
   "sampling": "single judge pass per model batch",
-  "bias_note": "Judge uses ChatGPT/GPT-5.5 and overlaps with one candidate family; interpret scores with this bias.",
+  "bias_note": "Judge uses ChatGPT/GPT-5.5 and overlaps with one participating model family; interpret scores with this bias.",
   "model_status": {
     "deepseek-v4-pro": {
       "rows": 30,

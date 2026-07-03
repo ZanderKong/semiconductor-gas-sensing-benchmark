@@ -2,7 +2,7 @@
 
 Scope: SGS152 MCQ plus live free-response outputs judged by GPT-5.5/ChatGPT.
 
-Bias note: free-response judge overlaps with one candidate model family.
+Bias note: free-response judge overlaps with one participating model family.
 
 | Model | SGS152 MCQ | Free-response Avg | FR Hard Fails |
 |---|---:|---:|---:|
