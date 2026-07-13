@@ -14,7 +14,7 @@
   "internet_access": false,
   "tool_assistance": false,
   "sampling": "single judge pass per model batch; no retry or manual answer repair",
-  "bias_note": "Judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review.",
+  "bias_note": "Judge is not a participating model, but same-family correlation with the participating GPT model may remain; automated scores require clearly labeled review context.",
   "model_status": {
     "deepseek-v4-pro": {
       "rows": 30,

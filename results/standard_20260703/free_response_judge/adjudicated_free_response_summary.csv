@@ -1,0 +1,5 @@
+model_id,items,total_score,average_score,hard_fail_count,reviewed_items,adjusted_items,final_answer_alignment,professional_accuracy,reasoning_path,evidence_boundary,experimental_design,decision_logic,safety_and_privacy,conciseness_and_traceability
+deepseek-v4-pro,30,202.85,6.762,0,13,5,0.97,0.885,0.81,0.693,0.773,0.682,0.887,1.062
+ep-20260703090429-qpmt7,30,225.65,7.522,4,9,3,1.043,0.977,0.875,0.815,0.805,0.79,1.083,1.133
+gpt-5.5,30,244.5,8.15,0,9,0,1.15,1.125,0.9,0.892,0.9,0.775,1.225,1.183
+mimo-v2.5-pro,30,163.45,5.448,11,27,1,0.742,0.798,0.555,0.508,0.537,0.4,0.968,0.94

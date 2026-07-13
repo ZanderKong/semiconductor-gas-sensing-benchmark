@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import subprocess
@@ -32,10 +33,10 @@ FORMAL_DOCS = [
 EXPECTED_COMMIT_PREFIX = "70b77e8"
 EXPECTED_JUDGE_COMMIT_PREFIX = "ee04eff"
 EXPECTED_RESULTS = {
-    "deepseek-v4-pro": {"mcq": (115, 122), "fr": "6.722", "robustness": (29, 40), "hard50": (47, 50)},
-    "ep-20260703090429-qpmt7": {"mcq": (118, 122), "fr": "7.493", "robustness": (32, 40), "hard50": (48, 50)},
+    "deepseek-v4-pro": {"mcq": (115, 122), "fr": "6.762", "robustness": (29, 40), "hard50": (47, 50)},
+    "ep-20260703090429-qpmt7": {"mcq": (118, 122), "fr": "7.522", "robustness": (32, 40), "hard50": (48, 50)},
     "gpt-5.5": {"mcq": (117, 122), "fr": "8.15", "robustness": (34, 40), "hard50": (48, 50)},
-    "mimo-v2.5-pro": {"mcq": (119, 122), "fr": "5.44", "robustness": (34, 40), "hard50": (47, 50)},
+    "mimo-v2.5-pro": {"mcq": (119, 122), "fr": "5.448", "robustness": (34, 40), "hard50": (47, 50)},
 }
 EXPECTED_HARD_FAILS = {
     "deepseek-v4-pro": 0,
@@ -72,6 +73,13 @@ TRACKED_STANDARD_FILES = [
     RUN / "free_response_judge/human_review_decisions.template.csv",
     RUN / "free_response_judge/human_review_overrides.template.csv",
     RUN / "free_response_judge/adjudication_notes.template.md",
+    RUN / "free_response_judge/human_review_decisions.csv",
+    RUN / "free_response_judge/human_review_overrides.csv",
+    RUN / "free_response_judge/adjudication_notes.md",
+    RUN / "free_response_judge/adjudication_manifest.json",
+    RUN / "free_response_judge/adjudicated_free_response_summary.csv",
+    RUN / "free_response_judge/adjudicated_free_response_by_item.csv",
+    RUN / "free_response_judge/adjudicated_free_response_by_dimension.csv",
     RUN / "robustness/manifest.json",
     RUN / "robustness/model_outputs.csv",
     RUN / "robustness/scored/model_results_summary.csv",
@@ -89,6 +97,10 @@ def rel(path: Path) -> str:
 
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -179,7 +191,7 @@ def result_map(path: Path) -> dict[str, dict[str, str]]:
 
 def check_results(errors: list[str]) -> None:
     mcq = result_map(RUN / "sgs152_mcq/scored/model_results_summary.csv")
-    fr = result_map(RUN / "free_response_judge/scored_free_response_summary.csv")
+    fr = result_map(RUN / "free_response_judge/adjudicated_free_response_summary.csv")
     robustness = result_map(RUN / "robustness/scored/model_results_summary.csv")
     hard50 = result_map(RUN / "hard50/scored/model_results_summary.csv")
     for model, expected in EXPECTED_RESULTS.items():
@@ -283,16 +295,50 @@ def check_manual_review_packet(errors: list[str]) -> None:
     )
 
 
-def check_pending_adjudication(errors: list[str]) -> None:
+def check_delegated_adjudication(errors: list[str]) -> None:
     judge_dir = RUN / "free_response_judge"
-    for filename in ["human_review_decisions.csv", "human_review_overrides.csv", "adjudication_notes.md"]:
-        require(not (judge_dir / filename).exists(), f"pending review must not contain confirmed artifact: {filename}", errors)
-    notes_path = judge_dir / "adjudication_notes.template.md"
-    require(notes_path.exists(), "pending adjudication notes template missing", errors)
-    if notes_path.exists():
+    decisions_path = judge_dir / "human_review_decisions.csv"
+    overrides_path = judge_dir / "human_review_overrides.csv"
+    notes_path = judge_dir / "adjudication_notes.md"
+    manifest_path = judge_dir / "adjudication_manifest.json"
+    for path in [decisions_path, overrides_path, notes_path, manifest_path]:
+        require(path.exists(), f"delegated review artifact missing: {rel(path)}", errors)
+    if all(path.exists() for path in [decisions_path, overrides_path, notes_path, manifest_path]):
+        decisions = read_csv(decisions_path)
+        overrides = read_csv(overrides_path)
+        manifest = load_json(manifest_path)
+        decision_counts: dict[str, int] = {}
+        for row in decisions:
+            decision_counts[row["review_decision"]] = decision_counts.get(row["review_decision"], 0) + 1
+            require(row["review_type"] == "assistant_review_under_project_owner_delegation", "delegated review type mismatch", errors)
+            require(row["reviewer"] == "codex_assistant_under_user_delegation", "delegated reviewer mismatch", errors)
+            require(row["review_date"] == "2026-07-13", "delegated review date mismatch", errors)
+        require(len(decisions) == 58, "delegated review must contain 58 decisions", errors)
+        require(len({(row["id"], row["model_id"]) for row in decisions}) == 58, "delegated review decisions must be unique", errors)
+        require(
+            decision_counts == {"agree": 33, "hard_fail_confirmed": 15, "missing_kept_zero": 1, "adjust_score": 9},
+            f"delegated decision counts mismatch: {decision_counts}",
+            errors,
+        )
+        require(len(overrides) == 9, "delegated review must contain 9 dimension overrides", errors)
+        for row in overrides:
+            require(row["dimension"] == "safety_and_privacy", "delegated override must target safety_and_privacy", errors)
+            require(float(row["review_score"]) > float(row["judge_score"]), "delegated safety override must correct an over-penalty", errors)
+            require(bool(row["override_reason"]), "delegated override reason missing", errors)
+        require(manifest.get("reviewed_items") == 58, "adjudication manifest reviewed count mismatch", errors)
+        require(manifest.get("dimension_overrides") == 9, "adjudication manifest override count mismatch", errors)
+        require(manifest.get("unresolved_items") == 0, "adjudication manifest must have no unresolved items", errors)
+        require(manifest.get("independent_external_human_review") is False, "delegated review must not claim external human review", errors)
+        require(manifest.get("decisions_hash") == sha256_file(decisions_path), "delegated decisions hash mismatch", errors)
+        require(manifest.get("overrides_hash") == sha256_file(overrides_path), "delegated overrides hash mismatch", errors)
+        require(
+            manifest.get("adjudicated_summary_hash") == sha256_file(judge_dir / "adjudicated_free_response_summary.csv"),
+            "adjudicated summary hash mismatch",
+            errors,
+        )
         notes = notes_path.read_text(encoding="utf-8")
-        require("pending independent human review" in notes, "pending review status missing from notes template", errors)
-        require("no-rescue" in notes, "no-rescue policy missing from notes template", errors)
+        require("not an independent external human blind review" in notes, "delegated review boundary missing", errors)
+        require("unresolved items requiring project-owner discussion: 0" in notes, "unresolved-item statement missing", errors)
 
     history = ROOT / "archive/judge_history/gpt-5.5_20260703"
     require(history.exists(), "GPT-5.5 judge history archive missing", errors)
@@ -388,7 +434,7 @@ def main() -> None:
     check_judge_not_candidate(errors)
     check_missing_answer(errors)
     check_manual_review_packet(errors)
-    check_pending_adjudication(errors)
+    check_delegated_adjudication(errors)
     check_public_docs(errors)
     check_deprecated_artifacts(errors)
     check_standard_git_policy(errors)

@@ -15,9 +15,9 @@ Judge 设置为 temperature 0、无联网、无工具、每模型一批单次采
 | Model | Average | Hard Fails |
 |---|---:|---:|
 | GPT-5.5 | 8.150 | 0 |
-| Seed-2.1 | 7.493 | 4 |
-| DeepSeek V4 Pro | 6.722 | 0 |
-| MiMo v2.5 Pro | 5.440 | 11 |
+| Seed-2.1 | 7.522 | 4 |
+| DeepSeek V4 Pro | 6.762 | 0 |
+| MiMo v2.5 Pro | 5.448 | 11 |
 
 ## 主要观察
 
@@ -29,4 +29,4 @@ Judge 设置为 temperature 0、无联网、无工具、每模型一批单次采
 
 ## 当前边界
 
-结果是 GPT-5.6-sol automated judge score，不是独立盲审。58 条 review packet 已生成，所有人工字段保持为空。旧 GPT-5.5 judge 裁决仅作为历史证据归档，不沿用到当前分数。
+结果先由 GPT-5.6-sol 自动评分，再由项目负责人委托 Codex assistant 完成 58 条复核。复核确认全部 15 条 hard fail、保留 1 条缺答零分，并调整 9 条安全/隐私维度分数。该流程不是外部独立盲审；旧 GPT-5.5 judge 裁决仅作为历史证据归档。

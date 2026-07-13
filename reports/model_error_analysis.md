@@ -2,16 +2,16 @@
 
 ## Evidence Source
 
-This analysis uses the committed participating-model outputs, MCQ diagnostics, and the GPT-5.6-sol judge artifacts under `results/standard_20260703`. GPT-5.6-sol is not a participating model. Free-response findings remain pending independent human review.
+This analysis uses the participating-model outputs, MCQ diagnostics, GPT-5.6-sol judge artifacts and the completed project-owner-delegated assistant review under `results/standard_20260703`. GPT-5.6-sol is not a participating model; the delegated review is not an independent external blind review.
 
 ## Summary
 
 | Model | SGS152 MCQ | FR Average | FR Hard Fails | Robustness | Hard50 |
 |---|---:|---:|---:|---:|---:|
-| MiMo v2.5 Pro | 119 / 122 | 5.440 | 11 | 34 / 40 | 47 / 50 |
-| Seed-2.1 | 118 / 122 | 7.493 | 4 | 32 / 40 | 48 / 50 |
+| MiMo v2.5 Pro | 119 / 122 | 5.448 | 11 | 34 / 40 | 47 / 50 |
+| Seed-2.1 | 118 / 122 | 7.522 | 4 | 32 / 40 | 48 / 50 |
 | GPT-5.5 | 117 / 122 | 8.150 | 0 | 34 / 40 | 48 / 50 |
-| DeepSeek V4 Pro | 115 / 122 | 6.722 | 0 | 29 / 40 | 47 / 50 |
+| DeepSeek V4 Pro | 115 / 122 | 6.762 | 0 | 29 / 40 | 47 / 50 |
 
 ## Model Notes
 
@@ -37,7 +37,7 @@ DeepSeek trails on SGS152 MCQ and Robustness. `SGS-081` remains unanswered and i
 - `decision_logic` is the weakest or near-weakest free-response dimension for every model.
 - Missing controls and incomplete evidence boundaries are frequently more diagnostic than factual errors.
 - Risk gates cover decisive scientific, data-integrity, and safety failures; they are not limited to dangerous-procedure disclosure.
-- Free-response scores remain automated judge output until the 58-row review packet is independently completed.
+- The 58-row delegated review is complete; 9 safety/privacy over-penalties were adjusted and no unresolved item remains.
 
 ## Review Priorities
 

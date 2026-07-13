@@ -240,8 +240,8 @@ def judge_bias_note(judge_model: str, candidate_models: list[str]) -> str:
     if judge_model in candidate_models:
         return "Judge model is also a participating model; exact self-judge overlap must be considered."
     if judge_model.startswith("gpt-") and any(model.startswith("gpt-") for model in candidate_models):
-        return "Judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review."
-    return "Judge is not a participating model; automated rubric scores still await independent human review."
+        return "Judge is not a participating model, but same-family correlation with the participating GPT model may remain; automated scores require clearly labeled review context."
+    return "Judge is not a participating model; automated rubric scores require clearly labeled review context."
 
 
 def write_csvs(out_dir: Path, reviews: list[dict[str, Any]], items: dict[str, dict[str, Any]]) -> None:

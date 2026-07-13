@@ -82,7 +82,7 @@ score report 会汇总 wrong option profiles。该汇总用于判断模型短板
 - `results/standard_20260703/free_response_judge/manual_review_packet.csv`
 - `reports/free_response_evaluation_report.md`
 
-当前 judge 为 GPT-5.6-sol。它不作为候选模型参评；评分状态为 automated judge-scored，等待独立人工复核。
+当前 judge 为 GPT-5.6-sol。它不作为参评模型；项目负责人委托的 58 条 assistant review 已完成。Review-adjusted summary 与原始 judge summary 分开保存，外部独立盲审未执行。
 
 ## Risk Gates
 

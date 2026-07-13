@@ -2,7 +2,7 @@
 
 This report scores live model free-response outputs with the fixed `gpt-5.6-sol` judge.
 
-Bias note: Judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review.
+Bias note: Judge is not a participating model, but same-family correlation with the participating GPT model may remain; automated scores require clearly labeled review context.
 
 | Model | Items | Total | Average | Hard Fails |
 |---|---:|---:|---:|---:|

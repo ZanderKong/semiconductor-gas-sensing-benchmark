@@ -208,7 +208,14 @@ def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]], judge_model
     full_dir.mkdir(parents=True, exist_ok=True)
 
     mcq = load_json(out_root / "sgs152_mcq/scored/model_results_summary.json")
-    fr_summary = list(csv.DictReader((out_root / "free_response_judge/scored_free_response_summary.csv").open(encoding="utf-8")))
+    adjudicated_path = out_root / "free_response_judge/adjudicated_free_response_summary.csv"
+    fr_summary_path = adjudicated_path if adjudicated_path.exists() else out_root / "free_response_judge/scored_free_response_summary.csv"
+    fr_summary = list(csv.DictReader(fr_summary_path.open(encoding="utf-8")))
+    review_status = (
+        "Project-owner-delegated assistant review completed; this is not an independent external blind review."
+        if adjudicated_path.exists()
+        else "Automated scores await delegated or independent review."
+    )
     robustness = load_json(out_root / "robustness/scored/model_results_summary.json")
     hard50 = load_json(out_root / "hard50/scored/model_results_summary.json")
 
@@ -218,7 +225,7 @@ def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]], judge_model
         "",
         f"Scope: SGS152 MCQ plus live free-response outputs judged by {judge_model}.",
         "",
-        "Bias note: the judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review.",
+        f"Review note: {review_status}",
         "",
         "| Model | SGS152 MCQ | Free-response Avg | FR Hard Fails |",
         "|---|---:|---:|---:|",
@@ -245,7 +252,7 @@ def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]], judge_model
         "",
         "Scope: SGS152, Robustness, and Hard50. Robustness and Hard50 remain diagnostic layers and are not collapsed into a single headline score.",
         "",
-        f"Free-response judge: {judge_model}; automated scores await independent human review.",
+        f"Free-response judge: {judge_model}. {review_status}",
         "",
         "| Model | SGS152 MCQ | Free-response Avg | Robustness | Hard50 |",
         "|---|---:|---:|---:|---:|",

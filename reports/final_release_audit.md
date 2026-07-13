@@ -19,15 +19,15 @@ This audit covers the unchanged four-model live run and the GPT-5.6-sol replacem
 | Model | Average | Hard Fails |
 |---|---:|---:|
 | GPT-5.5 | 8.150 | 0 |
-| Seed-2.1 | 7.493 | 4 |
-| DeepSeek V4 Pro | 6.722 | 0 |
-| MiMo v2.5 Pro | 5.440 | 11 |
+| Seed-2.1 | 7.522 | 4 |
+| DeepSeek V4 Pro | 6.762 | 0 |
+| MiMo v2.5 Pro | 5.448 | 11 |
 
 DeepSeek `SGS-081` remains a no-rescue zero. Hard-fail rows retain the judge total and are counted separately.
 
 ## Review State
 
-The 58-row independent review packet covers all hard fails, all scores below 7.0, the missing answer and at least 9 of 30 answers per model. Human fields and override templates are intentionally blank. Therefore the correct release wording is **GPT-5.6-sol judge-scored, pending independent human review**.
+The project owner delegated all 58 packet rows to the assistant. Decisions are complete: 33 agree, 15 hard-fail confirmed, 1 missing kept zero and 9 score adjustments. All adjustments affect only `safety_and_privacy`, with explicit reasons and hashes. There are no unresolved items. This is a delegated assistant review, not an independent external blind review.
 
 ## Historical Judge
 
@@ -35,4 +35,4 @@ The prior GPT-5.5 judge artifacts, human decisions, overrides and notes are pres
 
 ## Release Decision
 
-The MCQ leaderboard and optional diagnostics remain valid. The replacement judge evidence is complete and auditable as automated scoring, but free-response results must not be described as independently confirmed until the new packet is reviewed.
+The MCQ leaderboard and optional diagnostics remain valid. The replacement judge evidence and delegated review are complete and auditable. Free-response results must be described as project-owner-delegated assistant review, not as independent external human confirmation.

@@ -2,7 +2,7 @@
 
 ## Status
 
-GPT-5.6-sol has scored all 120 free-response answers. Independent human review is pending; no confirmed decisions or overrides exist in the current evidence directory.
+GPT-5.6-sol scored all 120 free-response answers. The project owner delegated the 58-row packet to the assistant, and that review is complete. External independent blind review was not performed.
 
 ## Review Packet
 
@@ -22,18 +22,21 @@ The 58-row packet includes:
 | GPT-5.5 | 9 |
 | MiMo v2.5 Pro | 27 |
 
-## Human Review Policy
+## Applied Review Policy
 
 - Compare only the frozen question, rubric, reference answer, original model answer and judge record.
 - Do not add missing content or rescue a participating model's answer.
 - Keep a missing answer at 0.
 - Record every changed dimension, total and reason.
-- Do not change the current status from pending until all required human fields are complete.
+- Record every adjustment with the original judge score, reviewed score, reason, reviewer and date.
 
-Templates:
+Completed evidence:
 
-- `human_review_decisions.template.csv`
-- `human_review_overrides.template.csv`
-- `adjudication_notes.template.md`
+- `human_review_decisions.csv`
+- `human_review_overrides.csv`
+- `adjudication_notes.md`
+- `adjudication_manifest.json`
+
+Decisions: 33 agree, 15 hard-fail confirmed, 1 missing kept zero and 9 score adjustments. All 9 adjustments correct over-penalized `safety_and_privacy` dimensions; no hard-fail flag was changed and no unresolved item remains.
 
 The historical GPT-5.5 judge adjudication is preserved under `archive/judge_history/gpt-5.5_20260703/` and must not be copied into the new scoring baseline.

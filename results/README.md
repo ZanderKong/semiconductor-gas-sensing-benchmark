@@ -11,7 +11,7 @@
 | `standard_20260703/sgs152_mcq/scored/` | SGS152 MCQ scored summaries | committed |
 | `standard_20260703/sgs152_free_response/model_outputs.csv` | Parsed live free-response outputs | committed |
 | `standard_20260703/sgs152_free_response/manifest.json` | Free-response live-run manifest | committed |
-| `standard_20260703/free_response_judge/` | GPT-5.6-sol judge outputs, scores and pending-review packet | committed except raw judge outputs |
+| `standard_20260703/free_response_judge/` | GPT-5.6-sol judge outputs and completed delegated-review evidence | committed except raw judge outputs |
 | `standard_20260703/robustness/` | Optional Robustness diagnostic results | committed except raw outputs |
 | `standard_20260703/hard50/` | Optional Hard50 diagnostic results | committed except raw outputs |
 | `standard_20260703/analysis_core/` | SGS152 core analysis | committed |
@@ -19,7 +19,7 @@
 
 Raw outputs exist locally under `raw_model_outputs/` and `raw_judge_outputs/` directories. They are ignored by git and should not be force-added.
 
-GPT-5.6-sol is judge-only and must not appear in participating-model output tables or leaderboards. Current free-response scores are pending independent human review. The prior GPT-5.5 judge evidence is retained under `archive/judge_history/gpt-5.5_20260703/`.
+GPT-5.6-sol is judge-only and must not appear in participating-model output tables or leaderboards. The 58-row project-owner-delegated assistant review is complete; it is not an independent external blind review. The prior GPT-5.5 judge evidence is retained under `archive/judge_history/gpt-5.5_20260703/`.
 
 ## Main Leaderboard Scope
 

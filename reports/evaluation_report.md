@@ -28,11 +28,11 @@
 | Model | Average | Hard Fails |
 |---|---:|---:|
 | GPT-5.5 | 8.150 | 0 |
-| Seed-2.1 | 7.493 | 4 |
-| DeepSeek V4 Pro | 6.722 | 0 |
-| MiMo v2.5 Pro | 5.440 | 11 |
+| Seed-2.1 | 7.522 | 4 |
+| DeepSeek V4 Pro | 6.762 | 0 |
+| MiMo v2.5 Pro | 5.448 | 11 |
 
-GPT-5.6-sol 只担任 judge，不是参评模型。它消除了完全相同模型的 self-judge，但与 GPT-5.5 候选模型仍可能存在同家族相关性。当前结果是 automated judge score，独立人工复核 packet 已生成但尚未确认。
+GPT-5.6-sol 只担任 judge，不是参评模型。项目负责人将 58 条复核委托给 Codex assistant：33 条同意、15 条 hard fail 确认、1 条缺答维持 0、9 条安全/隐私维度调整。该结果不是外部独立盲审。
 
 Hard fail 表示回答命中题目定义的 risk gate；原 judge total 保留，不归零、不封顶、不从平均值中排除，hard-fail count 单独报告。DeepSeek V4 Pro 未回答 `SGS-081`，按 no-rescue 规则确定性计 0。
 
@@ -55,11 +55,12 @@ MiMo 领先主榜，但开放题的 decision logic、evidence boundary、experim
 | Participating-model free-response outputs | `results/standard_20260703/sgs152_free_response/model_outputs.csv` |
 | GPT-5.6-sol judge manifest | `results/standard_20260703/free_response_judge/judge_manifest.json` |
 | Free-response summary | `results/standard_20260703/free_response_judge/scored_free_response_summary.csv` |
-| Pending review packet | `results/standard_20260703/free_response_judge/manual_review_packet.csv` |
+| Delegated-review manifest | `results/standard_20260703/free_response_judge/adjudication_manifest.json` |
+| Adjudicated summary | `results/standard_20260703/free_response_judge/adjudicated_free_response_summary.csv` |
 | Historical GPT-5.5 judge | `archive/judge_history/gpt-5.5_20260703/` |
 
-Raw participating-model and judge outputs exist locally in ignored `raw_model_outputs/` and `raw_judge_outputs/` directories. Parsed evidence, manifests, reports and pending-review templates are intended for version control.
+Raw participating-model and judge outputs exist locally in ignored `raw_model_outputs/` and `raw_judge_outputs/` directories. Parsed evidence, manifests, reports and delegated-review decisions are intended for version control.
 
 ## Release Interpretation
 
-The SGS152 MCQ table is the only main leaderboard. Free-response is GPT-5.6-sol judge-scored and pending independent human review. Robustness and Hard50 remain optional diagnostics.
+The SGS152 MCQ table is the only main leaderboard. Free-response is GPT-5.6-sol judge-scored plus project-owner-delegated assistant review. Robustness and Hard50 remain optional diagnostics.

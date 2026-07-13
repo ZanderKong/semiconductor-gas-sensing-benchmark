@@ -1,4 +1,4 @@
-.PHONY: demo validate validate-hard50 lint lint-sgs100 build-sgs100 build-sgs152 build-hard50 report judge-free-response build-review-packet audit eval-mcq eval-free-response eval-frontier eval-robustness-frontier eval-hard50-frontier eval-hard50-gpt55 eval-hard50-all eval-gpt55 eval-robustness-gpt55 score-mcq score-free-response score-hard50-all score-hard50-gpt55
+.PHONY: demo validate validate-hard50 lint lint-sgs100 build-sgs100 build-sgs152 build-hard50 report judge-free-response build-review-packet apply-adjudication audit eval-mcq eval-free-response eval-frontier eval-robustness-frontier eval-hard50-frontier eval-hard50-gpt55 eval-hard50-all eval-gpt55 eval-robustness-gpt55 score-mcq score-free-response score-hard50-all score-hard50-gpt55
 
 demo:
 	python3 eval/runner.py
@@ -32,6 +32,9 @@ judge-free-response:
 
 build-review-packet:
 	python3 scripts/build_free_response_review_packet.py
+
+apply-adjudication:
+	python3 scripts/apply_delegated_adjudication.py
 
 audit:
 	python3 scripts/final_provenance_audit.py
