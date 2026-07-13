@@ -321,15 +321,11 @@
       "tn": "105"
     }
   ],
-  "uncomputed_here": [
-    "MCQ item difficulty from four model answer rows",
-    "full model disagreement matrix",
-    "leave-one-item-out rank changes",
-    "bootstrap rank stability",
-    "same-source duplicate weighting",
-    "domain/stage/failure-family confidence intervals",
-    "MCQ versus free-response correlations",
-    "Robustness versus main-set correlations"
-  ],
-  "why_uncomputed_here": "The current runtime can inspect the archive inventory but cannot obtain and unpack the complete binary raw archive deterministically. A runnable local script is included."
+  "full_statistics_computation": {
+    "status": "completed",
+    "source": "clean rebuild from artifacts/SGS152_raw_evidence_20260713.zip",
+    "output_directory": "review/v0.6.0/08_statistics/generated_statistics",
+    "summary": "generated_statistics/full_statistics_summary.json",
+    "note": "All diagnostics formerly marked as requiring a raw run were computed for v0.6.0."
+  }
 }

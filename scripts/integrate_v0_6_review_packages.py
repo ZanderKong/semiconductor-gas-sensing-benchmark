@@ -40,13 +40,13 @@ PRIMARY_KEYS = {
     "full_review_by_item.csv": "task_id+model_id",
     "full_review_by_dimension.csv": "task_id+model_id+dimension",
     "confirmed_hard_fails.csv": "task_id+model_id",
-    "score_overrides.csv": "task_id+model_id+dimension",
+    "score_overrides.csv": "task_id+model_id",
     "hard_fail_reclassification.csv": "task_id+model_id",
     "judge_reliability_metrics.csv": "group",
     "judge_disagreement_cases.csv": "task_id+model_id",
     "judge_reliability_report.md": "document",
     "robustness_40_item_pair_review.csv": "item_id",
-    "robustness_group_review.csv": "consistency_group_id",
+    "robustness_group_review.csv": "base_or_parent_id",
     "hard50_item_calibration.csv": "item_id",
     "hard50_retire_rewrite_keep.csv": "item_id",
     "content_quality_statistics.json": "section",
@@ -54,7 +54,7 @@ PRIMARY_KEYS = {
     "blind_review_rules.md": "document",
     "blind_review_scoring_template.csv": "blind_response_id",
     "build_blind_packet.py": "script",
-    "raw_evidence_inventory.csv": "artifact_path",
+    "raw_evidence_inventory.csv": "member",
 }
 
 
@@ -230,7 +230,10 @@ def main() -> None:
         for label, source_rel, target_rel in mapping:
             src = roots[label] / source_rel
             dst = public / target_rel
-            copy_public(src, dst)
+            # The clean raw rebuild supersedes the package placeholder. Preserve
+            # that verified generated evidence on repeat integration runs.
+            if not (target_rel == "10_provenance/raw_evidence_inventory.csv" and dst.exists()):
+                copy_public(src, dst)
             integration_rows.append(
                 {
                     "target": target_rel,
@@ -257,7 +260,9 @@ def main() -> None:
         for label, source_rel, name in dashboard_map:
             destination = public / "dashboards" / name
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(roots[label] / source_rel, destination)
+            # Tracked public workbooks are role-sanitized release artifacts.
+            if not destination.exists():
+                shutil.copy2(roots[label] / source_rel, destination)
 
         write_csv(public / "00_scope/source_package_inventory.csv", package_inventory)
         write_csv(public / "00_scope/integration_decision_log.csv", integration_rows)
@@ -317,14 +322,54 @@ def main() -> None:
             "preserved_old_location": "v0.5.0 Git tag",
             "score_impact": "reported interpretation",
         },
+        {
+            "conflict_id": "MANIFEST-001",
+            "topic": "package manifests and checksum lists",
+            "old_state": "four package-specific manifests and SHA256SUMS cover different roots",
+            "new_state": "all originals preserved; release manifest regenerated over the integrated tree",
+            "selected_authority": "all source packages + generated release manifest",
+            "preserved_old_location": "review/internal_provenance/source_packages",
+            "score_impact": "no",
+        },
+        {
+            "conflict_id": "STATS-001",
+            "topic": "statistical computation status",
+            "old_state": "remaining-work inventory marked diagnostics as requiring a raw run",
+            "new_state": "clean raw rebuild completed all listed diagnostics",
+            "selected_authority": "verified raw archive + full-statistics rebuild",
+            "preserved_old_location": "remaining-work source ZIP",
+            "score_impact": "diagnostic only",
+        },
+        {
+            "conflict_id": "BLIND-001",
+            "topic": "blind-review materials",
+            "old_state": "foundation and remaining-work packages contain overlapping blind-review guidance",
+            "new_state": "higher-priority execution packet published without a claim that blind review occurred",
+            "selected_authority": "remaining-work package + project-owner prompt",
+            "preserved_old_location": "all four exact source ZIPs",
+            "score_impact": "no",
+        },
+        {
+            "conflict_id": "DASHBOARD-001",
+            "topic": "overlapping source dashboards",
+            "old_state": "each package contains a scope-specific source workbook",
+            "new_state": "all four scope dashboards retained as role-sanitized public copies",
+            "selected_authority": "artifact purpose; no mechanical overwrite",
+            "preserved_old_location": "review/internal_provenance/source_packages",
+            "score_impact": "no",
+        },
     ]
     conflict_details = {
         "POLICY-001": ("official_item_score", "task_id+model_id", "owner prompt + free_response/full_review_by_item.csv"),
         "IDENTITY-001": ("review_identity/reviewer", "artifact_path+row_key", "owner prompt"),
-        "ROBUSTNESS-001": ("extended pair/group review fields", "item_id / consistency_group_id", "remaining-work package"),
+        "ROBUSTNESS-001": ("extended pair/group review fields", "item_id / base_or_parent_id", "remaining-work package"),
         "HARD50-001": ("public interpretation role", "item_id / set", "remaining-work package"),
         "RAW-001": ("raw_to_derived comparison implementation", "artifact+id+model_id(+dimension)", "raw archive + repository parser behavior"),
         "DOC-001": ("release version/scoring/identity wording", "document_path+section", "owner prompt + verified repository facts"),
+        "MANIFEST-001": ("manifest/checksum scope", "archive+member_path", "integrated v0.6.0 manifest"),
+        "STATS-001": ("diagnostic status/output path", "analysis", "clean full-statistics rebuild"),
+        "BLIND-001": ("blind-review execution status", "document_path", "remaining-work execution packet"),
+        "DASHBOARD-001": ("dashboard scope and public role wording", "workbook_path+sheet", "role-sanitized scope workbook"),
     }
     for row in conflict_rows:
         field, primary_key, selected_version = conflict_details[str(row["conflict_id"])]

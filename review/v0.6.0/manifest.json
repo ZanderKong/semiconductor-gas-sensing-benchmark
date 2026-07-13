@@ -9,8 +9,8 @@
   "files": [
     {
       "path": "00_scope/integration_decision_log.csv",
-      "size": 5346,
-      "sha256": "a30928c02e6dd879cac361068ea4cc375bdac85bc53d88ac1c2eac082870098b"
+      "size": 6413,
+      "sha256": "a06d6be814251e50ad6a1e3ebff9f0332db9eb7661e5e6cf26df759ec83b6d43"
     },
     {
       "path": "00_scope/known_limitations.md",
@@ -24,8 +24,8 @@
     },
     {
       "path": "00_scope/package_conflict_report.csv",
-      "size": 1918,
-      "sha256": "addd88fc26e6a70e71a966f247734fa5d1e7f16f2de311bdc05e30d905d14d89"
+      "size": 3292,
+      "sha256": "0bb55d8a2a06a076834a106e7adf55d0894b2983461f492b7af832311f631592"
     },
     {
       "path": "00_scope/review_scope.md",
@@ -164,8 +164,8 @@
     },
     {
       "path": "08_statistics/content_quality_statistics.json",
-      "size": 9660,
-      "sha256": "c468df5eb1edc4b876ccee8761a64f38782c32f2fd43be14fe70cc04292b8667"
+      "size": 9468,
+      "sha256": "c05cbf7316294cdf6d633252b04817b1b86c325b0421c9f42d64e9ba27e98993"
     },
     {
       "path": "08_statistics/generated_statistics/bootstrap_rank_stability.csv",
@@ -209,8 +209,8 @@
     },
     {
       "path": "08_statistics/statistical_diagnostic_inventory.csv",
-      "size": 1155,
-      "sha256": "53f3f16cb48e957390fe83ec6c210f66ad699c29e3dada35375f89f96a7353cf"
+      "size": 1116,
+      "sha256": "07905f241a144352f883fd7e855855b040b11e6967e2eb74276c751f1b88bdd3"
     },
     {
       "path": "09_blind_review/blind_review_execution_packet/blind_review_rules.md",

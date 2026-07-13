@@ -10,12 +10,12 @@
 ## Deterministic raw rebuild
 
 ```bash
-python review_tools/rebuild_raw_evidence.py \
+python3 review_tools/rebuild_raw_evidence.py \
   --repo-root . \
   --archive artifacts/SGS152_raw_evidence_20260713.zip \
   --out review_outputs/raw_rebuild
 
-python review_tools/rebuild_and_compute_full_statistics.py \
+python3 review_tools/rebuild_and_compute_full_statistics.py \
   --archive artifacts/SGS152_raw_evidence_20260713.zip \
   --repo-root . \
   --out review_outputs/full_statistics
@@ -28,12 +28,13 @@ python review_tools/rebuild_and_compute_full_statistics.py \
 ## Release validation
 
 ```bash
-python3 -m py_compile review_tools/*.py scripts/audit_v0_6.py
+python3 -m py_compile review_tools/*.py scripts/audit_v0_6.py scripts/audit_source_review_packages.py
 python3 scripts/validate_benchmark.py
 python3 scripts/lint_benchmark.py
 python3 scripts/lint_sgs100_benchmark.py
 python3 scripts/validate_hard50.py
 python3 scripts/final_provenance_audit.py
+python3 scripts/audit_source_review_packages.py
 python3 scripts/audit_v0_6.py
 unzip -tq artifacts/SGS152_raw_evidence_20260713.zip
 git diff --check

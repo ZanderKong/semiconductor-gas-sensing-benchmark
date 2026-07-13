@@ -73,9 +73,40 @@ def audit_counts(errors: list[str]) -> None:
     )
     integration = read_csv(REVIEW / "00_scope/integration_decision_log.csv")
     require(bool(integration) and all(row.get("primary_key") and row["primary_key"] != "defined by v0.6 audit" for row in integration), "integration decision log has unresolved primary keys", errors)
+    for decision in integration:
+        target = REVIEW / decision["target"]
+        require(target.exists(), f"integration target is missing: {decision['target']}", errors)
+        if target.suffix.lower() == ".csv":
+            with target.open(encoding="utf-8-sig", newline="") as handle:
+                fields = set(csv.DictReader(handle).fieldnames or [])
+            declared = set(decision["primary_key"].split("+"))
+            require(declared <= fields, f"integration primary key is not present in {decision['target']}: {decision['primary_key']}", errors)
+    member_disposition = read_csv(INTERNAL / "source_package_member_disposition.csv")
+    source_files = 0
+    for archive_name in SOURCE_ARCHIVES:
+        with zipfile.ZipFile(INTERNAL / "source_packages" / archive_name) as archive:
+            source_files += sum(not name.endswith("/") for name in archive.namelist())
+    require(len(member_disposition) == source_files, "source package disposition does not cover every ZIP file member", errors)
+    require(unique(member_disposition, ["archive", "member_path"]), "source package disposition has duplicate member keys", errors)
+    require(all(row["sha256"] and row["preserved_location"] for row in member_disposition), "source package disposition lacks hash/preservation evidence", errors)
+    document_log = read_csv(INTERNAL / "source_document_review_log.csv")
+    package_names = {"remaining_work", "option_evidence", "item_validity", "free_response"}
+    document_types = {"README", "Manifest", "SHA256SUMS", "final_report", "Codex_integration"}
+    require(len({row["package"] for row in document_log}) == 4, "source document review log must cover four packages", errors)
+    require(all(any(row["package"] == package and row["document_type"] == kind for row in document_log) for package in package_names for kind in document_types), "source document review log lacks a required document category", errors)
+    stats_inventory = read_csv(REVIEW / "08_statistics/statistical_diagnostic_inventory.csv")
+    require(stats_inventory and all(row["status"] == "completed" for row in stats_inventory), "statistical diagnostic inventory still has incomplete entries", errors)
+    require(all((REVIEW / "08_statistics" / row["output_field"]).exists() for row in stats_inventory), "statistical diagnostic inventory points to a missing output", errors)
+    content_stats = json.loads((REVIEW / "08_statistics/content_quality_statistics.json").read_text(encoding="utf-8-sig"))
+    require(content_stats.get("full_statistics_computation", {}).get("status") == "completed", "content quality statistics still reports an uncomputed raw run", errors)
     validity = read_csv(REVIEW / "01_item_validity/all_242_item_validity_review.csv")
     require(len(validity) == 242 and unique(validity, ["item_id"]), "item validity must be 242 unique IDs", errors)
     require(Counter(row["set_name"] for row in validity) == {"main": 152, "robustness": 40, "hard50": 50}, "item validity set counts differ", errors)
+    for name, expected in [("main_152_item_validity_review.csv", 152), ("robustness_40_item_validity_review.csv", 40), ("hard50_50_item_validity_review.csv", 50)]:
+        split_rows = read_csv(REVIEW / "01_item_validity" / name)
+        require(len(split_rows) == expected and unique(split_rows, ["item_id"]), f"{name} count/keys differ", errors)
+    option_summary = read_csv(REVIEW / "02_mcq_options/mcq_122_item_option_set_summary.csv")
+    require(len(option_summary) == 122 and unique(option_summary, ["item_id"]), "MCQ option summary must be 122 unique items", errors)
     options = read_csv(REVIEW / "02_mcq_options/mcq_488_option_audit.csv")
     require(len(options) == 488 and unique(options, ["item_id", "option_letter"]), "MCQ option audit must be 488 unique rows", errors)
     require(len({row["item_id"] for row in options}) == 122, "MCQ option audit must cover 122 items", errors)
@@ -83,6 +114,14 @@ def audit_counts(errors: list[str]) -> None:
     refs = read_csv(REVIEW / "03_reference_evidence/fr_112_reference_claim_evidence_audit.csv")
     require(len(refs) == 112 and unique(refs, ["item_id", "claim_id"]), "Reference claims must be 112 unique rows", errors)
     require(len({row["item_id"] for row in refs}) == 30, "Reference claims must cover 30 items", errors)
+    reference_items = read_csv(REVIEW / "03_reference_evidence/fr_30_reference_answer_external_evidence_audit.csv")
+    require(len(reference_items) == 30 and unique(reference_items, ["item_id"]), "Reference Answer audit must be 30 unique items", errors)
+    robustness_pairs = read_csv(REVIEW / "06_robustness/robustness_40_item_pair_review.csv")
+    robustness_groups = read_csv(REVIEW / "06_robustness/robustness_group_review.csv")
+    require(len(robustness_pairs) == 40 and unique(robustness_pairs, ["item_id"]), "Robustness pair review must be 40 unique items", errors)
+    require(len(robustness_groups) == 12 and unique(robustness_groups, ["base_or_parent_id"]), "Robustness group review must be 12 unique groups", errors)
+    hard50 = read_csv(REVIEW / "07_hard50/hard50_item_calibration.csv")
+    require(len(hard50) == 50 and unique(hard50, ["item_id"]), "Hard50 calibration must be 50 unique items", errors)
     items = read_csv(REVIEW / "04_free_response_adjudication/full_review_by_item.csv")
     dims = read_csv(REVIEW / "04_free_response_adjudication/full_review_by_dimension.csv")
     require(len(items) == 120 and unique(items, ["task_id", "model_id"]), "free-response item review must be 120 unique rows", errors)
@@ -167,6 +206,7 @@ def audit_judge_and_manifest(errors: list[str]) -> None:
     verification = json.loads((REVIEW / "10_provenance/raw_archive_verification_manifest.json").read_text(encoding="utf-8"))
     require(verification["zip_member_count"] == 46 and verification["raw_to_derived_diff_count"] == 0, "raw rebuild verification is incomplete", errors)
     require(verification["judge_review_count"] == 120 and verification["judge_primary_keys_unique"], "Judge raw rebuild count/keys differ", errors)
+    require(verification.get("git_status_before") == [] and verification.get("git_status_after") == [], "raw rebuild was not recorded from a clean worktree", errors)
     manifest_path = REVIEW / "manifest.json"
     require(manifest_path.exists(), "v0.6.0 manifest is missing", errors)
     if manifest_path.exists():

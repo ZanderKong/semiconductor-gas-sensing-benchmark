@@ -1,10 +1,10 @@
 ﻿analysis,status,input,output_field
-每道 MCQ item difficulty,script_ready_requires_raw_run,sgs152_mcq/model_outputs.csv + benchmark Gold,proportion_correct; corrected_proportion_after_known_gold_repairs
-模型间分歧矩阵,script_ready_requires_raw_run,MCQ / robustness / hard50 model_outputs.csv,pairwise answer disagreement and correctness disagreement
-每题饱和度,script_ready_requires_raw_run,four model answers,0/4..4/4 correct plus entropy
-删除单题后的排名变化,script_ready_requires_raw_run,item-level correctness,leave-one-out ranks
-bootstrap 排名稳定性,script_ready_requires_raw_run,item-level correctness and reviewed FR scores,rank probability and score CI
-同源题重复权重,content_map_completed_script_ready,consistency_group/source/failure family,effective weighted score
-domain / stage / failure family CI,script_ready_requires_raw_run,item metadata + model outcomes,bootstrap 95% CI
-MCQ 与开放题相关性,script_ready_requires_raw_run,model-level MCQ + reviewed FR outcomes,Pearson and Spearman
-Robustness 与主集相关性,script_ready_requires_raw_run,model-level set scores,correlation with warning n=4
+每道 MCQ item difficulty,completed,sgs152_mcq/model_outputs.csv + benchmark Gold,generated_statistics/mcq_item_difficulty.csv
+模型间分歧矩阵,completed,MCQ / robustness / hard50 model_outputs.csv,generated_statistics/model_disagreement_matrix.csv
+每题饱和度,completed,four model answers,generated_statistics/mcq_item_difficulty.csv
+删除单题后的排名变化,completed,item-level correctness,generated_statistics/leave_one_item_out_ranking.csv
+bootstrap 排名稳定性,completed,item-level correctness and reviewed FR scores,generated_statistics/bootstrap_rank_stability.csv
+同源题重复权重,completed,consistency_group/source/failure family,generated_statistics/same_source_group_weighting.csv
+domain / stage / failure family CI,completed,item metadata + model outcomes,generated_statistics/full_statistics_summary.json
+MCQ 与开放题相关性,completed,model-level MCQ + reviewed FR outcomes,generated_statistics/cross_set_correlations.csv
+Robustness 与主集相关性,completed,model-level set scores,generated_statistics/cross_set_correlations.csv
