@@ -1,20 +1,19 @@
-# Free-response Judge + Adjudication Report
+# Live Free-response Judge Report
 
-This report starts from live model free-response outputs scored by a fixed ChatGPT/GPT-5.5 judge and applies assistant-assisted project-owner confirmed adjudication.
+This report scores live model free-response outputs with the fixed `gpt-5.6-sol` judge.
 
-Bias note: the judge model overlaps with one participating model family. Four GPT-5.5 high-score samples were conservatively adjusted downward during adjudication.
-
-Hard-fail score policy: hard fail rows retain the original judge total; they are not zeroed, capped, or excluded from averages. Hard fail count is reported separately.
+Bias note: Judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review.
 
 | Model | Items | Total | Average | Hard Fails |
 |---|---:|---:|---:|---:|
-| deepseek-v4-pro | 30 | 189.10 | 6.303 | 0 |
-| ep-20260703090429-qpmt7 | 30 | 206.65 | 6.888 | 0 |
-| gpt-5.5 | 30 | 224.55 | 7.485 | 0 |
-| mimo-v2.5-pro | 30 | 145.30 | 4.843 | 3 |
+| deepseek-v4-pro | 30 | 201.65 | 6.722 | 0 |
+| ep-20260703090429-qpmt7 | 30 | 224.80 | 7.493 | 4 |
+| gpt-5.5 | 30 | 244.50 | 8.150 | 0 |
+| mimo-v2.5-pro | 30 | 163.20 | 5.440 | 11 |
 
-Adjudication files:
+Manual review queue includes hard-fail items and low/disputed-score items.
 
-- `human_review_decisions.csv`
-- `human_review_overrides.csv`
-- `adjudication_notes.md`
+Inputs:
+- Benchmark: `data/benchmark.json`
+- Model outputs: `results/standard_20260703/sgs152_free_response/model_outputs.csv`
+- Judge prompt: `eval/prompts/free_response_judge_prompt.md`

@@ -2,67 +2,46 @@
 
 ## Evidence Source
 
-This analysis uses only `results/standard_20260703`.
-
-Deprecated reconstructed MCQ outputs and pre-final open-ended scoring artifacts are not used as 0.5.0 final evidence.
+This analysis uses the committed participating-model outputs, MCQ diagnostics, and the GPT-5.6-sol judge artifacts under `results/standard_20260703`. GPT-5.6-sol is not a participating model. Free-response findings remain pending independent human review.
 
 ## Summary
 
-SGS152 MCQ remains the main leaderboard. The live run shows a tight cluster among four participating models:
-
-| Model | SGS152 MCQ | Free-response Avg |
-|---|---:|---:|
-| MiMo v2.5 Pro | 119 / 122 | 4.843 |
-| Seed-2.1 | 118 / 122 | 6.888 |
-| GPT-5.5 | 117 / 122 | 7.485 |
-| DeepSeek V4 Pro | 115 / 122 | 6.303 |
-
-Free-response values are judge-scored plus assistant-assisted project-owner confirmed adjudication. GPT-5.5/ChatGPT was used as judge, so judge overlap bias remains disclosed; four GPT-5.5 high-score samples were adjusted downward.
+| Model | SGS152 MCQ | FR Average | FR Hard Fails | Robustness | Hard50 |
+|---|---:|---:|---:|---:|---:|
+| MiMo v2.5 Pro | 119 / 122 | 5.440 | 11 | 34 / 40 | 47 / 50 |
+| Seed-2.1 | 118 / 122 | 7.493 | 4 | 32 / 40 | 48 / 50 |
+| GPT-5.5 | 117 / 122 | 8.150 | 0 | 34 / 40 | 48 / 50 |
+| DeepSeek V4 Pro | 115 / 122 | 6.722 | 0 | 29 / 40 | 47 / 50 |
 
 ## Model Notes
 
 ### MiMo v2.5 Pro
 
-MiMo has the highest SGS152 MCQ result at 119 / 122 and ties GPT-5.5 on Robustness at 34 / 40. Its free-response result is much lower, with three retained hard fails after adjudication. Hard fail rows retain their original judge totals and are counted separately.
+MiMo leads the MCQ main leaderboard and ties the best Robustness score, but its free-response result is weakest. The judge flags 11 risk gates, including missing critical controls, unsafe or over-specific acid-cleaning advice, weak anomaly-retention rules, and incomplete decision matrices. Its lowest dimensions are `decision_logic` (0.400 / 1.25), `evidence_boundary` (0.508), and `experimental_design` (0.537).
 
 ### Seed-2.1
 
-Seed-2.1 has the second-highest SGS152 MCQ result at 118 / 122 and the strongest optional Hard50 result tied with GPT-5.5 at 48 / 50. Its free-response average is 6.888.
+Seed-2.1 is the MCQ runner-up and ties GPT-5.5 on Hard50. Its four judge-flagged risk gates concern missing baseline/process controls, omission of the core Arrhenius relationship, and incomplete scale-up sampling logic. Its lowest dimensions are decision logic, experimental design, and evidence boundary.
 
 ### GPT-5.5
 
-GPT-5.5 scored 117 / 122 on SGS152 MCQ and has the highest adjudicated free-response average, 7.485. Because GPT-5.5 also served as the free-response judge, four high-score GPT-5.5 samples were conservatively adjusted downward: `SGS-030`, `SGS-032`, `SGS-099`, and `SGS-FM-FR-004`.
+GPT-5.5 has the highest GPT-5.6-sol judge average and no flagged risk gate. Its repeated weakness is still explicit decision logic: several otherwise strong answers omit failure thresholds, go/no-go language, or mutually exclusive evidence tests. Because judge and participating model are from related GPT families, this relative advantage requires independent review before confirmation.
 
 ### DeepSeek V4 Pro
 
-DeepSeek scored 115 / 122 on SGS152 MCQ, 29 / 40 on Robustness, and 47 / 50 on Hard50. It had one missing free-response answer, `SGS-081`, which was preserved under the no-rescue policy and scored as 0.
+DeepSeek trails on SGS152 MCQ and Robustness. `SGS-081` remains unanswered and is deterministically scored 0 under the no-rescue policy. Its lowest answered-item patterns are incomplete decision logic, weak evidence boundaries, and under-specified experimental controls; `SGS-FM-FR-007` also misses the key acid–metal hydrogen risk.
 
-## Diagnostic Layers
+## Cross-model Findings
 
-Robustness and Hard50 are optional diagnostic layers:
-
-| Model | Robustness | Hard50 |
-|---|---:|---:|
-| GPT-5.5 | 34 / 40 | 48 / 50 |
-| MiMo v2.5 Pro | 34 / 40 | 47 / 50 |
-| Seed-2.1 | 32 / 40 | 48 / 50 |
-| DeepSeek V4 Pro | 29 / 40 | 47 / 50 |
-
-These results should guide item-level review and future calibration. They should not be combined with SGS152 into a full-suite total score.
-
-Integrated diagnostic reading: MiMo leads the MCQ main leaderboard but has the weakest free-response profile and 3 retained hard fails. GPT-5.5 has the strongest adjudicated free-response average and ties Seed-2.1 on Hard50. Seed-2.1 is the most balanced MCQ runner-up. DeepSeek is lowest on SGS152 MCQ and Robustness, and has the preserved `SGS-081` no-rescue missing answer.
+- Strong MCQ accuracy does not guarantee stable judgment under paraphrase, distractor, or condition updates.
+- `decision_logic` is the weakest or near-weakest free-response dimension for every model.
+- Missing controls and incomplete evidence boundaries are frequently more diagnostic than factual errors.
+- Risk gates cover decisive scientific, data-integrity, and safety failures; they are not limited to dangerous-procedure disclosure.
+- Free-response scores remain automated judge output until the 58-row review packet is independently completed.
 
 ## Review Priorities
 
-Confirmed adjudication highlights:
-
-- `SGS-082`, `SGS-FM-FR-007`, and `SGS-FM-FR-011` for MiMo remain hard fail.
-- DeepSeek `SGS-081` remains no-rescue 0.
-- DeepSeek `SGS-FM-FR-007` remains reviewed borderline / needs_human_attention at 4.9 and is not upgraded to hard fail.
-- GPT-5.5 overlap-bias adjustments lowered four high-score samples.
-
-## Next Calibration Targets
-
-- Preserve SGS152 MCQ as the main 0.5.0 leaderboard.
-- Treat free-response as judge-scored plus assistant-assisted project-owner confirmed adjudication, not as an independent blind review.
-- Recalibrate Robustness and Hard50 as diagnostics rather than leaderboard extensions.
+1. Review all 15 judge-flagged risk-gate rows.
+2. Preserve DeepSeek `SGS-081` as a no-rescue zero.
+3. Review the GPT-5.5 supplemental sample for same-family judge leniency.
+4. Check whether missing controls should remain a hard fail or become dimension-level deductions on future versions.

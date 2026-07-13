@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570" role="img" aria-labelledby="title desc">
+<title id="title">SGS152 MCQ Main Leaderboard</title>
+<desc id="desc">Four participating model accuracy results on the 122-question SGS152 multiple-choice main set.</desc>
+<rect width="1200" height="570" rx="28" fill="#f8fafc"/>
+<text x="64" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">SGS152 MCQ Main Leaderboard</text>
+<text x="64" y="105" font-family="Arial, sans-serif" font-size="18" fill="#475569">122 questions · exact match · main leaderboard only</text>
+<line x1="330.0" y1="125" x2="330.0" y2="475" stroke="#cbd5e1" stroke-width="1"/>
+<text x="330.0" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#64748b">90%</text>
+<line x1="482.0" y1="125" x2="482.0" y2="475" stroke="#cbd5e1" stroke-width="1"/>
+<text x="482.0" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#64748b">92%</text>
+<line x1="634.0" y1="125" x2="634.0" y2="475" stroke="#cbd5e1" stroke-width="1"/>
+<text x="634.0" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#64748b">94%</text>
+<line x1="786.0" y1="125" x2="786.0" y2="475" stroke="#cbd5e1" stroke-width="1"/>
+<text x="786.0" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#64748b">96%</text>
+<line x1="938.0" y1="125" x2="938.0" y2="475" stroke="#cbd5e1" stroke-width="1"/>
+<text x="938.0" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#64748b">98%</text>
+<line x1="1090.0" y1="125" x2="1090.0" y2="475" stroke="#cbd5e1" stroke-width="1"/>
+<text x="1090.0" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#64748b">100%</text>
+<text x="300" y="173" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">MiMo v2.5 Pro</text>
+<rect x="330" y="145" width="573.0" height="38" rx="10" fill="#0f766e"/>
+<text x="889.0" y="172" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">119/122 · 97.54%</text>
+<text x="300" y="255" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">Seed-2.1</text>
+<rect x="330" y="227" width="510.7" height="38" rx="10" fill="#64748b"/>
+<text x="826.7" y="254" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">118/122 · 96.72%</text>
+<text x="300" y="337" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">GPT-5.5</text>
+<rect x="330" y="309" width="448.4" height="38" rx="10" fill="#64748b"/>
+<text x="764.4" y="336" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">117/122 · 95.90%</text>
+<text x="300" y="419" text-anchor="end" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">DeepSeek V4 Pro</text>
+<rect x="330" y="391" width="323.8" height="38" rx="10" fill="#64748b"/>
+<text x="639.8" y="418" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">115/122 · 94.26%</text>
+<text x="64" y="550" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Axis starts at 90%. Live run: 2026-07-03. GPT-5.6-sol is the judge and is not a participating model.</text>
+</svg>

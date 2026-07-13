@@ -4,6 +4,56 @@ Semiconductor Gas-Sensing Mini-Benchmark 是一个面向半导体气敏材料研
 
 当前 active benchmark 为 **SGS152 Main Set**，根目录即 active package。
 
+## 一分钟了解 SGS152
+
+### 这个 benchmark 评什么
+
+SGS152 评估模型能否在半导体气敏材料研发中做出**专业、符合当前条件、保留证据边界且不越过安全授权**的判断。它不只检查知识点，还检查模型能否处理文献迁移、机理证据、实验对照、异常数据、工艺放大、路线取舍和高风险 no-go。
+
+### 有什么题，哪些题参加评选
+
+| 观察维度 | SGS152 Main Set 的题目构成 |
+|---|---|
+| 题型 | 122 道 MCQ；30 道 free-response |
+| 学科 | 有机化学 27、材料科学 24、物理化学 21、通用化学 18、无机化学 17、分析化学 16、技术化学 15、毒性与安全 14 |
+| 研发阶段 | 结果分析 46、实验设计 15、安全边界 15、文献分析 14、实验进行 9，另含定量、谱图、故障诊断、数据质量和路线取舍等压力场景 |
+| 工具语境 | 无工具判断 67、protocol checklist 25、定量计算 11、数据/表格分析 14、安全参考 19，另含文献、机理图和谱图证据 |
+| 难度 | basic 48、intermediate 60、advanced 43、expert 1 |
+
+**只有 SGS152 的 122 道 MCQ 进入主排行榜。**30 道开放题由 GPT-5.6-sol 按固定 rubric 评分并单独报告；40 道 Robustness 和 50 道 Hard50 只用于诊断，三者均不并入主榜或总分。GPT-5.6-sol 只担任 judge，不是参评模型。
+
+### 主排行榜
+
+![SGS152 MCQ 主排行榜](assets/leaderboard.svg)
+
+| Model | SGS152 MCQ | Accuracy |
+|---|---:|---:|
+| MiMo v2.5 Pro | 119 / 122 | 97.54% |
+| Seed-2.1 | 118 / 122 | 96.72% |
+| GPT-5.5 | 117 / 122 | 95.90% |
+| DeepSeek V4 Pro | 115 / 122 | 94.26% |
+
+### 评测流程
+
+![SGS benchmark 评测流程](assets/evaluation_flow.svg)
+
+### 发现了哪些模型问题
+
+- **高主榜分不等于稳定判断。** Robustness 上四模型为 29–34 / 40，说明改写题面、加入干扰项或更新条件后仍可能改错。
+- **开放题最常缺少明确决策条件。** GPT-5.6-sol judge 对四模型的共同诊断集中在 `decision_logic`、`evidence_boundary` 和 `experimental_design`：答案可能方向正确，但没有说明失败条件、证据能证明什么或下一步如何区分假设。
+- **安全和数据完整性错误具有高风险。** MiMo 在酸—金属放氢、异常点删除和最小验证设计等题目触发 risk gate；Seed-2.1 在关键对照、定量关系和工艺取样控制上触发 4 条 risk gate。
+- **缺答不补救。** DeepSeek 的 `SGS-081` 开放题没有返回答案，按 no-rescue 规则保留并计 0 分。
+- **单一 judge 仍不是独立人工评审。** GPT-5.6-sol 不参与排行，消除了完全相同模型的 self-judge；但它与 GPT-5.5 候选模型仍可能存在同家族相关性，当前开放题结果等待独立人工复核。
+
+### 如何保证评测可信
+
+- 题库、prompt、模型输出和 judge prompt 都记录 SHA-256；manifest 固定运行提交、时间、模型和题数。
+- 温度为 0；每模型每层单次采样；无联网、无工具、无重试、无人工补答案。
+- MCQ 使用 exact match；开放题固定 8 个维度与逐题 risk gates；缺答确定性计 0。
+- 主榜、开放题、Robustness 和 Hard50 分层报告，不把不同测量目标拼成一个总分。
+- 保存逐题输出、错误选项、failure mode、judge comment、hard fail 和待人工复核 packet，而不只发布平均分。
+- GPT-5.6-sol judge 的 120 条评分均有原始输出和 manifest；当前状态明确标记为 **judge-scored, pending independent human review**。
+
 ## 项目背景
 
 半导体气敏材料研发经常需要在不完整证据下做判断。
@@ -33,7 +83,7 @@ Semiconductor Gas-Sensing Mini-Benchmark 是一个面向半导体气敏材料研
 SGS152 Main Set 覆盖 152 道 active 题目：
 
 - 122 道 MCQ 进入 0.5.0 main leaderboard；
-- 30 道 free-response 已完成 live run、GPT-5.5/ChatGPT judge scoring 和 assistant-assisted project-owner confirmed adjudication；
+- 30 道 free-response 已完成 live run 和 GPT-5.6-sol fixed-rubric judge scoring；独立人工复核 packet 已生成但尚未确认；
 - Domain Core Set 用于评估半导体气敏材料研发任务；
 - Scientific Stress Set 用于观察强模型在科学规则、定量精度、谱图模式、结构性质提取和安全风险识别上的边界；
 - Robustness Set 用于测试相近题面下判断一致性，是 optional diagnostic result；
@@ -287,7 +337,7 @@ Free-response 使用 10 分制，拆成 8 个维度：
 - `safety_and_privacy`
 - `conciseness_and_traceability`
 
-Free-response 当前为 GPT-5.5/ChatGPT judge-scored + assistant-assisted project-owner confirmed adjudication。由于 GPT-5.5 也参评，存在 judge overlap bias；4 条 GPT-5.5 高分样本已在确认复核中下调。
+Free-response 当前由不参评的 GPT-5.6-sol 按固定 prompt 评分。它不直接评价自己的参赛答案，但与 GPT-5.5 候选模型仍可能存在同家族相关性；结果尚未完成独立人工复核。
 
 ## 0.5.0 Live Results
 
@@ -300,14 +350,14 @@ SGS152 MCQ main leaderboard：
 | GPT-5.5 | 117 / 122 | 95.90% |
 | DeepSeek V4 Pro | 115 / 122 | 94.26% |
 
-Free-response adjudicated review：
+Free-response judge review：
 
 | Model | Average | Hard Fails |
 |---|---:|---:|
-| GPT-5.5 | 7.485 | 0 |
-| Seed-2.1 | 6.888 | 0 |
-| DeepSeek V4 Pro | 6.303 | 0 |
-| MiMo v2.5 Pro | 4.843 | 3 |
+| GPT-5.5 | 8.150 | 0 |
+| Seed-2.1 | 7.493 | 4 |
+| DeepSeek V4 Pro | 6.722 | 0 |
+| MiMo v2.5 Pro | 5.440 | 11 |
 
 DeepSeek V4 Pro did not answer `SGS-081` in the free-response run. The missing answer is preserved under the no-rescue policy and scored as 0.
 
@@ -326,9 +376,9 @@ Robustness and Hard50 do not enter the main leaderboard and must not be merged i
 
 ## 模型差异分析
 
-MiMo v2.5 Pro leads the SGS152 MCQ main leaderboard. Seed-2.1 follows closely and ties GPT-5.5 on Hard50. GPT-5.5 has the highest adjudicated free-response average after four overlap-bias downward adjustments. DeepSeek V4 Pro has the lowest SGS152 MCQ result among the four included models and one preserved missing free-response answer.
+MiMo v2.5 Pro leads the SGS152 MCQ main leaderboard. Seed-2.1 follows closely and ties GPT-5.5 on Hard50. Under the GPT-5.6-sol judge, GPT-5.5 has the highest free-response average, while MiMo has the lowest average and the most risk-gate failures. DeepSeek V4 Pro has the lowest SGS152 MCQ result and one preserved missing free-response answer.
 
-Integrated diagnostic reading: MiMo leads SGS152 MCQ but has the weakest free-response profile and 3 retained hard fails. GPT-5.5 ties Seed-2.1 on Hard50 and leads adjudicated free-response. Seed-2.1 is the most balanced MCQ runner-up. DeepSeek trails on SGS152 MCQ and Robustness.
+Integrated diagnostic reading: MiMo leads SGS152 MCQ but has the weakest free-response profile and 11 judge-flagged risk-gate failures. GPT-5.5 ties Seed-2.1 on Hard50 and leads the pending-review free-response result. Seed-2.1 is the MCQ runner-up but has 4 judge-flagged risk-gate failures. DeepSeek trails on SGS152 MCQ and Robustness and preserves one no-rescue missing answer.
 
 ## 从 0.4.0 到 0.5.0 的迭代逻辑
 
@@ -340,7 +390,7 @@ Integrated diagnostic reading: MiMo leads SGS152 MCQ but has the weakest free-re
 
 0.5.0 修复了 MCQ prompt 只支持 A 到 D 的问题。当前 prompt 明确支持题目 options 中提供的全部字母，包括 E。
 
-0.5.0 完成 live standard run，并生成 free-response judge output、manual review packet 和 confirmed adjudication files。
+0.5.0 完成 live standard run；当前 GPT-5.6-sol judge output 和新的 manual review packet 已生成，人工裁决仍待完成。
 
 后续优先事项：
 
@@ -360,11 +410,11 @@ Integrated diagnostic reading: MiMo leads SGS152 MCQ but has the weakest free-re
 - `results/standard_20260703/free_response_judge/scored_free_response_by_dimension.csv`
 - `results/standard_20260703/free_response_judge/scored_free_response_by_item.csv`
 - `results/standard_20260703/free_response_judge/manual_review_queue.csv`
-- `results/standard_20260703/free_response_judge/human_review_decisions.csv`
-- `results/standard_20260703/free_response_judge/human_review_overrides.csv`
-- `results/standard_20260703/free_response_judge/adjudication_notes.md`
+- `results/standard_20260703/free_response_judge/human_review_decisions.template.csv`
+- `results/standard_20260703/free_response_judge/human_review_overrides.template.csv`
+- `results/standard_20260703/free_response_judge/adjudication_notes.template.md`
 
-当前状态是 judge-scored + assistant-assisted project-owner confirmed adjudication。
+当前状态是 GPT-5.6-sol judge-scored + pending independent human review。模板中的人工结论字段保持为空，不能表述为 confirmed adjudication。
 
 ## 如何运行和复现
 
@@ -393,7 +443,8 @@ make lint-sgs100
 标准 live run 和 audit：
 
 ```bash
-python3 scripts/run_standard_benchmark.py --out-root results/standard_20260703 --smoke-timeout 900 --timeout 2400
+python3 scripts/run_standard_benchmark.py --out-root results/standard_YYYYMMDD --judge-model gpt-5.6-sol --smoke-timeout 900 --timeout 2400
+python3 scripts/build_free_response_review_packet.py
 python3 scripts/final_provenance_audit.py
 ```
 

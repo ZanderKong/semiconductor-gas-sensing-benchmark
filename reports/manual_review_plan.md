@@ -1,85 +1,39 @@
 # Manual Review Plan
 
-## Source
+## Status
 
-Manual review queue:
+GPT-5.6-sol has scored all 120 free-response answers. Independent human review is pending; no confirmed decisions or overrides exist in the current evidence directory.
 
-`results/standard_20260703/free_response_judge/manual_review_queue.csv`
-
-The queue is generated from GPT-5.5/ChatGPT judge output and includes hard-fail items plus low or disputed-score items.
-
-Prepared review packet:
+## Review Packet
 
 `results/standard_20260703/free_response_judge/manual_review_packet.csv`
 
-The packet includes every item in `manual_review_queue.csv` plus deterministic supplemental spot checks so that each participating model has at least 9 of 30 free-response answers queued for human review.
+The 58-row packet includes:
 
-## Sampling Rule
+- every judge hard fail;
+- every score below 7.0;
+- the DeepSeek `SGS-081` no-rescue missing answer;
+- risk-focused supplemental samples until every model reaches at least 9 of 30 answers.
 
-Review at least 30% of each model's 30 free-response answers.
-
-The prepared packet currently includes:
-
-| Model | Packet rows |
+| Model | Review Rows |
 |---|---:|
-| DeepSeek V4 Pro | 24 |
-| Seed-2.1 | 17 |
+| DeepSeek V4 Pro | 13 |
+| Seed-2.1 | 9 |
 | GPT-5.5 | 9 |
-| MiMo v2.5 Pro | 30 |
+| MiMo v2.5 Pro | 27 |
 
-The sample must include:
+## Human Review Policy
 
-- hard-fail items;
-- low-score items;
-- high-score spot checks;
-- safety-boundary items;
-- Scientific Stress free-response items;
-- judge comments that appear ambiguous or unusually severe;
-- the missing-answer case `DeepSeek V4 Pro / SGS-081`.
+- Compare only the frozen question, rubric, reference answer, original model answer and judge record.
+- Do not add missing content or rescue a participating model's answer.
+- Keep a missing answer at 0.
+- Record every changed dimension, total and reason.
+- Do not change the current status from pending until all required human fields are complete.
 
-## Required Items
+Templates:
 
-`DeepSeek V4 Pro / SGS-081` must appear in the review record. It remains a missing answer under the no-rescue policy and should not be replaced with a manual answer.
+- `human_review_decisions.template.csv`
+- `human_review_overrides.template.csv`
+- `adjudication_notes.template.md`
 
-## Human Override Policy
-
-Human reviewers may correct judge scores when the written model answer and rubric support a different score. Corrections must not add missing model content or repair model answers.
-
-Recommended override file:
-
-`results/standard_20260703/free_response_judge/human_review_overrides.csv`
-
-Blank template:
-
-`results/standard_20260703/free_response_judge/human_review_overrides.template.csv`
-
-Required columns:
-
-```text
-id,model_id,dimension,judge_score,human_score,override_reason,reviewer,date
-```
-
-Use `dimension=total_score` only when the reviewer is overriding the item-level total directly.
-
-## Adjudication Notes
-
-Recommended notes file:
-
-`results/standard_20260703/free_response_judge/adjudication_notes.md`
-
-Blank template:
-
-`results/standard_20260703/free_response_judge/adjudication_notes.template.md`
-
-Each note should include:
-
-- item id;
-- model id;
-- reviewed answer evidence;
-- rubric criterion;
-- judge score and human decision;
-- whether the change affects model-level summary.
-
-## Release Impact
-
-Manual review has been applied through `human_review_decisions.csv`, `human_review_overrides.csv`, and `adjudication_notes.md`. The SGS152 MCQ leaderboard remains the 0.5.0 main leaderboard. Free-response is reported as judge-scored plus assistant-assisted project-owner confirmed adjudication, with GPT-5.5 judge overlap bias disclosed and four GPT-5.5 high-score samples adjusted downward.
+The historical GPT-5.5 judge adjudication is preserved under `archive/judge_history/gpt-5.5_20260703/` and must not be copied into the new scoring baseline.

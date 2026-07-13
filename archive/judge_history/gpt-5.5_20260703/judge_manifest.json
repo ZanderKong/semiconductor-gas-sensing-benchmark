@@ -1,0 +1,58 @@
+{
+  "run_id": "free-response-judge-20260703T030752Z",
+  "created_at": "2026-07-03T03:07:52.396323+00:00",
+  "finished_at": "2026-07-03T03:20:17.985956+00:00",
+  "benchmark_version": "mini-benchmark-0.5.0",
+  "task_file": "data/benchmark.json",
+  "task_set_hash": "e0d4d634f94a15ebf43a9d80beebc2613c9063f30dd5f3f5a11291b12d50ea9c",
+  "model_outputs": "results/standard_20260703/sgs152_free_response/model_outputs.csv",
+  "model_outputs_hash": "962751318c41d8959fcb94a7229b47524904dd175f1962a47d3466bcfc98d3a4",
+  "judge_model": "gpt-5.5",
+  "judge_prompt_file": "eval/prompts/free_response_judge_prompt.md",
+  "judge_prompt_hash": "4ec08531491b30b8ffd26b42b920b41d944249f0f9038a8f33b76b13e814aef3",
+  "temperature": 0,
+  "internet_access": false,
+  "tool_assistance": false,
+  "sampling": "single judge pass per model batch",
+  "bias_note": "Judge uses ChatGPT/GPT-5.5 and overlaps with one participating model family; interpret scores with this bias.",
+  "adjudication": {
+    "review_type": "assistant_assisted_project_owner_confirmed",
+    "reviewer": "project_owner_confirmed_with_assistant_support",
+    "review_date": "2026-07-03",
+    "decisions_file": "results/standard_20260703/free_response_judge/human_review_decisions.csv",
+    "overrides_file": "results/standard_20260703/free_response_judge/human_review_overrides.csv",
+    "notes_file": "results/standard_20260703/free_response_judge/adjudication_notes.md",
+    "score_overrides": 4,
+    "hard_fail_score_policy": "retain original judge total; do not zero, cap, or exclude hard-fail rows from averages",
+    "gpt55_overlap_bias_adjustment": "four GPT-5.5 high-score samples adjusted downward"
+  },
+  "model_status": {
+    "deepseek-v4-pro": {
+      "rows": 30,
+      "reviews": 30,
+      "errors": 0,
+      "elapsed_seconds": 86.53
+    },
+    "ep-20260703090429-qpmt7": {
+      "rows": 30,
+      "reviews": 30,
+      "errors": 0,
+      "elapsed_seconds": 158.71
+    },
+    "gpt-5.5": {
+      "rows": 30,
+      "reviews": 30,
+      "errors": 0,
+      "elapsed_seconds": 81.53
+    },
+    "mimo-v2.5-pro": {
+      "rows": 30,
+      "reviews": 30,
+      "errors": 0,
+      "elapsed_seconds": 418.76
+    }
+  },
+  "raw_output_dir": "results/standard_20260703/free_response_judge/raw_judge_outputs",
+  "code_commit": "70b77e8f0b7e6fed60d3fd2a1ac83149fdf4e26a",
+  "working_tree_dirty": false
+}

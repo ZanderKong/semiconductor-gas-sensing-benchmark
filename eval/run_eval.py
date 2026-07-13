@@ -13,9 +13,10 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+from codex_cli import resolve_codex_cli
+
 
 ROOT = Path(__file__).resolve().parents[1]
-CODEX = Path(os.environ.get("CODEX_CLI", "/Applications/Codex.app/Contents/Resources/codex"))
 
 
 def display_path(path):
@@ -155,15 +156,14 @@ def call_openai_compatible(
 
 
 def call_codex(model_id, prompt, timeout=900):
-    if not CODEX.exists():
-        raise RuntimeError(f"Codex CLI not found at {CODEX}")
+    codex = resolve_codex_cli()
     with tempfile.TemporaryDirectory(prefix="sgs_bench_") as tmp:
         tmp_path = Path(tmp)
         prompt_path = tmp_path / "prompt.txt"
         out_path = tmp_path / "last_message.txt"
         prompt_path.write_text(prompt, encoding="utf-8")
         cmd = [
-            str(CODEX),
+            str(codex),
             "exec",
             "--skip-git-repo-check",
             "--ephemeral",

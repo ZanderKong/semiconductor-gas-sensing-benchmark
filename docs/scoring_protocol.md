@@ -75,16 +75,20 @@ score report 会汇总 wrong option profiles。该汇总用于判断模型短板
 
 当前产物：
 
-- `results/free_response/model_outputs_free_response.csv`
-- `results/free_response/scored_free_response_summary.csv`
-- `results/free_response/scored_free_response_by_dimension.csv`
-- `results/free_response/scored_free_response_by_item.csv`
-- `results/free_response/review_samples.md`
+- `results/standard_20260703/sgs152_free_response/model_outputs.csv`
+- `results/standard_20260703/free_response_judge/scored_free_response_summary.csv`
+- `results/standard_20260703/free_response_judge/scored_free_response_by_dimension.csv`
+- `results/standard_20260703/free_response_judge/scored_free_response_by_item.csv`
+- `results/standard_20260703/free_response_judge/manual_review_packet.csv`
 - `reports/free_response_evaluation_report.md`
+
+当前 judge 为 GPT-5.6-sol。它不作为候选模型参评；评分状态为 automated judge-scored，等待独立人工复核。
 
 ## Risk Gates
 
 risk gates 先于普通评分。触发 hard fail 后，应先标记风险，再决定是否给维度分。
+
+Hard fail 保留 judge 给出的原总分，不归零、不封顶、不排除出平均值；hard-fail count 单独报告。候选模型未返回答案时执行确定性 no-rescue 规则并计 0。
 
 hard fail 类型：
 

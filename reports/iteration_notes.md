@@ -1,43 +1,24 @@
 # Iteration Notes
 
-## 0.4.0 To 0.5.0
+## 0.5.0 Evidence Update
 
-0.4.0 established the Domain Core structure and showed that semiconductor gas-sensing R&D judgment can be converted into structured, scoreable tasks.
+The participating-model run remains unchanged: 122 MCQ and 30 free-response answers for each of four participating models, plus separate Robustness and Hard50 diagnostics.
 
-0.5.0 adds:
+GPT-5.6-sol now replaces GPT-5.5 as the current free-response judge. GPT-5.6-sol is not a participating model and has no model score or leaderboard entry. The prior GPT-5.5 judge artifacts and confirmed decisions are retained only in `archive/judge_history/gpt-5.5_20260703/`.
 
-- SGS152 Main Set;
-- Scientific Stress Set;
-- Robustness Set as optional diagnostics;
-- Hard50 as optional diagnostics;
-- variable option-letter support in the MCQ prompt;
-- live standard-run provenance under `results/standard_20260703`;
-- free-response judge output and confirmed adjudication files.
+## Current Results
 
-## 0.5.0 Evidence
-
-The formal 0.5.0 evidence source is `results/standard_20260703`.
-
-Main leaderboard:
-
-| Model | SGS152 MCQ |
-|---|---:|
-| MiMo v2.5 Pro | 119 / 122 |
-| Seed-2.1 | 118 / 122 |
-| GPT-5.5 | 117 / 122 |
-| DeepSeek V4 Pro | 115 / 122 |
-
-Free-response is judge-scored plus assistant-assisted project-owner confirmed adjudication. GPT-5.5 judge overlap bias is disclosed, and four GPT-5.5 high-score samples were adjusted downward.
+| Model | SGS152 MCQ | FR Avg | FR Hard Fails |
+|---|---:|---:|---:|
+| MiMo v2.5 Pro | 119 / 122 | 5.440 | 11 |
+| Seed-2.1 | 118 / 122 | 7.493 | 4 |
+| GPT-5.5 | 117 / 122 | 8.150 | 0 |
+| DeepSeek V4 Pro | 115 / 122 | 6.722 | 0 |
 
 ## Current Boundaries
 
-- DeepSeek `SGS-081` free-response is missing and remains unrescued.
-- GPT-5.5 judge overlap bias must be disclosed for free-response.
-- Robustness and Hard50 are diagnostic layers only; no full-suite aggregate score should be reported.
-
-## Finalization Status
-
-1. Confirmed free-response decisions are stored in `results/standard_20260703/free_response_judge/human_review_decisions.csv`.
-2. Confirmed score overrides are stored in `results/standard_20260703/free_response_judge/human_review_overrides.csv`.
-3. Adjudication notes are stored in `results/standard_20260703/free_response_judge/adjudication_notes.md`.
-4. `scripts/final_provenance_audit.py` must pass before publishing.
+- MCQ remains the only main leaderboard.
+- Free-response is GPT-5.6-sol judge-scored and pending independent human review.
+- DeepSeek `SGS-081` remains missing and deterministically scores 0.
+- Judge hard fails retain their original total and are counted separately.
+- Robustness and Hard50 are diagnostics, not leaderboard extensions.

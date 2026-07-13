@@ -7,7 +7,6 @@ import argparse
 import csv
 import hashlib
 import json
-import os
 import re
 import subprocess
 import tempfile
@@ -18,9 +17,10 @@ from pathlib import Path
 from statistics import mean
 from typing import Any
 
+from codex_cli import resolve_codex_cli
+
 
 ROOT = Path(__file__).resolve().parents[1]
-CODEX = Path(os.environ.get("CODEX_CLI", "/Applications/Codex.app/Contents/Resources/codex"))
 DIMENSIONS = [
     "final_answer_alignment",
     "professional_accuracy",
@@ -86,8 +86,7 @@ def extract_json(text: str) -> Any:
 
 
 def call_codex(model_id: str, prompt: str, timeout: int) -> tuple[str, float]:
-    if not CODEX.exists():
-        raise RuntimeError(f"Codex CLI not found at {CODEX}")
+    codex = resolve_codex_cli()
     started = time.time()
     with tempfile.TemporaryDirectory(prefix="sgs_judge_") as tmp:
         tmp_path = Path(tmp)
@@ -95,7 +94,7 @@ def call_codex(model_id: str, prompt: str, timeout: int) -> tuple[str, float]:
         out_path = tmp_path / "last_message.txt"
         prompt_path.write_text(prompt, encoding="utf-8")
         cmd = [
-            str(CODEX),
+            str(codex),
             "exec",
             "--skip-git-repo-check",
             "--ephemeral",
@@ -202,15 +201,47 @@ def normalize_review(raw: dict[str, Any], expected_id: str, model_id: str) -> di
 def parse_reviews(text: str, expected_ids: list[str], model_id: str) -> list[dict[str, Any]]:
     payload = extract_json(text)
     reviews = payload.get("reviews", payload if isinstance(payload, list) else [])
-    by_id = {
-        str(review.get("id")): review
-        for review in reviews
-        if isinstance(review, dict) and review.get("id")
-    }
+    if not isinstance(reviews, list):
+        raise ValueError(f"{model_id}: judge output reviews must be a list")
+    valid = [review for review in reviews if isinstance(review, dict) and review.get("id")]
+    raw_ids = [str(review["id"]) for review in valid]
+    if len(raw_ids) != len(set(raw_ids)):
+        raise ValueError(f"{model_id}: judge output contains duplicate item IDs")
+    missing = sorted(set(expected_ids) - set(raw_ids))
+    unexpected = sorted(set(raw_ids) - set(expected_ids))
+    if missing or unexpected:
+        raise ValueError(f"{model_id}: judge item mismatch; missing={missing}, unexpected={unexpected}")
+    by_id = {str(review["id"]): review for review in valid}
     parsed = []
     for qid in expected_ids:
-        parsed.append(normalize_review(by_id.get(qid, {"id": qid}), qid, model_id))
+        raw = by_id[qid]
+        raw_model_id = str(raw.get("model_id", ""))
+        if raw_model_id != model_id:
+            raise ValueError(f"{model_id}: judge returned model_id={raw_model_id!r} for {qid}")
+        parsed.append(normalize_review(raw, qid, model_id))
     return parsed
+
+
+def no_rescue_review(review: dict[str, Any], answer: str) -> dict[str, Any]:
+    if answer.strip():
+        return review
+    return {
+        "id": review["id"],
+        "model_id": review["model_id"],
+        "hard_fail": False,
+        "hard_fail_reasons": [],
+        "scores": {dimension: 0.0 for dimension in DIMENSIONS},
+        "total": 0.0,
+        "comment": "Missing model answer; deterministic no-rescue score is 0.",
+    }
+
+
+def judge_bias_note(judge_model: str, candidate_models: list[str]) -> str:
+    if judge_model in candidate_models:
+        return "Judge model is also a participating model; exact self-judge overlap must be considered."
+    if judge_model.startswith("gpt-") and any(model.startswith("gpt-") for model in candidate_models):
+        return "Judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review."
+    return "Judge is not a participating model; automated rubric scores still await independent human review."
 
 
 def write_csvs(out_dir: Path, reviews: list[dict[str, Any]], items: dict[str, dict[str, Any]]) -> None:
@@ -316,9 +347,9 @@ def write_report(out_dir: Path, reviews: list[dict[str, Any]], args: argparse.Na
     lines = [
         "# Live Free-response Judge Report",
         "",
-        "This report scores live model free-response outputs with a fixed ChatGPT/GPT-5.5 judge.",
+        f"This report scores live model free-response outputs with the fixed `{args.judge_model}` judge.",
         "",
-        "Bias note: the judge model overlaps with one candidate family, so judge scores must be interpreted with this stated bias.",
+        f"Bias note: {judge_bias_note(args.judge_model, sorted(grouped))}",
         "",
         "| Model | Items | Total | Average | Hard Fails |",
         "|---|---:|---:|---:|---:|",
@@ -348,9 +379,10 @@ def main() -> None:
     parser.add_argument("--benchmark", default=str(ROOT / "data/benchmark.json"))
     parser.add_argument("--outputs", required=True)
     parser.add_argument("--out-dir", required=True)
-    parser.add_argument("--judge-model", default="gpt-5.5")
+    parser.add_argument("--judge-model", default="gpt-5.6-sol")
     parser.add_argument("--judge-prompt", default=str(ROOT / "eval/prompts/free_response_judge_prompt.md"))
     parser.add_argument("--timeout", type=int, default=1800)
+    parser.add_argument("--reuse-raw", action="store_true", help="Rebuild parsed artifacts from existing raw judge outputs without another model call.")
     args = parser.parse_args()
 
     started_at = datetime.now(timezone.utc)
@@ -359,6 +391,8 @@ def main() -> None:
     outputs = Path(args.outputs)
     out_dir = Path(args.out_dir)
     raw_dir = out_dir / "raw_judge_outputs"
+    existing_manifest_path = out_dir / "judge_manifest.json"
+    existing_manifest = json.loads(existing_manifest_path.read_text(encoding="utf-8")) if existing_manifest_path.exists() else {}
     out_dir.mkdir(parents=True, exist_ok=True)
     raw_dir.mkdir(parents=True, exist_ok=True)
 
@@ -368,6 +402,17 @@ def main() -> None:
     for row in output_rows:
         if row["id"] in items:
             by_model[row["model_id"]].append(row)
+    if not by_model:
+        raise SystemExit("No participating-model free-response rows found")
+    if args.judge_model == "gpt-5.6-sol" and args.judge_model in by_model:
+        raise SystemExit("gpt-5.6-sol is judge-only and must not appear in participating-model outputs")
+    expected_ids = set(items)
+    for model_id, rows in by_model.items():
+        row_ids = [row["id"] for row in rows]
+        missing = sorted(expected_ids - set(row_ids))
+        duplicates = sorted({item_id for item_id in row_ids if row_ids.count(item_id) > 1})
+        if missing or duplicates or len(row_ids) != len(expected_ids):
+            raise SystemExit(f"{model_id}: incomplete free-response inputs; missing={missing}, duplicates={duplicates}")
 
     all_reviews: list[dict[str, Any]] = []
     model_status: dict[str, dict[str, Any]] = {}
@@ -377,9 +422,17 @@ def main() -> None:
         prompt = build_prompt(Path(args.judge_prompt), model_id, payload_rows)
         status = {"rows": len(rows), "reviews": 0, "errors": 0, "elapsed_seconds": None}
         try:
-            raw_text, elapsed = call_codex(args.judge_model, prompt, args.timeout)
-            (raw_dir / f"{model_id.replace('/', '_')}.txt").write_text(raw_text, encoding="utf-8")
+            raw_path = raw_dir / f"{model_id.replace('/', '_')}.txt"
+            if args.reuse_raw:
+                if not raw_path.exists():
+                    raise RuntimeError(f"Missing raw judge output for {model_id}: {raw_path}")
+                raw_text = raw_path.read_text(encoding="utf-8")
+                elapsed = existing_manifest.get("model_status", {}).get(model_id, {}).get("elapsed_seconds")
+            else:
+                raw_text, elapsed = call_codex(args.judge_model, prompt, args.timeout)
+                raw_path.write_text(raw_text, encoding="utf-8")
             reviews = parse_reviews(raw_text, [row["id"] for row in rows], model_id)
+            reviews = [no_rescue_review(review, row.get("answer", "")) for review, row in zip(reviews, rows)]
             all_reviews.extend(reviews)
             status["reviews"] = len(reviews)
             status["elapsed_seconds"] = elapsed
@@ -393,9 +446,9 @@ def main() -> None:
     write_report(out_dir, all_reviews, args)
     finished_at = datetime.now(timezone.utc)
     manifest = {
-        "run_id": f"free-response-judge-{started_at.strftime('%Y%m%dT%H%M%SZ')}",
-        "created_at": started_at.isoformat(),
-        "finished_at": finished_at.isoformat(),
+        "run_id": existing_manifest.get("run_id", f"free-response-judge-{started_at.strftime('%Y%m%dT%H%M%SZ')}") if args.reuse_raw else f"free-response-judge-{started_at.strftime('%Y%m%dT%H%M%SZ')}",
+        "created_at": existing_manifest.get("created_at", started_at.isoformat()) if args.reuse_raw else started_at.isoformat(),
+        "finished_at": existing_manifest.get("finished_at", finished_at.isoformat()) if args.reuse_raw else finished_at.isoformat(),
         "benchmark_version": "mini-benchmark-0.5.0",
         "task_file": display_path(benchmark),
         "task_set_hash": sha256_file(benchmark),
@@ -407,14 +460,19 @@ def main() -> None:
         "temperature": 0,
         "internet_access": False,
         "tool_assistance": False,
-        "sampling": "single judge pass per model batch",
-        "bias_note": "Judge uses ChatGPT/GPT-5.5 and overlaps with one candidate family; interpret scores with this bias.",
+        "sampling": "single judge pass per model batch; no retry or manual answer repair",
+        "bias_note": judge_bias_note(args.judge_model, sorted(by_model)),
         "model_status": model_status,
         "raw_output_dir": display_path(raw_dir),
-        "code_commit": current_commit(),
-        "working_tree_dirty": initial_dirty,
+        "code_commit": existing_manifest.get("code_commit", current_commit()) if args.reuse_raw else current_commit(),
+        "working_tree_dirty": existing_manifest.get("working_tree_dirty", initial_dirty) if args.reuse_raw else initial_dirty,
+        "artifact_rebuilt_from_raw": args.reuse_raw,
+        "artifact_generation_working_tree_dirty": initial_dirty,
     }
     (out_dir / "judge_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    failed_models = [model_id for model_id, status in model_status.items() if status["errors"]]
+    if failed_models:
+        raise SystemExit(f"Free-response judge failed for: {failed_models}")
     print(f"Wrote live free-response judge artifacts to {display_path(out_dir)}")
 
 

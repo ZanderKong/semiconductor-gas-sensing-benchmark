@@ -9,6 +9,7 @@ results/**/*raw_model_outputs*/
 **/results/**/raw_model_outputs*/
 results/**/raw_judge_outputs*/
 **/results/**/raw_judge_outputs*/
+archive/judge_history/**/raw_judge_outputs*/
 results/**/raw/
 results/evaluator_reviews/
 results/runs/

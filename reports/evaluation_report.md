@@ -2,101 +2,64 @@
 
 ## 评测范围
 
-本报告记录 Semiconductor Gas-Sensing Mini-Benchmark 0.5.0 live standard run 和 confirmed free-response adjudication。
+本报告记录 Semiconductor Gas-Sensing Mini-Benchmark 0.5.0 live standard run。正式证据位于 `results/standard_20260703`。
 
-正式证据来源：
-
-`results/standard_20260703`
-
-主榜只基于 `data/benchmark.json`，即 SGS152 Main Set 的 152 题。其中 122 道 MCQ 是当前 main leaderboard；30 道 free-response 是 GPT-5.5/ChatGPT judge-scored + assistant-assisted project-owner confirmed adjudication。
-
-Robustness 40 和 Hard50 50 是 optional diagnostic results，不进入主榜，不生成 full-suite aggregate score。
+主榜只使用 SGS152 Main Set 的 122 道 MCQ。30 道 free-response 由不参评的 GPT-5.6-sol 按固定 rubric 评分；40 道 Robustness 和 50 道 Hard50 是 optional diagnostics。开放题和诊断层均不进入主榜，也不生成 full-suite aggregate score。
 
 ## 运行设置
 
-正式阶段 manifest 记录：
-
-- commit：`70b77e8f...`
-- `working_tree_dirty=false`
-- `internet_access=false`
-- `tool_assistance=false`
-- temperature：0
-- same prompt
-- same item order
-- single sampling
-- no rescue / no manual retry
+- 候选模型答案沿用已冻结的 live run，不重跑、不补答；
+- temperature 0、single sampling、no retry、no rescue；
+- internet access 与 tool assistance 均为 false；
+- task、prompt、participating-model outputs 和 judge prompt 均记录 SHA-256；
+- GPT-5.6-sol judge 对四模型各评分 30 条，共 120 条，运行错误为 0。
 
 ## SGS152 MCQ Main Leaderboard
 
-| Model | Provider | Correct / Total | Accuracy | Safety Fail Rate |
-|---|---|---:|---:|---:|
-| MiMo v2.5 Pro | xiaomimimo | 119 / 122 | 97.54% | 6.25% |
-| Seed-2.1 | volcengine | 118 / 122 | 96.72% | 6.25% |
-| GPT-5.5 | codex_cli | 117 / 122 | 95.90% | 6.25% |
-| DeepSeek V4 Pro | deepseek | 115 / 122 | 94.26% | 0.00% |
+| Model | Correct / Total | Accuracy |
+|---|---:|---:|
+| MiMo v2.5 Pro | 119 / 122 | 97.54% |
+| Seed-2.1 | 118 / 122 | 96.72% |
+| GPT-5.5 | 117 / 122 | 95.90% |
+| DeepSeek V4 Pro | 115 / 122 | 94.26% |
 
-## Free-response Status
+## Free-response Judge Result
 
 | Model | Average | Hard Fails |
 |---|---:|---:|
-| GPT-5.5 | 7.485 | 0 |
-| Seed-2.1 | 6.888 | 0 |
-| DeepSeek V4 Pro | 6.303 | 0 |
-| MiMo v2.5 Pro | 4.843 | 3 |
+| GPT-5.5 | 8.150 | 0 |
+| Seed-2.1 | 7.493 | 4 |
+| DeepSeek V4 Pro | 6.722 | 0 |
+| MiMo v2.5 Pro | 5.440 | 11 |
 
-Free-response was judged by GPT-5.5/ChatGPT and then confirmed through assistant-assisted project-owner adjudication. Because GPT-5.5 is also a participating model, judge overlap bias remains disclosed; four GPT-5.5 high-score samples were adjusted downward:
+GPT-5.6-sol 只担任 judge，不是参评模型。它消除了完全相同模型的 self-judge，但与 GPT-5.5 候选模型仍可能存在同家族相关性。当前结果是 automated judge score，独立人工复核 packet 已生成但尚未确认。
 
-- `SGS-030 + gpt-5.5`: 7.65 -> 7.15
-- `SGS-032 + gpt-5.5`: 8.10 -> 7.35
-- `SGS-099 + gpt-5.5`: 8.45 -> 7.85
-- `SGS-FM-FR-004 + gpt-5.5`: 8.40 -> 7.75
-
-Hard-fail score policy: hard fail rows retain the original judge total; they are not zeroed, capped, or excluded from averages. Hard fail count is reported separately.
-
-DeepSeek V4 Pro did not return `SGS-081`; the missing answer is preserved under the no-rescue policy and scored as 0.
+Hard fail 表示回答命中题目定义的 risk gate；原 judge total 保留，不归零、不封顶、不从平均值中排除，hard-fail count 单独报告。DeepSeek V4 Pro 未回答 `SGS-081`，按 no-rescue 规则确定性计 0。
 
 ## Optional Diagnostic Results
 
-Robustness:
-
-| Model | Correct / Total | Accuracy |
+| Model | Robustness | Hard50 |
 |---|---:|---:|
-| GPT-5.5 | 34 / 40 | 85.0% |
-| MiMo v2.5 Pro | 34 / 40 | 85.0% |
-| Seed-2.1 | 32 / 40 | 80.0% |
-| DeepSeek V4 Pro | 29 / 40 | 72.5% |
+| GPT-5.5 | 34 / 40 | 48 / 50 |
+| MiMo v2.5 Pro | 34 / 40 | 47 / 50 |
+| Seed-2.1 | 32 / 40 | 48 / 50 |
+| DeepSeek V4 Pro | 29 / 40 | 47 / 50 |
 
-Hard50:
-
-| Model | Correct / Total | Accuracy |
-|---|---:|---:|
-| GPT-5.5 | 48 / 50 | 96.0% |
-| Seed-2.1 | 48 / 50 | 96.0% |
-| DeepSeek V4 Pro | 47 / 50 | 94.0% |
-| MiMo v2.5 Pro | 47 / 50 | 94.0% |
-
-These diagnostic results are useful for failure-mode analysis and follow-up item calibration. They should not be merged into a single total score.
-
-Integrated diagnostic reading: MiMo leads SGS152 MCQ and ties GPT-5.5 on Robustness, but its free-response profile contains 3 retained hard fails. GPT-5.5 remains strongest on adjudicated free-response and ties Seed-2.1 on Hard50 after four overlap-bias downward adjustments. Seed-2.1 is the most balanced runner-up across SGS152 MCQ and Hard50. DeepSeek trails on SGS152 MCQ and Robustness and retains one no-rescue missing free-response answer.
+MiMo 领先主榜，但开放题的 decision logic、evidence boundary、experimental design 较弱，并触发 11 条 risk gate。Seed-2.1 是 MCQ runner-up，但在关键对照、定量关系和工艺取样控制上触发 4 条 risk gate。GPT-5.5 的开放题平均分最高，但同家族 judge 相关性仍需人工复核。DeepSeek 的主要问题是缺答、决策条件和证据边界。
 
 ## Evidence Files
 
 | Artifact | Path |
 |---|---|
-| SGS152 MCQ outputs | `results/standard_20260703/sgs152_mcq/model_outputs.csv` |
-| SGS152 MCQ manifest | `results/standard_20260703/sgs152_mcq/manifest.json` |
-| SGS152 MCQ scored summary | `results/standard_20260703/sgs152_mcq/scored/model_results_summary.csv` |
-| Free-response live outputs | `results/standard_20260703/sgs152_free_response/model_outputs.csv` |
-| Free-response adjudicated summary | `results/standard_20260703/free_response_judge/scored_free_response_summary.csv` |
-| Manual review queue | `results/standard_20260703/free_response_judge/manual_review_queue.csv` |
-| Human review decisions | `results/standard_20260703/free_response_judge/human_review_decisions.csv` |
-| Human review overrides | `results/standard_20260703/free_response_judge/human_review_overrides.csv` |
-| Adjudication notes | `results/standard_20260703/free_response_judge/adjudication_notes.md` |
-| Robustness scored summary | `results/standard_20260703/robustness/scored/model_results_summary.csv` |
-| Hard50 scored summary | `results/standard_20260703/hard50/scored/model_results_summary.csv` |
+| Main MCQ score | `results/standard_20260703/sgs152_mcq/scored/model_results_summary.csv` |
+| Participating-model free-response outputs | `results/standard_20260703/sgs152_free_response/model_outputs.csv` |
+| GPT-5.6-sol judge manifest | `results/standard_20260703/free_response_judge/judge_manifest.json` |
+| Free-response summary | `results/standard_20260703/free_response_judge/scored_free_response_summary.csv` |
+| Pending review packet | `results/standard_20260703/free_response_judge/manual_review_packet.csv` |
+| Historical GPT-5.5 judge | `archive/judge_history/gpt-5.5_20260703/` |
 
-Raw outputs exist locally under `results/standard_20260703/**/raw_model_outputs/` and `results/standard_20260703/free_response_judge/raw_judge_outputs/`. They are ignored by git and not committed.
+Raw participating-model and judge outputs exist locally in ignored `raw_model_outputs/` and `raw_judge_outputs/` directories. Parsed evidence, manifests, reports and pending-review templates are intended for version control.
 
 ## Release Interpretation
 
-The SGS152 MCQ leaderboard is the 0.5.0 main benchmark result. Free-response is reported as judge-scored + assistant-assisted project-owner confirmed adjudication. Robustness and Hard50 are optional diagnostic layers.
+The SGS152 MCQ table is the only main leaderboard. Free-response is GPT-5.6-sol judge-scored and pending independent human review. Robustness and Hard50 remain optional diagnostics.

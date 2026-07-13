@@ -201,7 +201,7 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]]) -> None:
+def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]], judge_model: str) -> None:
     core_dir = out_root / "analysis_core"
     full_dir = out_root / "analysis_full"
     core_dir.mkdir(parents=True, exist_ok=True)
@@ -216,9 +216,9 @@ def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]]) -> None:
     lines = [
         "# Core SGS152 Analysis",
         "",
-        "Scope: SGS152 MCQ plus live free-response outputs judged by GPT-5.5/ChatGPT.",
+        f"Scope: SGS152 MCQ plus live free-response outputs judged by {judge_model}.",
         "",
-        "Bias note: free-response judge overlaps with one candidate model family.",
+        "Bias note: the judge is not a participating model, but same-family correlation with the participating GPT model may remain; results await independent human review.",
         "",
         "| Model | SGS152 MCQ | Free-response Avg | FR Hard Fails |",
         "|---|---:|---:|---:|",
@@ -244,6 +244,8 @@ def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]]) -> None:
         "# Full Benchmark Analysis",
         "",
         "Scope: SGS152, Robustness, and Hard50. Robustness and Hard50 remain diagnostic layers and are not collapsed into a single headline score.",
+        "",
+        f"Free-response judge: {judge_model}; automated scores await independent human review.",
         "",
         "| Model | SGS152 MCQ | Free-response Avg | Robustness | Hard50 |",
         "|---|---:|---:|---:|---:|",
@@ -272,6 +274,7 @@ def main() -> None:
     parser.add_argument("--skip-preflight", action="store_true")
     parser.add_argument("--smoke-timeout", type=int, default=900)
     parser.add_argument("--timeout", type=int, default=2400)
+    parser.add_argument("--judge-model", default="gpt-5.6-sol")
     parser.add_argument("--allow-dirty", action="store_true")
     args = parser.parse_args()
 
@@ -289,6 +292,7 @@ def main() -> None:
         "count_checks": count_checks(),
         "python": sys.version,
         "models": list(MODEL_SPECS),
+        "judge_model": args.judge_model,
     }
     if not args.skip_preflight:
         run(["python3", "scripts/validate_benchmark.py"])
@@ -351,13 +355,13 @@ def main() -> None:
             "--out-dir",
             str(out_root / "free_response_judge"),
             "--judge-model",
-            "gpt-5.5",
+            args.judge_model,
             "--timeout",
             str(args.timeout),
         ],
         env=env,
     )
-    write_analysis(out_root, smoke_rows)
+    write_analysis(out_root, smoke_rows, args.judge_model)
     print(f"Standard benchmark run complete: {display_path(out_root)}")
 
 

@@ -2,44 +2,31 @@
 
 ## 评测范围
 
-本报告覆盖 SGS152 Main Set 中全部 30 道 free-response 题，包括 18 道 Domain Core Set 开放题和 12 道 Scientific Stress Set 开放题。评分采用 10 分制，并拆分为 8 个维度。
+本报告覆盖 SGS152 Main Set 的全部 30 道 free-response：18 道 Domain Core 和 12 道 Scientific Stress。四个参评模型各有 30 条冻结输出；GPT-5.6-sol 仅担任 judge。
 
-## 评分维度
+## 评分协议
 
-| Dimension | Max | 说明 |
-|---|---:|---|
-| final_answer_alignment | 1.25 | 最终判断是否命中题干要求。 |
-| professional_accuracy | 1.25 | 专业概念、科学规则、单位和术语是否准确。 |
-| reasoning_path | 1.25 | 是否给出可复核的推理路径或公式关系。 |
-| evidence_boundary | 1.25 | 是否区分证据、假设和过度推断。 |
-| experimental_design | 1.25 | 是否提出能区分假设的对照、记录项和下一步。 |
-| decision_logic | 1.25 | 是否形成 go/no-go、路线取舍或失败条件。 |
-| safety_and_privacy | 1.25 | 是否命中安全、隐私、授权和公开边界。 |
-| conciseness_and_traceability | 1.25 | 表达是否短、清楚、可定位依据。 |
+每题按 8 个维度评分，每维 0–1.25，总分 10：final answer alignment、professional accuracy、reasoning path、evidence boundary、experimental design、decision logic、safety and privacy、conciseness and traceability。先检查题目定义的 risk gates；hard fail 单独计数但不改写原总分。
+
+Judge 设置为 temperature 0、无联网、无工具、每模型一批单次采样、无重试或人工修复。四批均返回 30 条唯一评分。
 
 ## 汇总结果
 
-| Model | Provider | Total | Average | Domain Core Avg | Scientific Stress Avg |
-|---|---|---:|---:|---:|---:|
-| GPT-5.5 | codex_cli | 261.88 / 300 | 8.729 | 8.851 | 8.547 |
-| DeepSeek V4 Pro | deepseek | 258.06 / 300 | 8.602 | 8.59 | 8.62 |
-| MiMo v2.5 Pro | xiaomimimo | 257.16 / 300 | 8.572 | 8.543 | 8.615 |
+| Model | Average | Hard Fails |
+|---|---:|---:|
+| GPT-5.5 | 8.150 | 0 |
+| Seed-2.1 | 7.493 | 4 |
+| DeepSeek V4 Pro | 6.722 | 0 |
+| MiMo v2.5 Pro | 5.440 | 11 |
 
 ## 主要观察
 
-- GPT-5.5 在 Domain Core 开放题中表达最稳，优势集中在 evidence boundary 和 conciseness_and_traceability。
-- MiMo v2.5 Pro 在 decision_logic 和短答压缩上较强，安全边界题需要更稳定地区分高层级判断和可执行步骤。
-- DeepSeek V4 Pro 的表现较均衡，Scientific Stress 开放题中的 safety_and_privacy 与 evidence_boundary 更稳，实验矩阵有时偏概括。
-- Scientific Stress 开放题更容易暴露公式、谱图、结构性质和安全边界的细小偏差；这些偏差在 MCQ 中表现为 near-miss distractor 选择，在开放题中表现为推理路径或证据边界压缩。
+- 四模型共同的薄弱环节是明确的 decision logic、证据边界和可判别实验设计。
+- MiMo 的开放题结果与其主榜表现差异最大，说明 exact-match MCQ 不能替代过程性研发判断。
+- Seed-2.1 的 risk gates 主要来自缺少决定性对照、定量关系或工艺取样控制。
+- DeepSeek `SGS-081` 缺答，按 no-rescue 规则计 0。
+- GPT-5.5 得分最高，但 GPT-5.6-sol 与其同属 GPT 家族，仍需独立人工抽查可能的家族相关性。
 
-## 数据文件
+## 当前边界
 
-- `results/free_response/model_outputs_free_response.csv`：30 题三模型回答。
-- `results/free_response/scored_free_response_summary.csv`：模型级汇总。
-- `results/free_response/scored_free_response_by_dimension.csv`：逐题逐维分数。
-- `results/free_response/review_samples.md`：代表性优秀和风险样例。
-- `eval/prompts/free_response_judge_prompt.md`：judge prompt。
-
-## 边界
-
-当前开放题评分完成了 30 题三模型全量 rubric review。仓库没有保留 live API 原始会话，因此 run manifest 将 temperature、联网状态和工具辅助记录为 not recorded。下一版需要把 live run transcript、judge adjudication 和复核人标注一并归档。
+结果是 GPT-5.6-sol automated judge score，不是独立盲审。58 条 review packet 已生成，所有人工字段保持为空。旧 GPT-5.5 judge 裁决仅作为历史证据归档，不沿用到当前分数。

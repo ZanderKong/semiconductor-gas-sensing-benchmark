@@ -1,4 +1,4 @@
-.PHONY: demo validate validate-hard50 lint lint-sgs100 build-sgs100 build-sgs152 build-hard50 report eval-mcq eval-free-response eval-frontier eval-robustness-frontier eval-hard50-frontier eval-hard50-gpt55 eval-hard50-all eval-gpt55 eval-robustness-gpt55 score-mcq score-free-response score-hard50-all score-hard50-gpt55
+.PHONY: demo validate validate-hard50 lint lint-sgs100 build-sgs100 build-sgs152 build-hard50 report judge-free-response build-review-packet audit eval-mcq eval-free-response eval-frontier eval-robustness-frontier eval-hard50-frontier eval-hard50-gpt55 eval-hard50-all eval-gpt55 eval-robustness-gpt55 score-mcq score-free-response score-hard50-all score-hard50-gpt55
 
 demo:
 	python3 eval/runner.py
@@ -26,6 +26,15 @@ lint-sgs100:
 
 report:
 	python3 -m eval.reporting.generate_report --run-dir results/runs/demo
+
+judge-free-response:
+	python3 eval/judge_free_response_live.py --benchmark data/benchmark.json --outputs results/standard_20260703/sgs152_free_response/model_outputs.csv --out-dir results/standard_20260703/free_response_judge --judge-model gpt-5.6-sol --timeout 2400
+
+build-review-packet:
+	python3 scripts/build_free_response_review_packet.py
+
+audit:
+	python3 scripts/final_provenance_audit.py
 
 eval-mcq:
 	python3 eval/run_eval.py --models 'openai_compatible|deepseek-v4-pro|https://api.deepseek.com|DEEPSEEK_API_KEY|thinking=enabled|reasoning_effort=high|omit_temperature=true'
