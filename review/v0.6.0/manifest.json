@@ -5,8 +5,13 @@
   "judge_model": "GPT-5.6-sol",
   "judge_role": "judge-only; not a participating model",
   "main_leaderboard": "SGS152 122-item MCQ",
-  "file_count": 52,
+  "file_count": 53,
   "files": [
+    {
+      "path": "00_scope/final_consistency_review.md",
+      "size": 4601,
+      "sha256": "c41a23bb071c0f03994f1a1188cd16aa6e019fc456e626b43f98fa061990fb05"
+    },
     {
       "path": "00_scope/integration_decision_log.csv",
       "size": 6413,
@@ -29,8 +34,8 @@
     },
     {
       "path": "00_scope/review_scope.md",
-      "size": 551,
-      "sha256": "5e95579481d334399191efb86052fb10b5ab755df92a14b860e34ae88e1ee9b4"
+      "size": 631,
+      "sha256": "ef2ed0a4dc3e733cd6ccfdd83954ce8dac47707ccfc2e2fd792fc6c0291c9c22"
     },
     {
       "path": "00_scope/source_package_inventory.csv",

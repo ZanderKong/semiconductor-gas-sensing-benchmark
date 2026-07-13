@@ -1,0 +1,135 @@
+{
+  "audit_starting_head": "24460ff29f1e1840a6c5f6d81779e2ac4b7d8153",
+  "version": "0.6.0",
+  "review_file_inventory_count_excluding_self_hashing_manifest": 53,
+  "source_package_file_members": 118,
+  "source_package_summaries": {
+    "free_response": {
+      "archive": "4-sgs152_v0.6_review_package.zip",
+      "archive_sha256": "3c61b49315acf5b0879e42ffde03e7d51cc4e2be3359fef47fa3a177c4a24805",
+      "file_members": 54,
+      "zip_and_sha256sums_validation": "ZIP and packaged SHA256SUMS passed",
+      "manifest_validation": "verified 52 member hashes",
+      "readme_present": true,
+      "classification_counts": {
+        "historical_or_source_only": 44,
+        "identical_file": 1,
+        "repository_equivalent_formatting": 5,
+        "repository_role_normalized": 3,
+        "repository_updated_public_dashboard": 1
+      }
+    },
+    "item_validity": {
+      "archive": "1-sgs242_item_validity_review_v0.6.zip",
+      "archive_sha256": "2b6bae353d210e5c3f9a82e82e334e654d1af9c8bc17cc1284323aa106e008b5",
+      "file_members": 18,
+      "zip_and_sha256sums_validation": "ZIP and packaged SHA256SUMS passed",
+      "manifest_validation": "verified 16 member hashes",
+      "readme_present": false,
+      "classification_counts": {
+        "historical_or_source_only": 12,
+        "repository_role_normalized": 5,
+        "repository_updated_public_dashboard": 1
+      }
+    },
+    "option_evidence": {
+      "archive": "3-sgs152_option_and_reference_evidence_audit_v0.6.zip",
+      "archive_sha256": "8249881a42c4fe133aedcca6c381f0ee28b00019410242de4abb16c146b109c7",
+      "file_members": 19,
+      "zip_and_sha256sums_validation": "ZIP and packaged SHA256SUMS passed",
+      "manifest_validation": "verified 17 member hashes",
+      "readme_present": true,
+      "classification_counts": {
+        "historical_or_source_only": 11,
+        "repository_equivalent_formatting": 1,
+        "repository_role_normalized": 6,
+        "repository_updated_public_dashboard": 1
+      }
+    },
+    "remaining_work": {
+      "archive": "2-sgs_benchmark_remaining_work_completion_v0.6.zip",
+      "archive_sha256": "944591d3481f3c1a957aa535df2b0ca31b9cbf8f1e7faecb76d7bd9528d2a795",
+      "file_members": 27,
+      "zip_and_sha256sums_validation": "ZIP and packaged SHA256SUMS passed",
+      "manifest_validation": "verified 25 member hashes",
+      "readme_present": false,
+      "classification_counts": {
+        "historical_or_source_only": 17,
+        "identical_file": 2,
+        "repository_equivalent_formatting": 2,
+        "repository_role_normalized": 3,
+        "repository_updated_completed_statistics": 2,
+        "repository_updated_public_dashboard": 1
+      }
+    }
+  },
+  "source_package_comparison_counts": {
+    "historical_or_source_only": 84,
+    "identical_file": 3,
+    "repository_equivalent_formatting": 8,
+    "repository_role_normalized": 17,
+    "repository_updated_completed_statistics": 2,
+    "repository_updated_public_dashboard": 4
+  },
+  "repository_missing_mapped_files": 0,
+  "unresolved_content_conflicts": 0,
+  "duplicate_release_directories": [],
+  "item_validity": {
+    "total": 242,
+    "sets": {
+      "main": 152,
+      "robustness": 40,
+      "hard50": 50
+    }
+  },
+  "mcq": {
+    "item_summaries": 122,
+    "option_rows": 488,
+    "defensible_non_gold": 56
+  },
+  "frozen_p0": {
+    "count": 5,
+    "item_ids": [
+      "SGS-FM-034",
+      "SGS-007-R03",
+      "SGS-097-R03",
+      "SGS-HARD-016",
+      "SGS-HARD-028"
+    ]
+  },
+  "reference_evidence": {
+    "items": 30,
+    "claims": 112,
+    "source_ledger_rows": 27,
+    "project_and_external_sources_separated": true
+  },
+  "free_response": {
+    "item_rows": 120,
+    "dimension_rows": 960,
+    "historical_hard_fails": 15,
+    "confirmed": 3,
+    "downgraded": 12,
+    "no_answer": 1,
+    "official_summary": {
+      "GPT-5.5": "8.213",
+      "Seed-2.1": "7.545",
+      "DeepSeek V4 Pro": "6.732",
+      "MiMo v2.5 Pro": "4.952"
+    }
+  },
+  "diagnostics": {
+    "robustness_pairs": 40,
+    "robustness_groups": 12,
+    "robustness_p0": 2,
+    "hard50_calibration": 50
+  },
+  "provenance": {
+    "zip_members": 46,
+    "judge_rows": 120,
+    "raw_to_derived_differences": 0,
+    "clean_rebuild_status_before": [],
+    "clean_rebuild_status_after": []
+  },
+  "validation_status": "passed",
+  "frozen_content_modified_by_final_review": false
+}

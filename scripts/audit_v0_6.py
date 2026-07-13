@@ -33,11 +33,11 @@ DIMENSIONS = {
     "final_answer_alignment", "professional_accuracy", "reasoning_path", "evidence_boundary",
     "experimental_design", "decision_logic", "safety_and_privacy", "conciseness_and_traceability",
 }
-ALLOWED_ROLES = {"", "专家 X", "专家 Y", "项目负责人", "复核者", "Judge"}
+ALLOWED_ROLES = {"", "专家 X", "项目负责人", "复核者", "Judge"}
 FORBIDDEN_PUBLIC = re.compile(
     r"model[- ]assisted|assistant[-_ ]review|codex[_ ]assistant|human[-_ ]review|human[-_ ]reviewed|"
     r"human[-_ ]expert|human[-_ ]blind|independent external human|independent human|AI[-_ ]review|"
-    r"AI[-_ ]reviewer|独立人类专家|真人专家|人类专家共识|人工复核",
+    r"AI[-_ ]reviewer|独立人类专家|真人专家|外部人类专家|人类专家共识|人工复核|专家\s*Y|Expert\s*Y",
     re.I,
 )
 
@@ -89,6 +89,9 @@ def audit_counts(errors: list[str]) -> None:
     require(len(member_disposition) == source_files, "source package disposition does not cover every ZIP file member", errors)
     require(unique(member_disposition, ["archive", "member_path"]), "source package disposition has duplicate member keys", errors)
     require(all(row["sha256"] and row["preserved_location"] for row in member_disposition), "source package disposition lacks hash/preservation evidence", errors)
+    final_mapping = read_csv(INTERNAL / "final_source_package_repository_mapping.csv")
+    require(len(final_mapping) == source_files and unique(final_mapping, ["archive", "source_member"]), "final source-package mapping does not cover every file member", errors)
+    require(not any(row["classification"] in {"repository_missing", "content_conflict"} for row in final_mapping), "final source-package mapping has a missing file or unresolved conflict", errors)
     document_log = read_csv(INTERNAL / "source_document_review_log.csv")
     package_names = {"remaining_work", "option_evidence", "item_validity", "free_response"}
     document_types = {"README", "Manifest", "SHA256SUMS", "final_report", "Codex_integration"}
@@ -111,11 +114,24 @@ def audit_counts(errors: list[str]) -> None:
     require(len(options) == 488 and unique(options, ["item_id", "option_letter"]), "MCQ option audit must be 488 unique rows", errors)
     require(len({row["item_id"] for row in options}) == 122, "MCQ option audit must cover 122 items", errors)
     require(all(count == 4 for count in Counter(row["item_id"] for row in options).values()), "each MCQ must have four audited options", errors)
+    require(
+        sum(row["is_gold"] == "False" and row["distractor_quality"] == "invalid_distractor_because_defensible" for row in options) == 56,
+        "defensible non-Gold option count must be 56",
+        errors,
+    )
+    require(
+        {row["item_id"] for row in validity if row["audit_priority"] == "P0"}
+        == {"SGS-FM-034", "SGS-007-R03", "SGS-097-R03", "SGS-HARD-016", "SGS-HARD-028"},
+        "frozen P0 item set differs",
+        errors,
+    )
     refs = read_csv(REVIEW / "03_reference_evidence/fr_112_reference_claim_evidence_audit.csv")
     require(len(refs) == 112 and unique(refs, ["item_id", "claim_id"]), "Reference claims must be 112 unique rows", errors)
     require(len({row["item_id"] for row in refs}) == 30, "Reference claims must cover 30 items", errors)
     reference_items = read_csv(REVIEW / "03_reference_evidence/fr_30_reference_answer_external_evidence_audit.csv")
     require(len(reference_items) == 30 and unique(reference_items, ["item_id"]), "Reference Answer audit must be 30 unique items", errors)
+    source_ledger = read_csv(REVIEW / "03_reference_evidence/external_evidence_source_ledger.csv")
+    require(any(row["source_id"].startswith("PROJ-") for row in source_ledger) and any(row["source_id"].startswith("EXT-") for row in source_ledger), "project and external evidence sources are not explicitly separated", errors)
     robustness_pairs = read_csv(REVIEW / "06_robustness/robustness_40_item_pair_review.csv")
     robustness_groups = read_csv(REVIEW / "06_robustness/robustness_group_review.csv")
     require(len(robustness_pairs) == 40 and unique(robustness_pairs, ["item_id"]), "Robustness pair review must be 40 unique items", errors)
@@ -194,6 +210,35 @@ def audit_identity(errors: list[str]) -> None:
                 for field, value in row.items():
                     if field.lower() in {"review_identity", "reviewer_identity", "reviewer"}:
                         require(value in ALLOWED_ROLES, f"unapproved public reviewer role {value!r} in {path.relative_to(ROOT)}", errors)
+    registry = (INTERNAL / "reviewer_role_registry.md").read_text(encoding="utf-8")
+    require("专家 Y" not in registry and "Expert Y" not in registry, "unused Expert Y description remains in internal role registry", errors)
+
+
+def audit_public_documents(errors: list[str]) -> None:
+    required = {
+        "README.md": ["152", "122", "30", "40", "50", "242/242", "488/488", "112/112", "120/120", "960/960", "56", "5 个冻结 P0", "3 个确认为", "12 个降级"],
+        "docs/dataset_card.md": ["152", "122", "30", "40", "50", "242", "488", "112", "120", "960", "56", "5 个 P0", "2 个 Robustness P0", "未采用独立盲审"],
+        "docs/scoring_protocol.md": ["122", "488", "56", "30", "120", "960", "3 条", "12 条", "SGS-081"],
+        "docs/risk_gates.md": ["15 个历史", "3 个确认为", "12 个降级"],
+        "docs/reproducibility.md": ["46", "122×4", "30×4", "40×4", "50×4", "120 条", "差异 0"],
+        "reports/evaluation_report.md": ["122", "120", "960", "3 个 confirmed", "12 个", "56", "46", "差异为 0"],
+        "reports/model_error_analysis.md": ["56", "three MiMo", "SGS-081", "8.213", "7.545", "6.732", "4.952"],
+        "review/v0.6.0/05_judge_reliability/judge_reliability_report.md": ["120", "15", "confirmed：3", "false positive：12"],
+        "reports/final_release_audit.md": ["242/242", "488/488", "30/30", "112/112", "120/120", "960/960", "3 confirmed", "12 downgraded", "1 no-answer", "40/40", "50/50", "46 members", "0 field differences"],
+        "RELEASE_NOTES.md": ["242", "488", "112", "120", "960", "3 个 confirmed", "12 个", "122", "5 个冻结 P0", "56", "46", "差异为 0"],
+        "CHANGELOG.md": ["242", "488", "112", "120", "960", "3 confirmed", "12 downgraded"],
+    }
+    for relative, tokens in required.items():
+        content = (ROOT / relative).read_text(encoding="utf-8-sig")
+        for token in tokens:
+            require(token in content, f"canonical document {relative} is missing consistency token {token!r}", errors)
+    limitations = (REVIEW / "00_scope/known_limitations.md").read_text(encoding="utf-8")
+    for token in ["SGS-FM-034", "SGS-007-R03", "SGS-097-R03", "SGS-HARD-016", "SGS-HARD-028", "Fifty-six", "two P0 variants", "Hard50 is saturated", "did not use an independent blind-review design"]:
+        require(token in limitations, f"Known Limitations is missing {token!r}", errors)
+    metrics = json.loads((INTERNAL / "final_consistency_metrics.json").read_text(encoding="utf-8"))
+    require(metrics.get("validation_status") == "passed", "final consistency metrics are not marked validated", errors)
+    require(metrics.get("repository_missing_mapped_files") == 0 and metrics.get("unresolved_content_conflicts") == 0, "final consistency metrics contain a release blocker", errors)
+    require(metrics.get("duplicate_release_directories") == [], "duplicate v0.6.0 release directory detected", errors)
 
 
 def audit_judge_and_manifest(errors: list[str]) -> None:
@@ -223,6 +268,7 @@ def main() -> None:
     audit_counts(errors)
     audit_frozen_content(errors)
     audit_identity(errors)
+    audit_public_documents(errors)
     audit_judge_and_manifest(errors)
     if errors:
         print("v0.6.0 audit failed:", file=sys.stderr)

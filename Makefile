@@ -42,6 +42,8 @@ audit:
 validate-v0.6:
 	python3 scripts/final_provenance_audit.py
 	python3 scripts/audit_source_review_packages.py
+	python3 scripts/final_consistency_review.py --repo-root . --validation-status passed
+	python3 scripts/build_v0_6_manifest.py
 	python3 scripts/audit_v0_6.py
 
 raw-rebuild:

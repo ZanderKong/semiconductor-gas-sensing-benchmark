@@ -398,9 +398,9 @@ def main() -> None:
         "# v0.6.0 Review Scope\n\n"
         "v0.6.0 integrates item, option, Reference Answer, free-response, Judge reliability, "
         "Robustness and Hard50 audits while keeping the benchmark and original model outputs frozen.\n\n"
-        "专家 X completed the source review records. The project owner fixed the scoring and release "
-        "boundaries. This integration does not alter questions, options, Gold Answers, Reference "
-        "Answers, item IDs or original model outputs.\n\n"
+        "本轮由匿名评审角色「专家 X」完成第二轮复核，并由项目负责人确认评审范围与计分政策。"
+        "该轮复核已接触历史评审材料，因此不作为独立盲审结果。本次整合不修改题干、选项、"
+        "Gold Answer、Reference Answer、题目 ID 或原始模型输出。\n\n"
         "GPT-5.6-sol is Judge-only and is not a participating model. The 122-item SGS152 MCQ set "
         "remains the only main leaderboard.\n",
         encoding="utf-8",
@@ -420,10 +420,9 @@ def main() -> None:
     internal.mkdir(parents=True, exist_ok=True)
     (internal / "reviewer_role_registry.md").write_text(
         "# Reviewer Role Registry — Internal\n\n"
-        "- Public label `专家 X`: source review artifacts supplied by the project owner. The source "
-        "archives do not disclose a specific generating model or tool.\n"
-        "- Public label `专家 Y`: reserved for a separately evidenced second expert review; not used "
-        "for the current scientific judgments.\n"
+        "- Public label `专家 X`: anonymous public role for the current review materials supplied by "
+        "the project owner. The source archives do not disclose a specific generating model or tool.\n"
+        "- `项目负责人`: confirmed the review scope, frozen-content boundary and scoring policy.\n"
         "- `复核者`: deterministic repository integration and validation, not a new scientific "
         "adjudication.\n"
         "- `Judge`: GPT-5.6-sol fixed-rubric scoring role.\n",
