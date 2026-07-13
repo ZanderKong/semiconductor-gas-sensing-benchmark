@@ -1,0 +1,7 @@
+﻿group,n,mean_judge_score,mean_review_score,mean_signed_difference_review_minus_judge,mae,rmse,pearson,spearman,precision,recall,specificity,accuracy,cohen_kappa,tp,fp,fn,tn
+overall,120,6.970,6.937,-0.034,0.092,0.134,0.999,1.000,,,,,,,,,
+GPT-5.5,30,8.150,8.213,0.063,0.063,0.080,1.000,1.000,,,,,,,,,
+Seed-2.1,30,7.522,7.545,0.023,0.057,0.080,0.999,1.000,,,,,,,,,
+DeepSeek V4 Pro,30,6.762,6.732,-0.030,0.050,0.095,0.998,1.000,,,,,,,,,
+MiMo v2.5 Pro,30,5.448,5.257,-0.192,0.198,0.223,0.998,0.996,,,,,,,,,
+hard_fail_binary,120,,,,,,,,0.200,1.000,0.897,0.900,0.304,3,12,0,105

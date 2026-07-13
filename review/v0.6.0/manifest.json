@@ -1,0 +1,271 @@
+{
+  "release": "v0.6.0",
+  "release_date": "2026-07-13",
+  "frozen_baseline_commit": "dfa28407e5130dbc4328ac006a5368f18bdbff7d",
+  "judge_model": "GPT-5.6-sol",
+  "judge_role": "judge-only; not a participating model",
+  "main_leaderboard": "SGS152 122-item MCQ",
+  "file_count": 52,
+  "files": [
+    {
+      "path": "00_scope/integration_decision_log.csv",
+      "size": 5346,
+      "sha256": "a30928c02e6dd879cac361068ea4cc375bdac85bc53d88ac1c2eac082870098b"
+    },
+    {
+      "path": "00_scope/known_limitations.md",
+      "size": 490,
+      "sha256": "60f8c49183a76517ecb80ea15974eb4034cc7f1fa2f4926faf5652791d3bfb5b"
+    },
+    {
+      "path": "00_scope/owner_decisions.json",
+      "size": 422,
+      "sha256": "98764cbaba72e15f3130cbaac0038a4f7499bb7fd50104aaf5a00116b1e1fb8a"
+    },
+    {
+      "path": "00_scope/package_conflict_report.csv",
+      "size": 1918,
+      "sha256": "addd88fc26e6a70e71a966f247734fa5d1e7f16f2de311bdc05e30d905d14d89"
+    },
+    {
+      "path": "00_scope/review_scope.md",
+      "size": 551,
+      "sha256": "5e95579481d334399191efb86052fb10b5ab755df92a14b860e34ae88e1ee9b4"
+    },
+    {
+      "path": "00_scope/source_package_inventory.csv",
+      "size": 774,
+      "sha256": "b2d743e8e7d49d57f87b247a4b629caaf438a237676811cc0821ca5fef2c708a"
+    },
+    {
+      "path": "01_item_validity/all_242_item_validity_review.csv",
+      "size": 95370,
+      "sha256": "693fb28e49abf696d3a6f82ed14ac8be526c6e3ef952ed21c8d077cb25cc9d0b"
+    },
+    {
+      "path": "01_item_validity/hard50_50_item_validity_review.csv",
+      "size": 19085,
+      "sha256": "46cbf164439fc88e6d19a6b680d3b7bbf592b1537cb30529cfcf8f4c13fe2943"
+    },
+    {
+      "path": "01_item_validity/item_validity_issue_queue.csv",
+      "size": 25366,
+      "sha256": "8c2ff06857fc8d0be3ec587d5fa240d40e1dbdb1c38444e46735a03b40d141fe"
+    },
+    {
+      "path": "01_item_validity/main_152_item_validity_review.csv",
+      "size": 60113,
+      "sha256": "77926171127c81866f6595c95fc04b00d70195374a223b05d5bda40425941fb5"
+    },
+    {
+      "path": "01_item_validity/robustness_40_item_validity_review.csv",
+      "size": 15736,
+      "sha256": "e4be0e9fe9a9c99fbbdd82a05ea6bcc52e81a552038c1229df375631352d1daa"
+    },
+    {
+      "path": "02_mcq_options/mcq_122_item_option_set_summary.csv",
+      "size": 67692,
+      "sha256": "460715409095a1d1fbe7d4c538d6c62f3b592c5f6057f7b575cbb624394d739d"
+    },
+    {
+      "path": "02_mcq_options/mcq_488_option_audit.csv",
+      "size": 365892,
+      "sha256": "5f16bcc86712074e3a6905b566aa9ec5d688e7225aa474c026895537d835e5bf"
+    },
+    {
+      "path": "02_mcq_options/mcq_defensible_distractor_and_gold_issue_queue.csv",
+      "size": 51897,
+      "sha256": "ae69bd447db7c51b8e9b4de9bc15e45f5c60b573324b0420de674da88eca49db"
+    },
+    {
+      "path": "03_reference_evidence/external_evidence_source_ledger.csv",
+      "size": 9597,
+      "sha256": "d215312da36ba6d25b1d465ccf1c43b8c20b30ef624d1018a720ffc2e9392e84"
+    },
+    {
+      "path": "03_reference_evidence/fr_112_reference_claim_evidence_audit.csv",
+      "size": 134002,
+      "sha256": "d505fe028c0e5139e6f49434e950e2862a33a606aba647905d4a1d2255be15e3"
+    },
+    {
+      "path": "03_reference_evidence/fr_30_reference_answer_external_evidence_audit.csv",
+      "size": 35047,
+      "sha256": "a993ff2107b73f56e6020f0d37bd080e3aceb8ef291135d1be9828aa50807c3d"
+    },
+    {
+      "path": "03_reference_evidence/fr_reference_evidence_gap_queue.csv",
+      "size": 22214,
+      "sha256": "82731a45d9a05b9c27ea64744705b459d0d133f4a72e7aafedb9f15ac8254ac0"
+    },
+    {
+      "path": "04_free_response_adjudication/confirmed_hard_fails.csv",
+      "size": 2644,
+      "sha256": "a6f33ae568fb21dd0fa779495d84239401addb3ee610cad98ff58a43b2fca4fd"
+    },
+    {
+      "path": "04_free_response_adjudication/full_review_by_dimension.csv",
+      "size": 85311,
+      "sha256": "8014ff4e2a7413d50714e36d1c83add4b0a394f4882e8e06a6bf49ee7d92ce93"
+    },
+    {
+      "path": "04_free_response_adjudication/full_review_by_item.csv",
+      "size": 77979,
+      "sha256": "93ad29d5dcf1b43deef9b3546e8d445156f417ed177ac544c1e129ac716d48c8"
+    },
+    {
+      "path": "04_free_response_adjudication/hard_fail_reclassification.csv",
+      "size": 4110,
+      "sha256": "4e9a67317d964d891f2cdd18c87088a17ca4e6732eabb6f7ccd3132acdca2a87"
+    },
+    {
+      "path": "04_free_response_adjudication/official_free_response_summary.csv",
+      "size": 389,
+      "sha256": "f8c26a264176aa74cd29b78a5a02ffddfa68f078f2af9e8c06218b9c783e43c5"
+    },
+    {
+      "path": "04_free_response_adjudication/score_overrides.csv",
+      "size": 37474,
+      "sha256": "dba8ab6da669281ae7006765b54943de2fffc3d2f7f14204a2f286eee602bf0a"
+    },
+    {
+      "path": "05_judge_reliability/judge_disagreement_cases.csv",
+      "size": 10466,
+      "sha256": "dda2a17289c297b9f3e103155ae4663c6f69027f8087d7f2526d932e3caa17ea"
+    },
+    {
+      "path": "05_judge_reliability/judge_reliability_metrics.csv",
+      "size": 574,
+      "sha256": "0fae7cd442aaf039d2c025b0893a6c10415de0a434ce41613d8167428aa36456"
+    },
+    {
+      "path": "05_judge_reliability/judge_reliability_report.md",
+      "size": 1424,
+      "sha256": "243a0d0aa998f981afde69c2a7977fe3e3c84ca449cf944232df259abf2ff6a3"
+    },
+    {
+      "path": "06_robustness/robustness_40_item_pair_review.csv",
+      "size": 18852,
+      "sha256": "fb91c89311ee8e1c001b4dba70f89711fb31e49f00f15da9efeeebc8d04510e4"
+    },
+    {
+      "path": "06_robustness/robustness_group_review.csv",
+      "size": 5897,
+      "sha256": "1a2b2c69d4cbf3d52a8ec54fd140ad134acd1dcb4b5fdb600910eb19ef8a1613"
+    },
+    {
+      "path": "07_hard50/hard50_item_calibration.csv",
+      "size": 25113,
+      "sha256": "5f474b2b898bb9352f81bd7bdb8260f2cd16bc3bfd345b6a224566788ec7e1d1"
+    },
+    {
+      "path": "07_hard50/hard50_retire_rewrite_keep.csv",
+      "size": 16323,
+      "sha256": "64e9fd356f6b1fc30d83c20dcc8968abb37e397df3a8b7b4381dc83d80352284"
+    },
+    {
+      "path": "08_statistics/content_quality_statistics.json",
+      "size": 9660,
+      "sha256": "c468df5eb1edc4b876ccee8761a64f38782c32f2fd43be14fe70cc04292b8667"
+    },
+    {
+      "path": "08_statistics/generated_statistics/bootstrap_rank_stability.csv",
+      "size": 371,
+      "sha256": "3e84d70855a5f9a28ddfe01a27aa2f8ae8be7b7924e8baec073d1a7efa7dbd98"
+    },
+    {
+      "path": "08_statistics/generated_statistics/cross_set_correlations.csv",
+      "size": 272,
+      "sha256": "16c87d798350feceddffe3e6e0cee429e6d5782ccf37d44935ee6e6963ca09bd"
+    },
+    {
+      "path": "08_statistics/generated_statistics/full_statistics_summary.json",
+      "size": 638,
+      "sha256": "45eff2251cd19d911fddcca342312bf2494bde05a03d0eebcdea95b7fbf12a3a"
+    },
+    {
+      "path": "08_statistics/generated_statistics/leave_one_item_out_ranking.csv",
+      "size": 19231,
+      "sha256": "0790722963abb440a042fa3afee92afd3dca952c617a215f24cc5667890ee9b0"
+    },
+    {
+      "path": "08_statistics/generated_statistics/mcq_item_difficulty.csv",
+      "size": 7617,
+      "sha256": "0095d06ebafe449a88750606ea54cca76f2932cc88cb2f4ffe6780a815c5093e"
+    },
+    {
+      "path": "08_statistics/generated_statistics/model_disagreement_matrix.csv",
+      "size": 1204,
+      "sha256": "2dea77ddfb012b7a38a8f5f4ac7554ad24bf7df8036d608b4b1cbe6d640ad62b"
+    },
+    {
+      "path": "08_statistics/generated_statistics/model_set_scores.csv",
+      "size": 648,
+      "sha256": "d89b31fca855ce9821df217f6a00f9d044e5edaca79c9e8543c08f979ffbabce"
+    },
+    {
+      "path": "08_statistics/generated_statistics/same_source_group_weighting.csv",
+      "size": 277,
+      "sha256": "baca91d733ae86d41110df3c5cc23bdcf1538fe17791d79b12724e0dbf586e11"
+    },
+    {
+      "path": "08_statistics/statistical_diagnostic_inventory.csv",
+      "size": 1155,
+      "sha256": "53f3f16cb48e957390fe83ec6c210f66ad699c29e3dada35375f89f96a7353cf"
+    },
+    {
+      "path": "09_blind_review/blind_review_execution_packet/blind_review_rules.md",
+      "size": 1014,
+      "sha256": "e63857478d9bb2f7a8c27d576faa3e9f43b619af2547890bcc1ec7d337140233"
+    },
+    {
+      "path": "09_blind_review/blind_review_execution_packet/blind_review_scoring_template.csv",
+      "size": 3072,
+      "sha256": "b4c1341c498f4ebec38b0d41a6ec4183f745b124be3df09f72ff44c955c5a49b"
+    },
+    {
+      "path": "09_blind_review/blind_review_execution_packet/build_blind_packet.py",
+      "size": 2344,
+      "sha256": "bfd7325850ae1613e26f61a4ecc0eabd14b47abeea5a683d4079628e52ed3101"
+    },
+    {
+      "path": "10_provenance/raw_archive_verification_manifest.json",
+      "size": 925,
+      "sha256": "d87c0495dc101f02035d2942fc0d3db7c7d38c33865abf417cb11c15514f5e24"
+    },
+    {
+      "path": "10_provenance/raw_archive_verification_report.md",
+      "size": 668,
+      "sha256": "32157b138e41d26224528bd68a3dde0f0b5228b2518720d6cf31b59631c895a9"
+    },
+    {
+      "path": "10_provenance/raw_evidence_inventory.csv",
+      "size": 6011,
+      "sha256": "d899f917483c8a38b492378480c235f600bc988a9c596fab7f76af0b0c1d641a"
+    },
+    {
+      "path": "10_provenance/raw_to_derived_diff.csv",
+      "size": 45,
+      "sha256": "1ab7c67049e54366819a39c7302c4da9190fcef56437b6bf71d8f9141f11edbb"
+    },
+    {
+      "path": "dashboards/free_response_review_dashboard.xlsx",
+      "size": 92880,
+      "sha256": "5793dde81859a2a5416ca95c5127ab29c00d8ffb36b081083f7893975249a25f"
+    },
+    {
+      "path": "dashboards/item_validity_dashboard.xlsx",
+      "size": 123188,
+      "sha256": "9c12392d362549aa2e9303ffc5c00f6fbb31226ec0da61537ebdcc3f588c74a1"
+    },
+    {
+      "path": "dashboards/option_reference_evidence_dashboard.xlsx",
+      "size": 229018,
+      "sha256": "1c24eba7ac9b9bdab2761741ae35d860bc0a15ff5eeda971bae60408af0020f8"
+    },
+    {
+      "path": "dashboards/remaining_work_dashboard.xlsx",
+      "size": 36645,
+      "sha256": "6479be86502c995819155d8f7406cc669844308b8b31f5985c2e5a077c7c71d3"
+    }
+  ]
+}

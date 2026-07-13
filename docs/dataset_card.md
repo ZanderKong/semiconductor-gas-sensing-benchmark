@@ -1,73 +1,30 @@
-# Dataset Card
+# Dataset Card — SGS152 v0.6.0
 
-## Dataset Summary
+## Intended use
 
-| Field | Value |
-|---|---|
-| Name | Semiconductor Gas-Sensing Mini-Benchmark |
-| Active version | 0.5.0 RC |
-| Active set | SGS152 Main Set |
-| Language | 中文主导，保留必要英文术语 |
-| Domain | Semiconductor gas-sensing materials R&D |
-| Main task types | MCQ, free-response |
-| Main leaderboard | SGS152 MCQ from `data/benchmark.json` |
-| RC evidence | `results/standard_20260703` |
+SGS152 用于诊断半导体气敏材料研发中的专业推理，包括文献解释、机理证据边界、实验设计、数据质量、工艺放大、安全和路线选择。它不是实验室安全授权系统，也不能替代 SOP、培训、机构审批或工程控制。
 
-SGS152 Main Set 将半导体气敏材料研发中的专业判断转化为可评分、可复核、可归因样本。数据集关注文献分析、机理判断、实验设计、表征解释、数据质量、安全边界和路线取舍。
+## Composition and reporting
 
-## Data Layers
+- Main set：152 题，其中 122 道 MCQ 是唯一主排行榜，30 道 free-response 单独报告；
+- Robustness：40 道可选一致性诊断；
+- Hard50：50 道 regression diagnostic，因 47–48/50 的饱和结果不作为 hard leaderboard；
+- participating models：GPT-5.5、Seed-2.1、DeepSeek V4 Pro、MiMo v2.5 Pro；
+- Judge：GPT-5.6-sol，仅用于 free-response 固定 rubric 评分，不是参赛模型。
 
-| Layer | File | Items | MCQ | Free-response | Release role |
-|---|---|---:|---:|---:|---|
-| SGS152 Main Set | `data/benchmark.json` | 152 | 122 | 30 | Main benchmark |
-| Domain Core Set | `data/benchmark_sgs100_clean.json` | 100 | 82 | 18 | SGS152 component |
-| Scientific Stress Set | `data/scientific_stress_bank.json` | 52 | 40 | 12 | SGS152 component |
-| Robustness Set | `data/benchmark_sgs100_robustness.json` | 40 | 40 | 0 | Optional diagnostic |
-| Hard Diagnostic Set | `data/benchmark_sgs_hard50.json` | 50 | 50 | 0 | Optional diagnostic |
-| Free-response Rubrics | `data/free_response_rubrics.json` | 30 | 0 | 30 | Provisional judge scoring |
+## Review coverage
 
-## Intended Use
+专家 X 完成 242 题有效性审核、488 个 MCQ 选项审核、30 个 Reference Answer 与 112 条 claim-level 证据审核，以及 120 条 free-response 的 960 条维度评分复核。项目负责人确认冻结边界与评分政策。
 
-- Evaluate model judgment in semiconductor gas-sensing R&D contexts.
-- Diagnose evidence-boundary, experimental-design, and safety-gate behavior.
-- Compare models on the SGS152 MCQ main leaderboard.
-- Use Robustness and Hard50 as diagnostic layers without creating a total suite score.
-- Support release review and future benchmark calibration.
+## Frozen content and limitations
 
-## Out-of-scope Use
+v0.6.0 不修改题干、选项、Gold、Reference Answer、题目 ID 或原始模型输出。已知问题保留并公开披露：
 
-- Real experimental SOPs.
-- Hazardous gas operation guidance.
-- Private recipe reconstruction.
-- Supplier, collaboration, or private project disclosure.
-- A full certification of model experimental execution capability.
+- 5 个 P0：`SGS-FM-034`、`SGS-007-R03`、`SGS-097-R03`、`SGS-HARD-016`、`SGS-HARD-028`；
+- 56 个可辩护的非 Gold 选项；
+- 2 个 Robustness P0 和 2 个 Hard50 P0；
+- 部分工程 gate 和脱敏规则是项目规范，不是可由外部文献单独证明的科学事实；
+- CuO–H₂S 相变归因与一项纸带负载根因仍需直接证据；
+- 本轮未采用独立盲审设计。
 
-## Scoring Status
-
-| Layer | Status |
-|---|---|
-| SGS152 MCQ | Live standard run completed |
-| Free-response | GPT-5.6-sol judge-scored + project-owner-delegated assistant review completed |
-| Robustness Set | Live standard diagnostic run completed |
-| Hard50 | Live standard diagnostic run completed |
-
-Free-response uses GPT-5.6-sol as judge. The judge is not a participating model, but same-family correlation with the participating GPT-5.5 model may remain. The project owner delegated the 58-row review packet to the assistant; 15 hard fails and the missing-answer zero were confirmed, and 9 dimension scores were adjusted. This is not an independent external blind review.
-
-## Safety and Privacy Boundary
-
-The dataset does not provide private recipe ratios, supplier batch identifiers, executable hazardous-gas steps, alarm/interlock bypass instructions, or reconstructable dangerous procedures.
-
-Safety-related items evaluate high-level go/no-go judgment, facility checks, evidence boundaries, and public communication boundaries.
-
-## Limitations
-
-SGS152 is a compact benchmark and does not cover the full gas-sensing materials space.
-
-Free-response results combine automated judge scores with a completed project-owner-delegated assistant review. Robustness and Hard50 are optional diagnostics, not leaderboard extensions.
-
-## Version History
-
-| Version | Summary |
-|---|---|
-| 0.4.0 | Domain Core Set established |
-| 0.5.0 | Live SGS152 standard run completed, optional diagnostics recorded, GPT-5.6-sol judge review and delegated assistant adjudication added |
+完整逐题记录见 [`review/v0.6.0/`](../review/v0.6.0/)。

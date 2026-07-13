@@ -1,0 +1,12 @@
+{
+  "target_release": "0.6.0",
+  "hard_fail_affects_score": true,
+  "confirmed_hard_fail_official_score": 0,
+  "provisional_judge_hard_fail_affects_score": false,
+  "no_answer_rule": "deterministic_no_rescue_zero",
+  "modify_questions_options_gold_reference_ids": false,
+  "modify_raw_model_outputs": false,
+  "preserve_v0_5_0": true,
+  "main_leaderboard": "122-item SGS152 MCQ only",
+  "approved_by": "项目负责人"
+}

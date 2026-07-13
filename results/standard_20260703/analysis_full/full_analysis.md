@@ -2,7 +2,7 @@
 
 Scope: SGS152, Robustness, and Hard50. Robustness and Hard50 remain diagnostic layers and are not collapsed into a single headline score.
 
-Free-response judge: gpt-5.6-sol. Project-owner-delegated assistant review completed; this is not an independent external blind review.
+Free-response Judge: GPT-5.6-sol. Expert review records are available; this iteration did not use an independent blind-review design.
 
 | Model | SGS152 MCQ | Free-response Avg | Robustness | Hard50 |
 |---|---:|---:|---:|---:|

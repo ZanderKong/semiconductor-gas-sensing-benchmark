@@ -13,10 +13,24 @@ jobs:
         with:
           python-version: "3.11"
       - name: Validate tasks
-        run: python3 scripts/validate_tasks.py
+        run: |
+          python3 scripts/validate_tasks.py
+          python3 scripts/validate_benchmark.py
+          python3 scripts/validate_hard50.py
       - name: Lint benchmark docs and metadata
-        run: python3 scripts/lint_benchmark.py
+        run: |
+          python3 scripts/lint_benchmark.py
+          python3 scripts/lint_sgs100_benchmark.py
+      - name: Audit v0.6.0 release and provenance
+        run: |
+          python3 -m py_compile review_tools/*.py scripts/audit_v0_6.py
+          unzip -tq artifacts/SGS152_raw_evidence_20260713.zip
+          python3 review_tools/rebuild_raw_evidence.py --repo-root . --archive artifacts/SGS152_raw_evidence_20260713.zip --out review_outputs/raw_rebuild
+          python3 scripts/final_provenance_audit.py
+          python3 scripts/audit_v0_6.py
       - name: Run local demo
         run: make demo
       - name: Regenerate report
         run: make report
+      - name: Reproducibility leaves tracked files unchanged
+        run: git diff --exit-code

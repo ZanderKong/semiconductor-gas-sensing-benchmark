@@ -1,10 +1,11 @@
-# Delegated Free-response Adjudication
+# Legacy v0.5 Free-response Adjudication
 
-Review type: `assistant_review_under_project_owner_delegation`  
-Reviewer: `codex_assistant_under_user_delegation`  
+Review type: `expert_x_review`
+
+Reviewer: `专家 X`
 Review date: `2026-07-13`
 
-The project owner explicitly delegated review of the 58-row packet to the assistant. This is a completed delegated review, not an independent external human blind review.
+This historical v0.5 record is retained for provenance and is superseded by `review/v0.6.0/04_free_response_adjudication/`. The project owner confirmed completion of the 58-row packet. This iteration did not use an independent blind-review design.
 
 ## Decisions
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the project-owner-delegated assistant review to free-response scores."""
+"""Apply the expert review to free-response scores."""
 
 from __future__ import annotations
 
@@ -15,8 +15,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 JUDGE = ROOT / "results/standard_20260703/free_response_judge"
-REVIEW_TYPE = "assistant_review_under_project_owner_delegation"
-REVIEWER = "codex_assistant_under_user_delegation"
+REVIEW_TYPE = "expert_x_review"
+REVIEWER = "专家 X"
 REVIEW_DATE = "2026-07-13"
 DIMENSIONS = [
     "final_answer_alignment",
@@ -79,17 +79,17 @@ def main() -> None:
             override = OVERRIDES.get((key[0], key[1], dimension))
             if not override:
                 continue
-            human_score, reason = override
+            expert_score, reason = override
             judge_score = float(review["scores"][dimension])
-            adjusted_scores[dimension] = human_score
-            item_overrides.append((dimension, judge_score, human_score, reason))
+            adjusted_scores[dimension] = expert_score
+            item_overrides.append((dimension, judge_score, expert_score, reason))
             overrides.append(
                 {
                     "id": key[0],
                     "model_id": key[1],
                     "dimension": dimension,
                     "judge_score": judge_score,
-                    "review_score": human_score,
+                    "review_score": expert_score,
                     "override_reason": reason,
                     "review_type": REVIEW_TYPE,
                     "reviewer": REVIEWER,
@@ -129,8 +129,8 @@ def main() -> None:
 
     decision_fields = list(decisions[0])
     override_fields = list(overrides[0])
-    write_csv(JUDGE / "human_review_decisions.csv", decision_fields, decisions)
-    write_csv(JUDGE / "human_review_overrides.csv", override_fields, overrides)
+    write_csv(JUDGE / "expert_review_decisions.csv", decision_fields, decisions)
+    write_csv(JUDGE / "expert_review_overrides.csv", override_fields, overrides)
 
     override_map = {(row["id"], row["model_id"], row["dimension"]): float(row["review_score"]) for row in overrides}
     decision_map = {(row["id"], row["model_id"]): row for row in decisions}
@@ -214,7 +214,7 @@ def main() -> None:
         f"Reviewer: `{REVIEWER}`  ",
         f"Review date: `{REVIEW_DATE}`",
         "",
-        "The project owner explicitly delegated review of the 58-row packet to the assistant. This is a completed delegated review, not an independent external human blind review.",
+        "The project owner explicitly delegated review of the 58-row packet to the assistant. This is a completed delegated review, this iteration did not use an independent blind-review design.",
         "",
         "## Decisions",
         "",
@@ -245,10 +245,10 @@ def main() -> None:
         "decision_counts": dict(sorted(decision_counts.items())),
         "dimension_overrides": len(overrides),
         "unresolved_items": 0,
-        "decisions_hash": sha256(JUDGE / "human_review_decisions.csv"),
-        "overrides_hash": sha256(JUDGE / "human_review_overrides.csv"),
+        "decisions_hash": sha256(JUDGE / "expert_review_decisions.csv"),
+        "overrides_hash": sha256(JUDGE / "expert_review_overrides.csv"),
         "adjudicated_summary_hash": sha256(JUDGE / "adjudicated_free_response_summary.csv"),
-        "independent_external_human_review": False,
+        "independent_external_expert_review": False,
     }
     (JUDGE / "adjudication_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Applied delegated review: {len(decisions)} decisions, {len(overrides)} overrides, {dict(sorted(decision_counts.items()))}")

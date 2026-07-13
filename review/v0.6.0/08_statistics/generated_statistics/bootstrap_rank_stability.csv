@@ -1,0 +1,5 @@
+model_id,model_display,samples,mean_accuracy,ci95_low,ci95_high,first_place_probability_ties_split
+gpt-5.5,GPT-5.5,20000,0.958824,0.918033,0.991803,0.170983
+deepseek-v4-pro,DeepSeek V4 Pro,20000,0.942588,0.901639,0.983607,0.018892
+mimo-v2.5-pro,MiMo v2.5 Pro,20000,0.975554,0.942623,1.0,0.552808
+ep-20260703090429-qpmt7,Seed-2.1,20000,0.967289,0.934426,0.991803,0.257317

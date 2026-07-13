@@ -1,0 +1,13 @@
+set,model_id,model_display,items,correct,accuracy
+sgs152_mcq,gpt-5.5,GPT-5.5,122,117,0.959016
+sgs152_mcq,deepseek-v4-pro,DeepSeek V4 Pro,122,115,0.942623
+sgs152_mcq,mimo-v2.5-pro,MiMo v2.5 Pro,122,119,0.97541
+sgs152_mcq,ep-20260703090429-qpmt7,Seed-2.1,122,118,0.967213
+robustness,gpt-5.5,GPT-5.5,40,34,0.85
+robustness,deepseek-v4-pro,DeepSeek V4 Pro,40,29,0.725
+robustness,mimo-v2.5-pro,MiMo v2.5 Pro,40,34,0.85
+robustness,ep-20260703090429-qpmt7,Seed-2.1,40,32,0.8
+hard50,gpt-5.5,GPT-5.5,50,48,0.96
+hard50,deepseek-v4-pro,DeepSeek V4 Pro,50,47,0.94
+hard50,mimo-v2.5-pro,MiMo v2.5 Pro,50,47,0.94
+hard50,ep-20260703090429-qpmt7,Seed-2.1,50,48,0.96

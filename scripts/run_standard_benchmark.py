@@ -212,7 +212,7 @@ def write_analysis(out_root: Path, smoke_rows: list[dict[str, Any]], judge_model
     fr_summary_path = adjudicated_path if adjudicated_path.exists() else out_root / "free_response_judge/scored_free_response_summary.csv"
     fr_summary = list(csv.DictReader(fr_summary_path.open(encoding="utf-8")))
     review_status = (
-        "Project-owner-delegated assistant review completed; this is not an independent external blind review."
+        "Expert review records available; this iteration did not use an independent blind-review design."
         if adjudicated_path.exists()
         else "Automated scores await delegated or independent review."
     )

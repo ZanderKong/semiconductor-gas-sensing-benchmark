@@ -1,0 +1,21 @@
+{
+  "review_type": "assistant_review_under_project_owner_delegation",
+  "reviewer": "codex_assistant_under_user_delegation",
+  "review_date": "2026-07-13",
+  "packet_file": "results/standard_20260703/free_response_judge/manual_review_packet.csv",
+  "packet_hash": "7d6e7fe6c0110f09ab305117dd4fa136a6d2e2adeae015a202620ccdbe71ace0",
+  "judge_reviews_hash": "8690eaa5511798ce8bdcd46ddb22ea34903f2f5d7a626e431ffef964b7c9beea",
+  "reviewed_items": 58,
+  "decision_counts": {
+    "adjust_score": 9,
+    "agree": 33,
+    "hard_fail_confirmed": 15,
+    "missing_kept_zero": 1
+  },
+  "dimension_overrides": 9,
+  "unresolved_items": 0,
+  "decisions_hash": "c83488919f9db7b872071535c5feab19eb830a779ef59617f6a1849470385209",
+  "overrides_hash": "e244bf6121027a07c72951eae54c742e7d435e90bd9cdf8ac5d5711089451f34",
+  "adjudicated_summary_hash": "b99c4990eade9cec93a3169f3a7dd9c87c67381eda4750279be94152d4447105",
+  "independent_external_human_review": false
+}

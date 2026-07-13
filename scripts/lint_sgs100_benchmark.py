@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Acceptance lint for mini-benchmark 0.5.0."""
+"""Acceptance lint for the active SGS benchmark release."""
 
 from __future__ import annotations
 
@@ -311,7 +311,7 @@ def main() -> None:
 
     if errors:
         raise SystemExit("\n".join(errors))
-    print("mini-benchmark 0.5.0 acceptance lint passed")
+    print("SGS benchmark active-release acceptance lint passed")
     print(f"Main set: {len(tasks)} tasks")
     print(f"Robustness variants: {len(robust_rows)}")
     print(f"Hard-set items: {len(hard_rows)}")

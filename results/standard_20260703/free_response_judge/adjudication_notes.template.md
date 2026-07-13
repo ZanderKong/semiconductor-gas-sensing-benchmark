@@ -1,6 +1,6 @@
 # GPT-5.6-sol Adjudication Template
 
-Status: pending independent human review.
+Status: pending separately evidenced expert review.
 
 The packet contains every judge hard fail and score below 7.0, the deterministic no-rescue missing answer, and risk-focused supplemental samples until each model reaches at least 9 of 30 answers.
 

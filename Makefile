@@ -1,4 +1,4 @@
-.PHONY: demo validate validate-hard50 lint lint-sgs100 build-sgs100 build-sgs152 build-hard50 report judge-free-response build-review-packet apply-adjudication audit eval-mcq eval-free-response eval-frontier eval-robustness-frontier eval-hard50-frontier eval-hard50-gpt55 eval-hard50-all eval-gpt55 eval-robustness-gpt55 score-mcq score-free-response score-hard50-all score-hard50-gpt55
+.PHONY: demo validate validate-hard50 validate-v0.6 raw-rebuild full-statistics lint lint-sgs100 build-sgs100 build-sgs152 build-hard50 report judge-free-response build-review-packet apply-adjudication audit eval-mcq eval-free-response eval-frontier eval-robustness-frontier eval-hard50-frontier eval-hard50-gpt55 eval-hard50-all eval-gpt55 eval-robustness-gpt55 score-mcq score-free-response score-hard50-all score-hard50-gpt55
 
 demo:
 	python3 eval/runner.py
@@ -39,6 +39,16 @@ apply-adjudication:
 audit:
 	python3 scripts/final_provenance_audit.py
 
+validate-v0.6:
+	python3 scripts/final_provenance_audit.py
+	python3 scripts/audit_v0_6.py
+
+raw-rebuild:
+	python3 review_tools/rebuild_raw_evidence.py --repo-root . --archive artifacts/SGS152_raw_evidence_20260713.zip --out review_outputs/raw_rebuild
+
+full-statistics:
+	python3 review_tools/rebuild_and_compute_full_statistics.py --archive artifacts/SGS152_raw_evidence_20260713.zip --repo-root . --out review_outputs/full_statistics
+
 eval-mcq:
 	python3 eval/run_eval.py --models 'openai_compatible|deepseek-v4-pro|https://api.deepseek.com|DEEPSEEK_API_KEY|thinking=enabled|reasoning_effort=high|omit_temperature=true'
 
@@ -64,7 +74,7 @@ eval-hard50-all:
 	python3 eval/run_eval.py --benchmark data/benchmark_sgs_hard50.json --out results/hard50/model_outputs_hard50_all.csv --raw-dir results/hard50/raw_model_outputs_hard50_all --manifest results/hard50/model_run_manifest_hard50_all.json --timeout 1800 --models gpt-5.5 'openai_compatible|deepseek-v4-pro|https://api.deepseek.com|DEEPSEEK_API_KEY|thinking=enabled|reasoning_effort=high|omit_temperature=true' 'openai_compatible|kimi-k2.6|https://api.moonshot.ai/v1|KIMI_API_KEY|thinking=disabled|omit_temperature=true' 'openai_compatible|mimo-v2.5-pro|https://api.xiaomimimo.com/v1|MIMO_API_KEY|auth=api-key|omit_temperature=true'
 
 score-mcq:
-	python3 eval/score_mcq.py --outputs results/sgs152_merged/model_outputs_sgs152_merged_all.csv --summary results/sgs152_merged/scored/model_results_summary.json --badcases results/sgs152_merged/scored/review_items.json --diagnostic-report results/sgs152_merged/scored/diagnostic_report.md --scope-label 'mini-benchmark 0.5.0 SGS152 active MCQ set' --interpretation 'Active SGS152 validation combines semiconductor gas-sensing R&D judgment with Scientific Stress Set mechanisms.'
+	python3 eval/score_mcq.py --outputs results/standard_20260703/sgs152_mcq/model_outputs.csv --summary review_outputs/scored_mcq/model_results_summary.json --badcases review_outputs/scored_mcq/review_items.json --diagnostic-report review_outputs/scored_mcq/diagnostic_report.md --scope-label 'SGS Benchmark v0.6.0 SGS152 frozen 122-item MCQ main leaderboard' --interpretation 'The main MCQ set is highly saturated; interpret exact-match scores with the v0.6.0 option audit.'
 
 eval-free-response:
 	python3 eval/score_free_response.py --generate-outputs

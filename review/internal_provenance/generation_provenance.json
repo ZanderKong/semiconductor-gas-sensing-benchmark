@@ -1,0 +1,53 @@
+{
+  "release": "0.6.0",
+  "generated_on": "2026-07-13",
+  "source_archives": [
+    {
+      "priority": 1,
+      "package_role": "remaining_work",
+      "archive": "2-sgs_benchmark_remaining_work_completion_v0.6.zip",
+      "sha256": "944591d3481f3c1a957aa535df2b0ca31b9cbf8f1e7faecb76d7bd9528d2a795",
+      "members": 27,
+      "source": "用户提供",
+      "validation": "ZIP and packaged SHA256SUMS passed"
+    },
+    {
+      "priority": 2,
+      "package_role": "option_evidence",
+      "archive": "3-sgs152_option_and_reference_evidence_audit_v0.6.zip",
+      "sha256": "8249881a42c4fe133aedcca6c381f0ee28b00019410242de4abb16c146b109c7",
+      "members": 19,
+      "source": "用户提供",
+      "validation": "ZIP and packaged SHA256SUMS passed"
+    },
+    {
+      "priority": 3,
+      "package_role": "item_validity",
+      "archive": "1-sgs242_item_validity_review_v0.6.zip",
+      "sha256": "2b6bae353d210e5c3f9a82e82e334e654d1af9c8bc17cc1284323aa106e008b5",
+      "members": 18,
+      "source": "用户提供",
+      "validation": "ZIP and packaged SHA256SUMS passed"
+    },
+    {
+      "priority": 4,
+      "package_role": "free_response",
+      "archive": "4-sgs152_v0.6_review_package.zip",
+      "sha256": "3c61b49315acf5b0879e42ffde03e7d51cc4e2be3359fef47fa3a177c4a24805",
+      "members": 54,
+      "source": "用户提供",
+      "validation": "ZIP and packaged SHA256SUMS passed"
+    }
+  ],
+  "source_review_model_or_tool": "unknown/not disclosed in supplied archives",
+  "integration_tool": "Codex",
+  "integration_reviewed_prior_scores": true,
+  "integration_blind": false,
+  "project_owner_confirmed": [
+    "release target v0.6.0",
+    "frozen benchmark and original outputs",
+    "3 confirmed and 12 downgraded Hard Fails",
+    "public role-label boundary",
+    "package priority order"
+  ]
+}

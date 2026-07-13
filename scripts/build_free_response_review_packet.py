@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a pending human-review packet from canonical judge artifacts."""
+"""Build a pending expert-review packet from canonical Judge artifacts."""
 
 from __future__ import annotations
 
@@ -56,8 +56,8 @@ def main() -> None:
         "id", "model_id", "review_source", "review_reason", "set", "domain", "subfield",
         "question", "expected_answer", "rubric_criteria_json", "model_answer", "model_error",
         "judge_total_score", "judge_max_score", "judge_hard_fail", "judge_hard_fail_reasons",
-        "judge_comment", "dimension_scores_json", "human_decision", "human_total_score",
-        "human_dimension_overrides", "override_reason", "reviewer", "review_date", "affects_summary",
+        "judge_comment", "dimension_scores_json", "expert_decision", "expert_total_score",
+        "expert_dimension_overrides", "override_reason", "reviewer", "review_date", "affects_summary",
     ]
     packet: list[dict[str, Any]] = []
     task_order = {task_id: index for index, task_id in enumerate(tasks)}
@@ -93,9 +93,9 @@ def main() -> None:
                 "judge_hard_fail_reasons": "; ".join(map(str, review["hard_fail_reasons"])),
                 "judge_comment": review["comment"],
                 "dimension_scores_json": json.dumps(review["scores"], ensure_ascii=False, separators=(",", ":")),
-                "human_decision": "",
-                "human_total_score": "",
-                "human_dimension_overrides": "",
+                "expert_decision": "",
+                "expert_total_score": "",
+                "expert_dimension_overrides": "",
                 "override_reason": "",
                 "reviewer": "",
                 "review_date": "",
@@ -105,14 +105,14 @@ def main() -> None:
     write_csv(JUDGE / "manual_review_packet.csv", fields, packet)
 
     decision_fields = [
-        "id", "model_id", "judge_total_score", "judge_hard_fail", "human_decision",
-        "human_total_score", "override_reason", "reviewer", "review_date", "affects_summary",
+        "id", "model_id", "judge_total_score", "judge_hard_fail", "expert_decision",
+        "expert_total_score", "override_reason", "reviewer", "review_date", "affects_summary",
     ]
     decision_rows = [{field: row.get(field, "") for field in decision_fields} for row in packet]
-    write_csv(JUDGE / "human_review_decisions.template.csv", decision_fields, decision_rows)
+    write_csv(JUDGE / "expert_review_decisions.template.csv", decision_fields, decision_rows)
     write_csv(
-        JUDGE / "human_review_overrides.template.csv",
-        ["id", "model_id", "dimension", "judge_score", "human_score", "override_reason", "reviewer", "date"],
+        JUDGE / "expert_review_overrides.template.csv",
+        ["id", "model_id", "dimension", "judge_score", "expert_score", "override_reason", "reviewer", "date"],
         [],
     )
 
@@ -121,7 +121,7 @@ def main() -> None:
     notes = [
         "# GPT-5.6-sol Adjudication Template",
         "",
-        "Status: pending independent human review.",
+        "Status: pending separately evidenced expert review.",
         "",
         "The packet contains every judge hard fail and score below 7.0, the deterministic no-rescue missing answer, and risk-focused supplemental samples until each model reaches at least 9 of 30 answers.",
         "",

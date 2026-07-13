@@ -1,0 +1,961 @@
+﻿task_id,candidate_id,model_id,model_display,dimension,score,max_score,review_source
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.15,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.65,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.15,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.35,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.90,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.80,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.75,1.25,专家 X
+SGS-018,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.90,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.85,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.05,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.45,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-019,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.15,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,1.00,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.75,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.15,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.90,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.15,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.15,1.25,专家 X
+SGS-030,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.75,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.90,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.90,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.35,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.90,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.60,1.25,专家 X
+SGS-031,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.80,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.80,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.65,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.80,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.30,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.80,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.80,1.25,专家 X
+SGS-032,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.80,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.10,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.40,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.05,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.05,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.65,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-033,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.00,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.00,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.50,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.00,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.70,1.25,专家 X
+SGS-044,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.95,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.75,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.85,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.85,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.25,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.85,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.85,1.25,专家 X
+SGS-045,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.85,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.90,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.05,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.55,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.75,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-046,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.00,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.00,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.00,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.60,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.70,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.00,1.25,专家 X
+SGS-047,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.75,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.85,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.85,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.40,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.30,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.60,1.25,专家 X
+SGS-060,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.75,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.95,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.95,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.75,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.65,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.65,1.25,专家 X
+SGS-061,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.95,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.15,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.30,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.15,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,1.15,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.15,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.15,1.25,专家 X
+SGS-072,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.00,1.25,专家 X
+SGS-081,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.00,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.15,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.05,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.05,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.90,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-082,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.00,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.90,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.90,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.70,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.70,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.90,1.25,专家 X
+SGS-092,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.25,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,1.25,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.25,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.25,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,1.25,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.00,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.25,1.25,专家 X
+SGS-099,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.00,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.00,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.00,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,1.00,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.00,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.15,1.25,专家 X
+SGS-100,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.95,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.50,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.95,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.75,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.95,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.95,1.25,专家 X
+SGS-FM-FR-001,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.95,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.95,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.50,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-002,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.95,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.95,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.95,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.30,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.95,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.95,1.25,专家 X
+SGS-FM-FR-003,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.95,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,1.05,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.20,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,1.20,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.85,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.20,1.25,专家 X
+SGS-FM-FR-004,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.95,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.95,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.45,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.95,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.95,1.25,专家 X
+SGS-FM-FR-005,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.95,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,1.00,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.95,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.15,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.20,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.20,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.15,1.25,专家 X
+SGS-FM-FR-006,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.80,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.45,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.70,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.70,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.70,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.70,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.15,1.25,专家 X
+SGS-FM-FR-007,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.70,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.10,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.00,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.00,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.30,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.00,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.00,1.25,专家 X
+SGS-FM-FR-008,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,0.80,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.65,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.45,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.60,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,0.65,1.25,专家 X
+SGS-FM-FR-009,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.80,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.05,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.30,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-010,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.15,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,0.90,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.05,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,0.90,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,1.05,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-011,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,reasoning_path,1.05,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,evidence_boundary,1.05,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,experimental_design,1.05,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,decision_logic,0.25,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-012,candidate_D,deepseek-v4-pro,DeepSeek V4 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.00,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.80,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.65,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.00,1.25,专家 X
+SGS-018,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.10,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.95,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.10,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.65,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.35,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.10,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.10,1.25,专家 X
+SGS-019,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.10,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.95,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.75,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.15,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.90,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.15,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.15,1.25,专家 X
+SGS-030,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.00,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.45,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.00,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.70,1.25,专家 X
+SGS-031,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.20,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.05,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.20,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.50,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.20,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.20,1.25,专家 X
+SGS-032,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.05,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.90,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.05,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.05,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.80,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.75,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.05,1.25,专家 X
+SGS-033,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.95,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.15,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.15,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.55,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.80,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.75,1.25,专家 X
+SGS-044,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,0.85,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.45,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.60,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.10,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.75,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.40,1.25,专家 X
+SGS-045,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.75,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.15,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.25,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.00,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.15,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.15,1.25,专家 X
+SGS-046,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.95,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.15,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.15,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.80,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.15,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.15,1.25,专家 X
+SGS-047,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.95,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.10,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.10,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.50,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.10,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.55,1.25,专家 X
+SGS-060,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.10,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.80,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.70,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.70,1.25,专家 X
+SGS-061,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.20,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.90,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.40,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.20,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.20,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.20,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.20,1.25,专家 X
+SGS-072,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.10,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.25,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.50,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.40,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.25,1.25,专家 X
+SGS-081,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,0.75,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.20,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.15,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.15,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.00,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.15,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.15,1.25,专家 X
+SGS-082,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.00,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.50,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.70,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.75,1.25,专家 X
+SGS-092,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.20,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.25,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.25,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.20,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.00,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.25,1.25,专家 X
+SGS-099,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.05,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.90,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.05,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.05,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.05,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.05,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.20,1.25,专家 X
+SGS-100,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.20,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.60,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.95,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.50,1.25,专家 X
+SGS-FM-FR-001,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.00,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.20,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.65,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.85,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.20,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.20,1.25,专家 X
+SGS-FM-FR-002,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.00,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.60,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.00,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.00,1.25,专家 X
+SGS-FM-FR-003,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.15,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.35,1.25,专家 X
+SGS-FM-FR-004,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.00,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.85,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.00,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.00,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.75,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.00,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.80,1.25,专家 X
+SGS-FM-FR-005,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.10,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.30,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.95,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.70,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.15,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.95,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.95,1.25,专家 X
+SGS-FM-FR-006,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,0.95,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.05,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.05,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.20,1.25,专家 X
+SGS-FM-FR-007,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.95,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.05,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.70,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.05,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-008,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,0.90,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.50,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.85,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.25,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.50,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.25,1.25,专家 X
+SGS-FM-FR-009,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.15,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,0.65,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,0.40,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.25,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.00,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,0.55,1.25,专家 X
+SGS-FM-FR-010,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.20,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,0.05,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.20,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.20,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,1.00,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,1.20,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.20,1.25,专家 X
+SGS-FM-FR-011,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,professional_accuracy,1.00,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,reasoning_path,1.20,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,evidence_boundary,1.20,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,experimental_design,0.80,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,decision_logic,0.40,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,safety_and_privacy,1.20,1.25,专家 X
+SGS-FM-FR-012,candidate_A,ep-20260703090429-qpmt7,Seed-2.1,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.20,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.00,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,0.95,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,0.70,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.70,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.55,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.15,1.25,专家 X
+SGS-018,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.05,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.90,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,0.85,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.05,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.30,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.75,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.05,1.25,专家 X
+SGS-019,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.15,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.95,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.00,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.15,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.90,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.15,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.15,1.25,专家 X
+SGS-030,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.05,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.90,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.05,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,0.85,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.30,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.75,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.05,1.25,专家 X
+SGS-031,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.15,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.10,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.35,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.25,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-032,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.95,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.05,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.80,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.85,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-033,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.10,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.10,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.65,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.90,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.85,1.25,专家 X
+SGS-044,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.00,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.10,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.40,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.10,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-045,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.15,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.70,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.10,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,0.50,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.75,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.10,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.10,1.25,专家 X
+SGS-046,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.10,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.15,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.95,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.15,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.15,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.90,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.50,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.15,1.25,专家 X
+SGS-047,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.10,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.85,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.00,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.00,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.80,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.00,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.50,1.25,专家 X
+SGS-060,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.10,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.95,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.10,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.10,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.90,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.75,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.75,1.25,专家 X
+SGS-061,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.10,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.90,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,0.45,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.20,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.20,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.20,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.20,1.25,专家 X
+SGS-072,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.95,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.10,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.10,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.45,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.20,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.10,1.25,专家 X
+SGS-081,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.10,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.60,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.25,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.25,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-082,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.05,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.90,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.05,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.05,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.60,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.75,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.80,1.25,专家 X
+SGS-092,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.25,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.25,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.25,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.35,1.25,专家 X
+SGS-099,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.20,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.00,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.15,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.15,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.15,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.15,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.30,1.25,专家 X
+SGS-100,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,0.55,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-001,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.15,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.00,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.45,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.25,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-FM-FR-002,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.05,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.10,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.60,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.20,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.20,1.25,专家 X
+SGS-FM-FR-003,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.20,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.20,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.20,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.65,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.05,1.25,专家 X
+SGS-FM-FR-004,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.20,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.80,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.20,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,0.90,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.55,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.20,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.20,1.25,专家 X
+SGS-FM-FR-005,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.15,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.95,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.15,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.15,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.20,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.35,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.15,1.25,专家 X
+SGS-FM-FR-006,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.15,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.25,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.05,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.55,1.25,专家 X
+SGS-FM-FR-007,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,0.95,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.10,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.35,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.95,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-FM-FR-008,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.05,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,0.85,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.05,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.50,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.75,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,0.85,1.25,专家 X
+SGS-FM-FR-009,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.25,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.20,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,experimental_design,0.65,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.25,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-FM-FR-010,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,0.60,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,decision_logic,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-FM-FR-011,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,final_answer_alignment,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,professional_accuracy,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,reasoning_path,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,evidence_boundary,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,experimental_design,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,decision_logic,0.35,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,safety_and_privacy,1.25,1.25,专家 X
+SGS-FM-FR-012,candidate_C,gpt-5.5,GPT-5.5,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.80,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.80,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.50,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.65,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.15,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.80,1.25,专家 X
+SGS-018,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.70,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.85,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.65,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.85,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.10,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.85,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.85,1.25,专家 X
+SGS-019,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.85,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,1.00,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.60,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.90,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.75,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.90,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.90,1.25,专家 X
+SGS-030,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.85,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.85,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.65,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.10,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.85,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.35,1.25,专家 X
+SGS-031,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.85,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.80,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.80,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.35,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.80,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.80,1.25,专家 X
+SGS-032,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.80,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.60,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.90,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.65,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.30,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.90,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.90,1.25,专家 X
+SGS-033,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.80,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.85,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.75,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.50,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.65,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.65,1.25,专家 X
+SGS-044,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.95,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.85,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.45,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.10,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.45,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.40,1.25,专家 X
+SGS-045,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,1.00,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.70,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.60,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.70,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.35,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.45,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.70,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.70,1.25,专家 X
+SGS-046,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.70,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.75,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.80,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.90,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.50,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.10,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.90,1.25,专家 X
+SGS-047,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.65,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.75,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.75,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.35,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.75,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.35,1.25,专家 X
+SGS-060,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.75,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.85,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.65,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.65,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.75,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.60,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.55,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.50,1.25,专家 X
+SGS-061,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.75,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,1.05,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.75,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.30,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,1.05,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,1.05,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,1.05,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,1.05,1.25,专家 X
+SGS-072,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.70,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.40,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.65,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.20,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.15,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.30,1.25,专家 X
+SGS-081,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.80,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.75,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.15,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.75,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.20,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.60,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.20,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.25,1.25,专家 X
+SGS-082,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.75,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.60,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.50,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.60,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.60,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.35,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.60,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.60,1.25,专家 X
+SGS-092,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.60,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,1.25,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,1.05,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,1.25,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,1.25,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,1.05,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.85,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.20,1.25,专家 X
+SGS-099,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,1.25,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.80,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.65,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.80,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.80,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.80,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.10,1.25,专家 X
+SGS-100,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.80,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.85,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.15,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.80,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.70,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.75,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.40,1.25,专家 X
+SGS-FM-FR-001,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.85,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,1.00,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.35,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.55,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.20,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.60,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.85,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.45,1.25,专家 X
+SGS-FM-FR-002,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.75,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.90,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.90,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.25,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.60,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.90,1.25,专家 X
+SGS-FM-FR-003,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,1.15,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.85,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,1.00,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,1.00,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,1.00,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.70,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.40,1.25,专家 X
+SGS-FM-FR-004,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.70,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.60,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.70,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.70,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.35,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.55,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.70,1.25,专家 X
+SGS-FM-FR-005,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.70,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.55,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.55,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.30,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.55,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.10,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.50,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.25,1.25,专家 X
+SGS-FM-FR-006,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.70,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.05,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.15,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.40,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.40,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.40,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.40,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.00,1.25,专家 X
+SGS-FM-FR-007,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.40,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.85,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.85,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.85,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.25,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.60,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.85,1.25,专家 X
+SGS-FM-FR-008,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.85,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.70,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.40,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.65,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.20,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.40,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.15,1.25,专家 X
+SGS-FM-FR-009,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.90,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.90,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.70,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.50,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.55,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.20,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.80,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.40,1.25,专家 X
+SGS-FM-FR-010,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,1.05,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.75,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.10,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.65,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.20,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.55,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.15,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.25,1.25,专家 X
+SGS-FM-FR-011,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,0.65,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,final_answer_alignment,0.65,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,professional_accuracy,0.90,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,reasoning_path,0.50,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,evidence_boundary,0.85,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,experimental_design,0.75,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,decision_logic,0.20,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,safety_and_privacy,0.45,1.25,专家 X
+SGS-FM-FR-012,candidate_B,mimo-v2.5-pro,MiMo v2.5 Pro,conciseness_and_traceability,1.05,1.25,专家 X

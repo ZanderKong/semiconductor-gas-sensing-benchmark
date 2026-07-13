@@ -1,0 +1,5 @@
+﻿model_id,model_display,items,v0_5_adjudicated_average,v0_6_reviewed_average_before_hard_fail,v0_6_official_average,confirmed_hard_fails,downgraded_hard_fails,no_answers
+gpt-5.5,GPT-5.5,30,8.150,8.213,8.213,0,0,0
+ep-20260703090429-qpmt7,Seed-2.1,30,7.522,7.545,7.545,0,4,0
+deepseek-v4-pro,DeepSeek V4 Pro,30,6.762,6.732,6.732,0,0,1
+mimo-v2.5-pro,MiMo v2.5 Pro,30,5.448,5.257,4.952,3,8,0

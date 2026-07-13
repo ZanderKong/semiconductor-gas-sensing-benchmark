@@ -1,0 +1,5 @@
+model_id,model_display,groups,group_equal_weight_accuracy,ordinary_item_accuracy
+gpt-5.5,GPT-5.5,118,0.957627,0.959016
+deepseek-v4-pro,DeepSeek V4 Pro,118,0.946328,0.942623
+mimo-v2.5-pro,MiMo v2.5 Pro,118,0.974576,0.97541
+ep-20260703090429-qpmt7,Seed-2.1,118,0.971751,0.967213

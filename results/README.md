@@ -19,7 +19,7 @@
 
 Raw outputs exist locally under `raw_model_outputs/` and `raw_judge_outputs/` directories. They are ignored by git and should not be force-added.
 
-GPT-5.6-sol is judge-only and must not appear in participating-model output tables or leaderboards. The 58-row project-owner-delegated assistant review is complete; it is not an independent external blind review. The prior GPT-5.5 judge evidence is retained under `archive/judge_history/gpt-5.5_20260703/`.
+GPT-5.6-sol is Judge-only and must not appear in participating-model output tables or leaderboards. Expert review records are published separately from Judge outputs; this iteration did not use an independent blind-review design. The prior GPT-5.5 Judge evidence is retained under `archive/judge_history/gpt-5.5_20260703/`.
 
 ## Main Leaderboard Scope
 

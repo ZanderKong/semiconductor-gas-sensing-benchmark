@@ -1,0 +1,21 @@
+{
+  "archive": "artifacts/SGS152_raw_evidence_20260713.zip",
+  "archive_sha256": "9cbaba75d0ade9b2c8673cf54c06e991e616b3e1180d416ae374101debccc103",
+  "zip_integrity": "pass",
+  "zip_member_count": 46,
+  "zip_file_count": 36,
+  "stage_row_counts": {
+    "sgs152_mcq": 488,
+    "sgs152_free_response": 120,
+    "robustness": 160,
+    "hard50": 200
+  },
+  "judge_review_count": 120,
+  "judge_primary_keys_unique": true,
+  "deepseek_sgs_081_raw_answer": "",
+  "deepseek_sgs_081_no_rescue_total": 0.0,
+  "raw_to_derived_diff_count": 0,
+  "git_status_before": [],
+  "git_status_after": [],
+  "artifact_generation_working_tree_dirty_explanation": "The archived judge manifest records an artifact rebuild from frozen raw outputs while the working tree was dirty. This clean deterministic replay verifies that the state did not change the derived rows; the flag describes rebuild-time repository state, not raw-run contamination."
+}

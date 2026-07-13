@@ -1,0 +1,4 @@
+analysis,n_models,pearson,spearman,interpretation_limit
+main_mcq_vs_official_free_response,4,-0.398297,-0.4,descriptive only; n=4 models
+main_mcq_vs_robustness,4,0.805366,0.632456,descriptive only; n=4 models
+main_mcq_vs_hard50,4,0.169031,0.0,descriptive only; n=4 models

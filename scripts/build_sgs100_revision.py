@@ -1023,7 +1023,7 @@ def write_docs() -> None:
                 "## Human And Judge Roles",
                 "",
                 "A model judge can apply the rubric consistently and identify missing evidence or hard fails.",
-                "Human review remains responsible for final safety interpretation, domain plausibility, and disagreement resolution.",
+                "Expert review remains responsible for final safety interpretation, domain plausibility, and disagreement resolution.",
                 "",
             ]
         ),

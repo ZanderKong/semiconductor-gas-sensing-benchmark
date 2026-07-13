@@ -2,7 +2,7 @@
 
 Scope: SGS152 MCQ plus live free-response outputs judged by gpt-5.6-sol.
 
-Review note: Project-owner-delegated assistant review completed; this is not an independent external blind review.
+Review note: expert review records are available; this iteration did not use an independent blind-review design.
 
 | Model | SGS152 MCQ | Free-response Avg | FR Hard Fails |
 |---|---:|---:|---:|

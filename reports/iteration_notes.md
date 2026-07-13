@@ -18,7 +18,7 @@ GPT-5.6-sol now replaces GPT-5.5 as the current free-response judge. GPT-5.6-sol
 ## Current Boundaries
 
 - MCQ remains the only main leaderboard.
-- Free-response includes a completed project-owner-delegated assistant review of all 58 packet rows; external independent blind review was not performed.
+- Free-response includes completed expert review records; this iteration did not use an independent blind-review design.
 - DeepSeek `SGS-081` remains missing and deterministically scores 0.
 - Judge hard fails retain their original total and are counted separately.
 - Robustness and Hard50 are diagnostics, not leaderboard extensions.
